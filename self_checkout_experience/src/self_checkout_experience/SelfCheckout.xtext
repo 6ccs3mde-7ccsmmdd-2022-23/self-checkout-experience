@@ -2,7 +2,7 @@ grammar self_checkout_experience.SelfCheckout with org.eclipse.xtext.common.Term
 
 generate selfCheckout "http://www.SelfCheckout.self_checkout_experience"
 
-Models:
+Modelss:
 	greetings+=Greeting*;
 	
 Greeting:
