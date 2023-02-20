@@ -8,5 +8,22 @@ Bundle-SymbolicName: self_checkout_experience; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: self_checkout_experience.scoping,
+ self_checkout_experience.generator,
+ self_checkout_experience.selfCheckout.util,
+ self_checkout_experience.selfCheckout.impl,
+ self_checkout_experience.serializer,
+ self_checkout_experience.parser.antlr.internal,
+ self_checkout_experience.validation,
+ self_checkout_experience.services,
+ self_checkout_experience,
+ self_checkout_experience.selfCheckout,
+ self_checkout_experience.parser.antlr
+Import-Package: org.apache.log4j

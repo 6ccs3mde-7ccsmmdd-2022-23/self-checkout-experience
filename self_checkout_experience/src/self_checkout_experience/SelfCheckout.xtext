@@ -1,14 +1,119 @@
 grammar self_checkout_experience.SelfCheckout with org.eclipse.xtext.common.Terminals
 
 generate selfCheckout "http://www.SelfCheckout.self_checkout_experience"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Modelss:
-	greetings+=Greeting*;
+
+Self_checkout:
+	(pick+=Pick | walkstatements += WalkStatement)*
+	checkout = Checkout?
+;	
 	
-Greeting:
-	'Hello' name=ID '!';
+Pick:
+	"pick" "up" name=ID
+	holdingItem = (AddToBasket | Drop)
+;
+
+AddToBasket:
+	"add" "to" "basket" item=[Pick] 
+;
+
+Drop:
+	"drop" item=[Pick]
+;
+
+	
+WalkStatement:
+	MoveStatement |
+	TurnStatement |
+	LoopStatement |
+	VariableDeclaration
+;
+
+
+VariableDeclaration:
+	"var" name=ID "=" value=INT
+;
+
+LoopStatement:
+	count = Addition "times" "do"
+	  statements += WalkStatement+
+	"end"
+;
+
+MoveStatement:
+	command = MoveCommand "(" steps = Addition ")"
+;
+
+enum MoveCommand:
+	forward | backward
+;
+
+TurnStatement:
+	"turn" command = TurnCommand "by" degrees = Addition "degrees"
+;
+
+enum TurnCommand:
+	left | right
+;
+
+Addition returns Expression:
+	Multiplication ({Addition.left = current} operator+=("+"|"-") right+=Multiplication)*
+;
+
+Multiplication returns Expression:
+	Primary ({Multiplication.left = current} operator+=("*"|"/") right+=Primary)*
+;
+
+Primary returns Expression:
+	IntLiteral |
+	IntVarExpression |
+	RealLiteral |
+	"(" Addition ")"
+;
+
+IntLiteral:
+	val = INT
+;
+
+RealLiteral:
+	val = REAL
+;
+
+IntVarExpression:
+	var = [VariableDeclaration]
+;
+
+REAL returns ecore::EFloat hidden():
+	INT? "." INT
+; 
+
+Checkout:
+	"go" "to" "till"
+	scan += Scan+
+	pay = Pay
+;
+
+Scan:
+	"scan" "at" "till" name=ID
+	addToBag += AddToBag*
+;
+
+AddToBag:
+	"add" "to" "bag" bagItem=[Scan]
+;
+
+enum Pay:
+	pay
+;
+
+
+
+
+
+
 
 	
 	
-	
-	
+//	
+//	
