@@ -17,13 +17,13 @@ Require-Bundle: org.eclipse.xtext,
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: self_checkout_experience.scoping,
  self_checkout_experience.generator,
- self_checkout_experience.selfCheckout.util,
- self_checkout_experience.selfCheckout.impl,
+ self_checkout_experience.selfCheckoutExperience.impl,
+ self_checkout_experience.selfCheckoutExperience,
  self_checkout_experience.serializer,
  self_checkout_experience.parser.antlr.internal,
  self_checkout_experience.validation,
  self_checkout_experience.services,
  self_checkout_experience,
- self_checkout_experience.selfCheckout,
- self_checkout_experience.parser.antlr
+ self_checkout_experience.parser.antlr,
+ self_checkout_experience.selfCheckoutExperience.util
 Import-Package: org.apache.log4j

@@ -13,8 +13,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
 import org.osgi.framework.BundleContext;
-import self_checkout_experience.SelfCheckoutRuntimeModule;
-import self_checkout_experience.ui.SelfCheckoutUiModule;
+import self_checkout_experience.SelfCheckoutExperienceRuntimeModule;
+import self_checkout_experience.ui.SelfCheckoutExperienceUiModule;
 
 /**
  * This class was generated. Customizations should only happen in a newly
@@ -23,7 +23,7 @@ import self_checkout_experience.ui.SelfCheckoutUiModule;
 public class Self_checkout_experienceActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "self_checkout_experience.ui";
-	public static final String SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUT = "self_checkout_experience.SelfCheckout";
+	public static final String SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUTEXPERIENCE = "self_checkout_experience.SelfCheckoutExperience";
 	
 	private static final Logger logger = Logger.getLogger(Self_checkout_experienceActivator.class);
 	
@@ -73,15 +73,15 @@ public class Self_checkout_experienceActivator extends AbstractUIPlugin {
 	}
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
-		if (SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUT.equals(grammar)) {
-			return new SelfCheckoutRuntimeModule();
+		if (SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUTEXPERIENCE.equals(grammar)) {
+			return new SelfCheckoutExperienceRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
-		if (SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUT.equals(grammar)) {
-			return new SelfCheckoutUiModule(this);
+		if (SELF_CHECKOUT_EXPERIENCE_SELFCHECKOUTEXPERIENCE.equals(grammar)) {
+			return new SelfCheckoutExperienceUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}

@@ -4,48 +4,48 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="selfcheckoutexp"
-			id="self_checkout_experience.SelfCheckout"
-			name="SelfCheckout Editor">
+			id="self_checkout_experience.SelfCheckoutExperience"
+			name="SelfCheckoutExperience Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="self_checkout_experience.SelfCheckout.validate">
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="self_checkout_experience.SelfCheckoutExperience.validate">
 			<activeWhen>
 				<reference
-					definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened" />
+				<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="self_checkout_experience.SelfCheckout.XtextEditor.opened" />
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="self_checkout_experience.SelfCheckout.Editor.opened">
+		<definition id="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="self_checkout_experience.SelfCheckout"
+						value="self_checkout_experience.SelfCheckoutExperience"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="self_checkout_experience.SelfCheckout.XtextEditor.opened">
+		<definition id="self_checkout_experience.SelfCheckoutExperience.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="self_checkout_experience.SelfCheckout"
+						value="self_checkout_experience.SelfCheckoutExperience"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,33 +78,33 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="self_checkout_experience.SelfCheckout"
-			name="SelfCheckout">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience"
+			name="SelfCheckoutExperience">
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="self_checkout_experience.SelfCheckout.coloring"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.coloring"
 			name="Syntax Coloring">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="self_checkout_experience.SelfCheckout.templates"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.templates"
 			name="Templates">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 	</extension>
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="self_checkout_experience.SelfCheckout"
-			name="SelfCheckout">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience"
+			name="SelfCheckoutExperience">
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -114,14 +114,14 @@
 	<extension
 		point="org.eclipse.ui.keywords">
 		<keyword
-			id="self_checkout_experience.ui.keyword_SelfCheckout"
-			label="SelfCheckout"/>
+			id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"
+			label="SelfCheckoutExperience"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
 		<command
 			description="Trigger expensive validation"
-			id="self_checkout_experience.SelfCheckout.validate"
+			id="self_checkout_experience.SelfCheckoutExperience.validate"
 			name="Validate">
 		</command>
 		<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			<command
-				commandId="self_checkout_experience.SelfCheckout.validate"
+				commandId="self_checkout_experience.SelfCheckoutExperience.validate"
 				style="push"
 				tooltip="Trigger expensive validation">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+						definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened" />
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened" />
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="self_checkout_experience.SelfCheckout.XtextEditor.opened" />
+						<reference definitionId="self_checkout_experience.SelfCheckoutExperience.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -208,8 +208,8 @@
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
 			file-extensions="selfcheckoutexp"
-			id="self_checkout_experience.SelfCheckout.contenttype"
-			name="SelfCheckout File"
+			id="self_checkout_experience.SelfCheckoutExperience.contenttype"
+			name="SelfCheckoutExperience File"
 			priority="normal">
 		</content-type>
 	</extension>
@@ -217,68 +217,68 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="selfcheckoutexp">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
 			uriExtension="selfcheckoutexp">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for self_checkout_experience.SelfCheckout -->
+	<!-- marker definitions for self_checkout_experience.SelfCheckoutExperience -->
 	<extension
-			id="selfcheckout.check.fast"
-			name="SelfCheckout Problem"
+			id="selfcheckoutexperience.check.fast"
+			name="SelfCheckoutExperience Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="selfcheckout.check.normal"
-			name="SelfCheckout Problem"
+			id="selfcheckoutexperience.check.normal"
+			name="SelfCheckoutExperience Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="selfcheckout.check.expensive"
-			name="SelfCheckout Problem"
+			id="selfcheckoutexperience.check.expensive"
+			name="SelfCheckoutExperience Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
-			id="self_checkout_experience.SelfCheckout.validator.preferencePage"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.validator.preferencePage"
 			name="Errors/Warnings">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="selfcheckoutexp"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="self_checkout_experience.SelfCheckout.compiler.preferencePage"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.compiler.preferencePage"
 			name="Compiler">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="self_checkout_experience.SelfCheckout.compiler.propertyPage"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.compiler.propertyPage"
 			name="Compiler">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -289,20 +289,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="self_checkout_experience.SelfCheckout.OpenGeneratedCode"
+				id="self_checkout_experience.SelfCheckoutExperience.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened" />
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened" />
+				<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -310,11 +310,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -334,33 +334,33 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="self_checkout_experience.SelfCheckout.Editor.opened"/>
+					<reference definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for self_checkout_experience.SelfCheckout -->
+	<!-- quickfix marker resolution generator for self_checkout_experience.SelfCheckoutExperience -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="self_checkout_experience.ui.selfcheckout.check.fast">
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="self_checkout_experience.ui.selfcheckoutexperience.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="self_checkout_experience.ui.selfcheckout.check.normal">
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="self_checkout_experience.ui.selfcheckoutexperience.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="self_checkout_experience.ui.selfcheckout.check.expensive">
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="self_checkout_experience.ui.selfcheckoutexperience.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
@@ -370,11 +370,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+					definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -386,7 +386,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="self_checkout_experience.SelfCheckout.Editor.opened">
+						definitionId="self_checkout_experience.SelfCheckoutExperience.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -394,34 +394,34 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="self_checkout_experience.SelfCheckout"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="self_checkout_experience.SelfCheckout.refactoring"
+			category="self_checkout_experience.SelfCheckoutExperience"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="self_checkout_experience.SelfCheckoutExperience.refactoring"
 			name="Refactoring">
-			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckout"/>
+			<keywordReference id="self_checkout_experience.ui.keyword_SelfCheckoutExperience"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="self_checkout_experience.SelfCheckout.compare.contentViewers"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+		<viewer id="self_checkout_experience.SelfCheckoutExperience.compare.contentViewers"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="selfcheckoutexp">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="self_checkout_experience.SelfCheckout.contenttype"
-			contentViewerId="self_checkout_experience.SelfCheckout.compare.contentViewers" />
+			contentTypeId="self_checkout_experience.SelfCheckoutExperience.contenttype"
+			contentViewerId="self_checkout_experience.SelfCheckoutExperience.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="self_checkout_experience.SelfCheckout.compare.contentMergeViewers"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="selfcheckoutexp" label="SelfCheckout Compare">
+		<viewer id="self_checkout_experience.SelfCheckoutExperience.compare.contentMergeViewers"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="selfcheckoutexp" label="SelfCheckoutExperience Compare">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="self_checkout_experience.SelfCheckout.contenttype"
-			contentMergeViewerId="self_checkout_experience.SelfCheckout.compare.contentMergeViewers" />
+			contentTypeId="self_checkout_experience.SelfCheckoutExperience.contenttype"
+			contentMergeViewerId="self_checkout_experience.SelfCheckoutExperience.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="self_checkout_experience.SelfCheckout.editors.documentProviders"
-			class="self_checkout_experience.ui.SelfCheckoutExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+		<provider id="self_checkout_experience.SelfCheckoutExperience.editors.documentProviders"
+			class="self_checkout_experience.ui.SelfCheckoutExperienceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
 			extensions="selfcheckoutexp">
 		</provider>
 	</extension>

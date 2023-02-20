@@ -1,9 +1,0 @@
-grammar self_checkout_experience.SelfCheckout with org.eclipse.xtext.common.Terminals
-
-generate selfCheckout "http://www.SelfCheckout.self_checkout_experience"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';

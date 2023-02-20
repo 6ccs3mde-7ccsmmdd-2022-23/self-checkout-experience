@@ -3,8 +3,8 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.SelfCheckout.self_checkout_experience"
-			class = "self_checkout_experience.selfCheckout.SelfCheckoutPackage"
-			genModel = "model/generated/SelfCheckout.genmodel" />
+			uri = "http://www.SelfCheckoutExperience.self_checkout_experience"
+			class = "self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage"
+			genModel = "model/generated/SelfCheckoutExperience.genmodel" />
 	</extension>
 </plugin>
