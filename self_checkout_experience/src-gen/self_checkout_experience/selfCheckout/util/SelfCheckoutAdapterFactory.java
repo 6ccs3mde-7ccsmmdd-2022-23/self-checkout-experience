@@ -81,16 +81,6 @@ public class SelfCheckoutAdapterFactory extends AdapterFactoryImpl
         return createSelf_checkoutAdapter();
       }
       @Override
-      public Adapter caseBrowsing(Browsing object)
-      {
-        return createBrowsingAdapter();
-      }
-      @Override
-      public Adapter caseChoose(Choose object)
-      {
-        return createChooseAdapter();
-      }
-      @Override
       public Adapter casePick(Pick object)
       {
         return createPickAdapter();
@@ -208,36 +198,6 @@ public class SelfCheckoutAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelf_checkoutAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckout.Browsing <em>Browsing</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see self_checkout_experience.selfCheckout.Browsing
-   * @generated
-   */
-  public Adapter createBrowsingAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckout.Choose <em>Choose</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see self_checkout_experience.selfCheckout.Choose
-   * @generated
-   */
-  public Adapter createChooseAdapter()
   {
     return null;
   }

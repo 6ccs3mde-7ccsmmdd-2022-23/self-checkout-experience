@@ -10,16 +10,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="checkout" eType="#//Checkout"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Browsing">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="choose" eType="#//Choose"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="walkstatements" upperBound="-1"
-        eType="#//WalkStatement" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Choose">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pick" upperBound="-1" eType="#//Pick"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pick">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="holdingItem" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"

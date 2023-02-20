@@ -140,42 +140,6 @@ ruleSelf_checkout returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleChoose
-entryRuleChoose returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getChooseRule()); }
-	iv_ruleChoose=ruleChoose
-	{ $current=$iv_ruleChoose.current; }
-	EOF;
-
-// Rule Choose
-ruleChoose returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getChooseAccess().getPickPickParserRuleCall_0());
-			}
-			lv_pick_0_0=rulePick
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getChooseRule());
-				}
-				add(
-					$current,
-					"pick",
-					lv_pick_0_0,
-					"self_checkout_experience.SelfCheckout.Pick");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)
-;
-
 // Entry rule entryRulePick
 entryRulePick returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getPickRule()); }

@@ -33,24 +33,6 @@ public interface SelfCheckoutFactory extends EFactory
   Self_checkout createSelf_checkout();
 
   /**
-   * Returns a new object of class '<em>Browsing</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Browsing</em>'.
-   * @generated
-   */
-  Browsing createBrowsing();
-
-  /**
-   * Returns a new object of class '<em>Choose</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Choose</em>'.
-   * @generated
-   */
-  Choose createChoose();
-
-  /**
    * Returns a new object of class '<em>Pick</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

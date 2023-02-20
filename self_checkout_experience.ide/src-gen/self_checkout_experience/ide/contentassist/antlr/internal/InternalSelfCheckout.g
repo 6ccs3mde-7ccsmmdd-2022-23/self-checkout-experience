@@ -74,31 +74,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleChoose
-entryRuleChoose
-:
-{ before(grammarAccess.getChooseRule()); }
-	 ruleChoose
-{ after(grammarAccess.getChooseRule()); } 
-	 EOF 
-;
-
-// Rule Choose
-ruleChoose 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getChooseAccess().getPickAssignment()); }
-		(rule__Choose__PickAssignment)
-		{ after(grammarAccess.getChooseAccess().getPickAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRulePick
 entryRulePick
 :
@@ -2470,21 +2445,6 @@ rule__Self_checkout__CheckoutAssignment_1
 		{ before(grammarAccess.getSelf_checkoutAccess().getCheckoutCheckoutParserRuleCall_1_0()); }
 		ruleCheckout
 		{ after(grammarAccess.getSelf_checkoutAccess().getCheckoutCheckoutParserRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Choose__PickAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getChooseAccess().getPickPickParserRuleCall_0()); }
-		rulePick
-		{ after(grammarAccess.getChooseAccess().getPickPickParserRuleCall_0()); }
 	)
 ;
 finally {

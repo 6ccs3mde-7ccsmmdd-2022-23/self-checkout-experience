@@ -14,9 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import self_checkout_experience.selfCheckout.AddToBag;
 import self_checkout_experience.selfCheckout.AddToBasket;
 import self_checkout_experience.selfCheckout.Addition;
-import self_checkout_experience.selfCheckout.Browsing;
 import self_checkout_experience.selfCheckout.Checkout;
-import self_checkout_experience.selfCheckout.Choose;
 import self_checkout_experience.selfCheckout.Drop;
 import self_checkout_experience.selfCheckout.Expression;
 import self_checkout_experience.selfCheckout.IntLiteral;
@@ -51,20 +49,6 @@ public class SelfCheckoutPackageImpl extends EPackageImpl implements SelfCheckou
    * @generated
    */
   private EClass self_checkoutEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass browsingEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass chooseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -311,61 +295,6 @@ public class SelfCheckoutPackageImpl extends EPackageImpl implements SelfCheckou
   public EReference getSelf_checkout_Checkout()
   {
     return (EReference)self_checkoutEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getBrowsing()
-  {
-    return browsingEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBrowsing_Choose()
-  {
-    return (EReference)browsingEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBrowsing_Walkstatements()
-  {
-    return (EReference)browsingEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getChoose()
-  {
-    return chooseEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getChoose_Pick()
-  {
-    return (EReference)chooseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -910,13 +839,6 @@ public class SelfCheckoutPackageImpl extends EPackageImpl implements SelfCheckou
     createEReference(self_checkoutEClass, SELF_CHECKOUT__WALKSTATEMENTS);
     createEReference(self_checkoutEClass, SELF_CHECKOUT__CHECKOUT);
 
-    browsingEClass = createEClass(BROWSING);
-    createEReference(browsingEClass, BROWSING__CHOOSE);
-    createEReference(browsingEClass, BROWSING__WALKSTATEMENTS);
-
-    chooseEClass = createEClass(CHOOSE);
-    createEReference(chooseEClass, CHOOSE__PICK);
-
     pickEClass = createEClass(PICK);
     createEAttribute(pickEClass, PICK__NAME);
     createEReference(pickEClass, PICK__HOLDING_ITEM);
@@ -1027,13 +949,6 @@ public class SelfCheckoutPackageImpl extends EPackageImpl implements SelfCheckou
     initEReference(getSelf_checkout_Pick(), this.getPick(), null, "pick", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelf_checkout_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelf_checkout_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(browsingEClass, Browsing.class, "Browsing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBrowsing_Choose(), this.getChoose(), null, "choose", null, 0, 1, Browsing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBrowsing_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, Browsing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(chooseEClass, Choose.class, "Choose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getChoose_Pick(), this.getPick(), null, "pick", null, 0, -1, Choose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pickEClass, Pick.class, "Pick", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPick_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pick.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

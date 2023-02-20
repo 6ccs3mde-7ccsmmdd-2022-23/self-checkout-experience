@@ -32,7 +32,6 @@ public class SelfCheckoutParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SelfCheckoutGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getSelf_checkoutAccess().getAlternatives_0(), "rule__Self_checkout__Alternatives_0");
-			builder.put(grammarAccess.getBrowsingAccess().getAlternatives(), "rule__Browsing__Alternatives");
 			builder.put(grammarAccess.getPickAccess().getHoldingItemAlternatives_3_0(), "rule__Pick__HoldingItemAlternatives_3_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
 			builder.put(grammarAccess.getAdditionAccess().getOperatorAlternatives_1_1_0(), "rule__Addition__OperatorAlternatives_1_1_0");
@@ -60,9 +59,6 @@ public class SelfCheckoutParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSelf_checkoutAccess().getPickAssignment_0_0(), "rule__Self_checkout__PickAssignment_0_0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getWalkstatementsAssignment_0_1(), "rule__Self_checkout__WalkstatementsAssignment_0_1");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getCheckoutAssignment_1(), "rule__Self_checkout__CheckoutAssignment_1");
-			builder.put(grammarAccess.getBrowsingAccess().getChooseAssignment_0(), "rule__Browsing__ChooseAssignment_0");
-			builder.put(grammarAccess.getBrowsingAccess().getWalkstatementsAssignment_1(), "rule__Browsing__WalkstatementsAssignment_1");
-			builder.put(grammarAccess.getChooseAccess().getPickAssignment(), "rule__Choose__PickAssignment");
 			builder.put(grammarAccess.getPickAccess().getNameAssignment_2(), "rule__Pick__NameAssignment_2");
 			builder.put(grammarAccess.getPickAccess().getHoldingItemAssignment_3(), "rule__Pick__HoldingItemAssignment_3");
 			builder.put(grammarAccess.getAddToBasketAccess().getItemAssignment_3(), "rule__AddToBasket__ItemAssignment_3");

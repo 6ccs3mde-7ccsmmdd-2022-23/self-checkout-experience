@@ -80,20 +80,6 @@ public class SelfCheckoutSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutPackage.BROWSING:
-      {
-        Browsing browsing = (Browsing)theEObject;
-        T result = caseBrowsing(browsing);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SelfCheckoutPackage.CHOOSE:
-      {
-        Choose choose = (Choose)theEObject;
-        T result = caseChoose(choose);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SelfCheckoutPackage.PICK:
       {
         Pick pick = (Pick)theEObject;
@@ -238,38 +224,6 @@ public class SelfCheckoutSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSelf_checkout(Self_checkout object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Browsing</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Browsing</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBrowsing(Browsing object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Choose</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Choose</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseChoose(Choose object)
   {
     return null;
   }

@@ -22,13 +22,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Self_checkout/walkstatements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Self_checkout/checkout"/>
     </genClasses>
-    <genClasses ecoreClass="SelfCheckout.ecore#//Browsing">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Browsing/choose"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Browsing/walkstatements"/>
-    </genClasses>
-    <genClasses ecoreClass="SelfCheckout.ecore#//Choose">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Choose/pick"/>
-    </genClasses>
     <genClasses ecoreClass="SelfCheckout.ecore#//Pick">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckout.ecore#//Pick/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckout.ecore#//Pick/holdingItem"/>

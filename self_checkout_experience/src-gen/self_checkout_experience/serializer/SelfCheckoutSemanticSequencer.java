@@ -17,9 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import self_checkout_experience.selfCheckout.AddToBag;
 import self_checkout_experience.selfCheckout.AddToBasket;
 import self_checkout_experience.selfCheckout.Addition;
-import self_checkout_experience.selfCheckout.Browsing;
 import self_checkout_experience.selfCheckout.Checkout;
-import self_checkout_experience.selfCheckout.Choose;
 import self_checkout_experience.selfCheckout.Drop;
 import self_checkout_experience.selfCheckout.IntLiteral;
 import self_checkout_experience.selfCheckout.IntVarExpression;
@@ -58,14 +56,8 @@ public class SelfCheckoutSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case SelfCheckoutPackage.ADDITION:
 				sequence_Addition(context, (Addition) semanticObject); 
 				return; 
-			case SelfCheckoutPackage.BROWSING:
-				sequence_Browsing(context, (Browsing) semanticObject); 
-				return; 
 			case SelfCheckoutPackage.CHECKOUT:
 				sequence_Checkout(context, (Checkout) semanticObject); 
-				return; 
-			case SelfCheckoutPackage.CHOOSE:
-				sequence_Choose(context, (Choose) semanticObject); 
 				return; 
 			case SelfCheckoutPackage.DROP:
 				sequence_Drop(context, (Drop) semanticObject); 
@@ -162,36 +154,12 @@ public class SelfCheckoutSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
-	 *     Browsing returns Browsing
-	 *
-	 * Constraint:
-	 *     (choose=Choose | walkstatements+=WalkStatement+)
-	 */
-	protected void sequence_Browsing(ISerializationContext context, Browsing semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Checkout returns Checkout
 	 *
 	 * Constraint:
 	 *     (scan+=Scan+ pay=Pay)
 	 */
 	protected void sequence_Checkout(ISerializationContext context, Checkout semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Choose returns Choose
-	 *
-	 * Constraint:
-	 *     pick+=Pick
-	 */
-	protected void sequence_Choose(ISerializationContext context, Choose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

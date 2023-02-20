@@ -38,25 +38,16 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final RuleCall cCheckoutCheckoutParserRuleCall_1_0 = (RuleCall)cCheckoutAssignment_1.eContents().get(0);
 		
 		//Self_checkout:
-		////    browsing+=Browsing+
-		////    |
-		////    checkout+= Checkout*
 		//    (pick+=Pick | walkstatements += WalkStatement)*
 		//    checkout = Checkout?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////    browsing+=Browsing+
-		////    |
-		////    checkout+= Checkout*
-		//    (pick+=Pick | walkstatements += WalkStatement)*
-		//    checkout = Checkout?
+		//(pick+=Pick | walkstatements += WalkStatement)*
+		//checkout = Checkout?
 		public Group getGroup() { return cGroup; }
 		
-		////    browsing+=Browsing+
-		////    |
-		////    checkout+= Checkout*
-		//    (pick+=Pick | walkstatements += WalkStatement)*
+		//(pick+=Pick | walkstatements += WalkStatement)*
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//pick+=Pick
@@ -77,55 +68,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		//Checkout
 		public RuleCall getCheckoutCheckoutParserRuleCall_1_0() { return cCheckoutCheckoutParserRuleCall_1_0; }
 	}
-	public class BrowsingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckout.Browsing");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cChooseAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cChooseChooseParserRuleCall_0_0 = (RuleCall)cChooseAssignment_0.eContents().get(0);
-		private final Assignment cWalkstatementsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cWalkstatementsWalkStatementParserRuleCall_1_0 = (RuleCall)cWalkstatementsAssignment_1.eContents().get(0);
-		
-		//Browsing:
-		//    choose=Choose | walkstatements += WalkStatement+
-		////    choose+=Choose+
-		////    |
-		////    walk+=Walk*
-		////    walkstatements += WalkStatement+
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//choose=Choose | walkstatements += WalkStatement+
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//choose=Choose
-		public Assignment getChooseAssignment_0() { return cChooseAssignment_0; }
-		
-		//Choose
-		public RuleCall getChooseChooseParserRuleCall_0_0() { return cChooseChooseParserRuleCall_0_0; }
-		
-		//walkstatements += WalkStatement+
-		public Assignment getWalkstatementsAssignment_1() { return cWalkstatementsAssignment_1; }
-		
-		//WalkStatement
-		public RuleCall getWalkstatementsWalkStatementParserRuleCall_1_0() { return cWalkstatementsWalkStatementParserRuleCall_1_0; }
-	}
-	public class ChooseElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckout.Choose");
-		private final Assignment cPickAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cPickPickParserRuleCall_0 = (RuleCall)cPickAssignment.eContents().get(0);
-		
-		////
-		//Choose:
-		//    pick+=Pick
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//pick+=Pick
-		public Assignment getPickAssignment() { return cPickAssignment; }
-		
-		//Pick
-		public RuleCall getPickPickParserRuleCall_0() { return cPickPickParserRuleCall_0; }
-	}
 	public class PickElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckout.Pick");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -138,11 +80,9 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final RuleCall cHoldingItemAddToBasketParserRuleCall_3_0_0 = (RuleCall)cHoldingItemAlternatives_3_0.eContents().get(0);
 		private final RuleCall cHoldingItemDropParserRuleCall_3_0_1 = (RuleCall)cHoldingItemAlternatives_3_0.eContents().get(1);
 		
-		////
 		//Pick:
 		//    "pick" "up" name=ID
 		//    holdingItem = (AddToBasket | Drop)
-		////    (addToBasket = AddToBasket) | (drop = Drop)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -246,10 +186,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final RuleCall cLoopStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cVariableDeclarationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		////Walk:
-		////    walkstatements += WalkStatement*
-		////
-		////;
 		//WalkStatement:
 		//    MoveStatement |
 		//    TurnStatement |
@@ -842,8 +778,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	private final Self_checkoutElements pSelf_checkout;
-	private final BrowsingElements pBrowsing;
-	private final ChooseElements pChoose;
 	private final PickElements pPick;
 	private final AddToBasketElements pAddToBasket;
 	private final DropElements pDrop;
@@ -876,8 +810,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSelf_checkout = new Self_checkoutElements();
-		this.pBrowsing = new BrowsingElements();
-		this.pChoose = new ChooseElements();
 		this.pPick = new PickElements();
 		this.pAddToBasket = new AddToBasketElements();
 		this.pDrop = new DropElements();
@@ -929,9 +861,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 
 	
 	//Self_checkout:
-	////    browsing+=Browsing+
-	////    |
-	////    checkout+= Checkout*
 	//    (pick+=Pick | walkstatements += WalkStatement)*
 	//    checkout = Checkout?
 	//;
@@ -943,38 +872,9 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		return getSelf_checkoutAccess().getRule();
 	}
 	
-	//Browsing:
-	//    choose=Choose | walkstatements += WalkStatement+
-	////    choose+=Choose+
-	////    |
-	////    walk+=Walk*
-	////    walkstatements += WalkStatement+
-	//;
-	public BrowsingElements getBrowsingAccess() {
-		return pBrowsing;
-	}
-	
-	public ParserRule getBrowsingRule() {
-		return getBrowsingAccess().getRule();
-	}
-	
-	////
-	//Choose:
-	//    pick+=Pick
-	//;
-	public ChooseElements getChooseAccess() {
-		return pChoose;
-	}
-	
-	public ParserRule getChooseRule() {
-		return getChooseAccess().getRule();
-	}
-	
-	////
 	//Pick:
 	//    "pick" "up" name=ID
 	//    holdingItem = (AddToBasket | Drop)
-	////    (addToBasket = AddToBasket) | (drop = Drop)
 	//;
 	public PickElements getPickAccess() {
 		return pPick;
@@ -1006,10 +906,6 @@ public class SelfCheckoutGrammarAccess extends AbstractElementFinder.AbstractGra
 		return getDropAccess().getRule();
 	}
 	
-	////Walk:
-	////    walkstatements += WalkStatement*
-	////
-	////;
 	//WalkStatement:
 	//    MoveStatement |
 	//    TurnStatement |

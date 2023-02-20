@@ -67,8 +67,6 @@ public class SelfCheckoutFactoryImpl extends EFactoryImpl implements SelfCheckou
     switch (eClass.getClassifierID())
     {
       case SelfCheckoutPackage.SELF_CHECKOUT: return createSelf_checkout();
-      case SelfCheckoutPackage.BROWSING: return createBrowsing();
-      case SelfCheckoutPackage.CHOOSE: return createChoose();
       case SelfCheckoutPackage.PICK: return createPick();
       case SelfCheckoutPackage.ADD_TO_BASKET: return createAddToBasket();
       case SelfCheckoutPackage.DROP: return createDrop();
@@ -143,30 +141,6 @@ public class SelfCheckoutFactoryImpl extends EFactoryImpl implements SelfCheckou
   {
     Self_checkoutImpl self_checkout = new Self_checkoutImpl();
     return self_checkout;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Browsing createBrowsing()
-  {
-    BrowsingImpl browsing = new BrowsingImpl();
-    return browsing;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Choose createChoose()
-  {
-    ChooseImpl choose = new ChooseImpl();
-    return choose;
   }
 
   /**
