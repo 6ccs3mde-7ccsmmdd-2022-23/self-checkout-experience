@@ -314,9 +314,20 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
+  public EReference getPickStatement_ItemCount()
+  {
+    return (EReference)pickStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getPickStatement_Name()
   {
-    return (EAttribute)pickStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)pickStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -327,7 +338,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
   @Override
   public EReference getPickStatement_HoldingItem()
   {
-    return (EReference)pickStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)pickStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -840,6 +851,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEReference(self_checkoutEClass, SELF_CHECKOUT__CHECKOUT);
 
     pickStatementEClass = createEClass(PICK_STATEMENT);
+    createEReference(pickStatementEClass, PICK_STATEMENT__ITEM_COUNT);
     createEAttribute(pickStatementEClass, PICK_STATEMENT__NAME);
     createEReference(pickStatementEClass, PICK_STATEMENT__HOLDING_ITEM);
 
@@ -951,6 +963,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEReference(getSelf_checkout_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pickStatementEClass, PickStatement.class, "PickStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPickStatement_ItemCount(), this.getExpression(), null, "itemCount", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPickStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPickStatement_HoldingItem(), ecorePackage.getEObject(), null, "holdingItem", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

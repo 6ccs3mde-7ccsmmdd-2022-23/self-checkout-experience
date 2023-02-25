@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemCount <em>Item Count</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getName <em>Name</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getHoldingItem <em>Holding Item</em>}</li>
  * </ul>
@@ -24,6 +25,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface PickStatement extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Item Count</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Item Count</em>' containment reference.
+   * @see #setItemCount(Expression)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getPickStatement_ItemCount()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getItemCount();
+
+  /**
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemCount <em>Item Count</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Item Count</em>' containment reference.
+   * @see #getItemCount()
+   * @generated
+   */
+  void setItemCount(Expression value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

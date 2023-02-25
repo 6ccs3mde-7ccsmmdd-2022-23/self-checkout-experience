@@ -12,7 +12,7 @@ Self_checkout:
 ;	
 	
 PickStatement:
-	"pick" "up" name=ID
+	"pick" "up" itemCount = Addition name=ID
 	holdingItem = (AddToBasket | Drop)
 ;
 

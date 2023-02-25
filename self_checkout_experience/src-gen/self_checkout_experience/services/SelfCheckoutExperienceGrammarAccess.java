@@ -73,20 +73,22 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPickKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cUpKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cHoldingItemAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Alternatives cHoldingItemAlternatives_3_0 = (Alternatives)cHoldingItemAssignment_3.eContents().get(0);
-		private final RuleCall cHoldingItemAddToBasketParserRuleCall_3_0_0 = (RuleCall)cHoldingItemAlternatives_3_0.eContents().get(0);
-		private final RuleCall cHoldingItemDropParserRuleCall_3_0_1 = (RuleCall)cHoldingItemAlternatives_3_0.eContents().get(1);
+		private final Assignment cItemCountAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cItemCountAdditionParserRuleCall_2_0 = (RuleCall)cItemCountAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Assignment cHoldingItemAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final Alternatives cHoldingItemAlternatives_4_0 = (Alternatives)cHoldingItemAssignment_4.eContents().get(0);
+		private final RuleCall cHoldingItemAddToBasketParserRuleCall_4_0_0 = (RuleCall)cHoldingItemAlternatives_4_0.eContents().get(0);
+		private final RuleCall cHoldingItemDropParserRuleCall_4_0_1 = (RuleCall)cHoldingItemAlternatives_4_0.eContents().get(1);
 		
 		//PickStatement:
-		//    "pick" "up" name=ID
+		//    "pick" "up" itemCount = Addition name=ID
 		//    holdingItem = (AddToBasket | Drop)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"pick" "up" name=ID
+		//"pick" "up" itemCount = Addition name=ID
 		//holdingItem = (AddToBasket | Drop)
 		public Group getGroup() { return cGroup; }
 		
@@ -96,23 +98,29 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//"up"
 		public Keyword getUpKeyword_1() { return cUpKeyword_1; }
 		
+		//itemCount = Addition
+		public Assignment getItemCountAssignment_2() { return cItemCountAssignment_2; }
+		
+		//Addition
+		public RuleCall getItemCountAdditionParserRuleCall_2_0() { return cItemCountAdditionParserRuleCall_2_0; }
+		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//holdingItem = (AddToBasket | Drop)
-		public Assignment getHoldingItemAssignment_3() { return cHoldingItemAssignment_3; }
+		public Assignment getHoldingItemAssignment_4() { return cHoldingItemAssignment_4; }
 		
 		//(AddToBasket | Drop)
-		public Alternatives getHoldingItemAlternatives_3_0() { return cHoldingItemAlternatives_3_0; }
+		public Alternatives getHoldingItemAlternatives_4_0() { return cHoldingItemAlternatives_4_0; }
 		
 		//AddToBasket
-		public RuleCall getHoldingItemAddToBasketParserRuleCall_3_0_0() { return cHoldingItemAddToBasketParserRuleCall_3_0_0; }
+		public RuleCall getHoldingItemAddToBasketParserRuleCall_4_0_0() { return cHoldingItemAddToBasketParserRuleCall_4_0_0; }
 		
 		//Drop
-		public RuleCall getHoldingItemDropParserRuleCall_3_0_1() { return cHoldingItemDropParserRuleCall_3_0_1; }
+		public RuleCall getHoldingItemDropParserRuleCall_4_0_1() { return cHoldingItemDropParserRuleCall_4_0_1; }
 	}
 	public class AddToBasketElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.AddToBasket");
@@ -873,7 +881,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//PickStatement:
-	//    "pick" "up" name=ID
+	//    "pick" "up" itemCount = Addition name=ID
 	//    holdingItem = (AddToBasket | Drop)
 	//;
 	public PickStatementElements getPickStatementAccess() {

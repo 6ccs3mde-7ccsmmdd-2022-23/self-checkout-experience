@@ -166,9 +166,28 @@ rulePickStatement returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_2_0());
+				}
+				lv_itemCount_2_0=ruleAddition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPickStatementRule());
+					}
+					set(
+						$current,
+						"itemCount",
+						lv_itemCount_2_0,
+						"self_checkout_experience.SelfCheckoutExperience.Addition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_name_3_0=RULE_ID
+				{
+					newLeafNode(lv_name_3_0, grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -177,7 +196,7 @@ rulePickStatement returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_3_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -186,9 +205,9 @@ rulePickStatement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_4_0_0());
 					}
-					lv_holdingItem_3_1=ruleAddToBasket
+					lv_holdingItem_4_1=ruleAddToBasket
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -196,15 +215,15 @@ rulePickStatement returns [EObject current=null]
 						set(
 							$current,
 							"holdingItem",
-							lv_holdingItem_3_1,
+							lv_holdingItem_4_1,
 							"self_checkout_experience.SelfCheckoutExperience.AddToBasket");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_3_0_1());
+						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_4_0_1());
 					}
-					lv_holdingItem_3_2=ruleDrop
+					lv_holdingItem_4_2=ruleDrop
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -212,7 +231,7 @@ rulePickStatement returns [EObject current=null]
 						set(
 							$current,
 							"holdingItem",
-							lv_holdingItem_3_2,
+							lv_holdingItem_4_2,
 							"self_checkout_experience.SelfCheckoutExperience.Drop");
 						afterParserOrEnumRuleCall();
 					}

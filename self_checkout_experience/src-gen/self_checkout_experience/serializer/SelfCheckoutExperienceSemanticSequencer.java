@@ -284,7 +284,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     PickStatement returns PickStatement
 	 *
 	 * Constraint:
-	 *     (name=ID (holdingItem=AddToBasket | holdingItem=Drop))
+	 *     (itemCount=Addition name=ID (holdingItem=AddToBasket | holdingItem=Drop))
 	 */
 	protected void sequence_PickStatement(ISerializationContext context, PickStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

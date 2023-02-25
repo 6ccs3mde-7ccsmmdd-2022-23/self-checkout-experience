@@ -601,21 +601,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PickStatement__HoldingItemAlternatives_3_0
+rule__PickStatement__HoldingItemAlternatives_4_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_3_0_0()); }
+		{ before(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_4_0_0()); }
 		ruleAddToBasket
-		{ after(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_3_0_0()); }
+		{ after(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_4_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_3_0_1()); }
+		{ before(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_4_0_1()); }
 		ruleDrop
-		{ after(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_3_0_1()); }
+		{ after(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_4_0_1()); }
 	)
 ;
 finally {
@@ -898,9 +898,9 @@ rule__PickStatement__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPickStatementAccess().getNameAssignment_2()); }
-	(rule__PickStatement__NameAssignment_2)
-	{ after(grammarAccess.getPickStatementAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getPickStatementAccess().getItemCountAssignment_2()); }
+	(rule__PickStatement__ItemCountAssignment_2)
+	{ after(grammarAccess.getPickStatementAccess().getItemCountAssignment_2()); }
 )
 ;
 finally {
@@ -913,6 +913,7 @@ rule__PickStatement__Group__3
 	}
 :
 	rule__PickStatement__Group__3__Impl
+	rule__PickStatement__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -924,9 +925,35 @@ rule__PickStatement__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_3()); }
-	(rule__PickStatement__HoldingItemAssignment_3)
-	{ after(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_3()); }
+	{ before(grammarAccess.getPickStatementAccess().getNameAssignment_3()); }
+	(rule__PickStatement__NameAssignment_3)
+	{ after(grammarAccess.getPickStatementAccess().getNameAssignment_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PickStatement__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PickStatement__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PickStatement__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_4()); }
+	(rule__PickStatement__HoldingItemAssignment_4)
+	{ after(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_4()); }
 )
 ;
 finally {
@@ -2451,30 +2478,45 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PickStatement__NameAssignment_2
+rule__PickStatement__ItemCountAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_2_0()); }
-		RULE_ID
-		{ after(grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_2_0()); }
+		ruleAddition
+		{ after(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PickStatement__HoldingItemAssignment_3
+rule__PickStatement__NameAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_3_0()); }
-		(rule__PickStatement__HoldingItemAlternatives_3_0)
-		{ after(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_3_0()); }
+		{ before(grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_3_0()); }
+		RULE_ID
+		{ after(grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PickStatement__HoldingItemAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0()); }
+		(rule__PickStatement__HoldingItemAlternatives_4_0)
+		{ after(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0()); }
 	)
 ;
 finally {

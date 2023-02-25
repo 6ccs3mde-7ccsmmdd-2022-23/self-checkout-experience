@@ -32,7 +32,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SelfCheckoutExperienceGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getSelf_checkoutAccess().getAlternatives_0(), "rule__Self_checkout__Alternatives_0");
-			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_3_0(), "rule__PickStatement__HoldingItemAlternatives_3_0");
+			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0(), "rule__PickStatement__HoldingItemAlternatives_4_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
 			builder.put(grammarAccess.getAdditionAccess().getOperatorAlternatives_1_1_0(), "rule__Addition__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getMultiplicationAccess().getOperatorAlternatives_1_1_0(), "rule__Multiplication__OperatorAlternatives_1_1_0");
@@ -59,8 +59,9 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSelf_checkoutAccess().getPickstatemensAssignment_0_0(), "rule__Self_checkout__PickstatemensAssignment_0_0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getWalkstatementsAssignment_0_1(), "rule__Self_checkout__WalkstatementsAssignment_0_1");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getCheckoutAssignment_1(), "rule__Self_checkout__CheckoutAssignment_1");
-			builder.put(grammarAccess.getPickStatementAccess().getNameAssignment_2(), "rule__PickStatement__NameAssignment_2");
-			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_3(), "rule__PickStatement__HoldingItemAssignment_3");
+			builder.put(grammarAccess.getPickStatementAccess().getItemCountAssignment_2(), "rule__PickStatement__ItemCountAssignment_2");
+			builder.put(grammarAccess.getPickStatementAccess().getNameAssignment_3(), "rule__PickStatement__NameAssignment_3");
+			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_4(), "rule__PickStatement__HoldingItemAssignment_4");
 			builder.put(grammarAccess.getAddToBasketAccess().getItemAssignment_3(), "rule__AddToBasket__ItemAssignment_3");
 			builder.put(grammarAccess.getDropAccess().getItemAssignment_1(), "rule__Drop__ItemAssignment_1");
 			builder.put(grammarAccess.getVariableDeclarationAccess().getNameAssignment_1(), "rule__VariableDeclaration__NameAssignment_1");
