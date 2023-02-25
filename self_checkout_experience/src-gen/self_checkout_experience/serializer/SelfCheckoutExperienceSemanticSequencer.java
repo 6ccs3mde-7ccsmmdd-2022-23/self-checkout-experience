@@ -21,11 +21,10 @@ import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
-import self_checkout_experience.selfCheckoutExperience.LoopStatement;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
-import self_checkout_experience.selfCheckoutExperience.RealLiteral;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
@@ -68,9 +67,6 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 			case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION:
 				sequence_IntVarExpression(context, (IntVarExpression) semanticObject); 
 				return; 
-			case SelfCheckoutExperiencePackage.LOOP_STATEMENT:
-				sequence_LoopStatement(context, (LoopStatement) semanticObject); 
-				return; 
 			case SelfCheckoutExperiencePackage.MOVE_STATEMENT:
 				sequence_MoveStatement(context, (MoveStatement) semanticObject); 
 				return; 
@@ -80,8 +76,8 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 			case SelfCheckoutExperiencePackage.PICK_STATEMENT:
 				sequence_PickStatement(context, (PickStatement) semanticObject); 
 				return; 
-			case SelfCheckoutExperiencePackage.REAL_LITERAL:
-				sequence_RealLiteral(context, (RealLiteral) semanticObject); 
+			case SelfCheckoutExperiencePackage.REPEAT:
+				sequence_Repeat(context, (Repeat) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.SCAN:
 				sequence_Scan(context, (Scan) semanticObject); 
@@ -123,15 +119,15 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     AddToBasket returns AddToBasket
 	 *
 	 * Constraint:
-	 *     item=[PickStatement|ID]
+	 *     itemInBasket=[PickStatement|ID]
 	 */
 	protected void sequence_AddToBasket(ISerializationContext context, AddToBasket semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddToBasketAccess().getItemPickStatementIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM, false));
+		feeder.accept(grammarAccess.getAddToBasketAccess().getItemInBasketPickStatementIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET, false));
 		feeder.finish();
 	}
 	
@@ -169,15 +165,15 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Drop returns Drop
 	 *
 	 * Constraint:
-	 *     item=[PickStatement|ID]
+	 *     itemDropped=[PickStatement|ID]
 	 */
 	protected void sequence_Drop(ISerializationContext context, Drop semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDropAccess().getItemPickStatementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM, false));
+		feeder.accept(grammarAccess.getDropAccess().getItemDroppedPickStatementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED, false));
 		feeder.finish();
 	}
 	
@@ -225,19 +221,6 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getIntVarExpressionAccess().getVarVariableDeclarationIDTerminalRuleCall_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.INT_VAR_EXPRESSION__VAR, false));
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     WalkStatement returns LoopStatement
-	 *     LoopStatement returns LoopStatement
-	 *
-	 * Constraint:
-	 *     (count=Addition statements+=WalkStatement+)
-	 */
-	protected void sequence_LoopStatement(ISerializationContext context, LoopStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -293,24 +276,14 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
-	 *     Addition returns RealLiteral
-	 *     Addition.Addition_1_0 returns RealLiteral
-	 *     Multiplication returns RealLiteral
-	 *     Multiplication.Multiplication_1_0 returns RealLiteral
-	 *     Primary returns RealLiteral
-	 *     RealLiteral returns RealLiteral
+	 *     WalkStatement returns Repeat
+	 *     Repeat returns Repeat
 	 *
 	 * Constraint:
-	 *     val=REAL
+	 *     (count=Addition (statements+=WalkStatement | statements+=PickStatement)+)
 	 */
-	protected void sequence_RealLiteral(ISerializationContext context, RealLiteral semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.REAL_LITERAL__VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.REAL_LITERAL__VAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRealLiteralAccess().getValREALParserRuleCall_0(), semanticObject.getVal());
-		feeder.finish();
+	protected void sequence_Repeat(ISerializationContext context, Repeat semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -331,7 +304,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Self_checkout returns Self_checkout
 	 *
 	 * Constraint:
-	 *     (((pickstatemens+=PickStatement | walkstatements+=WalkStatement)+ checkout=Checkout) | checkout=Checkout)?
+	 *     (((pickstatements+=PickStatement | walkstatements+=WalkStatement)+ checkout=Checkout) | checkout=Checkout)?
 	 */
 	protected void sequence_Self_checkout(ISerializationContext context, Self_checkout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -344,18 +317,15 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     TurnStatement returns TurnStatement
 	 *
 	 * Constraint:
-	 *     (command=TurnCommand degrees=Addition)
+	 *     command=TurnCommand
 	 */
 	protected void sequence_TurnStatement(ISerializationContext context, TurnStatement semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__COMMAND) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__COMMAND));
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__DEGREES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__DEGREES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTurnStatementAccess().getCommandTurnCommandEnumRuleCall_1_0(), semanticObject.getCommand());
-		feeder.accept(grammarAccess.getTurnStatementAccess().getDegreesAdditionParserRuleCall_3_0(), semanticObject.getDegrees());
 		feeder.finish();
 	}
 	

@@ -69,13 +69,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int SELF_CHECKOUT = 0;
 
   /**
-   * The feature id for the '<em><b>Pickstatemens</b></em>' containment reference list.
+   * The feature id for the '<em><b>Pickstatements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELF_CHECKOUT__PICKSTATEMENS = 0;
+  int SELF_CHECKOUT__PICKSTATEMENTS = 0;
 
   /**
    * The feature id for the '<em><b>Walkstatements</b></em>' containment reference list.
@@ -161,13 +161,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int ADD_TO_BASKET = 2;
 
   /**
-   * The feature id for the '<em><b>Item</b></em>' reference.
+   * The feature id for the '<em><b>Item In Basket</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_TO_BASKET__ITEM = 0;
+  int ADD_TO_BASKET__ITEM_IN_BASKET = 0;
 
   /**
    * The number of structural features of the '<em>Add To Basket</em>' class.
@@ -189,13 +189,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int DROP = 3;
 
   /**
-   * The feature id for the '<em><b>Item</b></em>' reference.
+   * The feature id for the '<em><b>Item Dropped</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DROP__ITEM = 0;
+  int DROP__ITEM_DROPPED = 0;
 
   /**
    * The number of structural features of the '<em>Drop</em>' class.
@@ -263,14 +263,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int VARIABLE_DECLARATION_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.LoopStatementImpl <em>Loop Statement</em>}' class.
+   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl <em>Repeat</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see self_checkout_experience.selfCheckoutExperience.impl.LoopStatementImpl
-   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getLoopStatement()
+   * @see self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl
+   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getRepeat()
    * @generated
    */
-  int LOOP_STATEMENT = 6;
+  int REPEAT = 6;
 
   /**
    * The feature id for the '<em><b>Count</b></em>' containment reference.
@@ -279,7 +279,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOOP_STATEMENT__COUNT = WALK_STATEMENT_FEATURE_COUNT + 0;
+  int REPEAT__COUNT = WALK_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -288,16 +288,16 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOOP_STATEMENT__STATEMENTS = WALK_STATEMENT_FEATURE_COUNT + 1;
+  int REPEAT__STATEMENTS = WALK_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Loop Statement</em>' class.
+   * The number of structural features of the '<em>Repeat</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOOP_STATEMENT_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 2;
+  int REPEAT_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.MoveStatementImpl <em>Move Statement</em>}' class.
@@ -356,22 +356,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int TURN_STATEMENT__COMMAND = WALK_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Degrees</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TURN_STATEMENT__DEGREES = WALK_STATEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Turn Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TURN_STATEMENT_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 2;
+  int TURN_STATEMENT_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -421,34 +412,6 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int INT_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.RealLiteralImpl <em>Real Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see self_checkout_experience.selfCheckoutExperience.impl.RealLiteralImpl
-   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getRealLiteral()
-   * @generated
-   */
-  int REAL_LITERAL = 11;
-
-  /**
-   * The feature id for the '<em><b>Val</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_LITERAL__VAL = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Real Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntVarExpressionImpl <em>Int Var Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -456,7 +419,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getIntVarExpression()
    * @generated
    */
-  int INT_VAR_EXPRESSION = 12;
+  int INT_VAR_EXPRESSION = 11;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' reference.
@@ -484,7 +447,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCheckout()
    * @generated
    */
-  int CHECKOUT = 13;
+  int CHECKOUT = 12;
 
   /**
    * The feature id for the '<em><b>Scan</b></em>' containment reference list.
@@ -521,7 +484,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getScan()
    * @generated
    */
-  int SCAN = 14;
+  int SCAN = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -558,7 +521,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddToBag()
    * @generated
    */
-  int ADD_TO_BAG = 15;
+  int ADD_TO_BAG = 14;
 
   /**
    * The feature id for the '<em><b>Bag Item</b></em>' reference.
@@ -586,7 +549,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 16;
+  int ADDITION = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -632,7 +595,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 17;
+  int MULTIPLICATION = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -678,7 +641,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getMoveCommand()
    * @generated
    */
-  int MOVE_COMMAND = 18;
+  int MOVE_COMMAND = 17;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.TurnCommand <em>Turn Command</em>}' enum.
@@ -688,7 +651,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getTurnCommand()
    * @generated
    */
-  int TURN_COMMAND = 19;
+  int TURN_COMMAND = 18;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.Pay <em>Pay</em>}' enum.
@@ -698,7 +661,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getPay()
    * @generated
    */
-  int PAY = 20;
+  int PAY = 19;
 
 
   /**
@@ -712,15 +675,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EClass getSelf_checkout();
 
   /**
-   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatemens <em>Pickstatemens</em>}'.
+   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatements <em>Pickstatements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Pickstatemens</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatemens()
+   * @return the meta object for the containment reference list '<em>Pickstatements</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatements()
    * @see #getSelf_checkout()
    * @generated
    */
-  EReference getSelf_checkout_Pickstatemens();
+  EReference getSelf_checkout_Pickstatements();
 
   /**
    * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getWalkstatements <em>Walkstatements</em>}'.
@@ -798,15 +761,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EClass getAddToBasket();
 
   /**
-   * Returns the meta object for the reference '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItem <em>Item</em>}'.
+   * Returns the meta object for the reference '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItemInBasket <em>Item In Basket</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Item</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBasket#getItem()
+   * @return the meta object for the reference '<em>Item In Basket</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.AddToBasket#getItemInBasket()
    * @see #getAddToBasket()
    * @generated
    */
-  EReference getAddToBasket_Item();
+  EReference getAddToBasket_ItemInBasket();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.Drop <em>Drop</em>}'.
@@ -819,15 +782,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EClass getDrop();
 
   /**
-   * Returns the meta object for the reference '{@link self_checkout_experience.selfCheckoutExperience.Drop#getItem <em>Item</em>}'.
+   * Returns the meta object for the reference '{@link self_checkout_experience.selfCheckoutExperience.Drop#getItemDropped <em>Item Dropped</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Item</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.Drop#getItem()
+   * @return the meta object for the reference '<em>Item Dropped</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.Drop#getItemDropped()
    * @see #getDrop()
    * @generated
    */
-  EReference getDrop_Item();
+  EReference getDrop_ItemDropped();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.WalkStatement <em>Walk Statement</em>}'.
@@ -872,36 +835,36 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EAttribute getVariableDeclaration_Value();
 
   /**
-   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.LoopStatement <em>Loop Statement</em>}'.
+   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.Repeat <em>Repeat</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Loop Statement</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.LoopStatement
+   * @return the meta object for class '<em>Repeat</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat
    * @generated
    */
-  EClass getLoopStatement();
+  EClass getRepeat();
 
   /**
-   * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.LoopStatement#getCount <em>Count</em>}'.
+   * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.Repeat#getCount <em>Count</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Count</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.LoopStatement#getCount()
-   * @see #getLoopStatement()
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat#getCount()
+   * @see #getRepeat()
    * @generated
    */
-  EReference getLoopStatement_Count();
+  EReference getRepeat_Count();
 
   /**
-   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.LoopStatement#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Repeat#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.LoopStatement#getStatements()
-   * @see #getLoopStatement()
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat#getStatements()
+   * @see #getRepeat()
    * @generated
    */
-  EReference getLoopStatement_Statements();
+  EReference getRepeat_Statements();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.MoveStatement <em>Move Statement</em>}'.
@@ -957,17 +920,6 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EAttribute getTurnStatement_Command();
 
   /**
-   * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.TurnStatement#getDegrees <em>Degrees</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Degrees</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.TurnStatement#getDegrees()
-   * @see #getTurnStatement()
-   * @generated
-   */
-  EReference getTurnStatement_Degrees();
-
-  /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -997,27 +949,6 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    */
   EAttribute getIntLiteral_Val();
-
-  /**
-   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.RealLiteral <em>Real Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Real Literal</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.RealLiteral
-   * @generated
-   */
-  EClass getRealLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link self_checkout_experience.selfCheckoutExperience.RealLiteral#getVal <em>Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Val</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.RealLiteral#getVal()
-   * @see #getRealLiteral()
-   * @generated
-   */
-  EAttribute getRealLiteral_Val();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.IntVarExpression <em>Int Var Expression</em>}'.
@@ -1275,12 +1206,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EClass SELF_CHECKOUT = eINSTANCE.getSelf_checkout();
 
     /**
-     * The meta object literal for the '<em><b>Pickstatemens</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Pickstatements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELF_CHECKOUT__PICKSTATEMENS = eINSTANCE.getSelf_checkout_Pickstatemens();
+    EReference SELF_CHECKOUT__PICKSTATEMENTS = eINSTANCE.getSelf_checkout_Pickstatements();
 
     /**
      * The meta object literal for the '<em><b>Walkstatements</b></em>' containment reference list feature.
@@ -1343,12 +1274,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EClass ADD_TO_BASKET = eINSTANCE.getAddToBasket();
 
     /**
-     * The meta object literal for the '<em><b>Item</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Item In Basket</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD_TO_BASKET__ITEM = eINSTANCE.getAddToBasket_Item();
+    EReference ADD_TO_BASKET__ITEM_IN_BASKET = eINSTANCE.getAddToBasket_ItemInBasket();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.DropImpl <em>Drop</em>}' class.
@@ -1361,12 +1292,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EClass DROP = eINSTANCE.getDrop();
 
     /**
-     * The meta object literal for the '<em><b>Item</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Item Dropped</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DROP__ITEM = eINSTANCE.getDrop_Item();
+    EReference DROP__ITEM_DROPPED = eINSTANCE.getDrop_ItemDropped();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.WalkStatementImpl <em>Walk Statement</em>}' class.
@@ -1405,14 +1336,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EAttribute VARIABLE_DECLARATION__VALUE = eINSTANCE.getVariableDeclaration_Value();
 
     /**
-     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.LoopStatementImpl <em>Loop Statement</em>}' class.
+     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl <em>Repeat</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see self_checkout_experience.selfCheckoutExperience.impl.LoopStatementImpl
-     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getLoopStatement()
+     * @see self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl
+     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getRepeat()
      * @generated
      */
-    EClass LOOP_STATEMENT = eINSTANCE.getLoopStatement();
+    EClass REPEAT = eINSTANCE.getRepeat();
 
     /**
      * The meta object literal for the '<em><b>Count</b></em>' containment reference feature.
@@ -1420,7 +1351,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOOP_STATEMENT__COUNT = eINSTANCE.getLoopStatement_Count();
+    EReference REPEAT__COUNT = eINSTANCE.getRepeat_Count();
 
     /**
      * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
@@ -1428,7 +1359,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOOP_STATEMENT__STATEMENTS = eINSTANCE.getLoopStatement_Statements();
+    EReference REPEAT__STATEMENTS = eINSTANCE.getRepeat_Statements();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.MoveStatementImpl <em>Move Statement</em>}' class.
@@ -1475,14 +1406,6 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EAttribute TURN_STATEMENT__COMMAND = eINSTANCE.getTurnStatement_Command();
 
     /**
-     * The meta object literal for the '<em><b>Degrees</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TURN_STATEMENT__DEGREES = eINSTANCE.getTurnStatement_Degrees();
-
-    /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1509,24 +1432,6 @@ public interface SelfCheckoutExperiencePackage extends EPackage
      * @generated
      */
     EAttribute INT_LITERAL__VAL = eINSTANCE.getIntLiteral_Val();
-
-    /**
-     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.RealLiteralImpl <em>Real Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see self_checkout_experience.selfCheckoutExperience.impl.RealLiteralImpl
-     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getRealLiteral()
-     * @generated
-     */
-    EClass REAL_LITERAL = eINSTANCE.getRealLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REAL_LITERAL__VAL = eINSTANCE.getRealLiteral_Val();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntVarExpressionImpl <em>Int Var Expression</em>}' class.

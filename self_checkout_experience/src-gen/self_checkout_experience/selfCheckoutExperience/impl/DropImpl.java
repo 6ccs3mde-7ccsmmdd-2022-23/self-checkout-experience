@@ -23,7 +23,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.DropImpl#getItem <em>Item</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.DropImpl#getItemDropped <em>Item Dropped</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +31,14 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
 public class DropImpl extends MinimalEObjectImpl.Container implements Drop
 {
   /**
-   * The cached value of the '{@link #getItem() <em>Item</em>}' reference.
+   * The cached value of the '{@link #getItemDropped() <em>Item Dropped</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getItem()
+   * @see #getItemDropped()
    * @generated
    * @ordered
    */
-  protected PickStatement item;
+  protected PickStatement itemDropped;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,19 +67,19 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * @generated
    */
   @Override
-  public PickStatement getItem()
+  public PickStatement getItemDropped()
   {
-    if (item != null && item.eIsProxy())
+    if (itemDropped != null && itemDropped.eIsProxy())
     {
-      InternalEObject oldItem = (InternalEObject)item;
-      item = (PickStatement)eResolveProxy(oldItem);
-      if (item != oldItem)
+      InternalEObject oldItemDropped = (InternalEObject)itemDropped;
+      itemDropped = (PickStatement)eResolveProxy(oldItemDropped);
+      if (itemDropped != oldItemDropped)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SelfCheckoutExperiencePackage.DROP__ITEM, oldItem, item));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED, oldItemDropped, itemDropped));
       }
     }
-    return item;
+    return itemDropped;
   }
 
   /**
@@ -87,9 +87,9 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * <!-- end-user-doc -->
    * @generated
    */
-  public PickStatement basicGetItem()
+  public PickStatement basicGetItemDropped()
   {
-    return item;
+    return itemDropped;
   }
 
   /**
@@ -98,12 +98,12 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * @generated
    */
   @Override
-  public void setItem(PickStatement newItem)
+  public void setItemDropped(PickStatement newItemDropped)
   {
-    PickStatement oldItem = item;
-    item = newItem;
+    PickStatement oldItemDropped = itemDropped;
+    itemDropped = newItemDropped;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.DROP__ITEM, oldItem, item));
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED, oldItemDropped, itemDropped));
   }
 
   /**
@@ -116,9 +116,9 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.DROP__ITEM:
-        if (resolve) return getItem();
-        return basicGetItem();
+      case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
+        if (resolve) return getItemDropped();
+        return basicGetItemDropped();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -133,8 +133,8 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.DROP__ITEM:
-        setItem((PickStatement)newValue);
+      case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
+        setItemDropped((PickStatement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -150,8 +150,8 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.DROP__ITEM:
-        setItem((PickStatement)null);
+      case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
+        setItemDropped((PickStatement)null);
         return;
     }
     super.eUnset(featureID);
@@ -167,8 +167,8 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.DROP__ITEM:
-        return item != null;
+      case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
+        return itemDropped != null;
     }
     return super.eIsSet(featureID);
   }

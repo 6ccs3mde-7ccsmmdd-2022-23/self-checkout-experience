@@ -19,13 +19,12 @@ import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.Expression;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
-import self_checkout_experience.selfCheckoutExperience.LoopStatement;
 import self_checkout_experience.selfCheckoutExperience.MoveCommand;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
 import self_checkout_experience.selfCheckoutExperience.Pay;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
-import self_checkout_experience.selfCheckoutExperience.RealLiteral;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperienceFactory;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
@@ -90,7 +89,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass loopStatementEClass = null;
+  private EClass repeatEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -119,13 +118,6 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EClass intLiteralEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass realLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -270,7 +262,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_Pickstatemens()
+  public EReference getSelf_checkout_Pickstatements()
   {
     return (EReference)self_checkoutEClass.getEStructuralFeatures().get(0);
   }
@@ -358,7 +350,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getAddToBasket_Item()
+  public EReference getAddToBasket_ItemInBasket()
   {
     return (EReference)addToBasketEClass.getEStructuralFeatures().get(0);
   }
@@ -380,7 +372,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getDrop_Item()
+  public EReference getDrop_ItemDropped()
   {
     return (EReference)dropEClass.getEStructuralFeatures().get(0);
   }
@@ -435,9 +427,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EClass getLoopStatement()
+  public EClass getRepeat()
   {
-    return loopStatementEClass;
+    return repeatEClass;
   }
 
   /**
@@ -446,9 +438,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getLoopStatement_Count()
+  public EReference getRepeat_Count()
   {
-    return (EReference)loopStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)repeatEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -457,9 +449,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getLoopStatement_Statements()
+  public EReference getRepeat_Statements()
   {
-    return (EReference)loopStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)repeatEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -523,17 +515,6 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getTurnStatement_Degrees()
-  {
-    return (EReference)turnStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getExpression()
   {
     return expressionEClass;
@@ -559,28 +540,6 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
   public EAttribute getIntLiteral_Val()
   {
     return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getRealLiteral()
-  {
-    return realLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getRealLiteral_Val()
-  {
-    return (EAttribute)realLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -846,7 +805,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Create classes and their features
     self_checkoutEClass = createEClass(SELF_CHECKOUT);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__PICKSTATEMENS);
+    createEReference(self_checkoutEClass, SELF_CHECKOUT__PICKSTATEMENTS);
     createEReference(self_checkoutEClass, SELF_CHECKOUT__WALKSTATEMENTS);
     createEReference(self_checkoutEClass, SELF_CHECKOUT__CHECKOUT);
 
@@ -856,10 +815,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEReference(pickStatementEClass, PICK_STATEMENT__HOLDING_ITEM);
 
     addToBasketEClass = createEClass(ADD_TO_BASKET);
-    createEReference(addToBasketEClass, ADD_TO_BASKET__ITEM);
+    createEReference(addToBasketEClass, ADD_TO_BASKET__ITEM_IN_BASKET);
 
     dropEClass = createEClass(DROP);
-    createEReference(dropEClass, DROP__ITEM);
+    createEReference(dropEClass, DROP__ITEM_DROPPED);
 
     walkStatementEClass = createEClass(WALK_STATEMENT);
 
@@ -867,9 +826,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VALUE);
 
-    loopStatementEClass = createEClass(LOOP_STATEMENT);
-    createEReference(loopStatementEClass, LOOP_STATEMENT__COUNT);
-    createEReference(loopStatementEClass, LOOP_STATEMENT__STATEMENTS);
+    repeatEClass = createEClass(REPEAT);
+    createEReference(repeatEClass, REPEAT__COUNT);
+    createEReference(repeatEClass, REPEAT__STATEMENTS);
 
     moveStatementEClass = createEClass(MOVE_STATEMENT);
     createEAttribute(moveStatementEClass, MOVE_STATEMENT__COMMAND);
@@ -877,15 +836,11 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     turnStatementEClass = createEClass(TURN_STATEMENT);
     createEAttribute(turnStatementEClass, TURN_STATEMENT__COMMAND);
-    createEReference(turnStatementEClass, TURN_STATEMENT__DEGREES);
 
     expressionEClass = createEClass(EXPRESSION);
 
     intLiteralEClass = createEClass(INT_LITERAL);
     createEAttribute(intLiteralEClass, INT_LITERAL__VAL);
-
-    realLiteralEClass = createEClass(REAL_LITERAL);
-    createEAttribute(realLiteralEClass, REAL_LITERAL__VAL);
 
     intVarExpressionEClass = createEClass(INT_VAR_EXPRESSION);
     createEReference(intVarExpressionEClass, INT_VAR_EXPRESSION__VAR);
@@ -947,18 +902,17 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Add supertypes to classes
     variableDeclarationEClass.getESuperTypes().add(this.getWalkStatement());
-    loopStatementEClass.getESuperTypes().add(this.getWalkStatement());
+    repeatEClass.getESuperTypes().add(this.getWalkStatement());
     moveStatementEClass.getESuperTypes().add(this.getWalkStatement());
     turnStatementEClass.getESuperTypes().add(this.getWalkStatement());
     intLiteralEClass.getESuperTypes().add(this.getExpression());
-    realLiteralEClass.getESuperTypes().add(this.getExpression());
     intVarExpressionEClass.getESuperTypes().add(this.getExpression());
     additionEClass.getESuperTypes().add(this.getExpression());
     multiplicationEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(self_checkoutEClass, Self_checkout.class, "Self_checkout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelf_checkout_Pickstatemens(), this.getPickStatement(), null, "pickstatemens", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelf_checkout_Pickstatements(), this.getPickStatement(), null, "pickstatements", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelf_checkout_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelf_checkout_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -968,10 +922,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEReference(getPickStatement_HoldingItem(), ecorePackage.getEObject(), null, "holdingItem", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addToBasketEClass, AddToBasket.class, "AddToBasket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAddToBasket_Item(), this.getPickStatement(), null, "item", null, 0, 1, AddToBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddToBasket_ItemInBasket(), this.getPickStatement(), null, "itemInBasket", null, 0, 1, AddToBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dropEClass, Drop.class, "Drop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDrop_Item(), this.getPickStatement(), null, "item", null, 0, 1, Drop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDrop_ItemDropped(), this.getPickStatement(), null, "itemDropped", null, 0, 1, Drop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(walkStatementEClass, WalkStatement.class, "WalkStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -979,9 +933,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariableDeclaration_Value(), ecorePackage.getEInt(), "value", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(loopStatementEClass, LoopStatement.class, "LoopStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLoopStatement_Count(), this.getExpression(), null, "count", null, 0, 1, LoopStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLoopStatement_Statements(), this.getWalkStatement(), null, "statements", null, 0, -1, LoopStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(repeatEClass, Repeat.class, "Repeat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRepeat_Count(), this.getExpression(), null, "count", null, 0, 1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRepeat_Statements(), ecorePackage.getEObject(), null, "statements", null, 0, -1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moveStatementEClass, MoveStatement.class, "MoveStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMoveStatement_Command(), this.getMoveCommand(), "command", null, 0, 1, MoveStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -989,15 +943,11 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEClass(turnStatementEClass, TurnStatement.class, "TurnStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTurnStatement_Command(), this.getTurnCommand(), "command", null, 0, 1, TurnStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTurnStatement_Degrees(), this.getExpression(), null, "degrees", null, 0, 1, TurnStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(intLiteralEClass, IntLiteral.class, "IntLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntLiteral_Val(), ecorePackage.getEInt(), "val", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(realLiteralEClass, RealLiteral.class, "RealLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRealLiteral_Val(), ecorePackage.getEFloat(), "val", null, 0, 1, RealLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intVarExpressionEClass, IntVarExpression.class, "IntVarExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIntVarExpression_Var(), this.getVariableDeclaration(), null, "var", null, 0, 1, IntVarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

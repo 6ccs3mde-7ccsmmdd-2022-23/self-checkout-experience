@@ -106,9 +106,9 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createVariableDeclarationAdapter();
       }
       @Override
-      public Adapter caseLoopStatement(LoopStatement object)
+      public Adapter caseRepeat(Repeat object)
       {
-        return createLoopStatementAdapter();
+        return createRepeatAdapter();
       }
       @Override
       public Adapter caseMoveStatement(MoveStatement object)
@@ -129,11 +129,6 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
       public Adapter caseIntLiteral(IntLiteral object)
       {
         return createIntLiteralAdapter();
-      }
-      @Override
-      public Adapter caseRealLiteral(RealLiteral object)
-      {
-        return createRealLiteralAdapter();
       }
       @Override
       public Adapter caseIntVarExpression(IntVarExpression object)
@@ -278,16 +273,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.LoopStatement <em>Loop Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Repeat <em>Repeat</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.LoopStatement
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat
    * @generated
    */
-  public Adapter createLoopStatementAdapter()
+  public Adapter createRepeatAdapter()
   {
     return null;
   }
@@ -348,21 +343,6 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.RealLiteral <em>Real Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.RealLiteral
-   * @generated
-   */
-  public Adapter createRealLiteralAdapter()
   {
     return null;
   }

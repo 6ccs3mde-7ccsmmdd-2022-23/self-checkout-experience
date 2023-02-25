@@ -72,12 +72,11 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
       case SelfCheckoutExperiencePackage.DROP: return createDrop();
       case SelfCheckoutExperiencePackage.WALK_STATEMENT: return createWalkStatement();
       case SelfCheckoutExperiencePackage.VARIABLE_DECLARATION: return createVariableDeclaration();
-      case SelfCheckoutExperiencePackage.LOOP_STATEMENT: return createLoopStatement();
+      case SelfCheckoutExperiencePackage.REPEAT: return createRepeat();
       case SelfCheckoutExperiencePackage.MOVE_STATEMENT: return createMoveStatement();
       case SelfCheckoutExperiencePackage.TURN_STATEMENT: return createTurnStatement();
       case SelfCheckoutExperiencePackage.EXPRESSION: return createExpression();
       case SelfCheckoutExperiencePackage.INT_LITERAL: return createIntLiteral();
-      case SelfCheckoutExperiencePackage.REAL_LITERAL: return createRealLiteral();
       case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION: return createIntVarExpression();
       case SelfCheckoutExperiencePackage.CHECKOUT: return createCheckout();
       case SelfCheckoutExperiencePackage.SCAN: return createScan();
@@ -209,10 +208,10 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   @Override
-  public LoopStatement createLoopStatement()
+  public Repeat createRepeat()
   {
-    LoopStatementImpl loopStatement = new LoopStatementImpl();
-    return loopStatement;
+    RepeatImpl repeat = new RepeatImpl();
+    return repeat;
   }
 
   /**
@@ -261,18 +260,6 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     IntLiteralImpl intLiteral = new IntLiteralImpl();
     return intLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RealLiteral createRealLiteral()
-  {
-    RealLiteralImpl realLiteral = new RealLiteralImpl();
-    return realLiteral;
   }
 
   /**

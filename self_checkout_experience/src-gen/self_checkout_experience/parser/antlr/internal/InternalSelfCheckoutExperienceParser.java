@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'pick'", "'up'", "'add'", "'to'", "'basket'", "'drop'", "'var'", "'='", "'times'", "'do'", "'end'", "'('", "')'", "'turn'", "'by'", "'degrees'", "'+'", "'-'", "'*'", "'/'", "'.'", "'go'", "'till'", "'scan'", "'at'", "'bag'", "'forward'", "'backward'", "'left'", "'right'", "'pay'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'pick'", "'up'", "'add'", "'to'", "'basket'", "'drop'", "'var'", "'='", "'repeat'", "'times:'", "'end'", "'('", "')'", "'turn'", "'+'", "'-'", "'*'", "'/'", "'go'", "'till'", "'scan'", "'at'", "'bag'", "'forward'", "'backward'", "'left'", "'right'", "'pay'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -32,7 +32,6 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     public static final int T__16=16;
     public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
     public static final int T__33=33;
@@ -59,8 +58,6 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
-    public static final int T__40=40;
-    public static final int T__41=41;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -140,11 +137,11 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleSelf_checkout"
-    // InternalSelfCheckoutExperience.g:72:1: ruleSelf_checkout returns [EObject current=null] : ( ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? ) ;
+    // InternalSelfCheckoutExperience.g:72:1: ruleSelf_checkout returns [EObject current=null] : ( ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? ) ;
     public final EObject ruleSelf_checkout() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_pickstatemens_0_0 = null;
+        EObject lv_pickstatements_0_0 = null;
 
         EObject lv_walkstatements_1_0 = null;
 
@@ -155,13 +152,13 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:78:2: ( ( ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? ) )
-            // InternalSelfCheckoutExperience.g:79:2: ( ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? )
+            // InternalSelfCheckoutExperience.g:78:2: ( ( ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? ) )
+            // InternalSelfCheckoutExperience.g:79:2: ( ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? )
             {
-            // InternalSelfCheckoutExperience.g:79:2: ( ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? )
-            // InternalSelfCheckoutExperience.g:80:3: ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )?
+            // InternalSelfCheckoutExperience.g:79:2: ( ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )? )
+            // InternalSelfCheckoutExperience.g:80:3: ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )* ( (lv_checkout_2_0= ruleCheckout ) )?
             {
-            // InternalSelfCheckoutExperience.g:80:3: ( ( (lv_pickstatemens_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )*
+            // InternalSelfCheckoutExperience.g:80:3: ( ( (lv_pickstatements_0_0= rulePickStatement ) ) | ( (lv_walkstatements_1_0= ruleWalkStatement ) ) )*
             loop1:
             do {
                 int alt1=3;
@@ -170,26 +167,26 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                 if ( (LA1_0==11) ) {
                     alt1=1;
                 }
-                else if ( ((LA1_0>=RULE_ID && LA1_0<=RULE_INT)||LA1_0==17||LA1_0==22||LA1_0==24||LA1_0==31||(LA1_0>=37 && LA1_0<=38)) ) {
+                else if ( (LA1_0==17||LA1_0==19||LA1_0==24||(LA1_0>=34 && LA1_0<=35)) ) {
                     alt1=2;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:81:4: ( (lv_pickstatemens_0_0= rulePickStatement ) )
+            	    // InternalSelfCheckoutExperience.g:81:4: ( (lv_pickstatements_0_0= rulePickStatement ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:81:4: ( (lv_pickstatemens_0_0= rulePickStatement ) )
-            	    // InternalSelfCheckoutExperience.g:82:5: (lv_pickstatemens_0_0= rulePickStatement )
+            	    // InternalSelfCheckoutExperience.g:81:4: ( (lv_pickstatements_0_0= rulePickStatement ) )
+            	    // InternalSelfCheckoutExperience.g:82:5: (lv_pickstatements_0_0= rulePickStatement )
             	    {
-            	    // InternalSelfCheckoutExperience.g:82:5: (lv_pickstatemens_0_0= rulePickStatement )
-            	    // InternalSelfCheckoutExperience.g:83:6: lv_pickstatemens_0_0= rulePickStatement
+            	    // InternalSelfCheckoutExperience.g:82:5: (lv_pickstatements_0_0= rulePickStatement )
+            	    // InternalSelfCheckoutExperience.g:83:6: lv_pickstatements_0_0= rulePickStatement
             	    {
 
-            	    						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getPickstatemensPickStatementParserRuleCall_0_0_0());
+            	    						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getPickstatementsPickStatementParserRuleCall_0_0_0());
             	    					
             	    pushFollow(FOLLOW_3);
-            	    lv_pickstatemens_0_0=rulePickStatement();
+            	    lv_pickstatements_0_0=rulePickStatement();
 
             	    state._fsp--;
 
@@ -199,8 +196,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	    						}
             	    						add(
             	    							current,
-            	    							"pickstatemens",
-            	    							lv_pickstatemens_0_0,
+            	    							"pickstatements",
+            	    							lv_pickstatements_0_0,
             	    							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -260,7 +257,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==32) ) {
+            if ( (LA2_0==29) ) {
                 alt2=1;
             }
             switch (alt2) {
@@ -631,7 +628,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             				
             otherlv_3=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_3, grammarAccess.getAddToBasketAccess().getItemPickStatementCrossReference_3_0());
+            					newLeafNode(otherlv_3, grammarAccess.getAddToBasketAccess().getItemInBasketPickStatementCrossReference_3_0());
             				
 
             }
@@ -732,7 +729,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             				
             otherlv_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_1, grammarAccess.getDropAccess().getItemPickStatementCrossReference_1_0());
+            					newLeafNode(otherlv_1, grammarAccess.getDropAccess().getItemDroppedPickStatementCrossReference_1_0());
             				
 
             }
@@ -799,7 +796,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleWalkStatement"
-    // InternalSelfCheckoutExperience.g:332:1: ruleWalkStatement returns [EObject current=null] : (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_LoopStatement_2= ruleLoopStatement | this_VariableDeclaration_3= ruleVariableDeclaration ) ;
+    // InternalSelfCheckoutExperience.g:332:1: ruleWalkStatement returns [EObject current=null] : (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_Repeat_2= ruleRepeat | this_VariableDeclaration_3= ruleVariableDeclaration ) ;
     public final EObject ruleWalkStatement() throws RecognitionException {
         EObject current = null;
 
@@ -807,7 +804,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
         EObject this_TurnStatement_1 = null;
 
-        EObject this_LoopStatement_2 = null;
+        EObject this_Repeat_2 = null;
 
         EObject this_VariableDeclaration_3 = null;
 
@@ -816,14 +813,14 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:338:2: ( (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_LoopStatement_2= ruleLoopStatement | this_VariableDeclaration_3= ruleVariableDeclaration ) )
-            // InternalSelfCheckoutExperience.g:339:2: (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_LoopStatement_2= ruleLoopStatement | this_VariableDeclaration_3= ruleVariableDeclaration )
+            // InternalSelfCheckoutExperience.g:338:2: ( (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_Repeat_2= ruleRepeat | this_VariableDeclaration_3= ruleVariableDeclaration ) )
+            // InternalSelfCheckoutExperience.g:339:2: (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_Repeat_2= ruleRepeat | this_VariableDeclaration_3= ruleVariableDeclaration )
             {
-            // InternalSelfCheckoutExperience.g:339:2: (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_LoopStatement_2= ruleLoopStatement | this_VariableDeclaration_3= ruleVariableDeclaration )
+            // InternalSelfCheckoutExperience.g:339:2: (this_MoveStatement_0= ruleMoveStatement | this_TurnStatement_1= ruleTurnStatement | this_Repeat_2= ruleRepeat | this_VariableDeclaration_3= ruleVariableDeclaration )
             int alt4=4;
             switch ( input.LA(1) ) {
-            case 37:
-            case 38:
+            case 34:
+            case 35:
                 {
                 alt4=1;
                 }
@@ -833,10 +830,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                 alt4=2;
                 }
                 break;
-            case RULE_ID:
-            case RULE_INT:
-            case 22:
-            case 31:
+            case 19:
                 {
                 alt4=3;
                 }
@@ -891,18 +885,18 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                     }
                     break;
                 case 3 :
-                    // InternalSelfCheckoutExperience.g:358:3: this_LoopStatement_2= ruleLoopStatement
+                    // InternalSelfCheckoutExperience.g:358:3: this_Repeat_2= ruleRepeat
                     {
 
-                    			newCompositeNode(grammarAccess.getWalkStatementAccess().getLoopStatementParserRuleCall_2());
+                    			newCompositeNode(grammarAccess.getWalkStatementAccess().getRepeatParserRuleCall_2());
                     		
                     pushFollow(FOLLOW_2);
-                    this_LoopStatement_2=ruleLoopStatement();
+                    this_Repeat_2=ruleRepeat();
 
                     state._fsp--;
 
 
-                    			current = this_LoopStatement_2;
+                    			current = this_Repeat_2;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1086,25 +1080,25 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     // $ANTLR end "ruleVariableDeclaration"
 
 
-    // $ANTLR start "entryRuleLoopStatement"
-    // InternalSelfCheckoutExperience.g:442:1: entryRuleLoopStatement returns [EObject current=null] : iv_ruleLoopStatement= ruleLoopStatement EOF ;
-    public final EObject entryRuleLoopStatement() throws RecognitionException {
+    // $ANTLR start "entryRuleRepeat"
+    // InternalSelfCheckoutExperience.g:442:1: entryRuleRepeat returns [EObject current=null] : iv_ruleRepeat= ruleRepeat EOF ;
+    public final EObject entryRuleRepeat() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleLoopStatement = null;
+        EObject iv_ruleRepeat = null;
 
 
         try {
-            // InternalSelfCheckoutExperience.g:442:54: (iv_ruleLoopStatement= ruleLoopStatement EOF )
-            // InternalSelfCheckoutExperience.g:443:2: iv_ruleLoopStatement= ruleLoopStatement EOF
+            // InternalSelfCheckoutExperience.g:442:47: (iv_ruleRepeat= ruleRepeat EOF )
+            // InternalSelfCheckoutExperience.g:443:2: iv_ruleRepeat= ruleRepeat EOF
             {
-             newCompositeNode(grammarAccess.getLoopStatementRule()); 
+             newCompositeNode(grammarAccess.getRepeatRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleLoopStatement=ruleLoopStatement();
+            iv_ruleRepeat=ruleRepeat();
 
             state._fsp--;
 
-             current =iv_ruleLoopStatement; 
+             current =iv_ruleRepeat; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1119,54 +1113,60 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         }
         return current;
     }
-    // $ANTLR end "entryRuleLoopStatement"
+    // $ANTLR end "entryRuleRepeat"
 
 
-    // $ANTLR start "ruleLoopStatement"
-    // InternalSelfCheckoutExperience.g:449:1: ruleLoopStatement returns [EObject current=null] : ( ( (lv_count_0_0= ruleAddition ) ) otherlv_1= 'times' otherlv_2= 'do' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' ) ;
-    public final EObject ruleLoopStatement() throws RecognitionException {
+    // $ANTLR start "ruleRepeat"
+    // InternalSelfCheckoutExperience.g:449:1: ruleRepeat returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+ otherlv_4= 'end' ) ;
+    public final EObject ruleRepeat() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token otherlv_0=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        EObject lv_count_0_0 = null;
+        EObject lv_count_1_0 = null;
 
-        EObject lv_statements_3_0 = null;
+        EObject lv_statements_3_1 = null;
+
+        EObject lv_statements_3_2 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:455:2: ( ( ( (lv_count_0_0= ruleAddition ) ) otherlv_1= 'times' otherlv_2= 'do' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' ) )
-            // InternalSelfCheckoutExperience.g:456:2: ( ( (lv_count_0_0= ruleAddition ) ) otherlv_1= 'times' otherlv_2= 'do' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' )
+            // InternalSelfCheckoutExperience.g:455:2: ( (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+ otherlv_4= 'end' ) )
+            // InternalSelfCheckoutExperience.g:456:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+ otherlv_4= 'end' )
             {
-            // InternalSelfCheckoutExperience.g:456:2: ( ( (lv_count_0_0= ruleAddition ) ) otherlv_1= 'times' otherlv_2= 'do' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' )
-            // InternalSelfCheckoutExperience.g:457:3: ( (lv_count_0_0= ruleAddition ) ) otherlv_1= 'times' otherlv_2= 'do' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end'
+            // InternalSelfCheckoutExperience.g:456:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+ otherlv_4= 'end' )
+            // InternalSelfCheckoutExperience.g:457:3: otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+ otherlv_4= 'end'
             {
-            // InternalSelfCheckoutExperience.g:457:3: ( (lv_count_0_0= ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:458:4: (lv_count_0_0= ruleAddition )
+            otherlv_0=(Token)match(input,19,FOLLOW_5); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getRepeatAccess().getRepeatKeyword_0());
+            		
+            // InternalSelfCheckoutExperience.g:461:3: ( (lv_count_1_0= ruleAddition ) )
+            // InternalSelfCheckoutExperience.g:462:4: (lv_count_1_0= ruleAddition )
             {
-            // InternalSelfCheckoutExperience.g:458:4: (lv_count_0_0= ruleAddition )
-            // InternalSelfCheckoutExperience.g:459:5: lv_count_0_0= ruleAddition
+            // InternalSelfCheckoutExperience.g:462:4: (lv_count_1_0= ruleAddition )
+            // InternalSelfCheckoutExperience.g:463:5: lv_count_1_0= ruleAddition
             {
 
-            					newCompositeNode(grammarAccess.getLoopStatementAccess().getCountAdditionParserRuleCall_0_0());
+            					newCompositeNode(grammarAccess.getRepeatAccess().getCountAdditionParserRuleCall_1_0());
             				
             pushFollow(FOLLOW_12);
-            lv_count_0_0=ruleAddition();
+            lv_count_1_0=ruleAddition();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getLoopStatementRule());
+            						current = createModelElementForParent(grammarAccess.getRepeatRule());
             					}
             					set(
             						current,
             						"count",
-            						lv_count_0_0,
+            						lv_count_1_0,
             						"self_checkout_experience.SelfCheckoutExperience.Addition");
             					afterParserOrEnumRuleCall();
             				
@@ -1176,52 +1176,99 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_13); 
+            otherlv_2=(Token)match(input,20,FOLLOW_13); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getLoopStatementAccess().getTimesKeyword_1());
+            			newLeafNode(otherlv_2, grammarAccess.getRepeatAccess().getTimesKeyword_2());
             		
-            otherlv_2=(Token)match(input,20,FOLLOW_14); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getLoopStatementAccess().getDoKeyword_2());
-            		
-            // InternalSelfCheckoutExperience.g:484:3: ( (lv_statements_3_0= ruleWalkStatement ) )+
-            int cnt5=0;
-            loop5:
+            // InternalSelfCheckoutExperience.g:484:3: ( ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) ) )+
+            int cnt6=0;
+            loop6:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA5_0>=RULE_ID && LA5_0<=RULE_INT)||LA5_0==17||LA5_0==22||LA5_0==24||LA5_0==31||(LA5_0>=37 && LA5_0<=38)) ) {
-                    alt5=1;
+                if ( (LA6_0==11||LA6_0==17||LA6_0==19||LA6_0==24||(LA6_0>=34 && LA6_0<=35)) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:485:4: (lv_statements_3_0= ruleWalkStatement )
+            	    // InternalSelfCheckoutExperience.g:485:4: ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:485:4: (lv_statements_3_0= ruleWalkStatement )
-            	    // InternalSelfCheckoutExperience.g:486:5: lv_statements_3_0= ruleWalkStatement
+            	    // InternalSelfCheckoutExperience.g:485:4: ( (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement ) )
+            	    // InternalSelfCheckoutExperience.g:486:5: (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement )
             	    {
+            	    // InternalSelfCheckoutExperience.g:486:5: (lv_statements_3_1= ruleWalkStatement | lv_statements_3_2= rulePickStatement )
+            	    int alt5=2;
+            	    int LA5_0 = input.LA(1);
 
-            	    					newCompositeNode(grammarAccess.getLoopStatementAccess().getStatementsWalkStatementParserRuleCall_3_0());
-            	    				
-            	    pushFollow(FOLLOW_14);
-            	    lv_statements_3_0=ruleWalkStatement();
+            	    if ( (LA5_0==17||LA5_0==19||LA5_0==24||(LA5_0>=34 && LA5_0<=35)) ) {
+            	        alt5=1;
+            	    }
+            	    else if ( (LA5_0==11) ) {
+            	        alt5=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 5, 0, input);
 
-            	    state._fsp--;
+            	        throw nvae;
+            	    }
+            	    switch (alt5) {
+            	        case 1 :
+            	            // InternalSelfCheckoutExperience.g:487:6: lv_statements_3_1= ruleWalkStatement
+            	            {
+
+            	            						newCompositeNode(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0_0());
+            	            					
+            	            pushFollow(FOLLOW_13);
+            	            lv_statements_3_1=ruleWalkStatement();
+
+            	            state._fsp--;
 
 
-            	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getLoopStatementRule());
-            	    					}
-            	    					add(
-            	    						current,
-            	    						"statements",
-            	    						lv_statements_3_0,
-            	    						"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
-            	    					afterParserOrEnumRuleCall();
-            	    				
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getRepeatRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"statements",
+            	            							lv_statements_3_1,
+            	            							"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalSelfCheckoutExperience.g:503:6: lv_statements_3_2= rulePickStatement
+            	            {
+
+            	            						newCompositeNode(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0_1());
+            	            					
+            	            pushFollow(FOLLOW_13);
+            	            lv_statements_3_2=rulePickStatement();
+
+            	            state._fsp--;
+
+
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getRepeatRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"statements",
+            	            							lv_statements_3_2,
+            	            							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
+
+            	    }
+
 
             	    }
 
@@ -1230,17 +1277,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	    break;
 
             	default :
-            	    if ( cnt5 >= 1 ) break loop5;
+            	    if ( cnt6 >= 1 ) break loop6;
                         EarlyExitException eee =
-                            new EarlyExitException(5, input);
+                            new EarlyExitException(6, input);
                         throw eee;
                 }
-                cnt5++;
+                cnt6++;
             } while (true);
 
             otherlv_4=(Token)match(input,21,FOLLOW_2); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getLoopStatementAccess().getEndKeyword_4());
+            			newLeafNode(otherlv_4, grammarAccess.getRepeatAccess().getEndKeyword_4());
             		
 
             }
@@ -1261,11 +1308,11 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         }
         return current;
     }
-    // $ANTLR end "ruleLoopStatement"
+    // $ANTLR end "ruleRepeat"
 
 
     // $ANTLR start "entryRuleMoveStatement"
-    // InternalSelfCheckoutExperience.g:511:1: entryRuleMoveStatement returns [EObject current=null] : iv_ruleMoveStatement= ruleMoveStatement EOF ;
+    // InternalSelfCheckoutExperience.g:529:1: entryRuleMoveStatement returns [EObject current=null] : iv_ruleMoveStatement= ruleMoveStatement EOF ;
     public final EObject entryRuleMoveStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1273,8 +1320,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:511:54: (iv_ruleMoveStatement= ruleMoveStatement EOF )
-            // InternalSelfCheckoutExperience.g:512:2: iv_ruleMoveStatement= ruleMoveStatement EOF
+            // InternalSelfCheckoutExperience.g:529:54: (iv_ruleMoveStatement= ruleMoveStatement EOF )
+            // InternalSelfCheckoutExperience.g:530:2: iv_ruleMoveStatement= ruleMoveStatement EOF
             {
              newCompositeNode(grammarAccess.getMoveStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1301,7 +1348,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleMoveStatement"
-    // InternalSelfCheckoutExperience.g:518:1: ruleMoveStatement returns [EObject current=null] : ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' ) ;
+    // InternalSelfCheckoutExperience.g:536:1: ruleMoveStatement returns [EObject current=null] : ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' ) ;
     public final EObject ruleMoveStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1316,22 +1363,22 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:524:2: ( ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' ) )
-            // InternalSelfCheckoutExperience.g:525:2: ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' )
+            // InternalSelfCheckoutExperience.g:542:2: ( ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' ) )
+            // InternalSelfCheckoutExperience.g:543:2: ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' )
             {
-            // InternalSelfCheckoutExperience.g:525:2: ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' )
-            // InternalSelfCheckoutExperience.g:526:3: ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')'
+            // InternalSelfCheckoutExperience.g:543:2: ( ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')' )
+            // InternalSelfCheckoutExperience.g:544:3: ( (lv_command_0_0= ruleMoveCommand ) ) otherlv_1= '(' ( (lv_steps_2_0= ruleAddition ) ) otherlv_3= ')'
             {
-            // InternalSelfCheckoutExperience.g:526:3: ( (lv_command_0_0= ruleMoveCommand ) )
-            // InternalSelfCheckoutExperience.g:527:4: (lv_command_0_0= ruleMoveCommand )
+            // InternalSelfCheckoutExperience.g:544:3: ( (lv_command_0_0= ruleMoveCommand ) )
+            // InternalSelfCheckoutExperience.g:545:4: (lv_command_0_0= ruleMoveCommand )
             {
-            // InternalSelfCheckoutExperience.g:527:4: (lv_command_0_0= ruleMoveCommand )
-            // InternalSelfCheckoutExperience.g:528:5: lv_command_0_0= ruleMoveCommand
+            // InternalSelfCheckoutExperience.g:545:4: (lv_command_0_0= ruleMoveCommand )
+            // InternalSelfCheckoutExperience.g:546:5: lv_command_0_0= ruleMoveCommand
             {
 
             					newCompositeNode(grammarAccess.getMoveStatementAccess().getCommandMoveCommandEnumRuleCall_0_0());
             				
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             lv_command_0_0=ruleMoveCommand();
 
             state._fsp--;
@@ -1357,16 +1404,16 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             			newLeafNode(otherlv_1, grammarAccess.getMoveStatementAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalSelfCheckoutExperience.g:549:3: ( (lv_steps_2_0= ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:550:4: (lv_steps_2_0= ruleAddition )
+            // InternalSelfCheckoutExperience.g:567:3: ( (lv_steps_2_0= ruleAddition ) )
+            // InternalSelfCheckoutExperience.g:568:4: (lv_steps_2_0= ruleAddition )
             {
-            // InternalSelfCheckoutExperience.g:550:4: (lv_steps_2_0= ruleAddition )
-            // InternalSelfCheckoutExperience.g:551:5: lv_steps_2_0= ruleAddition
+            // InternalSelfCheckoutExperience.g:568:4: (lv_steps_2_0= ruleAddition )
+            // InternalSelfCheckoutExperience.g:569:5: lv_steps_2_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getMoveStatementAccess().getStepsAdditionParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             lv_steps_2_0=ruleAddition();
 
             state._fsp--;
@@ -1415,7 +1462,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleTurnStatement"
-    // InternalSelfCheckoutExperience.g:576:1: entryRuleTurnStatement returns [EObject current=null] : iv_ruleTurnStatement= ruleTurnStatement EOF ;
+    // InternalSelfCheckoutExperience.g:594:1: entryRuleTurnStatement returns [EObject current=null] : iv_ruleTurnStatement= ruleTurnStatement EOF ;
     public final EObject entryRuleTurnStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1423,8 +1470,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:576:54: (iv_ruleTurnStatement= ruleTurnStatement EOF )
-            // InternalSelfCheckoutExperience.g:577:2: iv_ruleTurnStatement= ruleTurnStatement EOF
+            // InternalSelfCheckoutExperience.g:594:54: (iv_ruleTurnStatement= ruleTurnStatement EOF )
+            // InternalSelfCheckoutExperience.g:595:2: iv_ruleTurnStatement= ruleTurnStatement EOF
             {
              newCompositeNode(grammarAccess.getTurnStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1451,42 +1498,38 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleTurnStatement"
-    // InternalSelfCheckoutExperience.g:583:1: ruleTurnStatement returns [EObject current=null] : (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) otherlv_2= 'by' ( (lv_degrees_3_0= ruleAddition ) ) otherlv_4= 'degrees' ) ;
+    // InternalSelfCheckoutExperience.g:601:1: ruleTurnStatement returns [EObject current=null] : (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) ) ;
     public final EObject ruleTurnStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
         Enumerator lv_command_1_0 = null;
-
-        EObject lv_degrees_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:589:2: ( (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) otherlv_2= 'by' ( (lv_degrees_3_0= ruleAddition ) ) otherlv_4= 'degrees' ) )
-            // InternalSelfCheckoutExperience.g:590:2: (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) otherlv_2= 'by' ( (lv_degrees_3_0= ruleAddition ) ) otherlv_4= 'degrees' )
+            // InternalSelfCheckoutExperience.g:607:2: ( (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) ) )
+            // InternalSelfCheckoutExperience.g:608:2: (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) )
             {
-            // InternalSelfCheckoutExperience.g:590:2: (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) otherlv_2= 'by' ( (lv_degrees_3_0= ruleAddition ) ) otherlv_4= 'degrees' )
-            // InternalSelfCheckoutExperience.g:591:3: otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) otherlv_2= 'by' ( (lv_degrees_3_0= ruleAddition ) ) otherlv_4= 'degrees'
+            // InternalSelfCheckoutExperience.g:608:2: (otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) ) )
+            // InternalSelfCheckoutExperience.g:609:3: otherlv_0= 'turn' ( (lv_command_1_0= ruleTurnCommand ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_17); 
+            otherlv_0=(Token)match(input,24,FOLLOW_16); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTurnStatementAccess().getTurnKeyword_0());
             		
-            // InternalSelfCheckoutExperience.g:595:3: ( (lv_command_1_0= ruleTurnCommand ) )
-            // InternalSelfCheckoutExperience.g:596:4: (lv_command_1_0= ruleTurnCommand )
+            // InternalSelfCheckoutExperience.g:613:3: ( (lv_command_1_0= ruleTurnCommand ) )
+            // InternalSelfCheckoutExperience.g:614:4: (lv_command_1_0= ruleTurnCommand )
             {
-            // InternalSelfCheckoutExperience.g:596:4: (lv_command_1_0= ruleTurnCommand )
-            // InternalSelfCheckoutExperience.g:597:5: lv_command_1_0= ruleTurnCommand
+            // InternalSelfCheckoutExperience.g:614:4: (lv_command_1_0= ruleTurnCommand )
+            // InternalSelfCheckoutExperience.g:615:5: lv_command_1_0= ruleTurnCommand
             {
 
             					newCompositeNode(grammarAccess.getTurnStatementAccess().getCommandTurnCommandEnumRuleCall_1_0());
             				
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_2);
             lv_command_1_0=ruleTurnCommand();
 
             state._fsp--;
@@ -1508,45 +1551,6 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             }
 
-            otherlv_2=(Token)match(input,25,FOLLOW_5); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getTurnStatementAccess().getByKeyword_2());
-            		
-            // InternalSelfCheckoutExperience.g:618:3: ( (lv_degrees_3_0= ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:619:4: (lv_degrees_3_0= ruleAddition )
-            {
-            // InternalSelfCheckoutExperience.g:619:4: (lv_degrees_3_0= ruleAddition )
-            // InternalSelfCheckoutExperience.g:620:5: lv_degrees_3_0= ruleAddition
-            {
-
-            					newCompositeNode(grammarAccess.getTurnStatementAccess().getDegreesAdditionParserRuleCall_3_0());
-            				
-            pushFollow(FOLLOW_19);
-            lv_degrees_3_0=ruleAddition();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTurnStatementRule());
-            					}
-            					set(
-            						current,
-            						"degrees",
-            						lv_degrees_3_0,
-            						"self_checkout_experience.SelfCheckoutExperience.Addition");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_4=(Token)match(input,26,FOLLOW_2); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getTurnStatementAccess().getDegreesKeyword_4());
-            		
 
             }
 
@@ -1570,7 +1574,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleAddition"
-    // InternalSelfCheckoutExperience.g:645:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
+    // InternalSelfCheckoutExperience.g:636:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
     public final EObject entryRuleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -1578,8 +1582,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:645:49: (iv_ruleAddition= ruleAddition EOF )
-            // InternalSelfCheckoutExperience.g:646:2: iv_ruleAddition= ruleAddition EOF
+            // InternalSelfCheckoutExperience.g:636:49: (iv_ruleAddition= ruleAddition EOF )
+            // InternalSelfCheckoutExperience.g:637:2: iv_ruleAddition= ruleAddition EOF
             {
              newCompositeNode(grammarAccess.getAdditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1606,7 +1610,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleAddition"
-    // InternalSelfCheckoutExperience.g:652:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) ;
+    // InternalSelfCheckoutExperience.g:643:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) ;
     public final EObject ruleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -1621,16 +1625,16 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:658:2: ( (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) )
-            // InternalSelfCheckoutExperience.g:659:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            // InternalSelfCheckoutExperience.g:649:2: ( (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) )
+            // InternalSelfCheckoutExperience.g:650:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
             {
-            // InternalSelfCheckoutExperience.g:659:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
-            // InternalSelfCheckoutExperience.g:660:3: this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
+            // InternalSelfCheckoutExperience.g:650:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            // InternalSelfCheckoutExperience.g:651:3: this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getAdditionAccess().getMultiplicationParserRuleCall_0());
             		
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_17);
             this_Multiplication_0=ruleMultiplication();
 
             state._fsp--;
@@ -1639,23 +1643,23 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             			current = this_Multiplication_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSelfCheckoutExperience.g:668:3: ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
-            loop7:
+            // InternalSelfCheckoutExperience.g:659:3: ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( ((LA7_0>=27 && LA7_0<=28)) ) {
-                    alt7=1;
+                if ( ((LA8_0>=25 && LA8_0<=26)) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:669:4: () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
+            	    // InternalSelfCheckoutExperience.g:660:4: () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:669:4: ()
-            	    // InternalSelfCheckoutExperience.g:670:5: 
+            	    // InternalSelfCheckoutExperience.g:660:4: ()
+            	    // InternalSelfCheckoutExperience.g:661:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -1665,33 +1669,33 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             	    }
 
-            	    // InternalSelfCheckoutExperience.g:676:4: ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) )
-            	    // InternalSelfCheckoutExperience.g:677:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
+            	    // InternalSelfCheckoutExperience.g:667:4: ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) )
+            	    // InternalSelfCheckoutExperience.g:668:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:677:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
-            	    // InternalSelfCheckoutExperience.g:678:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
+            	    // InternalSelfCheckoutExperience.g:668:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
+            	    // InternalSelfCheckoutExperience.g:669:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
             	    {
-            	    // InternalSelfCheckoutExperience.g:678:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
-            	    int alt6=2;
-            	    int LA6_0 = input.LA(1);
+            	    // InternalSelfCheckoutExperience.g:669:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
+            	    int alt7=2;
+            	    int LA7_0 = input.LA(1);
 
-            	    if ( (LA6_0==27) ) {
-            	        alt6=1;
+            	    if ( (LA7_0==25) ) {
+            	        alt7=1;
             	    }
-            	    else if ( (LA6_0==28) ) {
-            	        alt6=2;
+            	    else if ( (LA7_0==26) ) {
+            	        alt7=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 6, 0, input);
+            	            new NoViableAltException("", 7, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt6) {
+            	    switch (alt7) {
             	        case 1 :
-            	            // InternalSelfCheckoutExperience.g:679:7: lv_operator_2_1= '+'
+            	            // InternalSelfCheckoutExperience.g:670:7: lv_operator_2_1= '+'
             	            {
-            	            lv_operator_2_1=(Token)match(input,27,FOLLOW_5); 
+            	            lv_operator_2_1=(Token)match(input,25,FOLLOW_5); 
 
             	            							newLeafNode(lv_operator_2_1, grammarAccess.getAdditionAccess().getOperatorPlusSignKeyword_1_1_0_0());
             	            						
@@ -1705,9 +1709,9 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	            }
             	            break;
             	        case 2 :
-            	            // InternalSelfCheckoutExperience.g:690:7: lv_operator_2_2= '-'
+            	            // InternalSelfCheckoutExperience.g:681:7: lv_operator_2_2= '-'
             	            {
-            	            lv_operator_2_2=(Token)match(input,28,FOLLOW_5); 
+            	            lv_operator_2_2=(Token)match(input,26,FOLLOW_5); 
 
             	            							newLeafNode(lv_operator_2_2, grammarAccess.getAdditionAccess().getOperatorHyphenMinusKeyword_1_1_0_1());
             	            						
@@ -1729,16 +1733,16 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             	    }
 
-            	    // InternalSelfCheckoutExperience.g:703:4: ( (lv_right_3_0= ruleMultiplication ) )
-            	    // InternalSelfCheckoutExperience.g:704:5: (lv_right_3_0= ruleMultiplication )
+            	    // InternalSelfCheckoutExperience.g:694:4: ( (lv_right_3_0= ruleMultiplication ) )
+            	    // InternalSelfCheckoutExperience.g:695:5: (lv_right_3_0= ruleMultiplication )
             	    {
-            	    // InternalSelfCheckoutExperience.g:704:5: (lv_right_3_0= ruleMultiplication )
-            	    // InternalSelfCheckoutExperience.g:705:6: lv_right_3_0= ruleMultiplication
+            	    // InternalSelfCheckoutExperience.g:695:5: (lv_right_3_0= ruleMultiplication )
+            	    // InternalSelfCheckoutExperience.g:696:6: lv_right_3_0= ruleMultiplication
             	    {
 
             	    						newCompositeNode(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_17);
             	    lv_right_3_0=ruleMultiplication();
 
             	    state._fsp--;
@@ -1765,7 +1769,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
@@ -1792,7 +1796,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleMultiplication"
-    // InternalSelfCheckoutExperience.g:727:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
+    // InternalSelfCheckoutExperience.g:718:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
     public final EObject entryRuleMultiplication() throws RecognitionException {
         EObject current = null;
 
@@ -1800,8 +1804,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:727:55: (iv_ruleMultiplication= ruleMultiplication EOF )
-            // InternalSelfCheckoutExperience.g:728:2: iv_ruleMultiplication= ruleMultiplication EOF
+            // InternalSelfCheckoutExperience.g:718:55: (iv_ruleMultiplication= ruleMultiplication EOF )
+            // InternalSelfCheckoutExperience.g:719:2: iv_ruleMultiplication= ruleMultiplication EOF
             {
              newCompositeNode(grammarAccess.getMultiplicationRule()); 
             pushFollow(FOLLOW_1);
@@ -1828,7 +1832,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleMultiplication"
-    // InternalSelfCheckoutExperience.g:734:1: ruleMultiplication returns [EObject current=null] : (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) ;
+    // InternalSelfCheckoutExperience.g:725:1: ruleMultiplication returns [EObject current=null] : (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) ;
     public final EObject ruleMultiplication() throws RecognitionException {
         EObject current = null;
 
@@ -1843,16 +1847,16 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:740:2: ( (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) )
-            // InternalSelfCheckoutExperience.g:741:2: (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
+            // InternalSelfCheckoutExperience.g:731:2: ( (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) )
+            // InternalSelfCheckoutExperience.g:732:2: (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
             {
-            // InternalSelfCheckoutExperience.g:741:2: (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
-            // InternalSelfCheckoutExperience.g:742:3: this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
+            // InternalSelfCheckoutExperience.g:732:2: (this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
+            // InternalSelfCheckoutExperience.g:733:3: this_Primary_0= rulePrimary ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getMultiplicationAccess().getPrimaryParserRuleCall_0());
             		
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_18);
             this_Primary_0=rulePrimary();
 
             state._fsp--;
@@ -1861,23 +1865,23 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             			current = this_Primary_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSelfCheckoutExperience.g:750:3: ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
-            loop9:
+            // InternalSelfCheckoutExperience.g:741:3: ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( ((LA9_0>=29 && LA9_0<=30)) ) {
-                    alt9=1;
+                if ( ((LA10_0>=27 && LA10_0<=28)) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:751:4: () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) )
+            	    // InternalSelfCheckoutExperience.g:742:4: () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:751:4: ()
-            	    // InternalSelfCheckoutExperience.g:752:5: 
+            	    // InternalSelfCheckoutExperience.g:742:4: ()
+            	    // InternalSelfCheckoutExperience.g:743:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -1887,33 +1891,33 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             	    }
 
-            	    // InternalSelfCheckoutExperience.g:758:4: ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) )
-            	    // InternalSelfCheckoutExperience.g:759:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
+            	    // InternalSelfCheckoutExperience.g:749:4: ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) )
+            	    // InternalSelfCheckoutExperience.g:750:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
             	    {
-            	    // InternalSelfCheckoutExperience.g:759:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
-            	    // InternalSelfCheckoutExperience.g:760:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
+            	    // InternalSelfCheckoutExperience.g:750:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
+            	    // InternalSelfCheckoutExperience.g:751:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
             	    {
-            	    // InternalSelfCheckoutExperience.g:760:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
-            	    int alt8=2;
-            	    int LA8_0 = input.LA(1);
+            	    // InternalSelfCheckoutExperience.g:751:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
+            	    int alt9=2;
+            	    int LA9_0 = input.LA(1);
 
-            	    if ( (LA8_0==29) ) {
-            	        alt8=1;
+            	    if ( (LA9_0==27) ) {
+            	        alt9=1;
             	    }
-            	    else if ( (LA8_0==30) ) {
-            	        alt8=2;
+            	    else if ( (LA9_0==28) ) {
+            	        alt9=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 8, 0, input);
+            	            new NoViableAltException("", 9, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt8) {
+            	    switch (alt9) {
             	        case 1 :
-            	            // InternalSelfCheckoutExperience.g:761:7: lv_operator_2_1= '*'
+            	            // InternalSelfCheckoutExperience.g:752:7: lv_operator_2_1= '*'
             	            {
-            	            lv_operator_2_1=(Token)match(input,29,FOLLOW_5); 
+            	            lv_operator_2_1=(Token)match(input,27,FOLLOW_5); 
 
             	            							newLeafNode(lv_operator_2_1, grammarAccess.getMultiplicationAccess().getOperatorAsteriskKeyword_1_1_0_0());
             	            						
@@ -1927,9 +1931,9 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	            }
             	            break;
             	        case 2 :
-            	            // InternalSelfCheckoutExperience.g:772:7: lv_operator_2_2= '/'
+            	            // InternalSelfCheckoutExperience.g:763:7: lv_operator_2_2= '/'
             	            {
-            	            lv_operator_2_2=(Token)match(input,30,FOLLOW_5); 
+            	            lv_operator_2_2=(Token)match(input,28,FOLLOW_5); 
 
             	            							newLeafNode(lv_operator_2_2, grammarAccess.getMultiplicationAccess().getOperatorSolidusKeyword_1_1_0_1());
             	            						
@@ -1951,16 +1955,16 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             	    }
 
-            	    // InternalSelfCheckoutExperience.g:785:4: ( (lv_right_3_0= rulePrimary ) )
-            	    // InternalSelfCheckoutExperience.g:786:5: (lv_right_3_0= rulePrimary )
+            	    // InternalSelfCheckoutExperience.g:776:4: ( (lv_right_3_0= rulePrimary ) )
+            	    // InternalSelfCheckoutExperience.g:777:5: (lv_right_3_0= rulePrimary )
             	    {
-            	    // InternalSelfCheckoutExperience.g:786:5: (lv_right_3_0= rulePrimary )
-            	    // InternalSelfCheckoutExperience.g:787:6: lv_right_3_0= rulePrimary
+            	    // InternalSelfCheckoutExperience.g:777:5: (lv_right_3_0= rulePrimary )
+            	    // InternalSelfCheckoutExperience.g:778:6: lv_right_3_0= rulePrimary
             	    {
 
             	    						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightPrimaryParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_21);
+            	    pushFollow(FOLLOW_18);
             	    lv_right_3_0=rulePrimary();
 
             	    state._fsp--;
@@ -1987,7 +1991,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -2014,7 +2018,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRulePrimary"
-    // InternalSelfCheckoutExperience.g:809:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
+    // InternalSelfCheckoutExperience.g:800:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
     public final EObject entryRulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -2022,8 +2026,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:809:48: (iv_rulePrimary= rulePrimary EOF )
-            // InternalSelfCheckoutExperience.g:810:2: iv_rulePrimary= rulePrimary EOF
+            // InternalSelfCheckoutExperience.g:800:48: (iv_rulePrimary= rulePrimary EOF )
+            // InternalSelfCheckoutExperience.g:801:2: iv_rulePrimary= rulePrimary EOF
             {
              newCompositeNode(grammarAccess.getPrimaryRule()); 
             pushFollow(FOLLOW_1);
@@ -2050,74 +2054,54 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "rulePrimary"
-    // InternalSelfCheckoutExperience.g:816:1: rulePrimary returns [EObject current=null] : (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | this_RealLiteral_2= ruleRealLiteral | (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' ) ) ;
+    // InternalSelfCheckoutExperience.g:807:1: rulePrimary returns [EObject current=null] : (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' ) ) ;
     public final EObject rulePrimary() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_3=null;
-        Token otherlv_5=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
         EObject this_IntLiteral_0 = null;
 
         EObject this_IntVarExpression_1 = null;
 
-        EObject this_RealLiteral_2 = null;
-
-        EObject this_Addition_4 = null;
+        EObject this_Addition_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:822:2: ( (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | this_RealLiteral_2= ruleRealLiteral | (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' ) ) )
-            // InternalSelfCheckoutExperience.g:823:2: (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | this_RealLiteral_2= ruleRealLiteral | (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' ) )
+            // InternalSelfCheckoutExperience.g:813:2: ( (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' ) ) )
+            // InternalSelfCheckoutExperience.g:814:2: (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' ) )
             {
-            // InternalSelfCheckoutExperience.g:823:2: (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | this_RealLiteral_2= ruleRealLiteral | (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' ) )
-            int alt10=4;
+            // InternalSelfCheckoutExperience.g:814:2: (this_IntLiteral_0= ruleIntLiteral | this_IntVarExpression_1= ruleIntVarExpression | (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' ) )
+            int alt11=3;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
-                int LA10_1 = input.LA(2);
-
-                if ( (LA10_1==31) ) {
-                    alt10=3;
-                }
-                else if ( (LA10_1==EOF||LA10_1==RULE_ID||LA10_1==19||LA10_1==23||(LA10_1>=26 && LA10_1<=30)) ) {
-                    alt10=1;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 10, 1, input);
-
-                    throw nvae;
-                }
+                alt11=1;
                 }
                 break;
             case RULE_ID:
                 {
-                alt10=2;
-                }
-                break;
-            case 31:
-                {
-                alt10=3;
+                alt11=2;
                 }
                 break;
             case 22:
                 {
-                alt10=4;
+                alt11=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:824:3: this_IntLiteral_0= ruleIntLiteral
+                    // InternalSelfCheckoutExperience.g:815:3: this_IntLiteral_0= ruleIntLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryAccess().getIntLiteralParserRuleCall_0());
@@ -2135,7 +2119,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                     }
                     break;
                 case 2 :
-                    // InternalSelfCheckoutExperience.g:833:3: this_IntVarExpression_1= ruleIntVarExpression
+                    // InternalSelfCheckoutExperience.g:824:3: this_IntVarExpression_1= ruleIntVarExpression
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryAccess().getIntVarExpressionParserRuleCall_1());
@@ -2153,48 +2137,30 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                     }
                     break;
                 case 3 :
-                    // InternalSelfCheckoutExperience.g:842:3: this_RealLiteral_2= ruleRealLiteral
+                    // InternalSelfCheckoutExperience.g:833:3: (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' )
                     {
+                    // InternalSelfCheckoutExperience.g:833:3: (otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')' )
+                    // InternalSelfCheckoutExperience.g:834:4: otherlv_2= '(' this_Addition_3= ruleAddition otherlv_4= ')'
+                    {
+                    otherlv_2=(Token)match(input,22,FOLLOW_5); 
 
-                    			newCompositeNode(grammarAccess.getPrimaryAccess().getRealLiteralParserRuleCall_2());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_RealLiteral_2=ruleRealLiteral();
+                    				newLeafNode(otherlv_2, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
+                    			
+
+                    				newCompositeNode(grammarAccess.getPrimaryAccess().getAdditionParserRuleCall_2_1());
+                    			
+                    pushFollow(FOLLOW_15);
+                    this_Addition_3=ruleAddition();
 
                     state._fsp--;
 
 
-                    			current = this_RealLiteral_2;
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-                case 4 :
-                    // InternalSelfCheckoutExperience.g:851:3: (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' )
-                    {
-                    // InternalSelfCheckoutExperience.g:851:3: (otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')' )
-                    // InternalSelfCheckoutExperience.g:852:4: otherlv_3= '(' this_Addition_4= ruleAddition otherlv_5= ')'
-                    {
-                    otherlv_3=(Token)match(input,22,FOLLOW_5); 
-
-                    				newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_3_0());
-                    			
-
-                    				newCompositeNode(grammarAccess.getPrimaryAccess().getAdditionParserRuleCall_3_1());
-                    			
-                    pushFollow(FOLLOW_16);
-                    this_Addition_4=ruleAddition();
-
-                    state._fsp--;
-
-
-                    				current = this_Addition_4;
+                    				current = this_Addition_3;
                     				afterParserOrEnumRuleCall();
                     			
-                    otherlv_5=(Token)match(input,23,FOLLOW_2); 
+                    otherlv_4=(Token)match(input,23,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_3_2());
+                    				newLeafNode(otherlv_4, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_2_2());
                     			
 
                     }
@@ -2225,7 +2191,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleIntLiteral"
-    // InternalSelfCheckoutExperience.g:873:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
+    // InternalSelfCheckoutExperience.g:855:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
     public final EObject entryRuleIntLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2233,8 +2199,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:873:51: (iv_ruleIntLiteral= ruleIntLiteral EOF )
-            // InternalSelfCheckoutExperience.g:874:2: iv_ruleIntLiteral= ruleIntLiteral EOF
+            // InternalSelfCheckoutExperience.g:855:51: (iv_ruleIntLiteral= ruleIntLiteral EOF )
+            // InternalSelfCheckoutExperience.g:856:2: iv_ruleIntLiteral= ruleIntLiteral EOF
             {
              newCompositeNode(grammarAccess.getIntLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -2261,7 +2227,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleIntLiteral"
-    // InternalSelfCheckoutExperience.g:880:1: ruleIntLiteral returns [EObject current=null] : ( (lv_val_0_0= RULE_INT ) ) ;
+    // InternalSelfCheckoutExperience.g:862:1: ruleIntLiteral returns [EObject current=null] : ( (lv_val_0_0= RULE_INT ) ) ;
     public final EObject ruleIntLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2271,14 +2237,14 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:886:2: ( ( (lv_val_0_0= RULE_INT ) ) )
-            // InternalSelfCheckoutExperience.g:887:2: ( (lv_val_0_0= RULE_INT ) )
+            // InternalSelfCheckoutExperience.g:868:2: ( ( (lv_val_0_0= RULE_INT ) ) )
+            // InternalSelfCheckoutExperience.g:869:2: ( (lv_val_0_0= RULE_INT ) )
             {
-            // InternalSelfCheckoutExperience.g:887:2: ( (lv_val_0_0= RULE_INT ) )
-            // InternalSelfCheckoutExperience.g:888:3: (lv_val_0_0= RULE_INT )
+            // InternalSelfCheckoutExperience.g:869:2: ( (lv_val_0_0= RULE_INT ) )
+            // InternalSelfCheckoutExperience.g:870:3: (lv_val_0_0= RULE_INT )
             {
-            // InternalSelfCheckoutExperience.g:888:3: (lv_val_0_0= RULE_INT )
-            // InternalSelfCheckoutExperience.g:889:4: lv_val_0_0= RULE_INT
+            // InternalSelfCheckoutExperience.g:870:3: (lv_val_0_0= RULE_INT )
+            // InternalSelfCheckoutExperience.g:871:4: lv_val_0_0= RULE_INT
             {
             lv_val_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -2319,109 +2285,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     // $ANTLR end "ruleIntLiteral"
 
 
-    // $ANTLR start "entryRuleRealLiteral"
-    // InternalSelfCheckoutExperience.g:908:1: entryRuleRealLiteral returns [EObject current=null] : iv_ruleRealLiteral= ruleRealLiteral EOF ;
-    public final EObject entryRuleRealLiteral() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleRealLiteral = null;
-
-
-        try {
-            // InternalSelfCheckoutExperience.g:908:52: (iv_ruleRealLiteral= ruleRealLiteral EOF )
-            // InternalSelfCheckoutExperience.g:909:2: iv_ruleRealLiteral= ruleRealLiteral EOF
-            {
-             newCompositeNode(grammarAccess.getRealLiteralRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleRealLiteral=ruleRealLiteral();
-
-            state._fsp--;
-
-             current =iv_ruleRealLiteral; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleRealLiteral"
-
-
-    // $ANTLR start "ruleRealLiteral"
-    // InternalSelfCheckoutExperience.g:915:1: ruleRealLiteral returns [EObject current=null] : ( (lv_val_0_0= ruleREAL ) ) ;
-    public final EObject ruleRealLiteral() throws RecognitionException {
-        EObject current = null;
-
-        AntlrDatatypeRuleToken lv_val_0_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalSelfCheckoutExperience.g:921:2: ( ( (lv_val_0_0= ruleREAL ) ) )
-            // InternalSelfCheckoutExperience.g:922:2: ( (lv_val_0_0= ruleREAL ) )
-            {
-            // InternalSelfCheckoutExperience.g:922:2: ( (lv_val_0_0= ruleREAL ) )
-            // InternalSelfCheckoutExperience.g:923:3: (lv_val_0_0= ruleREAL )
-            {
-            // InternalSelfCheckoutExperience.g:923:3: (lv_val_0_0= ruleREAL )
-            // InternalSelfCheckoutExperience.g:924:4: lv_val_0_0= ruleREAL
-            {
-
-            				newCompositeNode(grammarAccess.getRealLiteralAccess().getValREALParserRuleCall_0());
-            			
-            pushFollow(FOLLOW_2);
-            lv_val_0_0=ruleREAL();
-
-            state._fsp--;
-
-
-            				if (current==null) {
-            					current = createModelElementForParent(grammarAccess.getRealLiteralRule());
-            				}
-            				set(
-            					current,
-            					"val",
-            					lv_val_0_0,
-            					"self_checkout_experience.SelfCheckoutExperience.REAL");
-            				afterParserOrEnumRuleCall();
-            			
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleRealLiteral"
-
-
     // $ANTLR start "entryRuleIntVarExpression"
-    // InternalSelfCheckoutExperience.g:944:1: entryRuleIntVarExpression returns [EObject current=null] : iv_ruleIntVarExpression= ruleIntVarExpression EOF ;
+    // InternalSelfCheckoutExperience.g:890:1: entryRuleIntVarExpression returns [EObject current=null] : iv_ruleIntVarExpression= ruleIntVarExpression EOF ;
     public final EObject entryRuleIntVarExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2429,8 +2294,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:944:57: (iv_ruleIntVarExpression= ruleIntVarExpression EOF )
-            // InternalSelfCheckoutExperience.g:945:2: iv_ruleIntVarExpression= ruleIntVarExpression EOF
+            // InternalSelfCheckoutExperience.g:890:57: (iv_ruleIntVarExpression= ruleIntVarExpression EOF )
+            // InternalSelfCheckoutExperience.g:891:2: iv_ruleIntVarExpression= ruleIntVarExpression EOF
             {
              newCompositeNode(grammarAccess.getIntVarExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -2457,7 +2322,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleIntVarExpression"
-    // InternalSelfCheckoutExperience.g:951:1: ruleIntVarExpression returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalSelfCheckoutExperience.g:897:1: ruleIntVarExpression returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleIntVarExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2467,14 +2332,14 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:957:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalSelfCheckoutExperience.g:958:2: ( (otherlv_0= RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:903:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:904:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalSelfCheckoutExperience.g:958:2: ( (otherlv_0= RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:959:3: (otherlv_0= RULE_ID )
+            // InternalSelfCheckoutExperience.g:904:2: ( (otherlv_0= RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:905:3: (otherlv_0= RULE_ID )
             {
-            // InternalSelfCheckoutExperience.g:959:3: (otherlv_0= RULE_ID )
-            // InternalSelfCheckoutExperience.g:960:4: otherlv_0= RULE_ID
+            // InternalSelfCheckoutExperience.g:905:3: (otherlv_0= RULE_ID )
+            // InternalSelfCheckoutExperience.g:906:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -2510,131 +2375,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     // $ANTLR end "ruleIntVarExpression"
 
 
-    // $ANTLR start "entryRuleREAL"
-    // InternalSelfCheckoutExperience.g:974:1: entryRuleREAL returns [String current=null] : iv_ruleREAL= ruleREAL EOF ;
-    public final String entryRuleREAL() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleREAL = null;
-
-
-
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalSelfCheckoutExperience.g:976:2: (iv_ruleREAL= ruleREAL EOF )
-            // InternalSelfCheckoutExperience.g:977:2: iv_ruleREAL= ruleREAL EOF
-            {
-             newCompositeNode(grammarAccess.getREALRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleREAL=ruleREAL();
-
-            state._fsp--;
-
-             current =iv_ruleREAL.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleREAL"
-
-
-    // $ANTLR start "ruleREAL"
-    // InternalSelfCheckoutExperience.g:986:1: ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_INT_0= RULE_INT )? kw= '.' this_INT_2= RULE_INT ) ;
-    public final AntlrDatatypeRuleToken ruleREAL() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_INT_0=null;
-        Token kw=null;
-        Token this_INT_2=null;
-
-
-        	enterRule();
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalSelfCheckoutExperience.g:993:2: ( ( (this_INT_0= RULE_INT )? kw= '.' this_INT_2= RULE_INT ) )
-            // InternalSelfCheckoutExperience.g:994:2: ( (this_INT_0= RULE_INT )? kw= '.' this_INT_2= RULE_INT )
-            {
-            // InternalSelfCheckoutExperience.g:994:2: ( (this_INT_0= RULE_INT )? kw= '.' this_INT_2= RULE_INT )
-            // InternalSelfCheckoutExperience.g:995:3: (this_INT_0= RULE_INT )? kw= '.' this_INT_2= RULE_INT
-            {
-            // InternalSelfCheckoutExperience.g:995:3: (this_INT_0= RULE_INT )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==RULE_INT) ) {
-                alt11=1;
-            }
-            switch (alt11) {
-                case 1 :
-                    // InternalSelfCheckoutExperience.g:996:4: this_INT_0= RULE_INT
-                    {
-                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_22); 
-
-                    				current.merge(this_INT_0);
-                    			
-
-                    				newLeafNode(this_INT_0, grammarAccess.getREALAccess().getINTTerminalRuleCall_0());
-                    			
-
-                    }
-                    break;
-
-            }
-
-            kw=(Token)match(input,31,FOLLOW_11); 
-
-            			current.merge(kw);
-            			newLeafNode(kw, grammarAccess.getREALAccess().getFullStopKeyword_1());
-            		
-            this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); 
-
-            			current.merge(this_INT_2);
-            		
-
-            			newLeafNode(this_INT_2, grammarAccess.getREALAccess().getINTTerminalRuleCall_2());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "ruleREAL"
-
-
     // $ANTLR start "entryRuleCheckout"
-    // InternalSelfCheckoutExperience.g:1023:1: entryRuleCheckout returns [EObject current=null] : iv_ruleCheckout= ruleCheckout EOF ;
+    // InternalSelfCheckoutExperience.g:920:1: entryRuleCheckout returns [EObject current=null] : iv_ruleCheckout= ruleCheckout EOF ;
     public final EObject entryRuleCheckout() throws RecognitionException {
         EObject current = null;
 
@@ -2642,8 +2384,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:1023:49: (iv_ruleCheckout= ruleCheckout EOF )
-            // InternalSelfCheckoutExperience.g:1024:2: iv_ruleCheckout= ruleCheckout EOF
+            // InternalSelfCheckoutExperience.g:920:49: (iv_ruleCheckout= ruleCheckout EOF )
+            // InternalSelfCheckoutExperience.g:921:2: iv_ruleCheckout= ruleCheckout EOF
             {
              newCompositeNode(grammarAccess.getCheckoutRule()); 
             pushFollow(FOLLOW_1);
@@ -2670,7 +2412,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleCheckout"
-    // InternalSelfCheckoutExperience.g:1030:1: ruleCheckout returns [EObject current=null] : (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) ) ;
+    // InternalSelfCheckoutExperience.g:927:1: ruleCheckout returns [EObject current=null] : (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) ) ;
     public final EObject ruleCheckout() throws RecognitionException {
         EObject current = null;
 
@@ -2686,47 +2428,47 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1036:2: ( (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) ) )
-            // InternalSelfCheckoutExperience.g:1037:2: (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) )
+            // InternalSelfCheckoutExperience.g:933:2: ( (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) ) )
+            // InternalSelfCheckoutExperience.g:934:2: (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) )
             {
-            // InternalSelfCheckoutExperience.g:1037:2: (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) )
-            // InternalSelfCheckoutExperience.g:1038:3: otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) )
+            // InternalSelfCheckoutExperience.g:934:2: (otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) ) )
+            // InternalSelfCheckoutExperience.g:935:3: otherlv_0= 'go' otherlv_1= 'to' otherlv_2= 'till' ( (lv_scan_3_0= ruleScan ) )+ ( (lv_pay_4_0= rulePay ) )
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_8); 
+            otherlv_0=(Token)match(input,29,FOLLOW_8); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCheckoutAccess().getGoKeyword_0());
             		
-            otherlv_1=(Token)match(input,14,FOLLOW_23); 
+            otherlv_1=(Token)match(input,14,FOLLOW_19); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCheckoutAccess().getToKeyword_1());
             		
-            otherlv_2=(Token)match(input,33,FOLLOW_24); 
+            otherlv_2=(Token)match(input,30,FOLLOW_20); 
 
             			newLeafNode(otherlv_2, grammarAccess.getCheckoutAccess().getTillKeyword_2());
             		
-            // InternalSelfCheckoutExperience.g:1050:3: ( (lv_scan_3_0= ruleScan ) )+
+            // InternalSelfCheckoutExperience.g:947:3: ( (lv_scan_3_0= ruleScan ) )+
             int cnt12=0;
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==34) ) {
+                if ( (LA12_0==31) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1051:4: (lv_scan_3_0= ruleScan )
+            	    // InternalSelfCheckoutExperience.g:948:4: (lv_scan_3_0= ruleScan )
             	    {
-            	    // InternalSelfCheckoutExperience.g:1051:4: (lv_scan_3_0= ruleScan )
-            	    // InternalSelfCheckoutExperience.g:1052:5: lv_scan_3_0= ruleScan
+            	    // InternalSelfCheckoutExperience.g:948:4: (lv_scan_3_0= ruleScan )
+            	    // InternalSelfCheckoutExperience.g:949:5: lv_scan_3_0= ruleScan
             	    {
 
             	    					newCompositeNode(grammarAccess.getCheckoutAccess().getScanScanParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_25);
+            	    pushFollow(FOLLOW_21);
             	    lv_scan_3_0=ruleScan();
 
             	    state._fsp--;
@@ -2758,11 +2500,11 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                 cnt12++;
             } while (true);
 
-            // InternalSelfCheckoutExperience.g:1069:3: ( (lv_pay_4_0= rulePay ) )
-            // InternalSelfCheckoutExperience.g:1070:4: (lv_pay_4_0= rulePay )
+            // InternalSelfCheckoutExperience.g:966:3: ( (lv_pay_4_0= rulePay ) )
+            // InternalSelfCheckoutExperience.g:967:4: (lv_pay_4_0= rulePay )
             {
-            // InternalSelfCheckoutExperience.g:1070:4: (lv_pay_4_0= rulePay )
-            // InternalSelfCheckoutExperience.g:1071:5: lv_pay_4_0= rulePay
+            // InternalSelfCheckoutExperience.g:967:4: (lv_pay_4_0= rulePay )
+            // InternalSelfCheckoutExperience.g:968:5: lv_pay_4_0= rulePay
             {
 
             					newCompositeNode(grammarAccess.getCheckoutAccess().getPayPayEnumRuleCall_4_0());
@@ -2812,7 +2554,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleScan"
-    // InternalSelfCheckoutExperience.g:1092:1: entryRuleScan returns [EObject current=null] : iv_ruleScan= ruleScan EOF ;
+    // InternalSelfCheckoutExperience.g:989:1: entryRuleScan returns [EObject current=null] : iv_ruleScan= ruleScan EOF ;
     public final EObject entryRuleScan() throws RecognitionException {
         EObject current = null;
 
@@ -2820,8 +2562,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:1092:45: (iv_ruleScan= ruleScan EOF )
-            // InternalSelfCheckoutExperience.g:1093:2: iv_ruleScan= ruleScan EOF
+            // InternalSelfCheckoutExperience.g:989:45: (iv_ruleScan= ruleScan EOF )
+            // InternalSelfCheckoutExperience.g:990:2: iv_ruleScan= ruleScan EOF
             {
              newCompositeNode(grammarAccess.getScanRule()); 
             pushFollow(FOLLOW_1);
@@ -2848,7 +2590,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleScan"
-    // InternalSelfCheckoutExperience.g:1099:1: ruleScan returns [EObject current=null] : (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* ) ;
+    // InternalSelfCheckoutExperience.g:996:1: ruleScan returns [EObject current=null] : (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* ) ;
     public final EObject ruleScan() throws RecognitionException {
         EObject current = null;
 
@@ -2863,31 +2605,31 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1105:2: ( (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* ) )
-            // InternalSelfCheckoutExperience.g:1106:2: (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* )
+            // InternalSelfCheckoutExperience.g:1002:2: ( (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* ) )
+            // InternalSelfCheckoutExperience.g:1003:2: (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* )
             {
-            // InternalSelfCheckoutExperience.g:1106:2: (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* )
-            // InternalSelfCheckoutExperience.g:1107:3: otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )*
+            // InternalSelfCheckoutExperience.g:1003:2: (otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )* )
+            // InternalSelfCheckoutExperience.g:1004:3: otherlv_0= 'scan' otherlv_1= 'at' otherlv_2= 'till' ( (lv_name_3_0= RULE_ID ) ) ( (lv_addToBag_4_0= ruleAddToBag ) )*
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_26); 
+            otherlv_0=(Token)match(input,31,FOLLOW_22); 
 
             			newLeafNode(otherlv_0, grammarAccess.getScanAccess().getScanKeyword_0());
             		
-            otherlv_1=(Token)match(input,35,FOLLOW_23); 
+            otherlv_1=(Token)match(input,32,FOLLOW_19); 
 
             			newLeafNode(otherlv_1, grammarAccess.getScanAccess().getAtKeyword_1());
             		
-            otherlv_2=(Token)match(input,33,FOLLOW_6); 
+            otherlv_2=(Token)match(input,30,FOLLOW_6); 
 
             			newLeafNode(otherlv_2, grammarAccess.getScanAccess().getTillKeyword_2());
             		
-            // InternalSelfCheckoutExperience.g:1119:3: ( (lv_name_3_0= RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:1120:4: (lv_name_3_0= RULE_ID )
+            // InternalSelfCheckoutExperience.g:1016:3: ( (lv_name_3_0= RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:1017:4: (lv_name_3_0= RULE_ID )
             {
-            // InternalSelfCheckoutExperience.g:1120:4: (lv_name_3_0= RULE_ID )
-            // InternalSelfCheckoutExperience.g:1121:5: lv_name_3_0= RULE_ID
+            // InternalSelfCheckoutExperience.g:1017:4: (lv_name_3_0= RULE_ID )
+            // InternalSelfCheckoutExperience.g:1018:5: lv_name_3_0= RULE_ID
             {
-            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_27); 
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_23); 
 
             					newLeafNode(lv_name_3_0, grammarAccess.getScanAccess().getNameIDTerminalRuleCall_3_0());
             				
@@ -2907,7 +2649,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             }
 
-            // InternalSelfCheckoutExperience.g:1137:3: ( (lv_addToBag_4_0= ruleAddToBag ) )*
+            // InternalSelfCheckoutExperience.g:1034:3: ( (lv_addToBag_4_0= ruleAddToBag ) )*
             loop13:
             do {
                 int alt13=2;
@@ -2920,15 +2662,15 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1138:4: (lv_addToBag_4_0= ruleAddToBag )
+            	    // InternalSelfCheckoutExperience.g:1035:4: (lv_addToBag_4_0= ruleAddToBag )
             	    {
-            	    // InternalSelfCheckoutExperience.g:1138:4: (lv_addToBag_4_0= ruleAddToBag )
-            	    // InternalSelfCheckoutExperience.g:1139:5: lv_addToBag_4_0= ruleAddToBag
+            	    // InternalSelfCheckoutExperience.g:1035:4: (lv_addToBag_4_0= ruleAddToBag )
+            	    // InternalSelfCheckoutExperience.g:1036:5: lv_addToBag_4_0= ruleAddToBag
             	    {
 
             	    					newCompositeNode(grammarAccess.getScanAccess().getAddToBagAddToBagParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_27);
+            	    pushFollow(FOLLOW_23);
             	    lv_addToBag_4_0=ruleAddToBag();
 
             	    state._fsp--;
@@ -2979,7 +2721,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "entryRuleAddToBag"
-    // InternalSelfCheckoutExperience.g:1160:1: entryRuleAddToBag returns [EObject current=null] : iv_ruleAddToBag= ruleAddToBag EOF ;
+    // InternalSelfCheckoutExperience.g:1057:1: entryRuleAddToBag returns [EObject current=null] : iv_ruleAddToBag= ruleAddToBag EOF ;
     public final EObject entryRuleAddToBag() throws RecognitionException {
         EObject current = null;
 
@@ -2987,8 +2729,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
         try {
-            // InternalSelfCheckoutExperience.g:1160:49: (iv_ruleAddToBag= ruleAddToBag EOF )
-            // InternalSelfCheckoutExperience.g:1161:2: iv_ruleAddToBag= ruleAddToBag EOF
+            // InternalSelfCheckoutExperience.g:1057:49: (iv_ruleAddToBag= ruleAddToBag EOF )
+            // InternalSelfCheckoutExperience.g:1058:2: iv_ruleAddToBag= ruleAddToBag EOF
             {
              newCompositeNode(grammarAccess.getAddToBagRule()); 
             pushFollow(FOLLOW_1);
@@ -3015,7 +2757,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleAddToBag"
-    // InternalSelfCheckoutExperience.g:1167:1: ruleAddToBag returns [EObject current=null] : (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) ) ;
+    // InternalSelfCheckoutExperience.g:1064:1: ruleAddToBag returns [EObject current=null] : (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) ) ;
     public final EObject ruleAddToBag() throws RecognitionException {
         EObject current = null;
 
@@ -3028,29 +2770,29 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1173:2: ( (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) ) )
-            // InternalSelfCheckoutExperience.g:1174:2: (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:1070:2: ( (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) ) )
+            // InternalSelfCheckoutExperience.g:1071:2: (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) )
             {
-            // InternalSelfCheckoutExperience.g:1174:2: (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) )
-            // InternalSelfCheckoutExperience.g:1175:3: otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:1071:2: (otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:1072:3: otherlv_0= 'add' otherlv_1= 'to' otherlv_2= 'bag' ( (otherlv_3= RULE_ID ) )
             {
             otherlv_0=(Token)match(input,13,FOLLOW_8); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAddToBagAccess().getAddKeyword_0());
             		
-            otherlv_1=(Token)match(input,14,FOLLOW_28); 
+            otherlv_1=(Token)match(input,14,FOLLOW_24); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAddToBagAccess().getToKeyword_1());
             		
-            otherlv_2=(Token)match(input,36,FOLLOW_6); 
+            otherlv_2=(Token)match(input,33,FOLLOW_6); 
 
             			newLeafNode(otherlv_2, grammarAccess.getAddToBagAccess().getBagKeyword_2());
             		
-            // InternalSelfCheckoutExperience.g:1187:3: ( (otherlv_3= RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:1188:4: (otherlv_3= RULE_ID )
+            // InternalSelfCheckoutExperience.g:1084:3: ( (otherlv_3= RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:1085:4: (otherlv_3= RULE_ID )
             {
-            // InternalSelfCheckoutExperience.g:1188:4: (otherlv_3= RULE_ID )
-            // InternalSelfCheckoutExperience.g:1189:5: otherlv_3= RULE_ID
+            // InternalSelfCheckoutExperience.g:1085:4: (otherlv_3= RULE_ID )
+            // InternalSelfCheckoutExperience.g:1086:5: otherlv_3= RULE_ID
             {
 
             					if (current==null) {
@@ -3090,7 +2832,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleMoveCommand"
-    // InternalSelfCheckoutExperience.g:1204:1: ruleMoveCommand returns [Enumerator current=null] : ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) ) ;
+    // InternalSelfCheckoutExperience.g:1101:1: ruleMoveCommand returns [Enumerator current=null] : ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) ) ;
     public final Enumerator ruleMoveCommand() throws RecognitionException {
         Enumerator current = null;
 
@@ -3101,17 +2843,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1210:2: ( ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) ) )
-            // InternalSelfCheckoutExperience.g:1211:2: ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) )
+            // InternalSelfCheckoutExperience.g:1107:2: ( ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) ) )
+            // InternalSelfCheckoutExperience.g:1108:2: ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) )
             {
-            // InternalSelfCheckoutExperience.g:1211:2: ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) )
+            // InternalSelfCheckoutExperience.g:1108:2: ( (enumLiteral_0= 'forward' ) | (enumLiteral_1= 'backward' ) )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==37) ) {
+            if ( (LA14_0==34) ) {
                 alt14=1;
             }
-            else if ( (LA14_0==38) ) {
+            else if ( (LA14_0==35) ) {
                 alt14=2;
             }
             else {
@@ -3122,12 +2864,12 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             }
             switch (alt14) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:1212:3: (enumLiteral_0= 'forward' )
+                    // InternalSelfCheckoutExperience.g:1109:3: (enumLiteral_0= 'forward' )
                     {
-                    // InternalSelfCheckoutExperience.g:1212:3: (enumLiteral_0= 'forward' )
-                    // InternalSelfCheckoutExperience.g:1213:4: enumLiteral_0= 'forward'
+                    // InternalSelfCheckoutExperience.g:1109:3: (enumLiteral_0= 'forward' )
+                    // InternalSelfCheckoutExperience.g:1110:4: enumLiteral_0= 'forward'
                     {
-                    enumLiteral_0=(Token)match(input,37,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,34,FOLLOW_2); 
 
                     				current = grammarAccess.getMoveCommandAccess().getForwardEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getMoveCommandAccess().getForwardEnumLiteralDeclaration_0());
@@ -3139,12 +2881,12 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                     }
                     break;
                 case 2 :
-                    // InternalSelfCheckoutExperience.g:1220:3: (enumLiteral_1= 'backward' )
+                    // InternalSelfCheckoutExperience.g:1117:3: (enumLiteral_1= 'backward' )
                     {
-                    // InternalSelfCheckoutExperience.g:1220:3: (enumLiteral_1= 'backward' )
-                    // InternalSelfCheckoutExperience.g:1221:4: enumLiteral_1= 'backward'
+                    // InternalSelfCheckoutExperience.g:1117:3: (enumLiteral_1= 'backward' )
+                    // InternalSelfCheckoutExperience.g:1118:4: enumLiteral_1= 'backward'
                     {
-                    enumLiteral_1=(Token)match(input,38,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,35,FOLLOW_2); 
 
                     				current = grammarAccess.getMoveCommandAccess().getBackwardEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getMoveCommandAccess().getBackwardEnumLiteralDeclaration_1());
@@ -3178,7 +2920,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleTurnCommand"
-    // InternalSelfCheckoutExperience.g:1231:1: ruleTurnCommand returns [Enumerator current=null] : ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) ) ;
+    // InternalSelfCheckoutExperience.g:1128:1: ruleTurnCommand returns [Enumerator current=null] : ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) ) ;
     public final Enumerator ruleTurnCommand() throws RecognitionException {
         Enumerator current = null;
 
@@ -3189,17 +2931,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1237:2: ( ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) ) )
-            // InternalSelfCheckoutExperience.g:1238:2: ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) )
+            // InternalSelfCheckoutExperience.g:1134:2: ( ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) ) )
+            // InternalSelfCheckoutExperience.g:1135:2: ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) )
             {
-            // InternalSelfCheckoutExperience.g:1238:2: ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) )
+            // InternalSelfCheckoutExperience.g:1135:2: ( (enumLiteral_0= 'left' ) | (enumLiteral_1= 'right' ) )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==39) ) {
+            if ( (LA15_0==36) ) {
                 alt15=1;
             }
-            else if ( (LA15_0==40) ) {
+            else if ( (LA15_0==37) ) {
                 alt15=2;
             }
             else {
@@ -3210,12 +2952,12 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             }
             switch (alt15) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:1239:3: (enumLiteral_0= 'left' )
+                    // InternalSelfCheckoutExperience.g:1136:3: (enumLiteral_0= 'left' )
                     {
-                    // InternalSelfCheckoutExperience.g:1239:3: (enumLiteral_0= 'left' )
-                    // InternalSelfCheckoutExperience.g:1240:4: enumLiteral_0= 'left'
+                    // InternalSelfCheckoutExperience.g:1136:3: (enumLiteral_0= 'left' )
+                    // InternalSelfCheckoutExperience.g:1137:4: enumLiteral_0= 'left'
                     {
-                    enumLiteral_0=(Token)match(input,39,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,36,FOLLOW_2); 
 
                     				current = grammarAccess.getTurnCommandAccess().getLeftEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getTurnCommandAccess().getLeftEnumLiteralDeclaration_0());
@@ -3227,12 +2969,12 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
                     }
                     break;
                 case 2 :
-                    // InternalSelfCheckoutExperience.g:1247:3: (enumLiteral_1= 'right' )
+                    // InternalSelfCheckoutExperience.g:1144:3: (enumLiteral_1= 'right' )
                     {
-                    // InternalSelfCheckoutExperience.g:1247:3: (enumLiteral_1= 'right' )
-                    // InternalSelfCheckoutExperience.g:1248:4: enumLiteral_1= 'right'
+                    // InternalSelfCheckoutExperience.g:1144:3: (enumLiteral_1= 'right' )
+                    // InternalSelfCheckoutExperience.g:1145:4: enumLiteral_1= 'right'
                     {
-                    enumLiteral_1=(Token)match(input,40,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,37,FOLLOW_2); 
 
                     				current = grammarAccess.getTurnCommandAccess().getRightEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getTurnCommandAccess().getRightEnumLiteralDeclaration_1());
@@ -3266,7 +3008,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "rulePay"
-    // InternalSelfCheckoutExperience.g:1258:1: rulePay returns [Enumerator current=null] : (enumLiteral_0= 'pay' ) ;
+    // InternalSelfCheckoutExperience.g:1155:1: rulePay returns [Enumerator current=null] : (enumLiteral_0= 'pay' ) ;
     public final Enumerator rulePay() throws RecognitionException {
         Enumerator current = null;
 
@@ -3276,13 +3018,13 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1264:2: ( (enumLiteral_0= 'pay' ) )
-            // InternalSelfCheckoutExperience.g:1265:2: (enumLiteral_0= 'pay' )
+            // InternalSelfCheckoutExperience.g:1161:2: ( (enumLiteral_0= 'pay' ) )
+            // InternalSelfCheckoutExperience.g:1162:2: (enumLiteral_0= 'pay' )
             {
-            // InternalSelfCheckoutExperience.g:1265:2: (enumLiteral_0= 'pay' )
-            // InternalSelfCheckoutExperience.g:1266:3: enumLiteral_0= 'pay'
+            // InternalSelfCheckoutExperience.g:1162:2: (enumLiteral_0= 'pay' )
+            // InternalSelfCheckoutExperience.g:1163:3: enumLiteral_0= 'pay'
             {
-            enumLiteral_0=(Token)match(input,41,FOLLOW_2); 
+            enumLiteral_0=(Token)match(input,38,FOLLOW_2); 
 
             			current = grammarAccess.getPayAccess().getPayEnumLiteralDeclaration().getEnumLiteral().getInstance();
             			newLeafNode(enumLiteral_0, grammarAccess.getPayAccess().getPayEnumLiteralDeclaration());
@@ -3315,31 +3057,27 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000006181420832L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000C210A0802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000080400030L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000400030L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000012000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000006181620830L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000018000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000018000002L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000060000002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000020400000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000C212A0800L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000003000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000006000002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000018000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000004080000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000000L});
 
 }

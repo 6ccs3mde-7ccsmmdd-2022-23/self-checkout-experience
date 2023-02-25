@@ -4,14 +4,11 @@
 package self_checkout_experience.selfCheckoutExperience.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import self_checkout_experience.selfCheckoutExperience.Expression;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.TurnCommand;
 import self_checkout_experience.selfCheckoutExperience.TurnStatement;
@@ -25,7 +22,6 @@ import self_checkout_experience.selfCheckoutExperience.TurnStatement;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.TurnStatementImpl#getCommand <em>Command</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.TurnStatementImpl#getDegrees <em>Degrees</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,16 +47,6 @@ public class TurnStatementImpl extends WalkStatementImpl implements TurnStatemen
    * @ordered
    */
   protected TurnCommand command = COMMAND_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getDegrees() <em>Degrees</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDegrees()
-   * @generated
-   * @ordered
-   */
-  protected Expression degrees;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,80 +100,12 @@ public class TurnStatementImpl extends WalkStatementImpl implements TurnStatemen
    * @generated
    */
   @Override
-  public Expression getDegrees()
-  {
-    return degrees;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDegrees(Expression newDegrees, NotificationChain msgs)
-  {
-    Expression oldDegrees = degrees;
-    degrees = newDegrees;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES, oldDegrees, newDegrees);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDegrees(Expression newDegrees)
-  {
-    if (newDegrees != degrees)
-    {
-      NotificationChain msgs = null;
-      if (degrees != null)
-        msgs = ((InternalEObject)degrees).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES, null, msgs);
-      if (newDegrees != null)
-        msgs = ((InternalEObject)newDegrees).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES, null, msgs);
-      msgs = basicSetDegrees(newDegrees, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES, newDegrees, newDegrees));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES:
-        return basicSetDegrees(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.TURN_STATEMENT__COMMAND:
         return getCommand();
-      case SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES:
-        return getDegrees();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,9 +122,6 @@ public class TurnStatementImpl extends WalkStatementImpl implements TurnStatemen
     {
       case SelfCheckoutExperiencePackage.TURN_STATEMENT__COMMAND:
         setCommand((TurnCommand)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES:
-        setDegrees((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,9 +140,6 @@ public class TurnStatementImpl extends WalkStatementImpl implements TurnStatemen
       case SelfCheckoutExperiencePackage.TURN_STATEMENT__COMMAND:
         setCommand(COMMAND_EDEFAULT);
         return;
-      case SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES:
-        setDegrees((Expression)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -244,8 +156,6 @@ public class TurnStatementImpl extends WalkStatementImpl implements TurnStatemen
     {
       case SelfCheckoutExperiencePackage.TURN_STATEMENT__COMMAND:
         return command != COMMAND_EDEFAULT;
-      case SelfCheckoutExperiencePackage.TURN_STATEMENT__DEGREES:
-        return degrees != null;
     }
     return super.eIsSet(featureID);
   }

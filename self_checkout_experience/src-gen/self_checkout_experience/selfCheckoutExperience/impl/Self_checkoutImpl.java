@@ -33,7 +33,7 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getPickstatemens <em>Pickstatemens</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getPickstatements <em>Pickstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getWalkstatements <em>Walkstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getCheckout <em>Checkout</em>}</li>
  * </ul>
@@ -43,14 +43,14 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements Self_checkout
 {
   /**
-   * The cached value of the '{@link #getPickstatemens() <em>Pickstatemens</em>}' containment reference list.
+   * The cached value of the '{@link #getPickstatements() <em>Pickstatements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPickstatemens()
+   * @see #getPickstatements()
    * @generated
    * @ordered
    */
-  protected EList<PickStatement> pickstatemens;
+  protected EList<PickStatement> pickstatements;
 
   /**
    * The cached value of the '{@link #getWalkstatements() <em>Walkstatements</em>}' containment reference list.
@@ -99,13 +99,13 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    */
   @Override
-  public EList<PickStatement> getPickstatemens()
+  public EList<PickStatement> getPickstatements()
   {
-    if (pickstatemens == null)
+    if (pickstatements == null)
     {
-      pickstatemens = new EObjectContainmentEList<PickStatement>(PickStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS);
+      pickstatements = new EObjectContainmentEList<PickStatement>(PickStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS);
     }
-    return pickstatemens;
+    return pickstatements;
   }
 
   /**
@@ -183,8 +183,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return ((InternalEList<?>)getPickstatemens()).basicRemove(otherEnd, msgs);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS:
+        return ((InternalEList<?>)getPickstatements()).basicRemove(otherEnd, msgs);
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
         return ((InternalEList<?>)getWalkstatements()).basicRemove(otherEnd, msgs);
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
@@ -203,8 +203,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return getPickstatemens();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS:
+        return getPickstatements();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
         return getWalkstatements();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
@@ -224,9 +224,9 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        getPickstatemens().clear();
-        getPickstatemens().addAll((Collection<? extends PickStatement>)newValue);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS:
+        getPickstatements().clear();
+        getPickstatements().addAll((Collection<? extends PickStatement>)newValue);
         return;
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
         getWalkstatements().clear();
@@ -249,8 +249,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        getPickstatemens().clear();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS:
+        getPickstatements().clear();
         return;
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
         getWalkstatements().clear();
@@ -272,8 +272,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return pickstatemens != null && !pickstatemens.isEmpty();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENTS:
+        return pickstatements != null && !pickstatements.isEmpty();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
         return walkstatements != null && !walkstatements.isEmpty();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:

@@ -3,10 +3,95 @@
  */
 package self_checkout_experience.scoping
 
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.emf.ecore.EReference
+import static extension org.eclipse.xtext.EcoreUtil2.*
+import static org.eclipse.xtext.scoping.Scopes.*
+import org.eclipse.emf.ecore.EObject
+import self_checkout_experience.selfCheckoutExperience.Scan
+import self_checkout_experience.selfCheckoutExperience.Self_checkout
+import self_checkout_experience.selfCheckoutExperience.AddToBasket
+import org.eclipse.xtext.EcoreUtil2
+import self_checkout_experience.selfCheckoutExperience.AddToBag
+import self_checkout_experience.selfCheckoutExperience.PickStatement
+import self_checkout_experience.selfCheckoutExperience.IntVarExpression
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
+import self_checkout_experience.selfCheckoutExperience.Repeat
+
 /** 
  * This class contains custom scoping description.
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.hello world fari
+ * on how and when to use it.
  */
-class SelfCheckoutExperienceScopeProvider extends AbstractSelfCheckoutExperienceScopeProvider { 
+class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider { 
+	
+//	scope for walking part in loop
+	def IScope scope_IntVarExpression_var_walk(IntVarExpression context, EReference ref){
+		val loopContainer = context.getContainerOfType(Repeat)
+		
+		if (loopContainer !== null){
+			loopContainer.visibleVariablesScope_walk
+		}
+		else{
+			val containingProgram = context.getContainerOfType(Self_checkout)
+				
+			scopeFor(containingProgram.walkstatements.filter(VariableDeclaration))
+		}
+	}
+	
+	def IScope visibleVariablesScope_walk(EObject context){
+		if (context instanceof Repeat){
+			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_walk)
+		}
+		else if (context instanceof Self_checkout){
+			scopeFor(context.walkstatements.filter(VariableDeclaration))
+		}
+	}
+
+
+
+//	scope for picking part in loop
+	def IScope scope_IntVarExpression_var_pick(IntVarExpression context, EReference ref){
+		val loopContainer = context.getContainerOfType(Repeat)
+		
+		if (loopContainer !== null){
+			loopContainer.visibleVariablesScope_pick
+		}
+		else{
+			val containingProgram = context.getContainerOfType(Self_checkout)
+				
+			scopeFor(containingProgram.pickstatements.filter(VariableDeclaration)
+			)
+		}
+	}
+	
+	def IScope visibleVariablesScope_pick(EObject context){
+		if (context instanceof Repeat){
+			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_pick)
+		}
+		else if (context instanceof Self_checkout){
+			scopeFor(context.pickstatements.filter(VariableDeclaration))
+		}
+	}
+	
+	
+	
+	
+//
+//	
+//	def IScope scope_Scan_itemAddedToBasket(Scan context, EReference ref){
+////		val containingLoopStatement = context.getContainerOfType(Scan)
+//		
+//		val checkoutExperienceProgram = context.getContainerOfType(AddToBasket)
+//		scopeFor(checkoutExperienceProgram.itemInBasket.itemCount.)
+//		
+////		val model = context.eContainer as Self_checkout
+////		scopeFor(model.pickstatemens
+////			itemInBasket.reject
+////		)
+//		
+//		
+//	}
+
 }

@@ -30,31 +30,31 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Self_checkout");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Assignment cPickstatemensAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final RuleCall cPickstatemensPickStatementParserRuleCall_0_0_0 = (RuleCall)cPickstatemensAssignment_0_0.eContents().get(0);
+		private final Assignment cPickstatementsAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final RuleCall cPickstatementsPickStatementParserRuleCall_0_0_0 = (RuleCall)cPickstatementsAssignment_0_0.eContents().get(0);
 		private final Assignment cWalkstatementsAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
 		private final RuleCall cWalkstatementsWalkStatementParserRuleCall_0_1_0 = (RuleCall)cWalkstatementsAssignment_0_1.eContents().get(0);
 		private final Assignment cCheckoutAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cCheckoutCheckoutParserRuleCall_1_0 = (RuleCall)cCheckoutAssignment_1.eContents().get(0);
 		
 		//Self_checkout:
-		//    (pickstatemens+=PickStatement | walkstatements += WalkStatement)*
+		//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
 		//    checkout = Checkout?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(pickstatemens+=PickStatement | walkstatements += WalkStatement)*
+		//(pickstatements+=PickStatement | walkstatements += WalkStatement)*
 		//checkout = Checkout?
 		public Group getGroup() { return cGroup; }
 		
-		//(pickstatemens+=PickStatement | walkstatements += WalkStatement)*
+		//(pickstatements+=PickStatement | walkstatements += WalkStatement)*
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//pickstatemens+=PickStatement
-		public Assignment getPickstatemensAssignment_0_0() { return cPickstatemensAssignment_0_0; }
+		//pickstatements+=PickStatement
+		public Assignment getPickstatementsAssignment_0_0() { return cPickstatementsAssignment_0_0; }
 		
 		//PickStatement
-		public RuleCall getPickstatemensPickStatementParserRuleCall_0_0_0() { return cPickstatemensPickStatementParserRuleCall_0_0_0; }
+		public RuleCall getPickstatementsPickStatementParserRuleCall_0_0_0() { return cPickstatementsPickStatementParserRuleCall_0_0_0; }
 		
 		//walkstatements += WalkStatement
 		public Assignment getWalkstatementsAssignment_0_1() { return cWalkstatementsAssignment_0_1; }
@@ -128,16 +128,16 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cBasketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cItemAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cItemPickStatementCrossReference_3_0 = (CrossReference)cItemAssignment_3.eContents().get(0);
-		private final RuleCall cItemPickStatementIDTerminalRuleCall_3_0_1 = (RuleCall)cItemPickStatementCrossReference_3_0.eContents().get(1);
+		private final Assignment cItemInBasketAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cItemInBasketPickStatementCrossReference_3_0 = (CrossReference)cItemInBasketAssignment_3.eContents().get(0);
+		private final RuleCall cItemInBasketPickStatementIDTerminalRuleCall_3_0_1 = (RuleCall)cItemInBasketPickStatementCrossReference_3_0.eContents().get(1);
 		
 		//AddToBasket:
-		//    "add" "to" "basket" item=[PickStatement]
+		//    "add" "to" "basket" itemInBasket=[PickStatement]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"add" "to" "basket" item=[PickStatement]
+		//"add" "to" "basket" itemInBasket=[PickStatement]
 		public Group getGroup() { return cGroup; }
 		
 		//"add"
@@ -149,62 +149,62 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//"basket"
 		public Keyword getBasketKeyword_2() { return cBasketKeyword_2; }
 		
-		//item=[PickStatement]
-		public Assignment getItemAssignment_3() { return cItemAssignment_3; }
+		//itemInBasket=[PickStatement]
+		public Assignment getItemInBasketAssignment_3() { return cItemInBasketAssignment_3; }
 		
 		//[PickStatement]
-		public CrossReference getItemPickStatementCrossReference_3_0() { return cItemPickStatementCrossReference_3_0; }
+		public CrossReference getItemInBasketPickStatementCrossReference_3_0() { return cItemInBasketPickStatementCrossReference_3_0; }
 		
 		//ID
-		public RuleCall getItemPickStatementIDTerminalRuleCall_3_0_1() { return cItemPickStatementIDTerminalRuleCall_3_0_1; }
+		public RuleCall getItemInBasketPickStatementIDTerminalRuleCall_3_0_1() { return cItemInBasketPickStatementIDTerminalRuleCall_3_0_1; }
 	}
 	public class DropElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Drop");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDropKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cItemAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cItemPickStatementCrossReference_1_0 = (CrossReference)cItemAssignment_1.eContents().get(0);
-		private final RuleCall cItemPickStatementIDTerminalRuleCall_1_0_1 = (RuleCall)cItemPickStatementCrossReference_1_0.eContents().get(1);
+		private final Assignment cItemDroppedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cItemDroppedPickStatementCrossReference_1_0 = (CrossReference)cItemDroppedAssignment_1.eContents().get(0);
+		private final RuleCall cItemDroppedPickStatementIDTerminalRuleCall_1_0_1 = (RuleCall)cItemDroppedPickStatementCrossReference_1_0.eContents().get(1);
 		
 		//Drop:
-		//    "drop" item=[PickStatement]
+		//    "drop" itemDropped=[PickStatement]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"drop" item=[PickStatement]
+		//"drop" itemDropped=[PickStatement]
 		public Group getGroup() { return cGroup; }
 		
 		//"drop"
 		public Keyword getDropKeyword_0() { return cDropKeyword_0; }
 		
-		//item=[PickStatement]
-		public Assignment getItemAssignment_1() { return cItemAssignment_1; }
+		//itemDropped=[PickStatement]
+		public Assignment getItemDroppedAssignment_1() { return cItemDroppedAssignment_1; }
 		
 		//[PickStatement]
-		public CrossReference getItemPickStatementCrossReference_1_0() { return cItemPickStatementCrossReference_1_0; }
+		public CrossReference getItemDroppedPickStatementCrossReference_1_0() { return cItemDroppedPickStatementCrossReference_1_0; }
 		
 		//ID
-		public RuleCall getItemPickStatementIDTerminalRuleCall_1_0_1() { return cItemPickStatementIDTerminalRuleCall_1_0_1; }
+		public RuleCall getItemDroppedPickStatementIDTerminalRuleCall_1_0_1() { return cItemDroppedPickStatementIDTerminalRuleCall_1_0_1; }
 	}
 	public class WalkStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.WalkStatement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMoveStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTurnStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cLoopStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cRepeatParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cVariableDeclarationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//WalkStatement:
 		//    MoveStatement |
 		//    TurnStatement |
-		//    LoopStatement |
+		//    Repeat |
 		//    VariableDeclaration
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//MoveStatement |
 		//TurnStatement |
-		//LoopStatement |
+		//Repeat |
 		//VariableDeclaration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -214,8 +214,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//TurnStatement
 		public RuleCall getTurnStatementParserRuleCall_1() { return cTurnStatementParserRuleCall_1; }
 		
-		//LoopStatement
-		public RuleCall getLoopStatementParserRuleCall_2() { return cLoopStatementParserRuleCall_2; }
+		//Repeat
+		public RuleCall getRepeatParserRuleCall_2() { return cRepeatParserRuleCall_2; }
 		
 		//VariableDeclaration
 		public RuleCall getVariableDeclarationParserRuleCall_3() { return cVariableDeclarationParserRuleCall_3; }
@@ -256,46 +256,54 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_3_0() { return cValueINTTerminalRuleCall_3_0; }
 	}
-	public class LoopStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.LoopStatement");
+	public class RepeatElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Repeat");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cCountAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cCountAdditionParserRuleCall_0_0 = (RuleCall)cCountAssignment_0.eContents().get(0);
-		private final Keyword cTimesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cDoKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRepeatKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCountAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCountAdditionParserRuleCall_1_0 = (RuleCall)cCountAssignment_1.eContents().get(0);
+		private final Keyword cTimesKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStatementsWalkStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
+		private final Alternatives cStatementsAlternatives_3_0 = (Alternatives)cStatementsAssignment_3.eContents().get(0);
+		private final RuleCall cStatementsWalkStatementParserRuleCall_3_0_0 = (RuleCall)cStatementsAlternatives_3_0.eContents().get(0);
+		private final RuleCall cStatementsPickStatementParserRuleCall_3_0_1 = (RuleCall)cStatementsAlternatives_3_0.eContents().get(1);
 		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//LoopStatement:
-		//    count = Addition "times" "do"
-		//      statements += WalkStatement+
+		//Repeat:
+		//    "repeat" count = Addition "times:"
+		//      statements += (WalkStatement | PickStatement)+
 		//    "end"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//count = Addition "times" "do"
-		//  statements += WalkStatement+
+		//"repeat" count = Addition "times:"
+		//  statements += (WalkStatement | PickStatement)+
 		//"end"
 		public Group getGroup() { return cGroup; }
 		
+		//"repeat"
+		public Keyword getRepeatKeyword_0() { return cRepeatKeyword_0; }
+		
 		//count = Addition
-		public Assignment getCountAssignment_0() { return cCountAssignment_0; }
+		public Assignment getCountAssignment_1() { return cCountAssignment_1; }
 		
 		//Addition
-		public RuleCall getCountAdditionParserRuleCall_0_0() { return cCountAdditionParserRuleCall_0_0; }
+		public RuleCall getCountAdditionParserRuleCall_1_0() { return cCountAdditionParserRuleCall_1_0; }
 		
-		//"times"
-		public Keyword getTimesKeyword_1() { return cTimesKeyword_1; }
+		//"times:"
+		public Keyword getTimesKeyword_2() { return cTimesKeyword_2; }
 		
-		//"do"
-		public Keyword getDoKeyword_2() { return cDoKeyword_2; }
-		
-		//statements += WalkStatement+
+		//statements += (WalkStatement | PickStatement)+
 		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 		
+		//(WalkStatement | PickStatement)
+		public Alternatives getStatementsAlternatives_3_0() { return cStatementsAlternatives_3_0; }
+		
 		//WalkStatement
-		public RuleCall getStatementsWalkStatementParserRuleCall_3_0() { return cStatementsWalkStatementParserRuleCall_3_0; }
+		public RuleCall getStatementsWalkStatementParserRuleCall_3_0_0() { return cStatementsWalkStatementParserRuleCall_3_0_0; }
+		
+		//PickStatement
+		public RuleCall getStatementsPickStatementParserRuleCall_3_0_1() { return cStatementsPickStatementParserRuleCall_3_0_1; }
 		
 		//"end"
 		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
@@ -342,17 +350,13 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Keyword cTurnKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cCommandTurnCommandEnumRuleCall_1_0 = (RuleCall)cCommandAssignment_1.eContents().get(0);
-		private final Keyword cByKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDegreesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDegreesAdditionParserRuleCall_3_0 = (RuleCall)cDegreesAssignment_3.eContents().get(0);
-		private final Keyword cDegreesKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//TurnStatement:
-		//    "turn" command = TurnCommand "by" degrees = Addition "degrees"
+		//    "turn" command = TurnCommand
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"turn" command = TurnCommand "by" degrees = Addition "degrees"
+		//"turn" command = TurnCommand
 		public Group getGroup() { return cGroup; }
 		
 		//"turn"
@@ -363,18 +367,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		
 		//TurnCommand
 		public RuleCall getCommandTurnCommandEnumRuleCall_1_0() { return cCommandTurnCommandEnumRuleCall_1_0; }
-		
-		//"by"
-		public Keyword getByKeyword_2() { return cByKeyword_2; }
-		
-		//degrees = Addition
-		public Assignment getDegreesAssignment_3() { return cDegreesAssignment_3; }
-		
-		//Addition
-		public RuleCall getDegreesAdditionParserRuleCall_3_0() { return cDegreesAdditionParserRuleCall_3_0; }
-		
-		//"degrees"
-		public Keyword getDegreesKeyword_4() { return cDegreesKeyword_4; }
 	}
 	public class AdditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Addition");
@@ -477,23 +469,20 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIntLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIntVarExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cRealLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final RuleCall cAdditionParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cAdditionParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//Primary returns Expression:
 		//    IntLiteral |
 		//    IntVarExpression |
-		//    RealLiteral |
 		//    "(" Addition ")"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//IntLiteral |
 		//IntVarExpression |
-		//RealLiteral |
 		//"(" Addition ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -503,20 +492,17 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//IntVarExpression
 		public RuleCall getIntVarExpressionParserRuleCall_1() { return cIntVarExpressionParserRuleCall_1; }
 		
-		//RealLiteral
-		public RuleCall getRealLiteralParserRuleCall_2() { return cRealLiteralParserRuleCall_2; }
-		
 		//"(" Addition ")"
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//"("
-		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 		
 		//Addition
-		public RuleCall getAdditionParserRuleCall_3_1() { return cAdditionParserRuleCall_3_1; }
+		public RuleCall getAdditionParserRuleCall_2_1() { return cAdditionParserRuleCall_2_1; }
 		
 		//")"
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 	}
 	public class IntLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntLiteral");
@@ -533,22 +519,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		
 		//INT
 		public RuleCall getValINTTerminalRuleCall_0() { return cValINTTerminalRuleCall_0; }
-	}
-	public class RealLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.RealLiteral");
-		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValREALParserRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
-		
-		//RealLiteral:
-		//    val = REAL
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//val = REAL
-		public Assignment getValAssignment() { return cValAssignment; }
-		
-		//REAL
-		public RuleCall getValREALParserRuleCall_0() { return cValREALParserRuleCall_0; }
 	}
 	public class IntVarExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntVarExpression");
@@ -569,30 +539,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		
 		//ID
 		public RuleCall getVarVariableDeclarationIDTerminalRuleCall_0_1() { return cVarVariableDeclarationIDTerminalRuleCall_0_1; }
-	}
-	public class REALElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.REAL");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		
-		//REAL returns ecore::EFloat hidden():
-		//    INT? "." INT
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//INT? "." INT
-		public Group getGroup() { return cGroup; }
-		
-		//INT?
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//"."
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	public class CheckoutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Checkout");
@@ -791,7 +737,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final DropElements pDrop;
 	private final WalkStatementElements pWalkStatement;
 	private final VariableDeclarationElements pVariableDeclaration;
-	private final LoopStatementElements pLoopStatement;
+	private final RepeatElements pRepeat;
 	private final MoveStatementElements pMoveStatement;
 	private final MoveCommandElements eMoveCommand;
 	private final TurnStatementElements pTurnStatement;
@@ -800,9 +746,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final MultiplicationElements pMultiplication;
 	private final PrimaryElements pPrimary;
 	private final IntLiteralElements pIntLiteral;
-	private final RealLiteralElements pRealLiteral;
 	private final IntVarExpressionElements pIntVarExpression;
-	private final REALElements pREAL;
 	private final CheckoutElements pCheckout;
 	private final ScanElements pScan;
 	private final AddToBagElements pAddToBag;
@@ -823,7 +767,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pDrop = new DropElements();
 		this.pWalkStatement = new WalkStatementElements();
 		this.pVariableDeclaration = new VariableDeclarationElements();
-		this.pLoopStatement = new LoopStatementElements();
+		this.pRepeat = new RepeatElements();
 		this.pMoveStatement = new MoveStatementElements();
 		this.eMoveCommand = new MoveCommandElements();
 		this.pTurnStatement = new TurnStatementElements();
@@ -832,9 +776,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pMultiplication = new MultiplicationElements();
 		this.pPrimary = new PrimaryElements();
 		this.pIntLiteral = new IntLiteralElements();
-		this.pRealLiteral = new RealLiteralElements();
 		this.pIntVarExpression = new IntVarExpressionElements();
-		this.pREAL = new REALElements();
 		this.pCheckout = new CheckoutElements();
 		this.pScan = new ScanElements();
 		this.pAddToBag = new AddToBagElements();
@@ -869,7 +811,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 
 	
 	//Self_checkout:
-	//    (pickstatemens+=PickStatement | walkstatements += WalkStatement)*
+	//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
 	//    checkout = Checkout?
 	//;
 	public Self_checkoutElements getSelf_checkoutAccess() {
@@ -893,7 +835,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//AddToBasket:
-	//    "add" "to" "basket" item=[PickStatement]
+	//    "add" "to" "basket" itemInBasket=[PickStatement]
 	//;
 	public AddToBasketElements getAddToBasketAccess() {
 		return pAddToBasket;
@@ -904,7 +846,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//Drop:
-	//    "drop" item=[PickStatement]
+	//    "drop" itemDropped=[PickStatement]
 	//;
 	public DropElements getDropAccess() {
 		return pDrop;
@@ -917,7 +859,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//WalkStatement:
 	//    MoveStatement |
 	//    TurnStatement |
-	//    LoopStatement |
+	//    Repeat |
 	//    VariableDeclaration
 	//;
 	public WalkStatementElements getWalkStatementAccess() {
@@ -939,17 +881,17 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getVariableDeclarationAccess().getRule();
 	}
 	
-	//LoopStatement:
-	//    count = Addition "times" "do"
-	//      statements += WalkStatement+
+	//Repeat:
+	//    "repeat" count = Addition "times:"
+	//      statements += (WalkStatement | PickStatement)+
 	//    "end"
 	//;
-	public LoopStatementElements getLoopStatementAccess() {
-		return pLoopStatement;
+	public RepeatElements getRepeatAccess() {
+		return pRepeat;
 	}
 	
-	public ParserRule getLoopStatementRule() {
-		return getLoopStatementAccess().getRule();
+	public ParserRule getRepeatRule() {
+		return getRepeatAccess().getRule();
 	}
 	
 	//MoveStatement:
@@ -975,7 +917,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//TurnStatement:
-	//    "turn" command = TurnCommand "by" degrees = Addition "degrees"
+	//    "turn" command = TurnCommand
 	//;
 	public TurnStatementElements getTurnStatementAccess() {
 		return pTurnStatement;
@@ -1021,7 +963,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//Primary returns Expression:
 	//    IntLiteral |
 	//    IntVarExpression |
-	//    RealLiteral |
 	//    "(" Addition ")"
 	//;
 	public PrimaryElements getPrimaryAccess() {
@@ -1043,17 +984,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getIntLiteralAccess().getRule();
 	}
 	
-	//RealLiteral:
-	//    val = REAL
-	//;
-	public RealLiteralElements getRealLiteralAccess() {
-		return pRealLiteral;
-	}
-	
-	public ParserRule getRealLiteralRule() {
-		return getRealLiteralAccess().getRule();
-	}
-	
 	//IntVarExpression:
 	//    var = [VariableDeclaration]
 	//;
@@ -1063,17 +993,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public ParserRule getIntVarExpressionRule() {
 		return getIntVarExpressionAccess().getRule();
-	}
-	
-	//REAL returns ecore::EFloat hidden():
-	//    INT? "." INT
-	//;
-	public REALElements getREALAccess() {
-		return pREAL;
-	}
-	
-	public ParserRule getREALRule() {
-		return getREALAccess().getRule();
 	}
 	
 	//Checkout:

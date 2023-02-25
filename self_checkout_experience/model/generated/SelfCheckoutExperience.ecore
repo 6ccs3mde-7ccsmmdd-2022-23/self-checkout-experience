@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="selfCheckoutExperience" nsURI="http://www.SelfCheckoutExperience.self_checkout_experience"
     nsPrefix="selfCheckoutExperience">
   <eClassifiers xsi:type="ecore:EClass" name="Self_checkout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatemens" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatements" upperBound="-1"
         eType="#//PickStatement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="walkstatements" upperBound="-1"
         eType="#//WalkStatement" containment="true"/>
@@ -18,21 +18,21 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddToBasket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//PickStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInBasket" eType="#//PickStatement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Drop">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//PickStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemDropped" eType="#//PickStatement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WalkStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoopStatement" eSuperTypes="#//WalkStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//WalkStatement" containment="true"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveStatement" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//MoveCommand"/>
@@ -45,8 +45,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TurnStatement" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//TurnCommand"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="degrees" eType="#//Expression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TurnCommand">
     <eLiterals name="left" literal="left"/>
@@ -55,9 +53,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RealLiteral" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntVarExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VariableDeclaration"/>

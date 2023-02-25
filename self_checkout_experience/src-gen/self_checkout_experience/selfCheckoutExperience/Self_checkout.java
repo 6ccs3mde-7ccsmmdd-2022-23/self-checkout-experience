@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatemens <em>Pickstatemens</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatements <em>Pickstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getWalkstatements <em>Walkstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getCheckout <em>Checkout</em>}</li>
  * </ul>
@@ -28,16 +28,16 @@ import org.eclipse.emf.ecore.EObject;
 public interface Self_checkout extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Pickstatemens</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Pickstatements</b></em>' containment reference list.
    * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.PickStatement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pickstatemens</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_Pickstatemens()
+   * @return the value of the '<em>Pickstatements</em>' containment reference list.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_Pickstatements()
    * @model containment="true"
    * @generated
    */
-  EList<PickStatement> getPickstatemens();
+  EList<PickStatement> getPickstatements();
 
   /**
    * Returns the value of the '<em><b>Walkstatements</b></em>' containment reference list.

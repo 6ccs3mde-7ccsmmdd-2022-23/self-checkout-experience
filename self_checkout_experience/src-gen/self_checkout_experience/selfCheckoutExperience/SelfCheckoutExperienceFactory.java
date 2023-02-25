@@ -78,13 +78,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   VariableDeclaration createVariableDeclaration();
 
   /**
-   * Returns a new object of class '<em>Loop Statement</em>'.
+   * Returns a new object of class '<em>Repeat</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Loop Statement</em>'.
+   * @return a new object of class '<em>Repeat</em>'.
    * @generated
    */
-  LoopStatement createLoopStatement();
+  Repeat createRepeat();
 
   /**
    * Returns a new object of class '<em>Move Statement</em>'.
@@ -121,15 +121,6 @@ public interface SelfCheckoutExperienceFactory extends EFactory
    * @generated
    */
   IntLiteral createIntLiteral();
-
-  /**
-   * Returns a new object of class '<em>Real Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Literal</em>'.
-   * @generated
-   */
-  RealLiteral createRealLiteral();
 
   /**
    * Returns a new object of class '<em>Int Var Expression</em>'.

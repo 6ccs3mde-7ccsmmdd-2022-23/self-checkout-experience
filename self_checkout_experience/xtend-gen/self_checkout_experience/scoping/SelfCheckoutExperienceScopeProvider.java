@@ -3,11 +3,90 @@
  */
 package self_checkout_experience.scoping;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
+import self_checkout_experience.selfCheckoutExperience.Self_checkout;
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
+
 /**
  * This class contains custom scoping description.
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.hello world fari
+ * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class SelfCheckoutExperienceScopeProvider extends AbstractSelfCheckoutExperienceScopeProvider {
+public class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider {
+  public IScope scope_IntVarExpression_var_walk(final IntVarExpression context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      final Repeat loopContainer = EcoreUtil2.<Repeat>getContainerOfType(context, Repeat.class);
+      IScope _xifexpression = null;
+      if ((loopContainer != null)) {
+        _xifexpression = this.visibleVariablesScope_walk(loopContainer);
+      } else {
+        IScope _xblockexpression_1 = null;
+        {
+          final Self_checkout containingProgram = EcoreUtil2.<Self_checkout>getContainerOfType(context, Self_checkout.class);
+          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getWalkstatements(), VariableDeclaration.class));
+        }
+        _xifexpression = _xblockexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public IScope visibleVariablesScope_walk(final EObject context) {
+    IScope _xifexpression = null;
+    if ((context instanceof Repeat)) {
+      _xifexpression = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Repeat)context).getStatements(), VariableDeclaration.class), this.visibleVariablesScope_walk(((Repeat)context).eContainer()));
+    } else {
+      IScope _xifexpression_1 = null;
+      if ((context instanceof Self_checkout)) {
+        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Self_checkout)context).getWalkstatements(), VariableDeclaration.class));
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public IScope scope_IntVarExpression_var_pick(final IntVarExpression context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      final Repeat loopContainer = EcoreUtil2.<Repeat>getContainerOfType(context, Repeat.class);
+      IScope _xifexpression = null;
+      if ((loopContainer != null)) {
+        _xifexpression = this.visibleVariablesScope_pick(loopContainer);
+      } else {
+        IScope _xblockexpression_1 = null;
+        {
+          final Self_checkout containingProgram = EcoreUtil2.<Self_checkout>getContainerOfType(context, Self_checkout.class);
+          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getPickstatements(), VariableDeclaration.class));
+        }
+        _xifexpression = _xblockexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public IScope visibleVariablesScope_pick(final EObject context) {
+    IScope _xifexpression = null;
+    if ((context instanceof Repeat)) {
+      _xifexpression = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Repeat)context).getStatements(), VariableDeclaration.class), this.visibleVariablesScope_pick(((Repeat)context).eContainer()));
+    } else {
+      IScope _xifexpression_1 = null;
+      if ((context instanceof Self_checkout)) {
+        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Self_checkout)context).getPickstatements(), VariableDeclaration.class));
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
 }

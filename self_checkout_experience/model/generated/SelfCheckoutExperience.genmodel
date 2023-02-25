@@ -18,7 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Pay/pay"/>
     </genEnums>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Self_checkout">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickstatemens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickstatements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/walkstatements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/checkout"/>
     </genClasses>
@@ -28,19 +28,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//PickStatement/holdingItem"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBasket">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToBasket/item"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToBasket/itemInBasket"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Drop">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Drop/item"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Drop/itemDropped"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//WalkStatement"/>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//VariableDeclaration/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//VariableDeclaration/value"/>
     </genClasses>
-    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//LoopStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//LoopStatement/count"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//LoopStatement/statements"/>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Repeat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Repeat/count"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Repeat/statements"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//MoveStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//MoveStatement/command"/>
@@ -48,14 +48,10 @@
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//TurnStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//TurnStatement/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//TurnStatement/degrees"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Expression"/>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//IntLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//IntLiteral/val"/>
-    </genClasses>
-    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//RealLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//RealLiteral/val"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//IntVarExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//IntVarExpression/var"/>

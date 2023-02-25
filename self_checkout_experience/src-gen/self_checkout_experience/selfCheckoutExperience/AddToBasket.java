@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItem <em>Item</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItemInBasket <em>Item In Basket</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBasket()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface AddToBasket extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Item</b></em>' reference.
+   * Returns the value of the '<em><b>Item In Basket</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Item</em>' reference.
-   * @see #setItem(PickStatement)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBasket_Item()
+   * @return the value of the '<em>Item In Basket</em>' reference.
+   * @see #setItemInBasket(PickStatement)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBasket_ItemInBasket()
    * @model
    * @generated
    */
-  PickStatement getItem();
+  PickStatement getItemInBasket();
 
   /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItem <em>Item</em>}' reference.
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItemInBasket <em>Item In Basket</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Item</em>' reference.
-   * @see #getItem()
+   * @param value the new value of the '<em>Item In Basket</em>' reference.
+   * @see #getItemInBasket()
    * @generated
    */
-  void setItem(PickStatement value);
+  void setItemInBasket(PickStatement value);
 
 } // AddToBasket

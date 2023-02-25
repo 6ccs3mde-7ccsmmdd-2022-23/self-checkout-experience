@@ -116,11 +116,11 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.LOOP_STATEMENT:
+      case SelfCheckoutExperiencePackage.REPEAT:
       {
-        LoopStatement loopStatement = (LoopStatement)theEObject;
-        T result = caseLoopStatement(loopStatement);
-        if (result == null) result = caseWalkStatement(loopStatement);
+        Repeat repeat = (Repeat)theEObject;
+        T result = caseRepeat(repeat);
+        if (result == null) result = caseWalkStatement(repeat);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,14 +152,6 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         IntLiteral intLiteral = (IntLiteral)theEObject;
         T result = caseIntLiteral(intLiteral);
         if (result == null) result = caseExpression(intLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SelfCheckoutExperiencePackage.REAL_LITERAL:
-      {
-        RealLiteral realLiteral = (RealLiteral)theEObject;
-        T result = caseRealLiteral(realLiteral);
-        if (result == null) result = caseExpression(realLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,17 +301,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Repeat</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Repeat</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLoopStatement(LoopStatement object)
+  public T caseRepeat(Repeat object)
   {
     return null;
   }
@@ -384,22 +376,6 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIntLiteral(IntLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Real Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Real Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRealLiteral(RealLiteral object)
   {
     return null;
   }
