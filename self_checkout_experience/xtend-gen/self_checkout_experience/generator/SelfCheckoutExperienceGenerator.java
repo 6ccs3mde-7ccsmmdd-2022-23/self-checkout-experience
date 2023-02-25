@@ -3,10 +3,27 @@
  */
 package self_checkout_experience.generator;
 
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import self_checkout_experience.selfCheckoutExperience.AddToBag;
+import self_checkout_experience.selfCheckoutExperience.AddToBasket;
+import self_checkout_experience.selfCheckoutExperience.Checkout;
+import self_checkout_experience.selfCheckoutExperience.Drop;
+import self_checkout_experience.selfCheckoutExperience.MoveStatement;
+import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
+import self_checkout_experience.selfCheckoutExperience.Scan;
+import self_checkout_experience.selfCheckoutExperience.Self_checkout;
+import self_checkout_experience.selfCheckoutExperience.TurnStatement;
+import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +34,67 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    final Self_checkout model = ((Self_checkout) _head);
+    fsa.generateFile("self_checkout_experience.txt", this.generate(model));
+  }
+  
+  public CharSequence generate(final Self_checkout checkout) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Self checkout summary:");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- ");
+    int _size = IteratorExtensions.size(Iterators.<PickStatement>filter(checkout.eAllContents(), PickStatement.class));
+    _builder.append(_size);
+    _builder.append(" pick statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_1 = IteratorExtensions.size(Iterators.<AddToBasket>filter(checkout.eAllContents(), AddToBasket.class));
+    _builder.append(_size_1);
+    _builder.append(" add to basket statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_2 = IteratorExtensions.size(Iterators.<Drop>filter(checkout.eAllContents(), Drop.class));
+    _builder.append(_size_2);
+    _builder.append(" drop statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_3 = IteratorExtensions.size(Iterators.<Checkout>filter(checkout.eAllContents(), Checkout.class));
+    _builder.append(_size_3);
+    _builder.append(" go to till statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_4 = IteratorExtensions.size(Iterators.<Scan>filter(checkout.eAllContents(), Scan.class));
+    _builder.append(_size_4);
+    _builder.append(" scan statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_5 = IteratorExtensions.size(Iterators.<AddToBag>filter(checkout.eAllContents(), AddToBag.class));
+    _builder.append(_size_5);
+    _builder.append(" add to bag statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_6 = IteratorExtensions.size(Iterators.<MoveStatement>filter(checkout.eAllContents(), MoveStatement.class));
+    _builder.append(_size_6);
+    _builder.append(" move statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_7 = IteratorExtensions.size(Iterators.<TurnStatement>filter(checkout.eAllContents(), TurnStatement.class));
+    _builder.append(_size_7);
+    _builder.append(" turn statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_8 = IterableExtensions.size(Iterables.<Repeat>filter(checkout.getWalkstatements(), Repeat.class));
+    _builder.append(_size_8);
+    _builder.append(" repeat statements");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    int _size_9 = IteratorExtensions.size(Iterators.<WalkStatement>filter(checkout.eAllContents(), WalkStatement.class));
+    _builder.append(_size_9);
+    _builder.append(" Walk statements");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
   }
 }

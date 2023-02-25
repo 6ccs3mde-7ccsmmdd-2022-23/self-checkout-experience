@@ -24,7 +24,7 @@ Drop:
 	"drop" itemDropped=[PickStatement]
 ;
 
-	
+
 WalkStatement:
 	MoveStatement |
 	TurnStatement |
