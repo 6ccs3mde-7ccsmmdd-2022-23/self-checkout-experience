@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import self_checkout_experience.selfCheckoutExperience.AddToBasket;
-import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
 /**
@@ -38,7 +38,7 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
    * @generated
    * @ordered
    */
-  protected PickStatement itemInBasket;
+  protected ItemDef itemInBasket;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,12 +67,12 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
    * @generated
    */
   @Override
-  public PickStatement getItemInBasket()
+  public ItemDef getItemInBasket()
   {
     if (itemInBasket != null && itemInBasket.eIsProxy())
     {
       InternalEObject oldItemInBasket = (InternalEObject)itemInBasket;
-      itemInBasket = (PickStatement)eResolveProxy(oldItemInBasket);
+      itemInBasket = (ItemDef)eResolveProxy(oldItemInBasket);
       if (itemInBasket != oldItemInBasket)
       {
         if (eNotificationRequired())
@@ -87,7 +87,7 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
    * <!-- end-user-doc -->
    * @generated
    */
-  public PickStatement basicGetItemInBasket()
+  public ItemDef basicGetItemInBasket()
   {
     return itemInBasket;
   }
@@ -98,9 +98,9 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
    * @generated
    */
   @Override
-  public void setItemInBasket(PickStatement newItemInBasket)
+  public void setItemInBasket(ItemDef newItemInBasket)
   {
-    PickStatement oldItemInBasket = itemInBasket;
+    ItemDef oldItemInBasket = itemInBasket;
     itemInBasket = newItemInBasket;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.ADD_TO_BASKET__ITEM_IN_BASKET, oldItemInBasket, itemInBasket));
@@ -134,7 +134,7 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADD_TO_BASKET__ITEM_IN_BASKET:
-        setItemInBasket((PickStatement)newValue);
+        setItemInBasket((ItemDef)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -151,7 +151,7 @@ public class AddToBasketImpl extends MinimalEObjectImpl.Container implements Add
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADD_TO_BASKET__ITEM_IN_BASKET:
-        setItemInBasket((PickStatement)null);
+        setItemInBasket((ItemDef)null);
         return;
     }
     super.eUnset(featureID);

@@ -18,6 +18,7 @@ import self_checkout_experience.selfCheckoutExperience.PickStatement
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
 import self_checkout_experience.selfCheckoutExperience.Repeat
+import self_checkout_experience.selfCheckoutExperience.ItemDef
 
 /** 
  * This class contains custom scoping description.
@@ -25,7 +26,18 @@ import self_checkout_experience.selfCheckoutExperience.Repeat
  * on how and when to use it.
  */
 class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider { 
-	
+
+
+//// scope for pick up and add to basket
+//	def IScope scope_AddToBasket_itemInBasket(AddToBasket context, EReference ref) {
+//		val containItems = context.getContainerOfType(Self_checkout)
+//		// val containItems = context.eAllContents.toIterable.filter()        
+//		if(containItems !== null){
+//			scopeFor(containItems.pickstatements.filter(ItemDef))
+//		}
+//	}
+////TO DO: THE SCAN VERSION
+
 //	scope for walking part in loop
 	def IScope scope_IntVarExpression_var_walk(IntVarExpression context, EReference ref){
 		val loopContainer = context.getContainerOfType(Repeat)

@@ -185,19 +185,20 @@ rulePickStatement returns [EObject current=null]
 		)
 		(
 			(
-				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getPickStatementAccess().getNameIDTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPickStatementAccess().getItemPickedItemDefParserRuleCall_3_0());
 				}
+				lv_itemPicked_3_0=ruleItemDef
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPickStatementRule());
+						$current = createModelElementForParent(grammarAccess.getPickStatementRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"name",
-						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"itemPicked",
+						lv_itemPicked_3_0,
+						"self_checkout_experience.SelfCheckoutExperience.ItemDef");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -241,6 +242,41 @@ rulePickStatement returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleItemDef
+entryRuleItemDef returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getItemDefRule()); }
+	iv_ruleItemDef=ruleItemDef
+	{ $current=$iv_ruleItemDef.current; }
+	EOF;
+
+// Rule ItemDef
+ruleItemDef returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getItemDefAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getItemDefRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
+		)
+	)
+;
+
 // Entry rule entryRuleAddToBasket
 entryRuleAddToBasket returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getAddToBasketRule()); }
@@ -278,7 +314,7 @@ ruleAddToBasket returns [EObject current=null]
 				}
 				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getAddToBasketAccess().getItemInBasketPickStatementCrossReference_3_0());
+					newLeafNode(otherlv_3, grammarAccess.getAddToBasketAccess().getItemInBasketItemDefCrossReference_3_0());
 				}
 			)
 		)
@@ -314,7 +350,7 @@ ruleDrop returns [EObject current=null]
 				}
 				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getDropAccess().getItemDroppedPickStatementCrossReference_1_0());
+					newLeafNode(otherlv_1, grammarAccess.getDropAccess().getItemDroppedItemDefCrossReference_1_0());
 				}
 			)
 		)

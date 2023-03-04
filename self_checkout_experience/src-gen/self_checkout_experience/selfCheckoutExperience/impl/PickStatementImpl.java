@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
@@ -26,7 +27,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.PickStatementImpl#getItemCount <em>Item Count</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.PickStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.PickStatementImpl#getItemPicked <em>Item Picked</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.PickStatementImpl#getHoldingItem <em>Holding Item</em>}</li>
  * </ul>
  *
@@ -45,24 +46,14 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
   protected Expression itemCount;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getItemPicked() <em>Item Picked</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getItemPicked()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected ItemDef itemPicked;
 
   /**
    * The cached value of the '{@link #getHoldingItem() <em>Holding Item</em>}' containment reference.
@@ -151,9 +142,26 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public String getName()
+  public ItemDef getItemPicked()
   {
-    return name;
+    return itemPicked;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetItemPicked(ItemDef newItemPicked, NotificationChain msgs)
+  {
+    ItemDef oldItemPicked = itemPicked;
+    itemPicked = newItemPicked;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED, oldItemPicked, newItemPicked);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -162,12 +170,20 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setItemPicked(ItemDef newItemPicked)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.PICK_STATEMENT__NAME, oldName, name));
+    if (newItemPicked != itemPicked)
+    {
+      NotificationChain msgs = null;
+      if (itemPicked != null)
+        msgs = ((InternalEObject)itemPicked).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED, null, msgs);
+      if (newItemPicked != null)
+        msgs = ((InternalEObject)newItemPicked).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED, null, msgs);
+      msgs = basicSetItemPicked(newItemPicked, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED, newItemPicked, newItemPicked));
   }
 
   /**
@@ -232,6 +248,8 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
     {
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
         return basicSetItemCount(null, msgs);
+      case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
+        return basicSetItemPicked(null, msgs);
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__HOLDING_ITEM:
         return basicSetHoldingItem(null, msgs);
     }
@@ -250,8 +268,8 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
     {
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
         return getItemCount();
-      case SelfCheckoutExperiencePackage.PICK_STATEMENT__NAME:
-        return getName();
+      case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
+        return getItemPicked();
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__HOLDING_ITEM:
         return getHoldingItem();
     }
@@ -271,8 +289,8 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
         setItemCount((Expression)newValue);
         return;
-      case SelfCheckoutExperiencePackage.PICK_STATEMENT__NAME:
-        setName((String)newValue);
+      case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
+        setItemPicked((ItemDef)newValue);
         return;
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__HOLDING_ITEM:
         setHoldingItem((EObject)newValue);
@@ -294,8 +312,8 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
         setItemCount((Expression)null);
         return;
-      case SelfCheckoutExperiencePackage.PICK_STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
+        setItemPicked((ItemDef)null);
         return;
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__HOLDING_ITEM:
         setHoldingItem((EObject)null);
@@ -316,29 +334,12 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
     {
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
         return itemCount != null;
-      case SelfCheckoutExperiencePackage.PICK_STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
+        return itemPicked != null;
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__HOLDING_ITEM:
         return holdingItem != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //PickStatementImpl

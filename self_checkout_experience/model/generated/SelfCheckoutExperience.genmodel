@@ -24,8 +24,11 @@
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//PickStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//PickStatement/itemCount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//PickStatement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//PickStatement/itemPicked"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//PickStatement/holdingItem"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//ItemDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//ItemDef/name"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBasket">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToBasket/itemInBasket"/>

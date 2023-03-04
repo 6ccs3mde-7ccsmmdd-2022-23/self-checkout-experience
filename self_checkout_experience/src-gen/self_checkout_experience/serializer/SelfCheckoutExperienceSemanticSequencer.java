@@ -21,6 +21,7 @@ import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
@@ -66,6 +67,9 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION:
 				sequence_IntVarExpression(context, (IntVarExpression) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.ITEM_DEF:
+				sequence_ItemDef(context, (ItemDef) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.MOVE_STATEMENT:
 				sequence_MoveStatement(context, (MoveStatement) semanticObject); 
@@ -119,7 +123,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     AddToBasket returns AddToBasket
 	 *
 	 * Constraint:
-	 *     itemInBasket=[PickStatement|ID]
+	 *     itemInBasket=[ItemDef|ID]
 	 */
 	protected void sequence_AddToBasket(ISerializationContext context, AddToBasket semanticObject) {
 		if (errorAcceptor != null) {
@@ -127,7 +131,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddToBasketAccess().getItemInBasketPickStatementIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET, false));
+		feeder.accept(grammarAccess.getAddToBasketAccess().getItemInBasketItemDefIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM_IN_BASKET, false));
 		feeder.finish();
 	}
 	
@@ -165,7 +169,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Drop returns Drop
 	 *
 	 * Constraint:
-	 *     itemDropped=[PickStatement|ID]
+	 *     itemDropped=[ItemDef|ID]
 	 */
 	protected void sequence_Drop(ISerializationContext context, Drop semanticObject) {
 		if (errorAcceptor != null) {
@@ -173,7 +177,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDropAccess().getItemDroppedPickStatementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED, false));
+		feeder.accept(grammarAccess.getDropAccess().getItemDroppedItemDefIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED, false));
 		feeder.finish();
 	}
 	
@@ -226,6 +230,24 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     ItemDef returns ItemDef
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ItemDef(ISerializationContext context, ItemDef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getItemDefAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     WalkStatement returns MoveStatement
 	 *     MoveStatement returns MoveStatement
 	 *
@@ -267,7 +289,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     PickStatement returns PickStatement
 	 *
 	 * Constraint:
-	 *     (itemCount=Addition name=ID (holdingItem=AddToBasket | holdingItem=Drop))
+	 *     (itemCount=Addition itemPicked=ItemDef (holdingItem=AddToBasket | holdingItem=Drop))
 	 */
 	protected void sequence_PickStatement(ISerializationContext context, PickStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

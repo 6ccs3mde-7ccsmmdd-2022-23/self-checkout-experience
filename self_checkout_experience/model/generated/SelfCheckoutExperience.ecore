@@ -13,15 +13,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="PickStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemPicked" eType="#//ItemDef"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="holdingItem" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddToBasket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInBasket" eType="#//PickStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInBasket" eType="#//ItemDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Drop">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemDropped" eType="#//PickStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemDropped" eType="#//ItemDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WalkStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//WalkStatement">

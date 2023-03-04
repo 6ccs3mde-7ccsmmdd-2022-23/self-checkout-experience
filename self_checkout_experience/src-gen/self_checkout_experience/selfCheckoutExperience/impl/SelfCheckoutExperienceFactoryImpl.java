@@ -68,6 +68,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT: return createSelf_checkout();
       case SelfCheckoutExperiencePackage.PICK_STATEMENT: return createPickStatement();
+      case SelfCheckoutExperiencePackage.ITEM_DEF: return createItemDef();
       case SelfCheckoutExperiencePackage.ADD_TO_BASKET: return createAddToBasket();
       case SelfCheckoutExperiencePackage.DROP: return createDrop();
       case SelfCheckoutExperiencePackage.WALK_STATEMENT: return createWalkStatement();
@@ -152,6 +153,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     PickStatementImpl pickStatement = new PickStatementImpl();
     return pickStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ItemDef createItemDef()
+  {
+    ItemDefImpl itemDef = new ItemDefImpl();
+    return itemDef;
   }
 
   /**

@@ -124,13 +124,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int PICK_STATEMENT__ITEM_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Item Picked</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PICK_STATEMENT__NAME = 1;
+  int PICK_STATEMENT__ITEM_PICKED = 1;
 
   /**
    * The feature id for the '<em><b>Holding Item</b></em>' containment reference.
@@ -151,6 +151,34 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int PICK_STATEMENT_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ItemDefImpl <em>Item Def</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see self_checkout_experience.selfCheckoutExperience.impl.ItemDefImpl
+   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getItemDef()
+   * @generated
+   */
+  int ITEM_DEF = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITEM_DEF__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Item Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITEM_DEF_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AddToBasketImpl <em>Add To Basket</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,7 +186,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddToBasket()
    * @generated
    */
-  int ADD_TO_BASKET = 2;
+  int ADD_TO_BASKET = 3;
 
   /**
    * The feature id for the '<em><b>Item In Basket</b></em>' reference.
@@ -186,7 +214,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getDrop()
    * @generated
    */
-  int DROP = 3;
+  int DROP = 4;
 
   /**
    * The feature id for the '<em><b>Item Dropped</b></em>' reference.
@@ -214,7 +242,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getWalkStatement()
    * @generated
    */
-  int WALK_STATEMENT = 4;
+  int WALK_STATEMENT = 5;
 
   /**
    * The number of structural features of the '<em>Walk Statement</em>' class.
@@ -233,7 +261,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DECLARATION = 5;
+  int VARIABLE_DECLARATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -270,7 +298,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getRepeat()
    * @generated
    */
-  int REPEAT = 6;
+  int REPEAT = 7;
 
   /**
    * The feature id for the '<em><b>Count</b></em>' containment reference.
@@ -307,7 +335,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getMoveStatement()
    * @generated
    */
-  int MOVE_STATEMENT = 7;
+  int MOVE_STATEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -344,7 +372,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getTurnStatement()
    * @generated
    */
-  int TURN_STATEMENT = 8;
+  int TURN_STATEMENT = 9;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -372,7 +400,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 9;
+  int EXPRESSION = 10;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -391,7 +419,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getIntLiteral()
    * @generated
    */
-  int INT_LITERAL = 10;
+  int INT_LITERAL = 11;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' attribute.
@@ -419,7 +447,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getIntVarExpression()
    * @generated
    */
-  int INT_VAR_EXPRESSION = 11;
+  int INT_VAR_EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' reference.
@@ -447,7 +475,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCheckout()
    * @generated
    */
-  int CHECKOUT = 12;
+  int CHECKOUT = 13;
 
   /**
    * The feature id for the '<em><b>Scan</b></em>' containment reference list.
@@ -484,7 +512,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getScan()
    * @generated
    */
-  int SCAN = 13;
+  int SCAN = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -521,7 +549,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddToBag()
    * @generated
    */
-  int ADD_TO_BAG = 14;
+  int ADD_TO_BAG = 15;
 
   /**
    * The feature id for the '<em><b>Bag Item</b></em>' reference.
@@ -549,7 +577,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 15;
+  int ADDITION = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -595,7 +623,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 16;
+  int MULTIPLICATION = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -641,7 +669,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getMoveCommand()
    * @generated
    */
-  int MOVE_COMMAND = 17;
+  int MOVE_COMMAND = 18;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.TurnCommand <em>Turn Command</em>}' enum.
@@ -651,7 +679,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getTurnCommand()
    * @generated
    */
-  int TURN_COMMAND = 18;
+  int TURN_COMMAND = 19;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.Pay <em>Pay</em>}' enum.
@@ -661,7 +689,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getPay()
    * @generated
    */
-  int PAY = 19;
+  int PAY = 20;
 
 
   /**
@@ -729,15 +757,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EReference getPickStatement_ItemCount();
 
   /**
-   * Returns the meta object for the attribute '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemPicked <em>Item Picked</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.PickStatement#getName()
+   * @return the meta object for the containment reference '<em>Item Picked</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.PickStatement#getItemPicked()
    * @see #getPickStatement()
    * @generated
    */
-  EAttribute getPickStatement_Name();
+  EReference getPickStatement_ItemPicked();
 
   /**
    * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getHoldingItem <em>Holding Item</em>}'.
@@ -749,6 +777,27 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    */
   EReference getPickStatement_HoldingItem();
+
+  /**
+   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.ItemDef <em>Item Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Item Def</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.ItemDef
+   * @generated
+   */
+  EClass getItemDef();
+
+  /**
+   * Returns the meta object for the attribute '{@link self_checkout_experience.selfCheckoutExperience.ItemDef#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.ItemDef#getName()
+   * @see #getItemDef()
+   * @generated
+   */
+  EAttribute getItemDef_Name();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket <em>Add To Basket</em>}'.
@@ -1248,12 +1297,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EReference PICK_STATEMENT__ITEM_COUNT = eINSTANCE.getPickStatement_ItemCount();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Item Picked</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PICK_STATEMENT__NAME = eINSTANCE.getPickStatement_Name();
+    EReference PICK_STATEMENT__ITEM_PICKED = eINSTANCE.getPickStatement_ItemPicked();
 
     /**
      * The meta object literal for the '<em><b>Holding Item</b></em>' containment reference feature.
@@ -1262,6 +1311,24 @@ public interface SelfCheckoutExperiencePackage extends EPackage
      * @generated
      */
     EReference PICK_STATEMENT__HOLDING_ITEM = eINSTANCE.getPickStatement_HoldingItem();
+
+    /**
+     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ItemDefImpl <em>Item Def</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see self_checkout_experience.selfCheckoutExperience.impl.ItemDefImpl
+     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getItemDef()
+     * @generated
+     */
+    EClass ITEM_DEF = eINSTANCE.getItemDef();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ITEM_DEF__NAME = eINSTANCE.getItemDef_Name();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AddToBasketImpl <em>Add To Basket</em>}' class.

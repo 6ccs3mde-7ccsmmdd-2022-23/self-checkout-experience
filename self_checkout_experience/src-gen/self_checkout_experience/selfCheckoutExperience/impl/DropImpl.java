@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import self_checkout_experience.selfCheckoutExperience.Drop;
-import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
 /**
@@ -38,7 +38,7 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * @generated
    * @ordered
    */
-  protected PickStatement itemDropped;
+  protected ItemDef itemDropped;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,12 +67,12 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * @generated
    */
   @Override
-  public PickStatement getItemDropped()
+  public ItemDef getItemDropped()
   {
     if (itemDropped != null && itemDropped.eIsProxy())
     {
       InternalEObject oldItemDropped = (InternalEObject)itemDropped;
-      itemDropped = (PickStatement)eResolveProxy(oldItemDropped);
+      itemDropped = (ItemDef)eResolveProxy(oldItemDropped);
       if (itemDropped != oldItemDropped)
       {
         if (eNotificationRequired())
@@ -87,7 +87,7 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * <!-- end-user-doc -->
    * @generated
    */
-  public PickStatement basicGetItemDropped()
+  public ItemDef basicGetItemDropped()
   {
     return itemDropped;
   }
@@ -98,9 +98,9 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
    * @generated
    */
   @Override
-  public void setItemDropped(PickStatement newItemDropped)
+  public void setItemDropped(ItemDef newItemDropped)
   {
-    PickStatement oldItemDropped = itemDropped;
+    ItemDef oldItemDropped = itemDropped;
     itemDropped = newItemDropped;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED, oldItemDropped, itemDropped));
@@ -134,7 +134,7 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
-        setItemDropped((PickStatement)newValue);
+        setItemDropped((ItemDef)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -151,7 +151,7 @@ public class DropImpl extends MinimalEObjectImpl.Container implements Drop
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.DROP__ITEM_DROPPED:
-        setItemDropped((PickStatement)null);
+        setItemDropped((ItemDef)null);
         return;
     }
     super.eUnset(featureID);

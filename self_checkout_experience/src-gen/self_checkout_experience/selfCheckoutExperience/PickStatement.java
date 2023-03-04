@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemCount <em>Item Count</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getName <em>Name</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemPicked <em>Item Picked</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getHoldingItem <em>Holding Item</em>}</li>
  * </ul>
  *
@@ -48,26 +48,26 @@ public interface PickStatement extends EObject
   void setItemCount(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Item Picked</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getPickStatement_Name()
-   * @model
+   * @return the value of the '<em>Item Picked</em>' containment reference.
+   * @see #setItemPicked(ItemDef)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getPickStatement_ItemPicked()
+   * @model containment="true"
    * @generated
    */
-  String getName();
+  ItemDef getItemPicked();
 
   /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.PickStatement#getItemPicked <em>Item Picked</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Item Picked</em>' containment reference.
+   * @see #getItemPicked()
    * @generated
    */
-  void setName(String value);
+  void setItemPicked(ItemDef value);
 
   /**
    * Returns the value of the '<em><b>Holding Item</b></em>' containment reference.

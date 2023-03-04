@@ -86,6 +86,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createPickStatementAdapter();
       }
       @Override
+      public Adapter caseItemDef(ItemDef object)
+      {
+        return createItemDefAdapter();
+      }
+      @Override
       public Adapter caseAddToBasket(AddToBasket object)
       {
         return createAddToBasketAdapter();
@@ -208,6 +213,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPickStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ItemDef <em>Item Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ItemDef
+   * @generated
+   */
+  public Adapter createItemDefAdapter()
   {
     return null;
   }

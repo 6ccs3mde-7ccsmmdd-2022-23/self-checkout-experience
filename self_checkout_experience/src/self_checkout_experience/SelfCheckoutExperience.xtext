@@ -12,16 +12,20 @@ Self_checkout:
 ;	
 	
 PickStatement:
-	"pick" "up" itemCount = Addition name=ID
+	"pick" "up" itemCount = Addition itemPicked = ItemDef
 	holdingItem = (AddToBasket | Drop)
 ;
 
+ItemDef:
+	name = ID
+;
+
 AddToBasket:
-	"add" "to" "basket" itemInBasket=[PickStatement]
+	"add" "to" "basket" itemInBasket=[ItemDef]
 ;
 
 Drop:
-	"drop" itemDropped=[PickStatement]
+	"drop" itemDropped=[ItemDef]
 ;
 
 

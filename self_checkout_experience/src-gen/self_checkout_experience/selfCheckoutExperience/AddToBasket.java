@@ -28,12 +28,12 @@ public interface AddToBasket extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Item In Basket</em>' reference.
-   * @see #setItemInBasket(PickStatement)
+   * @see #setItemInBasket(ItemDef)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBasket_ItemInBasket()
    * @model
    * @generated
    */
-  PickStatement getItemInBasket();
+  ItemDef getItemInBasket();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket#getItemInBasket <em>Item In Basket</em>}' reference.
@@ -43,6 +43,6 @@ public interface AddToBasket extends EObject
    * @see #getItemInBasket()
    * @generated
    */
-  void setItemInBasket(PickStatement value);
+  void setItemInBasket(ItemDef value);
 
 } // AddToBasket

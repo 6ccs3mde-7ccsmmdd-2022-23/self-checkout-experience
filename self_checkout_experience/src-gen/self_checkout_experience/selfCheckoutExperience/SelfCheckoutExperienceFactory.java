@@ -42,6 +42,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   PickStatement createPickStatement();
 
   /**
+   * Returns a new object of class '<em>Item Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Item Def</em>'.
+   * @generated
+   */
+  ItemDef createItemDef();
+
+  /**
    * Returns a new object of class '<em>Add To Basket</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

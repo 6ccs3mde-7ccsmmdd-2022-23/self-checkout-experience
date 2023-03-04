@@ -28,12 +28,12 @@ public interface Drop extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Item Dropped</em>' reference.
-   * @see #setItemDropped(PickStatement)
+   * @see #setItemDropped(ItemDef)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getDrop_ItemDropped()
    * @model
    * @generated
    */
-  PickStatement getItemDropped();
+  ItemDef getItemDropped();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Drop#getItemDropped <em>Item Dropped</em>}' reference.
@@ -43,6 +43,6 @@ public interface Drop extends EObject
    * @see #getItemDropped()
    * @generated
    */
-  void setItemDropped(PickStatement value);
+  void setItemDropped(ItemDef value);
 
 } // Drop

@@ -19,6 +19,7 @@ import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.Expression;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.MoveCommand;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
@@ -55,6 +56,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EClass pickStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass itemDefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -317,9 +325,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EAttribute getPickStatement_Name()
+  public EReference getPickStatement_ItemPicked()
   {
-    return (EAttribute)pickStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)pickStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -331,6 +339,28 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
   public EReference getPickStatement_HoldingItem()
   {
     return (EReference)pickStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getItemDef()
+  {
+    return itemDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getItemDef_Name()
+  {
+    return (EAttribute)itemDefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -811,8 +841,11 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     pickStatementEClass = createEClass(PICK_STATEMENT);
     createEReference(pickStatementEClass, PICK_STATEMENT__ITEM_COUNT);
-    createEAttribute(pickStatementEClass, PICK_STATEMENT__NAME);
+    createEReference(pickStatementEClass, PICK_STATEMENT__ITEM_PICKED);
     createEReference(pickStatementEClass, PICK_STATEMENT__HOLDING_ITEM);
+
+    itemDefEClass = createEClass(ITEM_DEF);
+    createEAttribute(itemDefEClass, ITEM_DEF__NAME);
 
     addToBasketEClass = createEClass(ADD_TO_BASKET);
     createEReference(addToBasketEClass, ADD_TO_BASKET__ITEM_IN_BASKET);
@@ -918,14 +951,17 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEClass(pickStatementEClass, PickStatement.class, "PickStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPickStatement_ItemCount(), this.getExpression(), null, "itemCount", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPickStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPickStatement_ItemPicked(), this.getItemDef(), null, "itemPicked", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPickStatement_HoldingItem(), ecorePackage.getEObject(), null, "holdingItem", null, 0, 1, PickStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(itemDefEClass, ItemDef.class, "ItemDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getItemDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, ItemDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(addToBasketEClass, AddToBasket.class, "AddToBasket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAddToBasket_ItemInBasket(), this.getPickStatement(), null, "itemInBasket", null, 0, 1, AddToBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddToBasket_ItemInBasket(), this.getItemDef(), null, "itemInBasket", null, 0, 1, AddToBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dropEClass, Drop.class, "Drop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDrop_ItemDropped(), this.getPickStatement(), null, "itemDropped", null, 0, 1, Drop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDrop_ItemDropped(), this.getItemDef(), null, "itemDropped", null, 0, 1, Drop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(walkStatementEClass, WalkStatement.class, "WalkStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
