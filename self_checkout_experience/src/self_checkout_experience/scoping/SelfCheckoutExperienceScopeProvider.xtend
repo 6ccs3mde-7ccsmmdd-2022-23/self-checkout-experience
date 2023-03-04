@@ -38,6 +38,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 //	}
 ////TO DO: THE SCAN VERSION
 
+
 //	scope for walking part in loop
 	def IScope scope_IntVarExpression_var_walk(IntVarExpression context, EReference ref){
 		val loopContainer = context.getContainerOfType(Repeat)
