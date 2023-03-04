@@ -45,25 +45,20 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	
 	def generate(Self_checkout checkout) '''
 		Self checkout summary:
-		
+		IN STORE 
+			- «checkout.eAllContents.filter(PickStatement).size» pick statements
+			- «checkout.eAllContents.filter(ScanAndAddToBasket).size» scan and add to basket statements
+			- «checkout.eAllContents.filter(Drop).size» drop statements
+			- «checkout.eAllContents.filter(Checkout).size» go to self-checkout statements
+			- «checkout.eAllContents.filter(Scan).size» scan statements
+			- «checkout.eAllContents.filter(CarryItems).size» carry item statements
+			- «checkout.eAllContents.filter(MoveStatement).size» move statements
+			- «checkout.eAllContents.filter(TurnStatement).size» turn statements
+			- «checkout.eAllContents.filter(Repeat).size» repeat statements
+			- «checkout.eAllContents.filter(WalkStatement).size» Walk statements
 		ONLINE
 		- «checkout.eAllContents.filter(Search).size» search statements
 		- «checkout.eAllContents.filter(AddToOnlineBasket).size» add to online basket statements
 		- «checkout.eAllContents.filter(RemoveFromOnlineBasket).size» remove from online basket statements
-		
-		IN STORE 
-		- «checkout.eAllContents.filter(PickStatement).size» pick statements
-		- «checkout.eAllContents.filter(ScanAndAddToBasket).size» scan and add to basket statements
-		- «checkout.eAllContents.filter(Drop).size» drop statements
-		- «checkout.eAllContents.filter(Checkout).size» go to self-checkout statements
-		- «checkout.eAllContents.filter(Scan).size» scan statements
-		- «checkout.eAllContents.filter(CarryItems).size» carry item statements
-		- «checkout.eAllContents.filter(MoveStatement).size» move statements
-		- «checkout.eAllContents.filter(TurnStatement).size» turn statements
-		- «checkout.eAllContents.filter(Repeat).size» repeat statements
-		- «checkout.eAllContents.filter(WalkStatement).size» Walk statements
-	'''
-	
-
-		
+	'''	
 }
