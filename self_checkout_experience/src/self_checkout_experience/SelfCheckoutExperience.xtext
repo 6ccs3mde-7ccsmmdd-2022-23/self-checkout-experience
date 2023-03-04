@@ -98,13 +98,16 @@ IntVarExpression:
 
 Checkout:
 	"go" "to" "self-checkout"
-	scan = Scan
+	scan = ScanExpression
 	pay = Pay
 ;
 
+ScanExpression:
+	Scan ({ComplexScan.start = current} 'then' next += AddToBag)?
+;
+
 Scan:
-	"scan" "barcode" "with" scanMachine = SelfScanner 
-	addToBag = AddToBag?
+	"scan" "barcode" "with" scanMachine = SelfScanner
 ;
 
 AddToBag:

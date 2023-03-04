@@ -151,6 +151,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createCheckoutAdapter();
       }
       @Override
+      public Adapter caseScanExpression(ScanExpression object)
+      {
+        return createScanExpressionAdapter();
+      }
+      @Override
       public Adapter caseScan(Scan object)
       {
         return createScanAdapter();
@@ -169,6 +174,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMultiplication(Multiplication object)
       {
         return createMultiplicationAdapter();
+      }
+      @Override
+      public Adapter caseComplexScan(ComplexScan object)
+      {
+        return createComplexScanAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -418,6 +428,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ScanExpression <em>Scan Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ScanExpression
+   * @generated
+   */
+  public Adapter createScanExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Scan <em>Scan</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -473,6 +498,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMultiplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ComplexScan <em>Complex Scan</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ComplexScan
+   * @generated
+   */
+  public Adapter createComplexScanAdapter()
   {
     return null;
   }

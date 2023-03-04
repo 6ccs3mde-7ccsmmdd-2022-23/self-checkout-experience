@@ -29,12 +29,12 @@ public interface Checkout extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Scan</em>' containment reference.
-   * @see #setScan(Scan)
+   * @see #setScan(ScanExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getCheckout_Scan()
    * @model containment="true"
    * @generated
    */
-  Scan getScan();
+  ScanExpression getScan();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Checkout#getScan <em>Scan</em>}' containment reference.
@@ -44,7 +44,7 @@ public interface Checkout extends EObject
    * @see #getScan()
    * @generated
    */
-  void setScan(Scan value);
+  void setScan(ScanExpression value);
 
   /**
    * Returns the value of the '<em><b>Pay</b></em>' attribute.

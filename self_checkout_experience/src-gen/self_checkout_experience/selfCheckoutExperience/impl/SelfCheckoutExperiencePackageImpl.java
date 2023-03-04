@@ -15,6 +15,7 @@ import self_checkout_experience.selfCheckoutExperience.AddToBag;
 import self_checkout_experience.selfCheckoutExperience.Addition;
 import self_checkout_experience.selfCheckoutExperience.Bag;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
+import self_checkout_experience.selfCheckoutExperience.ComplexScan;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.Expression;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
@@ -29,6 +30,7 @@ import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket;
+import self_checkout_experience.selfCheckoutExperience.ScanExpression;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperienceFactory;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.SelfScanner;
@@ -156,6 +158,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass scanExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass scanEClass = null;
 
   /**
@@ -178,6 +187,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EClass multiplicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass complexScanEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -690,6 +706,17 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
+  public EClass getScanExpression()
+  {
+    return scanExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getScan()
   {
     return scanEClass;
@@ -704,17 +731,6 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
   public EAttribute getScan_ScanMachine()
   {
     return (EAttribute)scanEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getScan_AddToBag()
-  {
-    return (EReference)scanEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -825,6 +841,39 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
   public EReference getMultiplication_Right()
   {
     return (EReference)multiplicationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getComplexScan()
+  {
+    return complexScanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComplexScan_Start()
+  {
+    return (EReference)complexScanEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComplexScan_Next()
+  {
+    return (EReference)complexScanEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -965,9 +1014,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEReference(checkoutEClass, CHECKOUT__SCAN);
     createEAttribute(checkoutEClass, CHECKOUT__PAY);
 
+    scanExpressionEClass = createEClass(SCAN_EXPRESSION);
+
     scanEClass = createEClass(SCAN);
     createEAttribute(scanEClass, SCAN__SCAN_MACHINE);
-    createEReference(scanEClass, SCAN__ADD_TO_BAG);
 
     addToBagEClass = createEClass(ADD_TO_BAG);
     createEAttribute(addToBagEClass, ADD_TO_BAG__BAG);
@@ -981,6 +1031,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEReference(multiplicationEClass, MULTIPLICATION__LEFT);
     createEAttribute(multiplicationEClass, MULTIPLICATION__OPERATOR);
     createEReference(multiplicationEClass, MULTIPLICATION__RIGHT);
+
+    complexScanEClass = createEClass(COMPLEX_SCAN);
+    createEReference(complexScanEClass, COMPLEX_SCAN__START);
+    createEReference(complexScanEClass, COMPLEX_SCAN__NEXT);
 
     // Create enums
     selfScannerEEnum = createEEnum(SELF_SCANNER);
@@ -1025,8 +1079,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     turnStatementEClass.getESuperTypes().add(this.getWalkStatement());
     intLiteralEClass.getESuperTypes().add(this.getExpression());
     intVarExpressionEClass.getESuperTypes().add(this.getExpression());
+    scanEClass.getESuperTypes().add(this.getScanExpression());
     additionEClass.getESuperTypes().add(this.getExpression());
     multiplicationEClass.getESuperTypes().add(this.getExpression());
+    complexScanEClass.getESuperTypes().add(this.getScanExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(self_checkoutEClass, Self_checkout.class, "Self_checkout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1078,12 +1134,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEReference(getIntVarExpression_Var(), this.getVariableDeclaration(), null, "var", null, 0, 1, IntVarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkoutEClass, Checkout.class, "Checkout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCheckout_Scan(), this.getScan(), null, "scan", null, 0, 1, Checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCheckout_Scan(), this.getScanExpression(), null, "scan", null, 0, 1, Checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCheckout_Pay(), this.getPay(), "pay", null, 0, 1, Checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scanExpressionEClass, ScanExpression.class, "ScanExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(scanEClass, Scan.class, "Scan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScan_ScanMachine(), this.getSelfScanner(), "scanMachine", null, 0, 1, Scan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getScan_AddToBag(), this.getAddToBag(), null, "addToBag", null, 0, 1, Scan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addToBagEClass, AddToBag.class, "AddToBag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAddToBag_Bag(), this.getBag(), "bag", null, 0, 1, AddToBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1097,6 +1154,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEReference(getMultiplication_Left(), this.getExpression(), null, "left", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultiplication_Operator(), ecorePackage.getEString(), "operator", null, 0, -1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMultiplication_Right(), this.getExpression(), null, "right", null, 0, -1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(complexScanEClass, ComplexScan.class, "ComplexScan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComplexScan_Start(), this.getScan(), null, "start", null, 0, 1, ComplexScan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComplexScan_Next(), this.getAddToBag(), null, "next", null, 0, -1, ComplexScan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(selfScannerEEnum, SelfScanner.class, "SelfScanner");

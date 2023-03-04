@@ -81,10 +81,12 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
       case SelfCheckoutExperiencePackage.INT_LITERAL: return createIntLiteral();
       case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION: return createIntVarExpression();
       case SelfCheckoutExperiencePackage.CHECKOUT: return createCheckout();
+      case SelfCheckoutExperiencePackage.SCAN_EXPRESSION: return createScanExpression();
       case SelfCheckoutExperiencePackage.SCAN: return createScan();
       case SelfCheckoutExperiencePackage.ADD_TO_BAG: return createAddToBag();
       case SelfCheckoutExperiencePackage.ADDITION: return createAddition();
       case SelfCheckoutExperiencePackage.MULTIPLICATION: return createMultiplication();
+      case SelfCheckoutExperiencePackage.COMPLEX_SCAN: return createComplexScan();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -326,6 +328,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   @Override
+  public ScanExpression createScanExpression()
+  {
+    ScanExpressionImpl scanExpression = new ScanExpressionImpl();
+    return scanExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Scan createScan()
   {
     ScanImpl scan = new ScanImpl();
@@ -366,6 +380,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     MultiplicationImpl multiplication = new MultiplicationImpl();
     return multiplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ComplexScan createComplexScan()
+  {
+    ComplexScanImpl complexScan = new ComplexScanImpl();
+    return complexScan;
   }
 
   /**

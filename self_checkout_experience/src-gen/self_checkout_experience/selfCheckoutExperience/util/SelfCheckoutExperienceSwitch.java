@@ -184,10 +184,18 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.SCAN_EXPRESSION:
+      {
+        ScanExpression scanExpression = (ScanExpression)theEObject;
+        T result = caseScanExpression(scanExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.SCAN:
       {
         Scan scan = (Scan)theEObject;
         T result = caseScan(scan);
+        if (result == null) result = caseScanExpression(scan);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,6 +219,14 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         Multiplication multiplication = (Multiplication)theEObject;
         T result = caseMultiplication(multiplication);
         if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.COMPLEX_SCAN:
+      {
+        ComplexScan complexScan = (ComplexScan)theEObject;
+        T result = caseComplexScan(complexScan);
+        if (result == null) result = caseScanExpression(complexScan);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -459,6 +475,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Scan Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scan Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScanExpression(ScanExpression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Scan</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -518,6 +550,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMultiplication(Multiplication object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Scan</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Scan</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexScan(ComplexScan object)
   {
     return null;
   }

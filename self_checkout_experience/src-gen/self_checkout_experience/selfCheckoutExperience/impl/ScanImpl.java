@@ -4,15 +4,11 @@
 package self_checkout_experience.selfCheckoutExperience.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.SelfScanner;
@@ -26,12 +22,11 @@ import self_checkout_experience.selfCheckoutExperience.SelfScanner;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.ScanImpl#getScanMachine <em>Scan Machine</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.ScanImpl#getAddToBag <em>Add To Bag</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
+public class ScanImpl extends ScanExpressionImpl implements Scan
 {
   /**
    * The default value of the '{@link #getScanMachine() <em>Scan Machine</em>}' attribute.
@@ -52,16 +47,6 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * @ordered
    */
   protected SelfScanner scanMachine = SCAN_MACHINE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getAddToBag() <em>Add To Bag</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAddToBag()
-   * @generated
-   * @ordered
-   */
-  protected AddToBag addToBag;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,80 +100,12 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * @generated
    */
   @Override
-  public AddToBag getAddToBag()
-  {
-    return addToBag;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAddToBag(AddToBag newAddToBag, NotificationChain msgs)
-  {
-    AddToBag oldAddToBag = addToBag;
-    addToBag = newAddToBag;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, oldAddToBag, newAddToBag);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setAddToBag(AddToBag newAddToBag)
-  {
-    if (newAddToBag != addToBag)
-    {
-      NotificationChain msgs = null;
-      if (addToBag != null)
-        msgs = ((InternalEObject)addToBag).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, null, msgs);
-      if (newAddToBag != null)
-        msgs = ((InternalEObject)newAddToBag).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, null, msgs);
-      msgs = basicSetAddToBag(newAddToBag, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, newAddToBag, newAddToBag));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        return basicSetAddToBag(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
         return getScanMachine();
-      case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        return getAddToBag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -205,9 +122,6 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
     {
       case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
         setScanMachine((SelfScanner)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        setAddToBag((AddToBag)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,9 +140,6 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
       case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
         setScanMachine(SCAN_MACHINE_EDEFAULT);
         return;
-      case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        setAddToBag((AddToBag)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -245,8 +156,6 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
     {
       case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
         return scanMachine != SCAN_MACHINE_EDEFAULT;
-      case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        return addToBag != null;
     }
     return super.eIsSet(featureID);
   }

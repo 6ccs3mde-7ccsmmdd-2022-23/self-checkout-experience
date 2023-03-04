@@ -70,13 +70,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scan" eType="#//Scan" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scan" eType="#//ScanExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="#//Pay"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Scan">
+  <eClassifiers xsi:type="ecore:EClass" name="ScanExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scan" eSuperTypes="#//ScanExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scanMachine" eType="#//SelfScanner"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="addToBag" eType="#//AddToBag"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddToBag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bag" eType="#//Bag"/>
@@ -102,5 +102,11 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
         eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexScan" eSuperTypes="#//ScanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Scan"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//AddToBag"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -3,7 +3,6 @@
  */
 package self_checkout_experience.selfCheckoutExperience;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,14 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Scan#getScanMachine <em>Scan Machine</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Scan#getAddToBag <em>Add To Bag</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getScan()
  * @model
  * @generated
  */
-public interface Scan extends EObject
+public interface Scan extends ScanExpression
 {
   /**
    * Returns the value of the '<em><b>Scan Machine</b></em>' attribute.
@@ -48,27 +46,5 @@ public interface Scan extends EObject
    * @generated
    */
   void setScanMachine(SelfScanner value);
-
-  /**
-   * Returns the value of the '<em><b>Add To Bag</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Add To Bag</em>' containment reference.
-   * @see #setAddToBag(AddToBag)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getScan_AddToBag()
-   * @model containment="true"
-   * @generated
-   */
-  AddToBag getAddToBag();
-
-  /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Scan#getAddToBag <em>Add To Bag</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Add To Bag</em>' containment reference.
-   * @see #getAddToBag()
-   * @generated
-   */
-  void setAddToBag(AddToBag value);
 
 } // Scan

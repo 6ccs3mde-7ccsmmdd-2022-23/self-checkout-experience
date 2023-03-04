@@ -55,6 +55,8 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicationAccess().getGroup_1(), "rule__Multiplication__Group_1__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_2(), "rule__Primary__Group_2__0");
 			builder.put(grammarAccess.getCheckoutAccess().getGroup(), "rule__Checkout__Group__0");
+			builder.put(grammarAccess.getScanExpressionAccess().getGroup(), "rule__ScanExpression__Group__0");
+			builder.put(grammarAccess.getScanExpressionAccess().getGroup_1(), "rule__ScanExpression__Group_1__0");
 			builder.put(grammarAccess.getScanAccess().getGroup(), "rule__Scan__Group__0");
 			builder.put(grammarAccess.getAddToBagAccess().getGroup(), "rule__AddToBag__Group__0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getPickScanMachineAssignment_0(), "rule__Self_checkout__PickScanMachineAssignment_0");
@@ -83,8 +85,8 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIntVarExpressionAccess().getVarAssignment(), "rule__IntVarExpression__VarAssignment");
 			builder.put(grammarAccess.getCheckoutAccess().getScanAssignment_3(), "rule__Checkout__ScanAssignment_3");
 			builder.put(grammarAccess.getCheckoutAccess().getPayAssignment_4(), "rule__Checkout__PayAssignment_4");
+			builder.put(grammarAccess.getScanExpressionAccess().getNextAssignment_1_2(), "rule__ScanExpression__NextAssignment_1_2");
 			builder.put(grammarAccess.getScanAccess().getScanMachineAssignment_3(), "rule__Scan__ScanMachineAssignment_3");
-			builder.put(grammarAccess.getScanAccess().getAddToBagAssignment_4(), "rule__Scan__AddToBagAssignment_4");
 			builder.put(grammarAccess.getAddToBagAccess().getBagAssignment_4(), "rule__AddToBag__BagAssignment_4");
 		}
 	}

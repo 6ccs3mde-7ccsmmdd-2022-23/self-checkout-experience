@@ -159,6 +159,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Checkout createCheckout();
 
   /**
+   * Returns a new object of class '<em>Scan Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scan Expression</em>'.
+   * @generated
+   */
+  ScanExpression createScanExpression();
+
+  /**
    * Returns a new object of class '<em>Scan</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -193,6 +202,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
    * @generated
    */
   Multiplication createMultiplication();
+
+  /**
+   * Returns a new object of class '<em>Complex Scan</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Scan</em>'.
+   * @generated
+   */
+  ComplexScan createComplexScan();
 
   /**
    * Returns the package supported by this factory.

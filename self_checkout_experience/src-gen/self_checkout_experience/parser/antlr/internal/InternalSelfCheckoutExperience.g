@@ -1052,9 +1052,9 @@ ruleCheckout returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCheckoutAccess().getScanScanParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCheckoutAccess().getScanScanExpressionParserRuleCall_3_0());
 				}
-				lv_scan_3_0=ruleScan
+				lv_scan_3_0=ruleScanExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCheckoutRule());
@@ -1063,7 +1063,7 @@ ruleCheckout returns [EObject current=null]
 						$current,
 						"scan",
 						lv_scan_3_0,
-						"self_checkout_experience.SelfCheckoutExperience.Scan");
+						"self_checkout_experience.SelfCheckoutExperience.ScanExpression");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1087,6 +1087,65 @@ ruleCheckout returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleScanExpression
+entryRuleScanExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScanExpressionRule()); }
+	iv_ruleScanExpression=ruleScanExpression
+	{ $current=$iv_ruleScanExpression.current; }
+	EOF;
+
+// Rule ScanExpression
+ruleScanExpression returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getScanExpressionAccess().getScanParserRuleCall_0());
+		}
+		this_Scan_0=ruleScan
+		{
+			$current = $this_Scan_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getScanExpressionAccess().getComplexScanStartAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='then'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getScanExpressionAccess().getThenKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getScanExpressionAccess().getNextAddToBagParserRuleCall_1_2_0());
+					}
+					lv_next_3_0=ruleAddToBag
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getScanExpressionRule());
+						}
+						add(
+							$current,
+							"next",
+							lv_next_3_0,
+							"self_checkout_experience.SelfCheckoutExperience.AddToBag");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -1137,25 +1196,6 @@ ruleScan returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getScanAccess().getAddToBagAddToBagParserRuleCall_4_0());
-				}
-				lv_addToBag_4_0=ruleAddToBag
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScanRule());
-					}
-					set(
-						$current,
-						"addToBag",
-						lv_addToBag_4_0,
-						"self_checkout_experience.SelfCheckoutExperience.AddToBag");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
 	)
 ;
 

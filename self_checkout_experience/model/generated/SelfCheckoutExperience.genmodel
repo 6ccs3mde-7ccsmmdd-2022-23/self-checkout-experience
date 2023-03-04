@@ -73,9 +73,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Checkout/scan"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Checkout/pay"/>
     </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//ScanExpression"/>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Scan">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Scan/scanMachine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Scan/addToBag"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//AddToBag/bag"/>
@@ -89,6 +89,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Multiplication/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Multiplication/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Multiplication/right"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//ComplexScan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//ComplexScan/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//ComplexScan/next"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

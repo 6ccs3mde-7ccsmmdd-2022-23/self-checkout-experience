@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import self_checkout_experience.selfCheckoutExperience.AddToBag;
 import self_checkout_experience.selfCheckoutExperience.Addition;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
+import self_checkout_experience.selfCheckoutExperience.ComplexScan;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
@@ -56,6 +57,9 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case SelfCheckoutExperiencePackage.CHECKOUT:
 				sequence_Checkout(context, (Checkout) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.COMPLEX_SCAN:
+				sequence_ScanExpression(context, (ComplexScan) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.DROP:
 				sequence_Drop(context, (Drop) semanticObject); 
@@ -143,7 +147,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Checkout returns Checkout
 	 *
 	 * Constraint:
-	 *     (scan=Scan pay=Pay)
+	 *     (scan=ScanExpression pay=Pay)
 	 */
 	protected void sequence_Checkout(ISerializationContext context, Checkout semanticObject) {
 		if (errorAcceptor != null) {
@@ -153,7 +157,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CHECKOUT__PAY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCheckoutAccess().getScanScanParserRuleCall_3_0(), semanticObject.getScan());
+		feeder.accept(grammarAccess.getCheckoutAccess().getScanScanExpressionParserRuleCall_3_0(), semanticObject.getScan());
 		feeder.accept(grammarAccess.getCheckoutAccess().getPayPayEnumRuleCall_4_0(), semanticObject.getPay());
 		feeder.finish();
 	}
@@ -342,13 +346,33 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     ScanExpression returns ComplexScan
+	 *
+	 * Constraint:
+	 *     (start=ScanExpression_ComplexScan_1_0 next+=AddToBag)
+	 */
+	protected void sequence_ScanExpression(ISerializationContext context, ComplexScan semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ScanExpression returns Scan
+	 *     ScanExpression.ComplexScan_1_0 returns Scan
 	 *     Scan returns Scan
 	 *
 	 * Constraint:
-	 *     (scanMachine=SelfScanner addToBag=AddToBag?)
+	 *     scanMachine=SelfScanner
 	 */
 	protected void sequence_Scan(ISerializationContext context, Scan semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN__SCAN_MACHINE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN__SCAN_MACHINE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScanAccess().getScanMachineSelfScannerEnumRuleCall_3_0(), semanticObject.getScanMachine());
+		feeder.finish();
 	}
 	
 	
