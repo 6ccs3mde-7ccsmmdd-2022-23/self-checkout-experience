@@ -11,9 +11,7 @@ import static org.eclipse.xtext.scoping.Scopes.*
 import org.eclipse.emf.ecore.EObject
 import self_checkout_experience.selfCheckoutExperience.Scan
 import self_checkout_experience.selfCheckoutExperience.Self_checkout
-import self_checkout_experience.selfCheckoutExperience.AddToBasket
 import org.eclipse.xtext.EcoreUtil2
-import self_checkout_experience.selfCheckoutExperience.AddToBag
 import self_checkout_experience.selfCheckoutExperience.PickStatement
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration

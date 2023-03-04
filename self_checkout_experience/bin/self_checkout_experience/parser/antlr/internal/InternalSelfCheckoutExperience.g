@@ -79,11 +79,30 @@ ruleSelf_checkout returns [EObject current=null]
 	(
 		(
 			(
+				{
+					newCompositeNode(grammarAccess.getSelf_checkoutAccess().getPickScanMachineHoldSelfScannerParserRuleCall_0_0());
+				}
+				lv_pickScanMachine_0_0=ruleHoldSelfScanner
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
+					}
+					set(
+						$current,
+						"pickScanMachine",
+						lv_pickScanMachine_0_0,
+						"self_checkout_experience.SelfCheckoutExperience.HoldSelfScanner");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getPickstatementsPickStatementParserRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getPickstatementsPickStatementParserRuleCall_1_0_0());
 					}
-					lv_pickstatements_0_0=rulePickStatement
+					lv_pickstatements_1_0=rulePickStatement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
@@ -91,7 +110,7 @@ ruleSelf_checkout returns [EObject current=null]
 						add(
 							$current,
 							"pickstatements",
-							lv_pickstatements_0_0,
+							lv_pickstatements_1_0,
 							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
 						afterParserOrEnumRuleCall();
 					}
@@ -101,9 +120,9 @@ ruleSelf_checkout returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getWalkstatementsWalkStatementParserRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getSelf_checkoutAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0());
 					}
-					lv_walkstatements_1_0=ruleWalkStatement
+					lv_walkstatements_2_0=ruleWalkStatement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
@@ -111,7 +130,7 @@ ruleSelf_checkout returns [EObject current=null]
 						add(
 							$current,
 							"walkstatements",
-							lv_walkstatements_1_0,
+							lv_walkstatements_2_0,
 							"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
 						afterParserOrEnumRuleCall();
 					}
@@ -121,9 +140,9 @@ ruleSelf_checkout returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSelf_checkoutAccess().getCheckoutCheckoutParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSelf_checkoutAccess().getCheckoutCheckoutParserRuleCall_2_0());
 				}
-				lv_checkout_2_0=ruleCheckout
+				lv_checkout_3_0=ruleCheckout
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
@@ -131,12 +150,54 @@ ruleSelf_checkout returns [EObject current=null]
 					set(
 						$current,
 						"checkout",
-						lv_checkout_2_0,
+						lv_checkout_3_0,
 						"self_checkout_experience.SelfCheckoutExperience.Checkout");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleHoldSelfScanner
+entryRuleHoldSelfScanner returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHoldSelfScannerRule()); }
+	iv_ruleHoldSelfScanner=ruleHoldSelfScanner
+	{ $current=$iv_ruleHoldSelfScanner.current; }
+	EOF;
+
+// Rule HoldSelfScanner
+ruleHoldSelfScanner returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='hold'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getHoldSelfScannerAccess().getHoldKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getHoldSelfScannerAccess().getScanMachineSelfScannerEnumRuleCall_1_0());
+				}
+				lv_scanMachine_1_0=ruleSelfScanner
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getHoldSelfScannerRule());
+					}
+					set(
+						$current,
+						"scanMachine",
+						lv_scanMachine_1_0,
+						"self_checkout_experience.SelfCheckoutExperience.SelfScanner");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -206,9 +267,9 @@ rulePickStatement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemAddToBasketParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemScanAndAddToBasketParserRuleCall_4_0_0());
 					}
-					lv_holdingItem_4_1=ruleAddToBasket
+					lv_holdingItem_4_1=ruleScanAndAddToBasket
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -217,7 +278,7 @@ rulePickStatement returns [EObject current=null]
 							$current,
 							"holdingItem",
 							lv_holdingItem_4_1,
-							"self_checkout_experience.SelfCheckoutExperience.AddToBasket");
+							"self_checkout_experience.SelfCheckoutExperience.ScanAndAddToBasket");
 						afterParserOrEnumRuleCall();
 					}
 					    |
@@ -277,15 +338,15 @@ ruleItemDef returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAddToBasket
-entryRuleAddToBasket returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAddToBasketRule()); }
-	iv_ruleAddToBasket=ruleAddToBasket
-	{ $current=$iv_ruleAddToBasket.current; }
+// Entry rule entryRuleScanAndAddToBasket
+entryRuleScanAndAddToBasket returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScanAndAddToBasketRule()); }
+	iv_ruleScanAndAddToBasket=ruleScanAndAddToBasket
+	{ $current=$iv_ruleScanAndAddToBasket.current; }
 	EOF;
 
-// Rule AddToBasket
-ruleAddToBasket returns [EObject current=null]
+// Rule ScanAndAddToBasket
+ruleScanAndAddToBasket returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -293,28 +354,36 @@ ruleAddToBasket returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='add'
+		otherlv_0='scan'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getAddToBasketAccess().getAddKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getScanAndAddToBasketAccess().getScanKeyword_0());
 		}
-		otherlv_1='to'
+		otherlv_1='and'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAddToBasketAccess().getToKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getScanAndAddToBasketAccess().getAndKeyword_1());
 		}
-		otherlv_2='basket'
+		otherlv_2='add'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAddToBasketAccess().getBasketKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getScanAndAddToBasketAccess().getAddKeyword_2());
+		}
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getScanAndAddToBasketAccess().getToKeyword_3());
+		}
+		otherlv_4='basket'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getScanAndAddToBasketAccess().getBasketKeyword_4());
 		}
 		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAddToBasketRule());
+						$current = createModelElement(grammarAccess.getScanAndAddToBasketRule());
 					}
 				}
-				otherlv_3=RULE_ID
+				otherlv_5=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getAddToBasketAccess().getItemInBasketItemDefCrossReference_3_0());
+					newLeafNode(otherlv_5, grammarAccess.getScanAndAddToBasketAccess().getItemInBasketItemDefCrossReference_5_0());
 				}
 			)
 		)
@@ -976,9 +1045,9 @@ ruleCheckout returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getCheckoutAccess().getToKeyword_1());
 		}
-		otherlv_2='till'
+		otherlv_2='self-checkout'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getCheckoutAccess().getTillKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getCheckoutAccess().getSelfCheckoutKeyword_2());
 		}
 		(
 			(
@@ -990,7 +1059,7 @@ ruleCheckout returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCheckoutRule());
 					}
-					add(
+					set(
 						$current,
 						"scan",
 						lv_scan_3_0,
@@ -998,7 +1067,7 @@ ruleCheckout returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)
 		(
 			(
 				{
@@ -1041,29 +1110,30 @@ ruleScan returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getScanAccess().getScanKeyword_0());
 		}
-		otherlv_1='at'
+		otherlv_1='barcode'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getScanAccess().getAtKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getScanAccess().getBarcodeKeyword_1());
 		}
-		otherlv_2='till'
+		otherlv_2='with'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getScanAccess().getTillKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getScanAccess().getWithKeyword_2());
 		}
 		(
 			(
-				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getScanAccess().getNameIDTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getScanAccess().getScanMachineSelfScannerEnumRuleCall_3_0());
 				}
+				lv_scanMachine_3_0=ruleSelfScanner
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getScanRule());
+						$current = createModelElementForParent(grammarAccess.getScanRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"name",
-						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"scanMachine",
+						lv_scanMachine_3_0,
+						"self_checkout_experience.SelfCheckoutExperience.SelfScanner");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1077,7 +1147,7 @@ ruleScan returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getScanRule());
 					}
-					add(
+					set(
 						$current,
 						"addToBag",
 						lv_addToBag_4_0,
@@ -1085,7 +1155,7 @@ ruleScan returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)?
 	)
 ;
 
@@ -1109,27 +1179,54 @@ ruleAddToBag returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getAddToBagAccess().getAddKeyword_0());
 		}
-		otherlv_1='to'
+		otherlv_1='all'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAddToBagAccess().getToKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getAddToBagAccess().getAllKeyword_1());
 		}
-		otherlv_2='bag'
+		otherlv_2='items'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAddToBagAccess().getBagKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getAddToBagAccess().getItemsKeyword_2());
+		}
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAddToBagAccess().getToKeyword_3());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAddToBagRule());
-					}
+					newCompositeNode(grammarAccess.getAddToBagAccess().getBagBagEnumRuleCall_4_0());
 				}
-				otherlv_3=RULE_ID
+				lv_bag_4_0=ruleBag
 				{
-					newLeafNode(otherlv_3, grammarAccess.getAddToBagAccess().getBagItemScanCrossReference_3_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAddToBagRule());
+					}
+					set(
+						$current,
+						"bag",
+						lv_bag_4_0,
+						"self_checkout_experience.SelfCheckoutExperience.Bag");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+	)
+;
+
+// Rule SelfScanner
+ruleSelfScanner returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='selfscanner'
+		{
+			$current = grammarAccess.getSelfScannerAccess().getSelfscannerEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getSelfScannerAccess().getSelfscannerEnumLiteralDeclaration());
+		}
 	)
 ;
 
@@ -1184,6 +1281,23 @@ ruleTurnCommand returns [Enumerator current=null]
 				newLeafNode(enumLiteral_1, grammarAccess.getTurnCommandAccess().getRightEnumLiteralDeclaration_1());
 			}
 		)
+	)
+;
+
+// Rule Bag
+ruleBag returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='bag'
+		{
+			$current = grammarAccess.getBagAccess().getBagEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getBagAccess().getBagEnumLiteralDeclaration());
+		}
 	)
 ;
 

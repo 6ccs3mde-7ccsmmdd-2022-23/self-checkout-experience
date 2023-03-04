@@ -7,21 +7,32 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 
 Self_checkout:
+	pickScanMachine = HoldSelfScanner
 	(pickstatements+=PickStatement | walkstatements += WalkStatement)*
 	checkout = Checkout?
+;
+
+HoldSelfScanner:
+	"hold" scanMachine = SelfScanner
+	
+;
+
+enum SelfScanner:
+	selfscanner
+	
 ;	
 	
 PickStatement:
 	"pick" "up" itemCount = Addition itemPicked = ItemDef
-	holdingItem = (AddToBasket | Drop)
+	holdingItem = (ScanAndAddToBasket | Drop)
 ;
 
 ItemDef:
 	name = ID
 ;
 
-AddToBasket:
-	"add" "to" "basket" itemInBasket=[ItemDef]
+ScanAndAddToBasket:
+	"scan" "and" "add" "to" "basket" itemInBasket=[ItemDef]
 ;
 
 Drop:
@@ -86,18 +97,22 @@ IntVarExpression:
 ;
 
 Checkout:
-	"go" "to" "till"
-	scan += Scan+
+	"go" "to" "self-checkout"
+	scan = Scan
 	pay = Pay
 ;
 
 Scan:
-	"scan" "at" "till" name=ID
-	addToBag += AddToBag*
+	"scan" "barcode" "with" scanMachine = SelfScanner 
+	addToBag = AddToBag?
 ;
 
 AddToBag:
-	"add" "to" "bag" bagItem=[Scan]
+	"add" "all" "items" "to" bag = Bag
+;
+
+enum Bag:
+	bag
 ;
 
 enum Pay:

@@ -33,6 +33,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Self_checkout createSelf_checkout();
 
   /**
+   * Returns a new object of class '<em>Hold Self Scanner</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hold Self Scanner</em>'.
+   * @generated
+   */
+  HoldSelfScanner createHoldSelfScanner();
+
+  /**
    * Returns a new object of class '<em>Pick Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,13 +60,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   ItemDef createItemDef();
 
   /**
-   * Returns a new object of class '<em>Add To Basket</em>'.
+   * Returns a new object of class '<em>Scan And Add To Basket</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add To Basket</em>'.
+   * @return a new object of class '<em>Scan And Add To Basket</em>'.
    * @generated
    */
-  AddToBasket createAddToBasket();
+  ScanAndAddToBasket createScanAndAddToBasket();
 
   /**
    * Returns a new object of class '<em>Drop</em>'.

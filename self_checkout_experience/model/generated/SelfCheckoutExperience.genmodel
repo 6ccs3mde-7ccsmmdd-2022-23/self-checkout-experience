@@ -6,6 +6,9 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="SelfCheckoutExperience" basePackage="self_checkout_experience"
       disposableProviderFactory="true" fileExtensions="selfcheckoutexp" ecorePackage="SelfCheckoutExperience.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//SelfScanner">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//SelfScanner/selfscanner"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//MoveCommand">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//MoveCommand/forward"/>
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//MoveCommand/backward"/>
@@ -14,13 +17,20 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//TurnCommand/left"/>
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//TurnCommand/right"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//Bag">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Bag/bag"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//Pay">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Pay/pay"/>
     </genEnums>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Self_checkout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickScanMachine"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickstatements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/walkstatements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/checkout"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//HoldSelfScanner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//HoldSelfScanner/scanMachine"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//PickStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//PickStatement/itemCount"/>
@@ -30,8 +40,8 @@
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//ItemDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//ItemDef/name"/>
     </genClasses>
-    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBasket">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToBasket/itemInBasket"/>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//ScanAndAddToBasket">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//ScanAndAddToBasket/itemInBasket"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Drop">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Drop/itemDropped"/>
@@ -64,11 +74,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Checkout/pay"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Scan">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Scan/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Scan/scanMachine"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Scan/addToBag"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBag">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToBag/bagItem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//AddToBag/bag"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Addition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Addition/left"/>

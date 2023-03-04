@@ -3,21 +3,14 @@
  */
 package self_checkout_experience.selfCheckoutExperience.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.Pay;
@@ -41,14 +34,14 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
 public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checkout
 {
   /**
-   * The cached value of the '{@link #getScan() <em>Scan</em>}' containment reference list.
+   * The cached value of the '{@link #getScan() <em>Scan</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getScan()
    * @generated
    * @ordered
    */
-  protected EList<Scan> scan;
+  protected Scan scan;
 
   /**
    * The default value of the '{@link #getPay() <em>Pay</em>}' attribute.
@@ -97,13 +90,48 @@ public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checko
    * @generated
    */
   @Override
-  public EList<Scan> getScan()
+  public Scan getScan()
   {
-    if (scan == null)
-    {
-      scan = new EObjectContainmentEList<Scan>(Scan.class, this, SelfCheckoutExperiencePackage.CHECKOUT__SCAN);
-    }
     return scan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetScan(Scan newScan, NotificationChain msgs)
+  {
+    Scan oldScan = scan;
+    scan = newScan;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.CHECKOUT__SCAN, oldScan, newScan);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setScan(Scan newScan)
+  {
+    if (newScan != scan)
+    {
+      NotificationChain msgs = null;
+      if (scan != null)
+        msgs = ((InternalEObject)scan).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.CHECKOUT__SCAN, null, msgs);
+      if (newScan != null)
+        msgs = ((InternalEObject)newScan).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.CHECKOUT__SCAN, null, msgs);
+      msgs = basicSetScan(newScan, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.CHECKOUT__SCAN, newScan, newScan));
   }
 
   /**
@@ -142,7 +170,7 @@ public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checko
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.CHECKOUT__SCAN:
-        return ((InternalEList<?>)getScan()).basicRemove(otherEnd, msgs);
+        return basicSetScan(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,15 +198,13 @@ public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checko
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.CHECKOUT__SCAN:
-        getScan().clear();
-        getScan().addAll((Collection<? extends Scan>)newValue);
+        setScan((Scan)newValue);
         return;
       case SelfCheckoutExperiencePackage.CHECKOUT__PAY:
         setPay((Pay)newValue);
@@ -198,7 +224,7 @@ public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checko
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.CHECKOUT__SCAN:
-        getScan().clear();
+        setScan((Scan)null);
         return;
       case SelfCheckoutExperiencePackage.CHECKOUT__PAY:
         setPay(PAY_EDEFAULT);
@@ -218,7 +244,7 @@ public class CheckoutImpl extends MinimalEObjectImpl.Container implements Checko
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.CHECKOUT__SCAN:
-        return scan != null && !scan.isEmpty();
+        return scan != null;
       case SelfCheckoutExperiencePackage.CHECKOUT__PAY:
         return pay != PAY_EDEFAULT;
     }

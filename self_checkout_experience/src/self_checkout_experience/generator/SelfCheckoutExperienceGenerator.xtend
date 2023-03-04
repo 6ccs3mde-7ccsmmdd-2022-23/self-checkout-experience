@@ -9,8 +9,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import self_checkout_experience.selfCheckoutExperience.Self_checkout
 import self_checkout_experience.selfCheckoutExperience.PickStatement
-import self_checkout_experience.selfCheckoutExperience.AddToBag
-import self_checkout_experience.selfCheckoutExperience.AddToBasket
 import self_checkout_experience.selfCheckoutExperience.Drop
 import self_checkout_experience.selfCheckoutExperience.Scan
 import self_checkout_experience.selfCheckoutExperience.Checkout
@@ -19,6 +17,8 @@ import self_checkout_experience.selfCheckoutExperience.MoveStatement
 import self_checkout_experience.selfCheckoutExperience.TurnStatement
 import self_checkout_experience.selfCheckoutExperience.Repeat
 import self_checkout_experience.selfCheckoutExperience.WalkStatement
+import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
+import self_checkout_experience.selfCheckoutExperience.AddToBag
 
 /**
  * Generates code from your model files on save.
@@ -41,7 +41,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		Self checkout summary:
 		
 		- «checkout.eAllContents.filter(PickStatement).size» pick statements
-		- «checkout.eAllContents.filter(AddToBasket).size» add to basket statements
+		- «checkout.eAllContents.filter(ScanAndAddToBasket).size» add to basket statements
 		- «checkout.eAllContents.filter(Drop).size» drop statements
 		- «checkout.eAllContents.filter(Checkout).size» go to till statements
 		- «checkout.eAllContents.filter(Scan).size» scan statements

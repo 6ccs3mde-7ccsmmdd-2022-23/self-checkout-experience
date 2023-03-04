@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.AddToBag#getBagItem <em>Bag Item</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.AddToBag#getBag <em>Bag</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBag()
@@ -24,25 +24,28 @@ import org.eclipse.emf.ecore.EObject;
 public interface AddToBag extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bag Item</b></em>' reference.
+   * Returns the value of the '<em><b>Bag</b></em>' attribute.
+   * The literals are from the enumeration {@link self_checkout_experience.selfCheckoutExperience.Bag}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bag Item</em>' reference.
-   * @see #setBagItem(Scan)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBag_BagItem()
+   * @return the value of the '<em>Bag</em>' attribute.
+   * @see self_checkout_experience.selfCheckoutExperience.Bag
+   * @see #setBag(Bag)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToBag_Bag()
    * @model
    * @generated
    */
-  Scan getBagItem();
+  Bag getBag();
 
   /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToBag#getBagItem <em>Bag Item</em>}' reference.
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToBag#getBag <em>Bag</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bag Item</em>' reference.
-   * @see #getBagItem()
+   * @param value the new value of the '<em>Bag</em>' attribute.
+   * @see self_checkout_experience.selfCheckoutExperience.Bag
+   * @see #getBag()
    * @generated
    */
-  void setBagItem(Scan value);
+  void setBag(Bag value);
 
 } // AddToBag

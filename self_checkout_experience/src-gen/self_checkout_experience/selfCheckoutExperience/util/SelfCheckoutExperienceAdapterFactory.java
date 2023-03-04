@@ -81,6 +81,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createSelf_checkoutAdapter();
       }
       @Override
+      public Adapter caseHoldSelfScanner(HoldSelfScanner object)
+      {
+        return createHoldSelfScannerAdapter();
+      }
+      @Override
       public Adapter casePickStatement(PickStatement object)
       {
         return createPickStatementAdapter();
@@ -91,9 +96,9 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createItemDefAdapter();
       }
       @Override
-      public Adapter caseAddToBasket(AddToBasket object)
+      public Adapter caseScanAndAddToBasket(ScanAndAddToBasket object)
       {
-        return createAddToBasketAdapter();
+        return createScanAndAddToBasketAdapter();
       }
       @Override
       public Adapter caseDrop(Drop object)
@@ -203,6 +208,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.HoldSelfScanner <em>Hold Self Scanner</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.HoldSelfScanner
+   * @generated
+   */
+  public Adapter createHoldSelfScannerAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.PickStatement <em>Pick Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -233,16 +253,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket <em>Add To Basket</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket <em>Scan And Add To Basket</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBasket
+   * @see self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
    * @generated
    */
-  public Adapter createAddToBasketAdapter()
+  public Adapter createScanAndAddToBasketAdapter()
   {
     return null;
   }

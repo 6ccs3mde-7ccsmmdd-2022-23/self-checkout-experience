@@ -67,9 +67,10 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
     switch (eClass.getClassifierID())
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT: return createSelf_checkout();
+      case SelfCheckoutExperiencePackage.HOLD_SELF_SCANNER: return createHoldSelfScanner();
       case SelfCheckoutExperiencePackage.PICK_STATEMENT: return createPickStatement();
       case SelfCheckoutExperiencePackage.ITEM_DEF: return createItemDef();
-      case SelfCheckoutExperiencePackage.ADD_TO_BASKET: return createAddToBasket();
+      case SelfCheckoutExperiencePackage.SCAN_AND_ADD_TO_BASKET: return createScanAndAddToBasket();
       case SelfCheckoutExperiencePackage.DROP: return createDrop();
       case SelfCheckoutExperiencePackage.WALK_STATEMENT: return createWalkStatement();
       case SelfCheckoutExperiencePackage.VARIABLE_DECLARATION: return createVariableDeclaration();
@@ -99,10 +100,14 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     switch (eDataType.getClassifierID())
     {
+      case SelfCheckoutExperiencePackage.SELF_SCANNER:
+        return createSelfScannerFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
         return createMoveCommandFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
         return createTurnCommandFromString(eDataType, initialValue);
+      case SelfCheckoutExperiencePackage.BAG:
+        return createBagFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.PAY:
         return createPayFromString(eDataType, initialValue);
       default:
@@ -120,10 +125,14 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     switch (eDataType.getClassifierID())
     {
+      case SelfCheckoutExperiencePackage.SELF_SCANNER:
+        return convertSelfScannerToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
         return convertMoveCommandToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
         return convertTurnCommandToString(eDataType, instanceValue);
+      case SelfCheckoutExperiencePackage.BAG:
+        return convertBagToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.PAY:
         return convertPayToString(eDataType, instanceValue);
       default:
@@ -141,6 +150,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     Self_checkoutImpl self_checkout = new Self_checkoutImpl();
     return self_checkout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HoldSelfScanner createHoldSelfScanner()
+  {
+    HoldSelfScannerImpl holdSelfScanner = new HoldSelfScannerImpl();
+    return holdSelfScanner;
   }
 
   /**
@@ -173,10 +194,10 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   @Override
-  public AddToBasket createAddToBasket()
+  public ScanAndAddToBasket createScanAndAddToBasket()
   {
-    AddToBasketImpl addToBasket = new AddToBasketImpl();
-    return addToBasket;
+    ScanAndAddToBasketImpl scanAndAddToBasket = new ScanAndAddToBasketImpl();
+    return scanAndAddToBasket;
   }
 
   /**
@@ -352,6 +373,28 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
+  public SelfScanner createSelfScannerFromString(EDataType eDataType, String initialValue)
+  {
+    SelfScanner result = SelfScanner.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSelfScannerToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MoveCommand createMoveCommandFromString(EDataType eDataType, String initialValue)
   {
     MoveCommand result = MoveCommand.get(initialValue);
@@ -387,6 +430,28 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   public String convertTurnCommandToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Bag createBagFromString(EDataType eDataType, String initialValue)
+  {
+    Bag result = Bag.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBagToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

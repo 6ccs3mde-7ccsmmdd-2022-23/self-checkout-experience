@@ -3,12 +3,8 @@
  */
 package self_checkout_experience.selfCheckoutExperience.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,12 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import self_checkout_experience.selfCheckoutExperience.AddToBag;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.SelfScanner;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +25,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.ScanImpl#getName <em>Name</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.ScanImpl#getScanMachine <em>Scan Machine</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.ScanImpl#getAddToBag <em>Add To Bag</em>}</li>
  * </ul>
  *
@@ -40,34 +34,34 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
 public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getScanMachine() <em>Scan Machine</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getScanMachine()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final SelfScanner SCAN_MACHINE_EDEFAULT = SelfScanner.SELFSCANNER;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getScanMachine() <em>Scan Machine</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getScanMachine()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected SelfScanner scanMachine = SCAN_MACHINE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAddToBag() <em>Add To Bag</em>}' containment reference list.
+   * The cached value of the '{@link #getAddToBag() <em>Add To Bag</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAddToBag()
    * @generated
    * @ordered
    */
-  protected EList<AddToBag> addToBag;
+  protected AddToBag addToBag;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,9 +90,9 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * @generated
    */
   @Override
-  public String getName()
+  public SelfScanner getScanMachine()
   {
-    return name;
+    return scanMachine;
   }
 
   /**
@@ -107,12 +101,12 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setScanMachine(SelfScanner newScanMachine)
   {
-    String oldName = name;
-    name = newName;
+    SelfScanner oldScanMachine = scanMachine;
+    scanMachine = newScanMachine == null ? SCAN_MACHINE_EDEFAULT : newScanMachine;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE, oldScanMachine, scanMachine));
   }
 
   /**
@@ -121,13 +115,48 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * @generated
    */
   @Override
-  public EList<AddToBag> getAddToBag()
+  public AddToBag getAddToBag()
   {
-    if (addToBag == null)
-    {
-      addToBag = new EObjectContainmentEList<AddToBag>(AddToBag.class, this, SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG);
-    }
     return addToBag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAddToBag(AddToBag newAddToBag, NotificationChain msgs)
+  {
+    AddToBag oldAddToBag = addToBag;
+    addToBag = newAddToBag;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, oldAddToBag, newAddToBag);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAddToBag(AddToBag newAddToBag)
+  {
+    if (newAddToBag != addToBag)
+    {
+      NotificationChain msgs = null;
+      if (addToBag != null)
+        msgs = ((InternalEObject)addToBag).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, null, msgs);
+      if (newAddToBag != null)
+        msgs = ((InternalEObject)newAddToBag).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, null, msgs);
+      msgs = basicSetAddToBag(newAddToBag, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG, newAddToBag, newAddToBag));
   }
 
   /**
@@ -141,7 +170,7 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        return ((InternalEList<?>)getAddToBag()).basicRemove(otherEnd, msgs);
+        return basicSetAddToBag(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -156,8 +185,8 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SCAN__NAME:
-        return getName();
+      case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
+        return getScanMachine();
       case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
         return getAddToBag();
     }
@@ -169,18 +198,16 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SCAN__NAME:
-        setName((String)newValue);
+      case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
+        setScanMachine((SelfScanner)newValue);
         return;
       case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        getAddToBag().clear();
-        getAddToBag().addAll((Collection<? extends AddToBag>)newValue);
+        setAddToBag((AddToBag)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,11 +223,11 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SCAN__NAME:
-        setName(NAME_EDEFAULT);
+      case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
+        setScanMachine(SCAN_MACHINE_EDEFAULT);
         return;
       case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        getAddToBag().clear();
+        setAddToBag((AddToBag)null);
         return;
     }
     super.eUnset(featureID);
@@ -216,10 +243,10 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SCAN__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SelfCheckoutExperiencePackage.SCAN__SCAN_MACHINE:
+        return scanMachine != SCAN_MACHINE_EDEFAULT;
       case SelfCheckoutExperiencePackage.SCAN__ADD_TO_BAG:
-        return addToBag != null && !addToBag.isEmpty();
+        return addToBag != null;
     }
     return super.eIsSet(featureID);
   }
@@ -235,8 +262,8 @@ public class ScanImpl extends MinimalEObjectImpl.Container implements Scan
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (scanMachine: ");
+    result.append(scanMachine);
     result.append(')');
     return result.toString();
   }

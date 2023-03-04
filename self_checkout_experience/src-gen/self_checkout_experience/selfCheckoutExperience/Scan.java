@@ -3,8 +3,6 @@
  */
 package self_checkout_experience.selfCheckoutExperience;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Scan#getName <em>Name</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Scan#getScanMachine <em>Scan Machine</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Scan#getAddToBag <em>Add To Bag</em>}</li>
  * </ul>
  *
@@ -27,37 +25,50 @@ import org.eclipse.emf.ecore.EObject;
 public interface Scan extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Scan Machine</b></em>' attribute.
+   * The literals are from the enumeration {@link self_checkout_experience.selfCheckoutExperience.SelfScanner}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getScan_Name()
+   * @return the value of the '<em>Scan Machine</em>' attribute.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfScanner
+   * @see #setScanMachine(SelfScanner)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getScan_ScanMachine()
    * @model
    * @generated
    */
-  String getName();
+  SelfScanner getScanMachine();
 
   /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Scan#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Scan#getScanMachine <em>Scan Machine</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Scan Machine</em>' attribute.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfScanner
+   * @see #getScanMachine()
    * @generated
    */
-  void setName(String value);
+  void setScanMachine(SelfScanner value);
 
   /**
-   * Returns the value of the '<em><b>Add To Bag</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.AddToBag}.
+   * Returns the value of the '<em><b>Add To Bag</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Add To Bag</em>' containment reference list.
+   * @return the value of the '<em>Add To Bag</em>' containment reference.
+   * @see #setAddToBag(AddToBag)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getScan_AddToBag()
    * @model containment="true"
    * @generated
    */
-  EList<AddToBag> getAddToBag();
+  AddToBag getAddToBag();
+
+  /**
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Scan#getAddToBag <em>Add To Bag</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Add To Bag</em>' containment reference.
+   * @see #getAddToBag()
+   * @generated
+   */
+  void setAddToBag(AddToBag value);
 
 } // Scan

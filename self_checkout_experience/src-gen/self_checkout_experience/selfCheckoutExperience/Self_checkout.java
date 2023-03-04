@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickScanMachine <em>Pick Scan Machine</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatements <em>Pickstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getWalkstatements <em>Walkstatements</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getCheckout <em>Checkout</em>}</li>
@@ -27,6 +28,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Self_checkout extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Pick Scan Machine</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pick Scan Machine</em>' containment reference.
+   * @see #setPickScanMachine(HoldSelfScanner)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_PickScanMachine()
+   * @model containment="true"
+   * @generated
+   */
+  HoldSelfScanner getPickScanMachine();
+
+  /**
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickScanMachine <em>Pick Scan Machine</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pick Scan Machine</em>' containment reference.
+   * @see #getPickScanMachine()
+   * @generated
+   */
+  void setPickScanMachine(HoldSelfScanner value);
+
   /**
    * Returns the value of the '<em><b>Pickstatements</b></em>' containment reference list.
    * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.PickStatement}.
