@@ -83,7 +83,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
       case SelfCheckoutExperiencePackage.CHECKOUT: return createCheckout();
       case SelfCheckoutExperiencePackage.SCAN_EXPRESSION: return createScanExpression();
       case SelfCheckoutExperiencePackage.SCAN: return createScan();
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG: return createAddToBag();
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS: return createCarryItems();
       case SelfCheckoutExperiencePackage.ADDITION: return createAddition();
       case SelfCheckoutExperiencePackage.MULTIPLICATION: return createMultiplication();
       case SelfCheckoutExperiencePackage.COMPLEX_SCAN: return createComplexScan();
@@ -108,8 +108,8 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
         return createMoveCommandFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
         return createTurnCommandFromString(eDataType, initialValue);
-      case SelfCheckoutExperiencePackage.BAG:
-        return createBagFromString(eDataType, initialValue);
+      case SelfCheckoutExperiencePackage.CARRY:
+        return createCarryFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.PAY:
         return createPayFromString(eDataType, initialValue);
       default:
@@ -133,8 +133,8 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
         return convertMoveCommandToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
         return convertTurnCommandToString(eDataType, instanceValue);
-      case SelfCheckoutExperiencePackage.BAG:
-        return convertBagToString(eDataType, instanceValue);
+      case SelfCheckoutExperiencePackage.CARRY:
+        return convertCarryToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.PAY:
         return convertPayToString(eDataType, instanceValue);
       default:
@@ -352,10 +352,10 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   @Override
-  public AddToBag createAddToBag()
+  public CarryItems createCarryItems()
   {
-    AddToBagImpl addToBag = new AddToBagImpl();
-    return addToBag;
+    CarryItemsImpl carryItems = new CarryItemsImpl();
+    return carryItems;
   }
 
   /**
@@ -465,9 +465,9 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public Bag createBagFromString(EDataType eDataType, String initialValue)
+  public Carry createCarryFromString(EDataType eDataType, String initialValue)
   {
-    Bag result = Bag.get(initialValue);
+    Carry result = Carry.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -477,7 +477,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertBagToString(EDataType eDataType, Object instanceValue)
+  public String convertCarryToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -524,25 +524,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleAddToBag
-entryRuleAddToBag
+// Entry rule entryRuleCarryItems
+entryRuleCarryItems
 :
-{ before(grammarAccess.getAddToBagRule()); }
-	 ruleAddToBag
-{ after(grammarAccess.getAddToBagRule()); } 
+{ before(grammarAccess.getCarryItemsRule()); }
+	 ruleCarryItems
+{ after(grammarAccess.getCarryItemsRule()); } 
 	 EOF 
 ;
 
-// Rule AddToBag
-ruleAddToBag 
+// Rule CarryItems
+ruleCarryItems 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getAddToBagAccess().getGroup()); }
-		(rule__AddToBag__Group__0)
-		{ after(grammarAccess.getAddToBagAccess().getGroup()); }
+		{ before(grammarAccess.getCarryItemsAccess().getGroup()); }
+		(rule__CarryItems__Group__0)
+		{ after(grammarAccess.getCarryItemsAccess().getGroup()); }
 	)
 ;
 finally {
@@ -597,16 +597,16 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Rule Bag
-ruleBag
+// Rule Carry
+ruleCarry
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getBagAccess().getBagEnumLiteralDeclaration()); }
-		('bag')
-		{ after(grammarAccess.getBagAccess().getBagEnumLiteralDeclaration()); }
+		{ before(grammarAccess.getCarryAccess().getAlternatives()); }
+		(rule__Carry__Alternatives)
+		{ after(grammarAccess.getCarryAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -830,6 +830,27 @@ rule__TurnCommand__Alternatives
 		{ before(grammarAccess.getTurnCommandAccess().getRightEnumLiteralDeclaration_1()); }
 		('right')
 		{ after(grammarAccess.getTurnCommandAccess().getRightEnumLiteralDeclaration_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Carry__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getCarryAccess().getBagEnumLiteralDeclaration_0()); }
+		('bag')
+		{ after(grammarAccess.getCarryAccess().getBagEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getCarryAccess().getHoldEnumLiteralDeclaration_1()); }
+		('hold')
+		{ after(grammarAccess.getCarryAccess().getHoldEnumLiteralDeclaration_1()); }
 	)
 ;
 finally {
@@ -2463,134 +2484,80 @@ finally {
 }
 
 
-rule__AddToBag__Group__0
+rule__CarryItems__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__AddToBag__Group__0__Impl
-	rule__AddToBag__Group__1
+	rule__CarryItems__Group__0__Impl
+	rule__CarryItems__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__Group__0__Impl
+rule__CarryItems__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getAddToBagAccess().getAddKeyword_0()); }
-	'add'
-	{ after(grammarAccess.getAddToBagAccess().getAddKeyword_0()); }
+	{ before(grammarAccess.getCarryItemsAccess().getCarryAssignment_0()); }
+	(rule__CarryItems__CarryAssignment_0)
+	{ after(grammarAccess.getCarryItemsAccess().getCarryAssignment_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__Group__1
+rule__CarryItems__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__AddToBag__Group__1__Impl
-	rule__AddToBag__Group__2
+	rule__CarryItems__Group__1__Impl
+	rule__CarryItems__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__Group__1__Impl
+rule__CarryItems__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getAddToBagAccess().getAllKeyword_1()); }
+	{ before(grammarAccess.getCarryItemsAccess().getAllKeyword_1()); }
 	'all'
-	{ after(grammarAccess.getAddToBagAccess().getAllKeyword_1()); }
+	{ after(grammarAccess.getCarryItemsAccess().getAllKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__Group__2
+rule__CarryItems__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__AddToBag__Group__2__Impl
-	rule__AddToBag__Group__3
+	rule__CarryItems__Group__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__Group__2__Impl
+rule__CarryItems__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getAddToBagAccess().getItemsKeyword_2()); }
+	{ before(grammarAccess.getCarryItemsAccess().getItemsKeyword_2()); }
 	'items'
-	{ after(grammarAccess.getAddToBagAccess().getItemsKeyword_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AddToBag__Group__3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__AddToBag__Group__3__Impl
-	rule__AddToBag__Group__4
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AddToBag__Group__3__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getAddToBagAccess().getToKeyword_3()); }
-	'to'
-	{ after(grammarAccess.getAddToBagAccess().getToKeyword_3()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AddToBag__Group__4
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__AddToBag__Group__4__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AddToBag__Group__4__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getAddToBagAccess().getBagAssignment_4()); }
-	(rule__AddToBag__BagAssignment_4)
-	{ after(grammarAccess.getAddToBagAccess().getBagAssignment_4()); }
+	{ after(grammarAccess.getCarryItemsAccess().getItemsKeyword_2()); }
 )
 ;
 finally {
@@ -3006,9 +2973,9 @@ rule__ScanExpression__NextAssignment_1_2
 	}
 :
 	(
-		{ before(grammarAccess.getScanExpressionAccess().getNextAddToBagParserRuleCall_1_2_0()); }
-		ruleAddToBag
-		{ after(grammarAccess.getScanExpressionAccess().getNextAddToBagParserRuleCall_1_2_0()); }
+		{ before(grammarAccess.getScanExpressionAccess().getNextCarryItemsParserRuleCall_1_2_0()); }
+		ruleCarryItems
+		{ after(grammarAccess.getScanExpressionAccess().getNextCarryItemsParserRuleCall_1_2_0()); }
 	)
 ;
 finally {
@@ -3030,15 +2997,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AddToBag__BagAssignment_4
+rule__CarryItems__CarryAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAddToBagAccess().getBagBagEnumRuleCall_4_0()); }
-		ruleBag
-		{ after(grammarAccess.getAddToBagAccess().getBagBagEnumRuleCall_4_0()); }
+		{ before(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0()); }
+		ruleCarry
+		{ after(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0()); }
 	)
 ;
 finally {

@@ -103,19 +103,19 @@ Checkout:
 ;
 
 ScanExpression:
-	Scan ({ComplexScan.start = current} 'then' next += AddToBag)?
+	Scan ({ComplexScan.start = current} 'then' next += CarryItems)?
 ;
 
 Scan:
 	"scan" "barcode" "with" scanMachine = SelfScanner
 ;
 
-AddToBag:
-	"add" "all" "items" "to" bag = Bag
+CarryItems:
+	carry = Carry  "all" "items"
 ;
 
-enum Bag:
-	bag
+enum Carry:
+	bag | hold
 ;
 
 enum Pay:

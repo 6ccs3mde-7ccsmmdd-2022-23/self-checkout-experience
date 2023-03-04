@@ -14,8 +14,8 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
 import self_checkout_experience.selfCheckoutExperience.Addition;
+import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.ComplexScan;
 import self_checkout_experience.selfCheckoutExperience.Drop;
@@ -49,11 +49,11 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SelfCheckoutExperiencePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SelfCheckoutExperiencePackage.ADD_TO_BAG:
-				sequence_AddToBag(context, (AddToBag) semanticObject); 
-				return; 
 			case SelfCheckoutExperiencePackage.ADDITION:
 				sequence_Addition(context, (Addition) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.CARRY_ITEMS:
+				sequence_CarryItems(context, (CarryItems) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.CHECKOUT:
 				sequence_Checkout(context, (Checkout) semanticObject); 
@@ -110,24 +110,6 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
-	 *     AddToBag returns AddToBag
-	 *
-	 * Constraint:
-	 *     bag=Bag
-	 */
-	protected void sequence_AddToBag(ISerializationContext context, AddToBag semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG__BAG) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG__BAG));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddToBagAccess().getBagBagEnumRuleCall_4_0(), semanticObject.getBag());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Addition returns Addition
 	 *     Addition.Addition_1_0 returns Addition
 	 *     Multiplication returns Addition
@@ -139,6 +121,24 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 */
 	protected void sequence_Addition(ISerializationContext context, Addition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CarryItems returns CarryItems
+	 *
+	 * Constraint:
+	 *     carry=Carry
+	 */
+	protected void sequence_CarryItems(ISerializationContext context, CarryItems semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CARRY_ITEMS__CARRY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CARRY_ITEMS__CARRY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0(), semanticObject.getCarry());
+		feeder.finish();
 	}
 	
 	
@@ -349,7 +349,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     ScanExpression returns ComplexScan
 	 *
 	 * Constraint:
-	 *     (start=ScanExpression_ComplexScan_1_0 next+=AddToBag)
+	 *     (start=ScanExpression_ComplexScan_1_0 next+=CarryItems)
 	 */
 	protected void sequence_ScanExpression(ISerializationContext context, ComplexScan semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

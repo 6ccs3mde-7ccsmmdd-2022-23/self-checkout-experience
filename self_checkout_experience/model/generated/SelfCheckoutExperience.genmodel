@@ -17,8 +17,9 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//TurnCommand/left"/>
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//TurnCommand/right"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//Bag">
-      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Bag/bag"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//Carry">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Carry/bag"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Carry/hold"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//Pay">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Pay/pay"/>
@@ -77,8 +78,8 @@
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Scan">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Scan/scanMachine"/>
     </genClasses>
-    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToBag">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//AddToBag/bag"/>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//CarryItems">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//CarryItems/carry"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Addition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Addition/left"/>

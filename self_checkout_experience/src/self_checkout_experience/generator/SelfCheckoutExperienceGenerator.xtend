@@ -18,7 +18,8 @@ import self_checkout_experience.selfCheckoutExperience.TurnStatement
 import self_checkout_experience.selfCheckoutExperience.Repeat
 import self_checkout_experience.selfCheckoutExperience.WalkStatement
 import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
-import self_checkout_experience.selfCheckoutExperience.AddToBag
+import self_checkout_experience.selfCheckoutExperience.ScanExpression
+import self_checkout_experience.selfCheckoutExperience.CarryItems
 
 /**
  * Generates code from your model files on save.
@@ -41,11 +42,11 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		Self checkout summary:
 		
 		- «checkout.eAllContents.filter(PickStatement).size» pick statements
-		- «checkout.eAllContents.filter(ScanAndAddToBasket).size» add to basket statements
+		- «checkout.eAllContents.filter(ScanAndAddToBasket).size» scan and add to basket statements
 		- «checkout.eAllContents.filter(Drop).size» drop statements
-		- «checkout.eAllContents.filter(Checkout).size» go to till statements
+		- «checkout.eAllContents.filter(Checkout).size» go to self-checkout statements
 		- «checkout.eAllContents.filter(Scan).size» scan statements
-		- «checkout.eAllContents.filter(AddToBag).size» add to bag statements
+		- «checkout.eAllContents.filter(CarryItems).size» carry item statements
 		- «checkout.eAllContents.filter(MoveStatement).size» move statements
 		- «checkout.eAllContents.filter(TurnStatement).size» turn statements
 		- «checkout.walkstatements.filter(Repeat).size» repeat statements

@@ -78,11 +78,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Scan" eSuperTypes="#//ScanExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scanMachine" eType="#//SelfScanner"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddToBag">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bag" eType="#//Bag"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CarryItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carry" eType="#//Carry"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Bag">
+  <eClassifiers xsi:type="ecore:EEnum" name="Carry">
     <eLiterals name="bag" literal="bag"/>
+    <eLiterals name="hold" value="1" literal="hold"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Pay">
     <eLiterals name="pay" literal="pay"/>
@@ -106,7 +107,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComplexScan" eSuperTypes="#//ScanExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Scan"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//AddToBag"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//CarryItems"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

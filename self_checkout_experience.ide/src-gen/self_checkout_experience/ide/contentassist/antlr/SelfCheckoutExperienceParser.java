@@ -40,6 +40,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getMoveCommandAccess().getAlternatives(), "rule__MoveCommand__Alternatives");
 			builder.put(grammarAccess.getTurnCommandAccess().getAlternatives(), "rule__TurnCommand__Alternatives");
+			builder.put(grammarAccess.getCarryAccess().getAlternatives(), "rule__Carry__Alternatives");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getGroup(), "rule__Self_checkout__Group__0");
 			builder.put(grammarAccess.getHoldSelfScannerAccess().getGroup(), "rule__HoldSelfScanner__Group__0");
 			builder.put(grammarAccess.getPickStatementAccess().getGroup(), "rule__PickStatement__Group__0");
@@ -58,7 +59,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getScanExpressionAccess().getGroup(), "rule__ScanExpression__Group__0");
 			builder.put(grammarAccess.getScanExpressionAccess().getGroup_1(), "rule__ScanExpression__Group_1__0");
 			builder.put(grammarAccess.getScanAccess().getGroup(), "rule__Scan__Group__0");
-			builder.put(grammarAccess.getAddToBagAccess().getGroup(), "rule__AddToBag__Group__0");
+			builder.put(grammarAccess.getCarryItemsAccess().getGroup(), "rule__CarryItems__Group__0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getPickScanMachineAssignment_0(), "rule__Self_checkout__PickScanMachineAssignment_0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getPickstatementsAssignment_1_0(), "rule__Self_checkout__PickstatementsAssignment_1_0");
 			builder.put(grammarAccess.getSelf_checkoutAccess().getWalkstatementsAssignment_1_1(), "rule__Self_checkout__WalkstatementsAssignment_1_1");
@@ -87,7 +88,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCheckoutAccess().getPayAssignment_4(), "rule__Checkout__PayAssignment_4");
 			builder.put(grammarAccess.getScanExpressionAccess().getNextAssignment_1_2(), "rule__ScanExpression__NextAssignment_1_2");
 			builder.put(grammarAccess.getScanAccess().getScanMachineAssignment_3(), "rule__Scan__ScanMachineAssignment_3");
-			builder.put(grammarAccess.getAddToBagAccess().getBagAssignment_4(), "rule__AddToBag__BagAssignment_4");
+			builder.put(grammarAccess.getCarryItemsAccess().getCarryAssignment_0(), "rule__CarryItems__CarryAssignment_0");
 		}
 	}
 	

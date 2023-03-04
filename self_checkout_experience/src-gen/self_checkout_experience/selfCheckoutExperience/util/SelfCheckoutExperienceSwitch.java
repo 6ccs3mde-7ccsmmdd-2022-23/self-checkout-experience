@@ -199,10 +199,10 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG:
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS:
       {
-        AddToBag addToBag = (AddToBag)theEObject;
-        T result = caseAddToBag(addToBag);
+        CarryItems carryItems = (CarryItems)theEObject;
+        T result = caseCarryItems(carryItems);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -507,17 +507,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Add To Bag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Carry Items</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add To Bag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Carry Items</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAddToBag(AddToBag object)
+  public T caseCarryItems(CarryItems object)
   {
     return null;
   }

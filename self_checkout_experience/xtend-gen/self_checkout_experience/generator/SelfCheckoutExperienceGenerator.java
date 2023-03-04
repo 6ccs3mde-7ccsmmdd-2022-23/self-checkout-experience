@@ -13,7 +13,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
+import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
@@ -52,7 +52,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("- ");
     int _size_1 = IteratorExtensions.size(Iterators.<ScanAndAddToBasket>filter(checkout.eAllContents(), ScanAndAddToBasket.class));
     _builder.append(_size_1);
-    _builder.append(" add to basket statements");
+    _builder.append(" scan and add to basket statements");
     _builder.newLineIfNotEmpty();
     _builder.append("- ");
     int _size_2 = IteratorExtensions.size(Iterators.<Drop>filter(checkout.eAllContents(), Drop.class));
@@ -62,7 +62,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("- ");
     int _size_3 = IteratorExtensions.size(Iterators.<Checkout>filter(checkout.eAllContents(), Checkout.class));
     _builder.append(_size_3);
-    _builder.append(" go to till statements");
+    _builder.append(" go to self-checkout statements");
     _builder.newLineIfNotEmpty();
     _builder.append("- ");
     int _size_4 = IteratorExtensions.size(Iterators.<Scan>filter(checkout.eAllContents(), Scan.class));
@@ -70,9 +70,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append(" scan statements");
     _builder.newLineIfNotEmpty();
     _builder.append("- ");
-    int _size_5 = IteratorExtensions.size(Iterators.<AddToBag>filter(checkout.eAllContents(), AddToBag.class));
+    int _size_5 = IteratorExtensions.size(Iterators.<CarryItems>filter(checkout.eAllContents(), CarryItems.class));
     _builder.append(_size_5);
-    _builder.append(" add to bag statements");
+    _builder.append(" carry item statements");
     _builder.newLineIfNotEmpty();
     _builder.append("- ");
     int _size_6 = IteratorExtensions.size(Iterators.<MoveStatement>filter(checkout.eAllContents(), MoveStatement.class));

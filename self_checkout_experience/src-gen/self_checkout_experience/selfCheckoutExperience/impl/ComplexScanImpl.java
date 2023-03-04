@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
+import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.ComplexScan;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
@@ -57,7 +57,7 @@ public class ComplexScanImpl extends ScanExpressionImpl implements ComplexScan
    * @generated
    * @ordered
    */
-  protected EList<AddToBag> next;
+  protected EList<CarryItems> next;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,11 +136,11 @@ public class ComplexScanImpl extends ScanExpressionImpl implements ComplexScan
    * @generated
    */
   @Override
-  public EList<AddToBag> getNext()
+  public EList<CarryItems> getNext()
   {
     if (next == null)
     {
-      next = new EObjectContainmentEList<AddToBag>(AddToBag.class, this, SelfCheckoutExperiencePackage.COMPLEX_SCAN__NEXT);
+      next = new EObjectContainmentEList<CarryItems>(CarryItems.class, this, SelfCheckoutExperiencePackage.COMPLEX_SCAN__NEXT);
     }
     return next;
   }
@@ -197,7 +197,7 @@ public class ComplexScanImpl extends ScanExpressionImpl implements ComplexScan
         return;
       case SelfCheckoutExperiencePackage.COMPLEX_SCAN__NEXT:
         getNext().clear();
-        getNext().addAll((Collection<? extends AddToBag>)newValue);
+        getNext().addAll((Collection<? extends CarryItems>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

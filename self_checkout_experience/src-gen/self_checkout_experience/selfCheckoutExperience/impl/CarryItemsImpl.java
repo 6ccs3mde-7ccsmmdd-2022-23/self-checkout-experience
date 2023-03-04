@@ -10,51 +10,51 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
-import self_checkout_experience.selfCheckoutExperience.Bag;
+import self_checkout_experience.selfCheckoutExperience.Carry;
+import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Add To Bag</b></em>'.
+ * An implementation of the model object '<em><b>Carry Items</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.AddToBagImpl#getBag <em>Bag</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.CarryItemsImpl#getCarry <em>Carry</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToBag
+public class CarryItemsImpl extends MinimalEObjectImpl.Container implements CarryItems
 {
   /**
-   * The default value of the '{@link #getBag() <em>Bag</em>}' attribute.
+   * The default value of the '{@link #getCarry() <em>Carry</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBag()
+   * @see #getCarry()
    * @generated
    * @ordered
    */
-  protected static final Bag BAG_EDEFAULT = Bag.BAG;
+  protected static final Carry CARRY_EDEFAULT = Carry.BAG;
 
   /**
-   * The cached value of the '{@link #getBag() <em>Bag</em>}' attribute.
+   * The cached value of the '{@link #getCarry() <em>Carry</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBag()
+   * @see #getCarry()
    * @generated
    * @ordered
    */
-  protected Bag bag = BAG_EDEFAULT;
+  protected Carry carry = CARRY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AddToBagImpl()
+  protected CarryItemsImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
   @Override
   protected EClass eStaticClass()
   {
-    return SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG;
+    return SelfCheckoutExperiencePackage.Literals.CARRY_ITEMS;
   }
 
   /**
@@ -76,9 +76,9 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
    * @generated
    */
   @Override
-  public Bag getBag()
+  public Carry getCarry()
   {
-    return bag;
+    return carry;
   }
 
   /**
@@ -87,12 +87,12 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
    * @generated
    */
   @Override
-  public void setBag(Bag newBag)
+  public void setCarry(Carry newCarry)
   {
-    Bag oldBag = bag;
-    bag = newBag == null ? BAG_EDEFAULT : newBag;
+    Carry oldCarry = carry;
+    carry = newCarry == null ? CARRY_EDEFAULT : newCarry;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.ADD_TO_BAG__BAG, oldBag, bag));
+      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.CARRY_ITEMS__CARRY, oldCarry, carry));
   }
 
   /**
@@ -105,8 +105,8 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG__BAG:
-        return getBag();
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS__CARRY:
+        return getCarry();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG__BAG:
-        setBag((Bag)newValue);
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS__CARRY:
+        setCarry((Carry)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG__BAG:
-        setBag(BAG_EDEFAULT);
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS__CARRY:
+        setCarry(CARRY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG__BAG:
-        return bag != BAG_EDEFAULT;
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS__CARRY:
+        return carry != CARRY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -172,10 +172,10 @@ public class AddToBagImpl extends MinimalEObjectImpl.Container implements AddToB
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (bag: ");
-    result.append(bag);
+    result.append(" (carry: ");
+    result.append(carry);
     result.append(')');
     return result.toString();
   }
 
-} //AddToBagImpl
+} //CarryItemsImpl

@@ -650,22 +650,20 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Action cComplexScanStartAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cThenKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cNextAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNextAddToBagParserRuleCall_1_2_0 = (RuleCall)cNextAssignment_1_2.eContents().get(0);
+		private final RuleCall cNextCarryItemsParserRuleCall_1_2_0 = (RuleCall)cNextAssignment_1_2.eContents().get(0);
 		
 		//ScanExpression:
-		//    Scan ({ComplexScan.start = current} 'then' next += AddToBag)?
-		////    "scan" "barcode" "with" scanMachine = SelfScanner
-		////    addToBag = AddToBag?
+		//    Scan ({ComplexScan.start = current} 'then' next += CarryItems)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Scan ({ComplexScan.start = current} 'then' next += AddToBag)?
+		//Scan ({ComplexScan.start = current} 'then' next += CarryItems)?
 		public Group getGroup() { return cGroup; }
 		
 		//Scan
 		public RuleCall getScanParserRuleCall_0() { return cScanParserRuleCall_0; }
 		
-		//({ComplexScan.start = current} 'then' next += AddToBag)?
+		//({ComplexScan.start = current} 'then' next += CarryItems)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{ComplexScan.start = current}
@@ -674,11 +672,11 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//'then'
 		public Keyword getThenKeyword_1_1() { return cThenKeyword_1_1; }
 		
-		//next += AddToBag
+		//next += CarryItems
 		public Assignment getNextAssignment_1_2() { return cNextAssignment_1_2; }
 		
-		//AddToBag
-		public RuleCall getNextAddToBagParserRuleCall_1_2_0() { return cNextAddToBagParserRuleCall_1_2_0; }
+		//CarryItems
+		public RuleCall getNextCarryItemsParserRuleCall_1_2_0() { return cNextCarryItemsParserRuleCall_1_2_0; }
 	}
 	public class ScanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Scan");
@@ -712,41 +710,33 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//SelfScanner
 		public RuleCall getScanMachineSelfScannerEnumRuleCall_3_0() { return cScanMachineSelfScannerEnumRuleCall_3_0; }
 	}
-	public class AddToBagElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.AddToBag");
+	public class CarryItemsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.CarryItems");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCarryAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCarryCarryEnumRuleCall_0_0 = (RuleCall)cCarryAssignment_0.eContents().get(0);
 		private final Keyword cAllKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cItemsKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBagAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBagBagEnumRuleCall_4_0 = (RuleCall)cBagAssignment_4.eContents().get(0);
 		
-		//AddToBag:
-		//    "add" "all" "items" "to" bag = Bag
+		//CarryItems:
+		//    carry = Carry  "all" "items"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"add" "all" "items" "to" bag = Bag
+		//carry = Carry  "all" "items"
 		public Group getGroup() { return cGroup; }
 		
-		//"add"
-		public Keyword getAddKeyword_0() { return cAddKeyword_0; }
+		//carry = Carry
+		public Assignment getCarryAssignment_0() { return cCarryAssignment_0; }
+		
+		//Carry
+		public RuleCall getCarryCarryEnumRuleCall_0_0() { return cCarryCarryEnumRuleCall_0_0; }
 		
 		//"all"
 		public Keyword getAllKeyword_1() { return cAllKeyword_1; }
 		
 		//"items"
 		public Keyword getItemsKeyword_2() { return cItemsKeyword_2; }
-		
-		//"to"
-		public Keyword getToKeyword_3() { return cToKeyword_3; }
-		
-		//bag = Bag
-		public Assignment getBagAssignment_4() { return cBagAssignment_4; }
-		
-		//Bag
-		public RuleCall getBagBagEnumRuleCall_4_0() { return cBagBagEnumRuleCall_4_0; }
 	}
 	
 	public class SelfScannerElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
@@ -816,20 +806,31 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		
 		public Keyword getRightRightKeyword_1_0() { return cRightRightKeyword_1_0; }
 	}
-	public class BagElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Bag");
-		private final EnumLiteralDeclaration cBagEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cBagBagKeyword_0 = (Keyword)cBagEnumLiteralDeclaration.eContents().get(0);
+	public class CarryElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Carry");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBagEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBagBagKeyword_0_0 = (Keyword)cBagEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cHoldEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cHoldHoldKeyword_1_0 = (Keyword)cHoldEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum Bag:
-		//    bag
+		//enum Carry:
+		//    bag | hold
 		//;
 		public EnumRule getRule() { return rule; }
 		
-		//bag
-		public EnumLiteralDeclaration getBagEnumLiteralDeclaration() { return cBagEnumLiteralDeclaration; }
+		//bag | hold
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		public Keyword getBagBagKeyword_0() { return cBagBagKeyword_0; }
+		//bag
+		public EnumLiteralDeclaration getBagEnumLiteralDeclaration_0() { return cBagEnumLiteralDeclaration_0; }
+		
+		public Keyword getBagBagKeyword_0_0() { return cBagBagKeyword_0_0; }
+		
+		//hold
+		public EnumLiteralDeclaration getHoldEnumLiteralDeclaration_1() { return cHoldEnumLiteralDeclaration_1; }
+		
+		public Keyword getHoldHoldKeyword_1_0() { return cHoldHoldKeyword_1_0; }
 	}
 	public class PayElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Pay");
@@ -869,8 +870,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final CheckoutElements pCheckout;
 	private final ScanExpressionElements pScanExpression;
 	private final ScanElements pScan;
-	private final AddToBagElements pAddToBag;
-	private final BagElements eBag;
+	private final CarryItemsElements pCarryItems;
+	private final CarryElements eCarry;
 	private final PayElements ePay;
 	
 	private final Grammar grammar;
@@ -904,8 +905,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pCheckout = new CheckoutElements();
 		this.pScanExpression = new ScanExpressionElements();
 		this.pScan = new ScanElements();
-		this.pAddToBag = new AddToBagElements();
-		this.eBag = new BagElements();
+		this.pCarryItems = new CarryItemsElements();
+		this.eCarry = new CarryElements();
 		this.ePay = new PayElements();
 	}
 	
@@ -1169,9 +1170,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//ScanExpression:
-	//    Scan ({ComplexScan.start = current} 'then' next += AddToBag)?
-	////    "scan" "barcode" "with" scanMachine = SelfScanner
-	////    addToBag = AddToBag?
+	//    Scan ({ComplexScan.start = current} 'then' next += CarryItems)?
 	//;
 	public ScanExpressionElements getScanExpressionAccess() {
 		return pScanExpression;
@@ -1192,26 +1191,26 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getScanAccess().getRule();
 	}
 	
-	//AddToBag:
-	//    "add" "all" "items" "to" bag = Bag
+	//CarryItems:
+	//    carry = Carry  "all" "items"
 	//;
-	public AddToBagElements getAddToBagAccess() {
-		return pAddToBag;
+	public CarryItemsElements getCarryItemsAccess() {
+		return pCarryItems;
 	}
 	
-	public ParserRule getAddToBagRule() {
-		return getAddToBagAccess().getRule();
+	public ParserRule getCarryItemsRule() {
+		return getCarryItemsAccess().getRule();
 	}
 	
-	//enum Bag:
-	//    bag
+	//enum Carry:
+	//    bag | hold
 	//;
-	public BagElements getBagAccess() {
-		return eBag;
+	public CarryElements getCarryAccess() {
+		return eCarry;
 	}
 	
-	public EnumRule getBagRule() {
-		return getBagAccess().getRule();
+	public EnumRule getCarryRule() {
+		return getCarryAccess().getRule();
 	}
 	
 	//enum Pay:

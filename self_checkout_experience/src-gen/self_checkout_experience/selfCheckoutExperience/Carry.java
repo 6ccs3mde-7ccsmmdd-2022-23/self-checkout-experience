@@ -11,69 +11,91 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Self Scanner</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Carry</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelfScanner()
+ * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getCarry()
  * @model
  * @generated
  */
-public enum SelfScanner implements Enumerator
+public enum Carry implements Enumerator
 {
   /**
-   * The '<em><b>Selfscanner</b></em>' literal object.
+   * The '<em><b>Bag</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SELFSCANNER_VALUE
+   * @see #BAG_VALUE
    * @generated
    * @ordered
    */
-  SELFSCANNER(0, "selfscanner", "selfscanner");
+  BAG(0, "bag", "bag"),
 
   /**
-   * The '<em><b>Selfscanner</b></em>' literal value.
+   * The '<em><b>Hold</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SELFSCANNER
-   * @model name="selfscanner"
+   * @see #HOLD_VALUE
    * @generated
    * @ordered
    */
-  public static final int SELFSCANNER_VALUE = 0;
+  HOLD(1, "hold", "hold");
 
   /**
-   * An array of all the '<em><b>Self Scanner</b></em>' enumerators.
+   * The '<em><b>Bag</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #BAG
+   * @model name="bag"
+   * @generated
+   * @ordered
+   */
+  public static final int BAG_VALUE = 0;
+
+  /**
+   * The '<em><b>Hold</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #HOLD
+   * @model name="hold"
+   * @generated
+   * @ordered
+   */
+  public static final int HOLD_VALUE = 1;
+
+  /**
+   * An array of all the '<em><b>Carry</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final SelfScanner[] VALUES_ARRAY =
-    new SelfScanner[]
+  private static final Carry[] VALUES_ARRAY =
+    new Carry[]
     {
-      SELFSCANNER,
+      BAG,
+      HOLD,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Self Scanner</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Carry</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<SelfScanner> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<Carry> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Self Scanner</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Carry</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static SelfScanner get(String literal)
+  public static Carry get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      SelfScanner result = VALUES_ARRAY[i];
+      Carry result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -83,18 +105,18 @@ public enum SelfScanner implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Self Scanner</b></em>' literal with the specified name.
+   * Returns the '<em><b>Carry</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static SelfScanner getByName(String name)
+  public static Carry getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      SelfScanner result = VALUES_ARRAY[i];
+      Carry result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -104,18 +126,19 @@ public enum SelfScanner implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Self Scanner</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Carry</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static SelfScanner get(int value)
+  public static Carry get(int value)
   {
     switch (value)
     {
-      case SELFSCANNER_VALUE: return SELFSCANNER;
+      case BAG_VALUE: return BAG;
+      case HOLD_VALUE: return HOLD;
     }
     return null;
   }
@@ -147,7 +170,7 @@ public enum SelfScanner implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private SelfScanner(int value, String name, String literal)
+  private Carry(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -199,4 +222,4 @@ public enum SelfScanner implements Enumerator
     return literal;
   }
   
-} //SelfScanner
+} //Carry

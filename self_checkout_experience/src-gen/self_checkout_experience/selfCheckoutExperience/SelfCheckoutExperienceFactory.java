@@ -177,13 +177,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Scan createScan();
 
   /**
-   * Returns a new object of class '<em>Add To Bag</em>'.
+   * Returns a new object of class '<em>Carry Items</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add To Bag</em>'.
+   * @return a new object of class '<em>Carry Items</em>'.
    * @generated
    */
-  AddToBag createAddToBag();
+  CarryItems createCarryItems();
 
   /**
    * Returns a new object of class '<em>Addition</em>'.

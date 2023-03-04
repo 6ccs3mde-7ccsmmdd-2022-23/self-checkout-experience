@@ -1129,9 +1129,9 @@ ruleScanExpression returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getScanExpressionAccess().getNextAddToBagParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getScanExpressionAccess().getNextCarryItemsParserRuleCall_1_2_0());
 					}
-					lv_next_3_0=ruleAddToBag
+					lv_next_3_0=ruleCarryItems
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getScanExpressionRule());
@@ -1140,7 +1140,7 @@ ruleScanExpression returns [EObject current=null]
 							$current,
 							"next",
 							lv_next_3_0,
-							"self_checkout_experience.SelfCheckoutExperience.AddToBag");
+							"self_checkout_experience.SelfCheckoutExperience.CarryItems");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1199,15 +1199,15 @@ ruleScan returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAddToBag
-entryRuleAddToBag returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAddToBagRule()); }
-	iv_ruleAddToBag=ruleAddToBag
-	{ $current=$iv_ruleAddToBag.current; }
+// Entry rule entryRuleCarryItems
+entryRuleCarryItems returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCarryItemsRule()); }
+	iv_ruleCarryItems=ruleCarryItems
+	{ $current=$iv_ruleCarryItems.current; }
 	EOF;
 
-// Rule AddToBag
-ruleAddToBag returns [EObject current=null]
+// Rule CarryItems
+ruleCarryItems returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1215,41 +1215,33 @@ ruleAddToBag returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='add'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getAddToBagAccess().getAddKeyword_0());
-		}
-		otherlv_1='all'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getAddToBagAccess().getAllKeyword_1());
-		}
-		otherlv_2='items'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getAddToBagAccess().getItemsKeyword_2());
-		}
-		otherlv_3='to'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getAddToBagAccess().getToKeyword_3());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddToBagAccess().getBagBagEnumRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0());
 				}
-				lv_bag_4_0=ruleBag
+				lv_carry_0_0=ruleCarry
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAddToBagRule());
+						$current = createModelElementForParent(grammarAccess.getCarryItemsRule());
 					}
 					set(
 						$current,
-						"bag",
-						lv_bag_4_0,
-						"self_checkout_experience.SelfCheckoutExperience.Bag");
+						"carry",
+						lv_carry_0_0,
+						"self_checkout_experience.SelfCheckoutExperience.Carry");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_1='all'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCarryItemsAccess().getAllKeyword_1());
+		}
+		otherlv_2='items'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCarryItemsAccess().getItemsKeyword_2());
+		}
 	)
 ;
 
@@ -1324,8 +1316,8 @@ ruleTurnCommand returns [Enumerator current=null]
 	)
 ;
 
-// Rule Bag
-ruleBag returns [Enumerator current=null]
+// Rule Carry
+ruleCarry returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1333,11 +1325,21 @@ ruleBag returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
-		enumLiteral_0='bag'
-		{
-			$current = grammarAccess.getBagAccess().getBagEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getBagAccess().getBagEnumLiteralDeclaration());
-		}
+		(
+			enumLiteral_0='bag'
+			{
+				$current = grammarAccess.getCarryAccess().getBagEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getCarryAccess().getBagEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='hold'
+			{
+				$current = grammarAccess.getCarryAccess().getHoldEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getCarryAccess().getHoldEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 

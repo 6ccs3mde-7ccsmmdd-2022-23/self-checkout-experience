@@ -161,9 +161,9 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createScanAdapter();
       }
       @Override
-      public Adapter caseAddToBag(AddToBag object)
+      public Adapter caseCarryItems(CarryItems object)
       {
-        return createAddToBagAdapter();
+        return createCarryItemsAdapter();
       }
       @Override
       public Adapter caseAddition(Addition object)
@@ -458,16 +458,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToBag <em>Add To Bag</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.CarryItems <em>Carry Items</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBag
+   * @see self_checkout_experience.selfCheckoutExperience.CarryItems
    * @generated
    */
-  public Adapter createAddToBagAdapter()
+  public Adapter createCarryItemsAdapter()
   {
     return null;
   }

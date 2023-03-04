@@ -589,32 +589,32 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int SCAN_FEATURE_COUNT = SCAN_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AddToBagImpl <em>Add To Bag</em>}' class.
+   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.CarryItemsImpl <em>Carry Items</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see self_checkout_experience.selfCheckoutExperience.impl.AddToBagImpl
-   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddToBag()
+   * @see self_checkout_experience.selfCheckoutExperience.impl.CarryItemsImpl
+   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCarryItems()
    * @generated
    */
-  int ADD_TO_BAG = 17;
+  int CARRY_ITEMS = 17;
 
   /**
-   * The feature id for the '<em><b>Bag</b></em>' attribute.
+   * The feature id for the '<em><b>Carry</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_TO_BAG__BAG = 0;
+  int CARRY_ITEMS__CARRY = 0;
 
   /**
-   * The number of structural features of the '<em>Add To Bag</em>' class.
+   * The number of structural features of the '<em>Carry Items</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_TO_BAG_FEATURE_COUNT = 1;
+  int CARRY_ITEMS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AdditionImpl <em>Addition</em>}' class.
@@ -776,14 +776,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int TURN_COMMAND = 23;
 
   /**
-   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.Bag <em>Bag</em>}' enum.
+   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.Carry <em>Carry</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see self_checkout_experience.selfCheckoutExperience.Bag
-   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getBag()
+   * @see self_checkout_experience.selfCheckoutExperience.Carry
+   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCarry()
    * @generated
    */
-  int BAG = 24;
+  int CARRY = 24;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.Pay <em>Pay</em>}' enum.
@@ -1220,25 +1220,25 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EAttribute getScan_ScanMachine();
 
   /**
-   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.AddToBag <em>Add To Bag</em>}'.
+   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.CarryItems <em>Carry Items</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Add To Bag</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBag
+   * @return the meta object for class '<em>Carry Items</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.CarryItems
    * @generated
    */
-  EClass getAddToBag();
+  EClass getCarryItems();
 
   /**
-   * Returns the meta object for the attribute '{@link self_checkout_experience.selfCheckoutExperience.AddToBag#getBag <em>Bag</em>}'.
+   * Returns the meta object for the attribute '{@link self_checkout_experience.selfCheckoutExperience.CarryItems#getCarry <em>Carry</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bag</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBag#getBag()
-   * @see #getAddToBag()
+   * @return the meta object for the attribute '<em>Carry</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.CarryItems#getCarry()
+   * @see #getCarryItems()
    * @generated
    */
-  EAttribute getAddToBag_Bag();
+  EAttribute getCarryItems_Carry();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.Addition <em>Addition</em>}'.
@@ -1389,14 +1389,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EEnum getTurnCommand();
 
   /**
-   * Returns the meta object for enum '{@link self_checkout_experience.selfCheckoutExperience.Bag <em>Bag</em>}'.
+   * Returns the meta object for enum '{@link self_checkout_experience.selfCheckoutExperience.Carry <em>Carry</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Bag</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.Bag
+   * @return the meta object for enum '<em>Carry</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.Carry
    * @generated
    */
-  EEnum getBag();
+  EEnum getCarry();
 
   /**
    * Returns the meta object for enum '{@link self_checkout_experience.selfCheckoutExperience.Pay <em>Pay</em>}'.
@@ -1786,22 +1786,22 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EAttribute SCAN__SCAN_MACHINE = eINSTANCE.getScan_ScanMachine();
 
     /**
-     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AddToBagImpl <em>Add To Bag</em>}' class.
+     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.CarryItemsImpl <em>Carry Items</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see self_checkout_experience.selfCheckoutExperience.impl.AddToBagImpl
-     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getAddToBag()
+     * @see self_checkout_experience.selfCheckoutExperience.impl.CarryItemsImpl
+     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCarryItems()
      * @generated
      */
-    EClass ADD_TO_BAG = eINSTANCE.getAddToBag();
+    EClass CARRY_ITEMS = eINSTANCE.getCarryItems();
 
     /**
-     * The meta object literal for the '<em><b>Bag</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Carry</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD_TO_BAG__BAG = eINSTANCE.getAddToBag_Bag();
+    EAttribute CARRY_ITEMS__CARRY = eINSTANCE.getCarryItems_Carry();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.AdditionImpl <em>Addition</em>}' class.
@@ -1928,14 +1928,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EEnum TURN_COMMAND = eINSTANCE.getTurnCommand();
 
     /**
-     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.Bag <em>Bag</em>}' enum.
+     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.Carry <em>Carry</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see self_checkout_experience.selfCheckoutExperience.Bag
-     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getBag()
+     * @see self_checkout_experience.selfCheckoutExperience.Carry
+     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getCarry()
      * @generated
      */
-    EEnum BAG = eINSTANCE.getBag();
+    EEnum CARRY = eINSTANCE.getCarry();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.Pay <em>Pay</em>}' enum.

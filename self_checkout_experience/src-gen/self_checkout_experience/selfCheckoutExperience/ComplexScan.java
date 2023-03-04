@@ -48,7 +48,7 @@ public interface ComplexScan extends ScanExpression
 
   /**
    * Returns the value of the '<em><b>Next</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.AddToBag}.
+   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.CarryItems}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Next</em>' containment reference list.
@@ -56,6 +56,6 @@ public interface ComplexScan extends ScanExpression
    * @model containment="true"
    * @generated
    */
-  EList<AddToBag> getNext();
+  EList<CarryItems> getNext();
 
 } // ComplexScan
