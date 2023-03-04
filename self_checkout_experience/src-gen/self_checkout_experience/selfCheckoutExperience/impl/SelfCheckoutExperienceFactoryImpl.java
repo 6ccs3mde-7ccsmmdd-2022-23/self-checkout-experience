@@ -67,6 +67,13 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
     switch (eClass.getClassifierID())
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT: return createSelf_checkout();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_ONLINE: return createSelfCheckoutOnline();
+      case SelfCheckoutExperiencePackage.SEARCH: return createSearch();
+      case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET: return createAddToOnlineBasket();
+      case SelfCheckoutExperiencePackage.REMOVE_FROM_ONLINE_BASKET: return createRemoveFromOnlineBasket();
+      case SelfCheckoutExperiencePackage.ONLINE_CHECKOUT: return createOnlineCheckout();
+      case SelfCheckoutExperiencePackage.CONFIRM: return createConfirm();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE: return createSelfCheckoutInstore();
       case SelfCheckoutExperiencePackage.HOLD_SELF_SCANNER: return createHoldSelfScanner();
       case SelfCheckoutExperiencePackage.PICK_STATEMENT: return createPickStatement();
       case SelfCheckoutExperiencePackage.ITEM_DEF: return createItemDef();
@@ -102,6 +109,12 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     switch (eDataType.getClassifierID())
     {
+      case SelfCheckoutExperiencePackage.LOAD_SHOPPING_SITE:
+        return createLoadShoppingSiteFromString(eDataType, initialValue);
+      case SelfCheckoutExperiencePackage.DELIVERY_OPTIONS:
+        return createDeliveryOptionsFromString(eDataType, initialValue);
+      case SelfCheckoutExperiencePackage.CONFIRM_ENUM:
+        return createConfirmEnumFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.SELF_SCANNER:
         return createSelfScannerFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
@@ -127,6 +140,12 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     switch (eDataType.getClassifierID())
     {
+      case SelfCheckoutExperiencePackage.LOAD_SHOPPING_SITE:
+        return convertLoadShoppingSiteToString(eDataType, instanceValue);
+      case SelfCheckoutExperiencePackage.DELIVERY_OPTIONS:
+        return convertDeliveryOptionsToString(eDataType, instanceValue);
+      case SelfCheckoutExperiencePackage.CONFIRM_ENUM:
+        return convertConfirmEnumToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.SELF_SCANNER:
         return convertSelfScannerToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
@@ -152,6 +171,90 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     Self_checkoutImpl self_checkout = new Self_checkoutImpl();
     return self_checkout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelfCheckoutOnline createSelfCheckoutOnline()
+  {
+    SelfCheckoutOnlineImpl selfCheckoutOnline = new SelfCheckoutOnlineImpl();
+    return selfCheckoutOnline;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Search createSearch()
+  {
+    SearchImpl search = new SearchImpl();
+    return search;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AddToOnlineBasket createAddToOnlineBasket()
+  {
+    AddToOnlineBasketImpl addToOnlineBasket = new AddToOnlineBasketImpl();
+    return addToOnlineBasket;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RemoveFromOnlineBasket createRemoveFromOnlineBasket()
+  {
+    RemoveFromOnlineBasketImpl removeFromOnlineBasket = new RemoveFromOnlineBasketImpl();
+    return removeFromOnlineBasket;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OnlineCheckout createOnlineCheckout()
+  {
+    OnlineCheckoutImpl onlineCheckout = new OnlineCheckoutImpl();
+    return onlineCheckout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Confirm createConfirm()
+  {
+    ConfirmImpl confirm = new ConfirmImpl();
+    return confirm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelfCheckoutInstore createSelfCheckoutInstore()
+  {
+    SelfCheckoutInstoreImpl selfCheckoutInstore = new SelfCheckoutInstoreImpl();
+    return selfCheckoutInstore;
   }
 
   /**
@@ -392,6 +495,72 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     ComplexScanImpl complexScan = new ComplexScanImpl();
     return complexScan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LoadShoppingSite createLoadShoppingSiteFromString(EDataType eDataType, String initialValue)
+  {
+    LoadShoppingSite result = LoadShoppingSite.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLoadShoppingSiteToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeliveryOptions createDeliveryOptionsFromString(EDataType eDataType, String initialValue)
+  {
+    DeliveryOptions result = DeliveryOptions.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDeliveryOptionsToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConfirmEnum createConfirmEnumFromString(EDataType eDataType, String initialValue)
+  {
+    ConfirmEnum result = ConfirmEnum.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertConfirmEnumToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

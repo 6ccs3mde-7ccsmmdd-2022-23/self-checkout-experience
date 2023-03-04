@@ -3,6 +3,55 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="selfCheckoutExperience" nsURI="http://www.SelfCheckoutExperience.self_checkout_experience"
     nsPrefix="selfCheckoutExperience">
   <eClassifiers xsi:type="ecore:EClass" name="Self_checkout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutOnline" upperBound="-1"
+        eType="#//SelfCheckoutOnline" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutInstore" upperBound="-1"
+        eType="#//SelfCheckoutInstore" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutOnline">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loadShoppingSite" eType="#//LoadShoppingSite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="search" upperBound="-1"
+        eType="#//Search" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onlineCheckout" eType="#//OnlineCheckout"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LoadShoppingSite">
+    <eLiterals name="load_shop_site" literal="load_shop_site"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Search">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemSearch" eType="#//ItemDef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addToOnlineBasket" eType="#//AddToOnlineBasket"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddToOnlineBasket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//ItemDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeFromOnlineBasket"
+        eType="#//RemoveFromOnlineBasket" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveFromOnlineBasket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeItem" eType="#//ItemDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OnlineCheckout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryOptions" eType="#//DeliveryOptions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confirm" eType="#//Confirm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DeliveryOptions">
+    <eLiterals name="premium_delivery" literal="premium_delivery"/>
+    <eLiterals name="standard_delivery" value="1" literal="standard_delivery"/>
+    <eLiterals name="next_day_delivery" value="2" literal="next_day_delivery"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Confirm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmEnum" eType="#//ConfirmEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="#//Pay"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConfirmEnum">
+    <eLiterals name="confirm" literal="confirm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutInstore">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pickScanMachine" eType="#//HoldSelfScanner"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatements" upperBound="-1"

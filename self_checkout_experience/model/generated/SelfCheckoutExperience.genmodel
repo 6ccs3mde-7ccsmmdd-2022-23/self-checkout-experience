@@ -6,6 +6,17 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="SelfCheckoutExperience" basePackage="self_checkout_experience"
       disposableProviderFactory="true" fileExtensions="selfcheckoutexp" ecorePackage="SelfCheckoutExperience.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//LoadShoppingSite">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//LoadShoppingSite/load_shop_site"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//DeliveryOptions">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//DeliveryOptions/premium_delivery"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//DeliveryOptions/standard_delivery"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//DeliveryOptions/next_day_delivery"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//ConfirmEnum">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//ConfirmEnum/confirm"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//SelfScanner">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//SelfScanner/selfscanner"/>
     </genEnums>
@@ -25,10 +36,39 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Pay/pay"/>
     </genEnums>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Self_checkout">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickScanMachine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/pickstatements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/walkstatements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/checkout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/selfCheckoutOnline"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/selfCheckoutInstore"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//SelfCheckoutOnline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//SelfCheckoutOnline/loadShoppingSite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutOnline/search"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutOnline/onlineCheckout"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Search">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Search/itemSearch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Search/addToOnlineBasket"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//AddToOnlineBasket">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToOnlineBasket/itemCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToOnlineBasket/item"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//AddToOnlineBasket/removeFromOnlineBasket"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//RemoveFromOnlineBasket">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//RemoveFromOnlineBasket/removeItem"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//OnlineCheckout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//OnlineCheckout/deliveryOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//OnlineCheckout/confirm"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Confirm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Confirm/confirmEnum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//Confirm/pay"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//SelfCheckoutInstore">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/pickScanMachine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/pickstatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/walkstatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/checkout"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//HoldSelfScanner">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//HoldSelfScanner/scanMachine"/>

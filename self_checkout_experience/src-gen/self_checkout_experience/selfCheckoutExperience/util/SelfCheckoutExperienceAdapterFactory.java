@@ -81,6 +81,41 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createSelf_checkoutAdapter();
       }
       @Override
+      public Adapter caseSelfCheckoutOnline(SelfCheckoutOnline object)
+      {
+        return createSelfCheckoutOnlineAdapter();
+      }
+      @Override
+      public Adapter caseSearch(Search object)
+      {
+        return createSearchAdapter();
+      }
+      @Override
+      public Adapter caseAddToOnlineBasket(AddToOnlineBasket object)
+      {
+        return createAddToOnlineBasketAdapter();
+      }
+      @Override
+      public Adapter caseRemoveFromOnlineBasket(RemoveFromOnlineBasket object)
+      {
+        return createRemoveFromOnlineBasketAdapter();
+      }
+      @Override
+      public Adapter caseOnlineCheckout(OnlineCheckout object)
+      {
+        return createOnlineCheckoutAdapter();
+      }
+      @Override
+      public Adapter caseConfirm(Confirm object)
+      {
+        return createConfirmAdapter();
+      }
+      @Override
+      public Adapter caseSelfCheckoutInstore(SelfCheckoutInstore object)
+      {
+        return createSelfCheckoutInstoreAdapter();
+      }
+      @Override
       public Adapter caseHoldSelfScanner(HoldSelfScanner object)
       {
         return createHoldSelfScannerAdapter();
@@ -213,6 +248,111 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelf_checkoutAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline <em>Self Checkout Online</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline
+   * @generated
+   */
+  public Adapter createSelfCheckoutOnlineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Search <em>Search</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.Search
+   * @generated
+   */
+  public Adapter createSearchAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket <em>Add To Online Basket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket
+   * @generated
+   */
+  public Adapter createAddToOnlineBasketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket <em>Remove From Online Basket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket
+   * @generated
+   */
+  public Adapter createRemoveFromOnlineBasketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.OnlineCheckout <em>Online Checkout</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.OnlineCheckout
+   * @generated
+   */
+  public Adapter createOnlineCheckoutAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Confirm <em>Confirm</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.Confirm
+   * @generated
+   */
+  public Adapter createConfirmAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore <em>Self Checkout Instore</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
+   * @generated
+   */
+  public Adapter createSelfCheckoutInstoreAdapter()
   {
     return null;
   }

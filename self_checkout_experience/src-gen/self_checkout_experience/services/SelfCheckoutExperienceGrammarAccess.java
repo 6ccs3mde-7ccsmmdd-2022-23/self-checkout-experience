@@ -28,6 +28,269 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public class Self_checkoutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Self_checkout");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cSelfCheckoutOnlineAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0 = (RuleCall)cSelfCheckoutOnlineAssignment_0.eContents().get(0);
+		private final Assignment cSelfCheckoutInstoreAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0 = (RuleCall)cSelfCheckoutInstoreAssignment_1.eContents().get(0);
+		
+		//Self_checkout:
+		//    (selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//selfCheckoutOnline+=SelfCheckoutOnline
+		public Assignment getSelfCheckoutOnlineAssignment_0() { return cSelfCheckoutOnlineAssignment_0; }
+		
+		//SelfCheckoutOnline
+		public RuleCall getSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0() { return cSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0; }
+		
+		//selfCheckoutInstore+=SelfCheckoutInstore
+		public Assignment getSelfCheckoutInstoreAssignment_1() { return cSelfCheckoutInstoreAssignment_1; }
+		
+		//SelfCheckoutInstore
+		public RuleCall getSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0() { return cSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0; }
+	}
+	public class SelfCheckoutOnlineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.SelfCheckoutOnline");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLoadShoppingSiteAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLoadShoppingSiteLoadShoppingSiteEnumRuleCall_0_0 = (RuleCall)cLoadShoppingSiteAssignment_0.eContents().get(0);
+		private final Assignment cSearchAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSearchSearchParserRuleCall_1_0 = (RuleCall)cSearchAssignment_1.eContents().get(0);
+		private final Assignment cOnlineCheckoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOnlineCheckoutOnlineCheckoutParserRuleCall_2_0 = (RuleCall)cOnlineCheckoutAssignment_2.eContents().get(0);
+		
+		////////////////////////////////////////ONLINE SELF-CHECKOUT//////////////////////////////////////////
+		//SelfCheckoutOnline:
+		//    loadShoppingSite=LoadShoppingSite
+		//    search+=Search*
+		//    onlineCheckout=OnlineCheckout?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//loadShoppingSite=LoadShoppingSite
+		//search+=Search*
+		//onlineCheckout=OnlineCheckout?
+		public Group getGroup() { return cGroup; }
+		
+		//loadShoppingSite=LoadShoppingSite
+		public Assignment getLoadShoppingSiteAssignment_0() { return cLoadShoppingSiteAssignment_0; }
+		
+		//LoadShoppingSite
+		public RuleCall getLoadShoppingSiteLoadShoppingSiteEnumRuleCall_0_0() { return cLoadShoppingSiteLoadShoppingSiteEnumRuleCall_0_0; }
+		
+		//search+=Search*
+		public Assignment getSearchAssignment_1() { return cSearchAssignment_1; }
+		
+		//Search
+		public RuleCall getSearchSearchParserRuleCall_1_0() { return cSearchSearchParserRuleCall_1_0; }
+		
+		//onlineCheckout=OnlineCheckout?
+		public Assignment getOnlineCheckoutAssignment_2() { return cOnlineCheckoutAssignment_2; }
+		
+		//OnlineCheckout
+		public RuleCall getOnlineCheckoutOnlineCheckoutParserRuleCall_2_0() { return cOnlineCheckoutOnlineCheckoutParserRuleCall_2_0; }
+	}
+	public class SearchElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Search");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSearchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cItemSearchAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cItemSearchItemDefParserRuleCall_2_0 = (RuleCall)cItemSearchAssignment_2.eContents().get(0);
+		private final Assignment cAddToOnlineBasketAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAddToOnlineBasketAddToOnlineBasketParserRuleCall_3_0 = (RuleCall)cAddToOnlineBasketAssignment_3.eContents().get(0);
+		
+		//Search:
+		//    "search" "for" itemSearch=ItemDef
+		//    addToOnlineBasket=AddToOnlineBasket?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"search" "for" itemSearch=ItemDef
+		//addToOnlineBasket=AddToOnlineBasket?
+		public Group getGroup() { return cGroup; }
+		
+		//"search"
+		public Keyword getSearchKeyword_0() { return cSearchKeyword_0; }
+		
+		//"for"
+		public Keyword getForKeyword_1() { return cForKeyword_1; }
+		
+		//itemSearch=ItemDef
+		public Assignment getItemSearchAssignment_2() { return cItemSearchAssignment_2; }
+		
+		//ItemDef
+		public RuleCall getItemSearchItemDefParserRuleCall_2_0() { return cItemSearchItemDefParserRuleCall_2_0; }
+		
+		//addToOnlineBasket=AddToOnlineBasket?
+		public Assignment getAddToOnlineBasketAssignment_3() { return cAddToOnlineBasketAssignment_3; }
+		
+		//AddToOnlineBasket
+		public RuleCall getAddToOnlineBasketAddToOnlineBasketParserRuleCall_3_0() { return cAddToOnlineBasketAddToOnlineBasketParserRuleCall_3_0; }
+	}
+	public class AddToOnlineBasketElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.AddToOnlineBasket");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cBasketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cItemCountAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cItemCountAdditionParserRuleCall_3_0 = (RuleCall)cItemCountAssignment_3.eContents().get(0);
+		private final Assignment cItemAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cItemItemDefCrossReference_4_0 = (CrossReference)cItemAssignment_4.eContents().get(0);
+		private final RuleCall cItemItemDefIDTerminalRuleCall_4_0_1 = (RuleCall)cItemItemDefCrossReference_4_0.eContents().get(1);
+		private final Assignment cRemoveFromOnlineBasketAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRemoveFromOnlineBasketRemoveFromOnlineBasketParserRuleCall_5_0 = (RuleCall)cRemoveFromOnlineBasketAssignment_5.eContents().get(0);
+		
+		//AddToOnlineBasket:
+		//    "add" "to" "basket" itemCount = Addition item=[ItemDef]
+		//    removeFromOnlineBasket=RemoveFromOnlineBasket?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"add" "to" "basket" itemCount = Addition item=[ItemDef]
+		//removeFromOnlineBasket=RemoveFromOnlineBasket?
+		public Group getGroup() { return cGroup; }
+		
+		//"add"
+		public Keyword getAddKeyword_0() { return cAddKeyword_0; }
+		
+		//"to"
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		
+		//"basket"
+		public Keyword getBasketKeyword_2() { return cBasketKeyword_2; }
+		
+		//itemCount = Addition
+		public Assignment getItemCountAssignment_3() { return cItemCountAssignment_3; }
+		
+		//Addition
+		public RuleCall getItemCountAdditionParserRuleCall_3_0() { return cItemCountAdditionParserRuleCall_3_0; }
+		
+		//item=[ItemDef]
+		public Assignment getItemAssignment_4() { return cItemAssignment_4; }
+		
+		//[ItemDef]
+		public CrossReference getItemItemDefCrossReference_4_0() { return cItemItemDefCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getItemItemDefIDTerminalRuleCall_4_0_1() { return cItemItemDefIDTerminalRuleCall_4_0_1; }
+		
+		//removeFromOnlineBasket=RemoveFromOnlineBasket?
+		public Assignment getRemoveFromOnlineBasketAssignment_5() { return cRemoveFromOnlineBasketAssignment_5; }
+		
+		//RemoveFromOnlineBasket
+		public RuleCall getRemoveFromOnlineBasketRemoveFromOnlineBasketParserRuleCall_5_0() { return cRemoveFromOnlineBasketRemoveFromOnlineBasketParserRuleCall_5_0; }
+	}
+	public class RemoveFromOnlineBasketElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.RemoveFromOnlineBasket");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRemoveKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cBasketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRemoveItemAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cRemoveItemItemDefCrossReference_3_0 = (CrossReference)cRemoveItemAssignment_3.eContents().get(0);
+		private final RuleCall cRemoveItemItemDefIDTerminalRuleCall_3_0_1 = (RuleCall)cRemoveItemItemDefCrossReference_3_0.eContents().get(1);
+		
+		//RemoveFromOnlineBasket:
+		//    "remove" "from" "basket" removeItem=[ItemDef]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"remove" "from" "basket" removeItem=[ItemDef]
+		public Group getGroup() { return cGroup; }
+		
+		//"remove"
+		public Keyword getRemoveKeyword_0() { return cRemoveKeyword_0; }
+		
+		//"from"
+		public Keyword getFromKeyword_1() { return cFromKeyword_1; }
+		
+		//"basket"
+		public Keyword getBasketKeyword_2() { return cBasketKeyword_2; }
+		
+		//removeItem=[ItemDef]
+		public Assignment getRemoveItemAssignment_3() { return cRemoveItemAssignment_3; }
+		
+		//[ItemDef]
+		public CrossReference getRemoveItemItemDefCrossReference_3_0() { return cRemoveItemItemDefCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getRemoveItemItemDefIDTerminalRuleCall_3_0_1() { return cRemoveItemItemDefIDTerminalRuleCall_3_0_1; }
+	}
+	public class OnlineCheckoutElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.OnlineCheckout");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCheckoutKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDeliveryOptionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDeliveryOptionsDeliveryOptionsEnumRuleCall_1_0 = (RuleCall)cDeliveryOptionsAssignment_1.eContents().get(0);
+		private final Assignment cConfirmAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConfirmConfirmParserRuleCall_2_0 = (RuleCall)cConfirmAssignment_2.eContents().get(0);
+		
+		//OnlineCheckout:
+		//    "checkout"
+		//    deliveryOptions=DeliveryOptions
+		//    confirm=Confirm
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"checkout"
+		//deliveryOptions=DeliveryOptions
+		//confirm=Confirm
+		public Group getGroup() { return cGroup; }
+		
+		//"checkout"
+		public Keyword getCheckoutKeyword_0() { return cCheckoutKeyword_0; }
+		
+		//deliveryOptions=DeliveryOptions
+		public Assignment getDeliveryOptionsAssignment_1() { return cDeliveryOptionsAssignment_1; }
+		
+		//DeliveryOptions
+		public RuleCall getDeliveryOptionsDeliveryOptionsEnumRuleCall_1_0() { return cDeliveryOptionsDeliveryOptionsEnumRuleCall_1_0; }
+		
+		//confirm=Confirm
+		public Assignment getConfirmAssignment_2() { return cConfirmAssignment_2; }
+		
+		//Confirm
+		public RuleCall getConfirmConfirmParserRuleCall_2_0() { return cConfirmConfirmParserRuleCall_2_0; }
+	}
+	public class ConfirmElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Confirm");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cConfirmEnumAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConfirmEnumConfirmEnumEnumRuleCall_0_0 = (RuleCall)cConfirmEnumAssignment_0.eContents().get(0);
+		private final Assignment cPayAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPayPayEnumRuleCall_1_0 = (RuleCall)cPayAssignment_1.eContents().get(0);
+		
+		//Confirm:
+		//    confirmEnum=ConfirmEnum
+		//    pay=Pay
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//confirmEnum=ConfirmEnum
+		//pay=Pay
+		public Group getGroup() { return cGroup; }
+		
+		//confirmEnum=ConfirmEnum
+		public Assignment getConfirmEnumAssignment_0() { return cConfirmEnumAssignment_0; }
+		
+		//ConfirmEnum
+		public RuleCall getConfirmEnumConfirmEnumEnumRuleCall_0_0() { return cConfirmEnumConfirmEnumEnumRuleCall_0_0; }
+		
+		//pay=Pay
+		public Assignment getPayAssignment_1() { return cPayAssignment_1; }
+		
+		//Pay
+		public RuleCall getPayPayEnumRuleCall_1_0() { return cPayPayEnumRuleCall_1_0; }
+	}
+	public class SelfCheckoutInstoreElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.SelfCheckoutInstore");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPickScanMachineAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cPickScanMachineHoldSelfScannerParserRuleCall_0_0 = (RuleCall)cPickScanMachineAssignment_0.eContents().get(0);
@@ -39,7 +302,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Assignment cCheckoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCheckoutCheckoutParserRuleCall_2_0 = (RuleCall)cCheckoutAssignment_2.eContents().get(0);
 		
-		//Self_checkout:
+		////////////////////////////////////////IN-STORE SELF-CHECKOUT/////////////////////////////////////////////////////////////
+		//SelfCheckoutInstore:
 		//    pickScanMachine = HoldSelfScanner
 		//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
 		//    checkout = Checkout?
@@ -739,6 +1003,69 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		public Keyword getItemsKeyword_2() { return cItemsKeyword_2; }
 	}
 	
+	public class LoadShoppingSiteElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.LoadShoppingSite");
+		private final EnumLiteralDeclaration cLoad_shop_siteEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cLoad_shop_siteLoad_shop_siteKeyword_0 = (Keyword)cLoad_shop_siteEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum LoadShoppingSite:
+		//    load_shop_site
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//load_shop_site
+		public EnumLiteralDeclaration getLoad_shop_siteEnumLiteralDeclaration() { return cLoad_shop_siteEnumLiteralDeclaration; }
+		
+		public Keyword getLoad_shop_siteLoad_shop_siteKeyword_0() { return cLoad_shop_siteLoad_shop_siteKeyword_0; }
+	}
+	public class DeliveryOptionsElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.DeliveryOptions");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cPremium_deliveryEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPremium_deliveryPremium_deliveryKeyword_0_0 = (Keyword)cPremium_deliveryEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cStandard_deliveryEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cStandard_deliveryStandard_deliveryKeyword_1_0 = (Keyword)cStandard_deliveryEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cNext_day_deliveryEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cNext_day_deliveryNext_day_deliveryKeyword_2_0 = (Keyword)cNext_day_deliveryEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum DeliveryOptions:
+		//    premium_delivery | standard_delivery | next_day_delivery
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//premium_delivery | standard_delivery | next_day_delivery
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//premium_delivery
+		public EnumLiteralDeclaration getPremium_deliveryEnumLiteralDeclaration_0() { return cPremium_deliveryEnumLiteralDeclaration_0; }
+		
+		public Keyword getPremium_deliveryPremium_deliveryKeyword_0_0() { return cPremium_deliveryPremium_deliveryKeyword_0_0; }
+		
+		//standard_delivery
+		public EnumLiteralDeclaration getStandard_deliveryEnumLiteralDeclaration_1() { return cStandard_deliveryEnumLiteralDeclaration_1; }
+		
+		public Keyword getStandard_deliveryStandard_deliveryKeyword_1_0() { return cStandard_deliveryStandard_deliveryKeyword_1_0; }
+		
+		//next_day_delivery
+		public EnumLiteralDeclaration getNext_day_deliveryEnumLiteralDeclaration_2() { return cNext_day_deliveryEnumLiteralDeclaration_2; }
+		
+		public Keyword getNext_day_deliveryNext_day_deliveryKeyword_2_0() { return cNext_day_deliveryNext_day_deliveryKeyword_2_0; }
+	}
+	public class ConfirmEnumElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.ConfirmEnum");
+		private final EnumLiteralDeclaration cConfirmEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cConfirmConfirmKeyword_0 = (Keyword)cConfirmEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum ConfirmEnum:
+		//    confirm
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//confirm
+		public EnumLiteralDeclaration getConfirmEnumLiteralDeclaration() { return cConfirmEnumLiteralDeclaration; }
+		
+		public Keyword getConfirmConfirmKeyword_0() { return cConfirmConfirmKeyword_0; }
+	}
 	public class SelfScannerElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.SelfScanner");
 		private final EnumLiteralDeclaration cSelfscannerEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
@@ -849,6 +1176,16 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	private final Self_checkoutElements pSelf_checkout;
+	private final SelfCheckoutOnlineElements pSelfCheckoutOnline;
+	private final LoadShoppingSiteElements eLoadShoppingSite;
+	private final SearchElements pSearch;
+	private final AddToOnlineBasketElements pAddToOnlineBasket;
+	private final RemoveFromOnlineBasketElements pRemoveFromOnlineBasket;
+	private final OnlineCheckoutElements pOnlineCheckout;
+	private final DeliveryOptionsElements eDeliveryOptions;
+	private final ConfirmElements pConfirm;
+	private final ConfirmEnumElements eConfirmEnum;
+	private final SelfCheckoutInstoreElements pSelfCheckoutInstore;
 	private final HoldSelfScannerElements pHoldSelfScanner;
 	private final SelfScannerElements eSelfScanner;
 	private final PickStatementElements pPickStatement;
@@ -884,6 +1221,16 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSelf_checkout = new Self_checkoutElements();
+		this.pSelfCheckoutOnline = new SelfCheckoutOnlineElements();
+		this.eLoadShoppingSite = new LoadShoppingSiteElements();
+		this.pSearch = new SearchElements();
+		this.pAddToOnlineBasket = new AddToOnlineBasketElements();
+		this.pRemoveFromOnlineBasket = new RemoveFromOnlineBasketElements();
+		this.pOnlineCheckout = new OnlineCheckoutElements();
+		this.eDeliveryOptions = new DeliveryOptionsElements();
+		this.pConfirm = new ConfirmElements();
+		this.eConfirmEnum = new ConfirmEnumElements();
+		this.pSelfCheckoutInstore = new SelfCheckoutInstoreElements();
 		this.pHoldSelfScanner = new HoldSelfScannerElements();
 		this.eSelfScanner = new SelfScannerElements();
 		this.pPickStatement = new PickStatementElements();
@@ -938,9 +1285,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 
 	
 	//Self_checkout:
-	//    pickScanMachine = HoldSelfScanner
-	//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
-	//    checkout = Checkout?
+	//    (selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
 	//;
 	public Self_checkoutElements getSelf_checkoutAccess() {
 		return pSelf_checkout;
@@ -948,6 +1293,127 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public ParserRule getSelf_checkoutRule() {
 		return getSelf_checkoutAccess().getRule();
+	}
+	
+	////////////////////////////////////////ONLINE SELF-CHECKOUT//////////////////////////////////////////
+	//SelfCheckoutOnline:
+	//    loadShoppingSite=LoadShoppingSite
+	//    search+=Search*
+	//    onlineCheckout=OnlineCheckout?
+	//;
+	public SelfCheckoutOnlineElements getSelfCheckoutOnlineAccess() {
+		return pSelfCheckoutOnline;
+	}
+	
+	public ParserRule getSelfCheckoutOnlineRule() {
+		return getSelfCheckoutOnlineAccess().getRule();
+	}
+	
+	//enum LoadShoppingSite:
+	//    load_shop_site
+	//;
+	public LoadShoppingSiteElements getLoadShoppingSiteAccess() {
+		return eLoadShoppingSite;
+	}
+	
+	public EnumRule getLoadShoppingSiteRule() {
+		return getLoadShoppingSiteAccess().getRule();
+	}
+	
+	//Search:
+	//    "search" "for" itemSearch=ItemDef
+	//    addToOnlineBasket=AddToOnlineBasket?
+	//;
+	public SearchElements getSearchAccess() {
+		return pSearch;
+	}
+	
+	public ParserRule getSearchRule() {
+		return getSearchAccess().getRule();
+	}
+	
+	//AddToOnlineBasket:
+	//    "add" "to" "basket" itemCount = Addition item=[ItemDef]
+	//    removeFromOnlineBasket=RemoveFromOnlineBasket?
+	//;
+	public AddToOnlineBasketElements getAddToOnlineBasketAccess() {
+		return pAddToOnlineBasket;
+	}
+	
+	public ParserRule getAddToOnlineBasketRule() {
+		return getAddToOnlineBasketAccess().getRule();
+	}
+	
+	//RemoveFromOnlineBasket:
+	//    "remove" "from" "basket" removeItem=[ItemDef]
+	//;
+	public RemoveFromOnlineBasketElements getRemoveFromOnlineBasketAccess() {
+		return pRemoveFromOnlineBasket;
+	}
+	
+	public ParserRule getRemoveFromOnlineBasketRule() {
+		return getRemoveFromOnlineBasketAccess().getRule();
+	}
+	
+	//OnlineCheckout:
+	//    "checkout"
+	//    deliveryOptions=DeliveryOptions
+	//    confirm=Confirm
+	//;
+	public OnlineCheckoutElements getOnlineCheckoutAccess() {
+		return pOnlineCheckout;
+	}
+	
+	public ParserRule getOnlineCheckoutRule() {
+		return getOnlineCheckoutAccess().getRule();
+	}
+	
+	//enum DeliveryOptions:
+	//    premium_delivery | standard_delivery | next_day_delivery
+	//;
+	public DeliveryOptionsElements getDeliveryOptionsAccess() {
+		return eDeliveryOptions;
+	}
+	
+	public EnumRule getDeliveryOptionsRule() {
+		return getDeliveryOptionsAccess().getRule();
+	}
+	
+	//Confirm:
+	//    confirmEnum=ConfirmEnum
+	//    pay=Pay
+	//;
+	public ConfirmElements getConfirmAccess() {
+		return pConfirm;
+	}
+	
+	public ParserRule getConfirmRule() {
+		return getConfirmAccess().getRule();
+	}
+	
+	//enum ConfirmEnum:
+	//    confirm
+	//;
+	public ConfirmEnumElements getConfirmEnumAccess() {
+		return eConfirmEnum;
+	}
+	
+	public EnumRule getConfirmEnumRule() {
+		return getConfirmEnumAccess().getRule();
+	}
+	
+	////////////////////////////////////////IN-STORE SELF-CHECKOUT/////////////////////////////////////////////////////////////
+	//SelfCheckoutInstore:
+	//    pickScanMachine = HoldSelfScanner
+	//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
+	//    checkout = Checkout?
+	//;
+	public SelfCheckoutInstoreElements getSelfCheckoutInstoreAccess() {
+		return pSelfCheckoutInstore;
+	}
+	
+	public ParserRule getSelfCheckoutInstoreRule() {
+		return getSelfCheckoutInstoreAccess().getRule();
 	}
 	
 	//HoldSelfScanner:

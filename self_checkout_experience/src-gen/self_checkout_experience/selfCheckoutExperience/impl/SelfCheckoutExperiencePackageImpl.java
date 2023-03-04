@@ -11,28 +11,38 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket;
 import self_checkout_experience.selfCheckoutExperience.Addition;
 import self_checkout_experience.selfCheckoutExperience.Carry;
 import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.ComplexScan;
+import self_checkout_experience.selfCheckoutExperience.Confirm;
+import self_checkout_experience.selfCheckoutExperience.ConfirmEnum;
+import self_checkout_experience.selfCheckoutExperience.DeliveryOptions;
 import self_checkout_experience.selfCheckoutExperience.Drop;
 import self_checkout_experience.selfCheckoutExperience.Expression;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
+import self_checkout_experience.selfCheckoutExperience.LoadShoppingSite;
 import self_checkout_experience.selfCheckoutExperience.MoveCommand;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
+import self_checkout_experience.selfCheckoutExperience.OnlineCheckout;
 import self_checkout_experience.selfCheckoutExperience.Pay;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket;
 import self_checkout_experience.selfCheckoutExperience.ScanExpression;
+import self_checkout_experience.selfCheckoutExperience.Search;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperienceFactory;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline;
 import self_checkout_experience.selfCheckoutExperience.SelfScanner;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
 import self_checkout_experience.selfCheckoutExperience.TurnCommand;
@@ -54,6 +64,55 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EClass self_checkoutEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selfCheckoutOnlineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass searchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addToOnlineBasketEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass removeFromOnlineBasketEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass onlineCheckoutEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass confirmEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selfCheckoutInstoreEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -200,6 +259,27 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
+  private EEnum loadShoppingSiteEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum deliveryOptionsEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum confirmEnumEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum selfScannerEEnum = null;
 
   /**
@@ -310,7 +390,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_PickScanMachine()
+  public EReference getSelf_checkout_SelfCheckoutOnline()
   {
     return (EReference)self_checkoutEClass.getEStructuralFeatures().get(0);
   }
@@ -321,7 +401,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_Pickstatements()
+  public EReference getSelf_checkout_SelfCheckoutInstore()
   {
     return (EReference)self_checkoutEClass.getEStructuralFeatures().get(1);
   }
@@ -332,9 +412,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_Walkstatements()
+  public EClass getSelfCheckoutOnline()
   {
-    return (EReference)self_checkoutEClass.getEStructuralFeatures().get(2);
+    return selfCheckoutOnlineEClass;
   }
 
   /**
@@ -343,9 +423,251 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_Checkout()
+  public EAttribute getSelfCheckoutOnline_LoadShoppingSite()
   {
-    return (EReference)self_checkoutEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)selfCheckoutOnlineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutOnline_Search()
+  {
+    return (EReference)selfCheckoutOnlineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutOnline_OnlineCheckout()
+  {
+    return (EReference)selfCheckoutOnlineEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSearch()
+  {
+    return searchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSearch_ItemSearch()
+  {
+    return (EReference)searchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSearch_AddToOnlineBasket()
+  {
+    return (EReference)searchEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAddToOnlineBasket()
+  {
+    return addToOnlineBasketEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddToOnlineBasket_ItemCount()
+  {
+    return (EReference)addToOnlineBasketEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddToOnlineBasket_Item()
+  {
+    return (EReference)addToOnlineBasketEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddToOnlineBasket_RemoveFromOnlineBasket()
+  {
+    return (EReference)addToOnlineBasketEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRemoveFromOnlineBasket()
+  {
+    return removeFromOnlineBasketEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRemoveFromOnlineBasket_RemoveItem()
+  {
+    return (EReference)removeFromOnlineBasketEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOnlineCheckout()
+  {
+    return onlineCheckoutEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOnlineCheckout_DeliveryOptions()
+  {
+    return (EAttribute)onlineCheckoutEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOnlineCheckout_Confirm()
+  {
+    return (EReference)onlineCheckoutEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConfirm()
+  {
+    return confirmEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getConfirm_ConfirmEnum()
+  {
+    return (EAttribute)confirmEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getConfirm_Pay()
+  {
+    return (EAttribute)confirmEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSelfCheckoutInstore()
+  {
+    return selfCheckoutInstoreEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutInstore_PickScanMachine()
+  {
+    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutInstore_Pickstatements()
+  {
+    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutInstore_Walkstatements()
+  {
+    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelfCheckoutInstore_Checkout()
+  {
+    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -882,6 +1204,39 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
+  public EEnum getLoadShoppingSite()
+  {
+    return loadShoppingSiteEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getDeliveryOptions()
+  {
+    return deliveryOptionsEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getConfirmEnum()
+  {
+    return confirmEnumEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EEnum getSelfScanner()
   {
     return selfScannerEEnum;
@@ -963,10 +1318,39 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Create classes and their features
     self_checkoutEClass = createEClass(SELF_CHECKOUT);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__PICK_SCAN_MACHINE);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__PICKSTATEMENTS);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__WALKSTATEMENTS);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__CHECKOUT);
+    createEReference(self_checkoutEClass, SELF_CHECKOUT__SELF_CHECKOUT_ONLINE);
+    createEReference(self_checkoutEClass, SELF_CHECKOUT__SELF_CHECKOUT_INSTORE);
+
+    selfCheckoutOnlineEClass = createEClass(SELF_CHECKOUT_ONLINE);
+    createEAttribute(selfCheckoutOnlineEClass, SELF_CHECKOUT_ONLINE__LOAD_SHOPPING_SITE);
+    createEReference(selfCheckoutOnlineEClass, SELF_CHECKOUT_ONLINE__SEARCH);
+    createEReference(selfCheckoutOnlineEClass, SELF_CHECKOUT_ONLINE__ONLINE_CHECKOUT);
+
+    searchEClass = createEClass(SEARCH);
+    createEReference(searchEClass, SEARCH__ITEM_SEARCH);
+    createEReference(searchEClass, SEARCH__ADD_TO_ONLINE_BASKET);
+
+    addToOnlineBasketEClass = createEClass(ADD_TO_ONLINE_BASKET);
+    createEReference(addToOnlineBasketEClass, ADD_TO_ONLINE_BASKET__ITEM_COUNT);
+    createEReference(addToOnlineBasketEClass, ADD_TO_ONLINE_BASKET__ITEM);
+    createEReference(addToOnlineBasketEClass, ADD_TO_ONLINE_BASKET__REMOVE_FROM_ONLINE_BASKET);
+
+    removeFromOnlineBasketEClass = createEClass(REMOVE_FROM_ONLINE_BASKET);
+    createEReference(removeFromOnlineBasketEClass, REMOVE_FROM_ONLINE_BASKET__REMOVE_ITEM);
+
+    onlineCheckoutEClass = createEClass(ONLINE_CHECKOUT);
+    createEAttribute(onlineCheckoutEClass, ONLINE_CHECKOUT__DELIVERY_OPTIONS);
+    createEReference(onlineCheckoutEClass, ONLINE_CHECKOUT__CONFIRM);
+
+    confirmEClass = createEClass(CONFIRM);
+    createEAttribute(confirmEClass, CONFIRM__CONFIRM_ENUM);
+    createEAttribute(confirmEClass, CONFIRM__PAY);
+
+    selfCheckoutInstoreEClass = createEClass(SELF_CHECKOUT_INSTORE);
+    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE);
+    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__PICKSTATEMENTS);
+    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__WALKSTATEMENTS);
+    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__CHECKOUT);
 
     holdSelfScannerEClass = createEClass(HOLD_SELF_SCANNER);
     createEAttribute(holdSelfScannerEClass, HOLD_SELF_SCANNER__SCAN_MACHINE);
@@ -1037,6 +1421,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     createEReference(complexScanEClass, COMPLEX_SCAN__NEXT);
 
     // Create enums
+    loadShoppingSiteEEnum = createEEnum(LOAD_SHOPPING_SITE);
+    deliveryOptionsEEnum = createEEnum(DELIVERY_OPTIONS);
+    confirmEnumEEnum = createEEnum(CONFIRM_ENUM);
     selfScannerEEnum = createEEnum(SELF_SCANNER);
     moveCommandEEnum = createEEnum(MOVE_COMMAND);
     turnCommandEEnum = createEEnum(TURN_COMMAND);
@@ -1086,10 +1473,39 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Initialize classes and features; add operations and parameters
     initEClass(self_checkoutEClass, Self_checkout.class, "Self_checkout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelf_checkout_PickScanMachine(), this.getHoldSelfScanner(), null, "pickScanMachine", null, 0, 1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelf_checkout_Pickstatements(), this.getPickStatement(), null, "pickstatements", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelf_checkout_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelf_checkout_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelf_checkout_SelfCheckoutOnline(), this.getSelfCheckoutOnline(), null, "selfCheckoutOnline", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelf_checkout_SelfCheckoutInstore(), this.getSelfCheckoutInstore(), null, "selfCheckoutInstore", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selfCheckoutOnlineEClass, SelfCheckoutOnline.class, "SelfCheckoutOnline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelfCheckoutOnline_LoadShoppingSite(), this.getLoadShoppingSite(), "loadShoppingSite", null, 0, 1, SelfCheckoutOnline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutOnline_Search(), this.getSearch(), null, "search", null, 0, -1, SelfCheckoutOnline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutOnline_OnlineCheckout(), this.getOnlineCheckout(), null, "onlineCheckout", null, 0, 1, SelfCheckoutOnline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(searchEClass, Search.class, "Search", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSearch_ItemSearch(), this.getItemDef(), null, "itemSearch", null, 0, 1, Search.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSearch_AddToOnlineBasket(), this.getAddToOnlineBasket(), null, "addToOnlineBasket", null, 0, 1, Search.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(addToOnlineBasketEClass, AddToOnlineBasket.class, "AddToOnlineBasket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAddToOnlineBasket_ItemCount(), this.getExpression(), null, "itemCount", null, 0, 1, AddToOnlineBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddToOnlineBasket_Item(), this.getItemDef(), null, "item", null, 0, 1, AddToOnlineBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddToOnlineBasket_RemoveFromOnlineBasket(), this.getRemoveFromOnlineBasket(), null, "removeFromOnlineBasket", null, 0, 1, AddToOnlineBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(removeFromOnlineBasketEClass, RemoveFromOnlineBasket.class, "RemoveFromOnlineBasket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRemoveFromOnlineBasket_RemoveItem(), this.getItemDef(), null, "removeItem", null, 0, 1, RemoveFromOnlineBasket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(onlineCheckoutEClass, OnlineCheckout.class, "OnlineCheckout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOnlineCheckout_DeliveryOptions(), this.getDeliveryOptions(), "deliveryOptions", null, 0, 1, OnlineCheckout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOnlineCheckout_Confirm(), this.getConfirm(), null, "confirm", null, 0, 1, OnlineCheckout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(confirmEClass, Confirm.class, "Confirm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConfirm_ConfirmEnum(), this.getConfirmEnum(), "confirmEnum", null, 0, 1, Confirm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConfirm_Pay(), this.getPay(), "pay", null, 0, 1, Confirm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selfCheckoutInstoreEClass, SelfCheckoutInstore.class, "SelfCheckoutInstore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelfCheckoutInstore_PickScanMachine(), this.getHoldSelfScanner(), null, "pickScanMachine", null, 0, 1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutInstore_Pickstatements(), this.getPickStatement(), null, "pickstatements", null, 0, -1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutInstore_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutInstore_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(holdSelfScannerEClass, HoldSelfScanner.class, "HoldSelfScanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHoldSelfScanner_ScanMachine(), this.getSelfScanner(), "scanMachine", null, 0, 1, HoldSelfScanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1160,6 +1576,17 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     initEReference(getComplexScan_Next(), this.getCarryItems(), null, "next", null, 0, -1, ComplexScan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(loadShoppingSiteEEnum, LoadShoppingSite.class, "LoadShoppingSite");
+    addEEnumLiteral(loadShoppingSiteEEnum, LoadShoppingSite.LOAD_SHOP_SITE);
+
+    initEEnum(deliveryOptionsEEnum, DeliveryOptions.class, "DeliveryOptions");
+    addEEnumLiteral(deliveryOptionsEEnum, DeliveryOptions.PREMIUM_DELIVERY);
+    addEEnumLiteral(deliveryOptionsEEnum, DeliveryOptions.STANDARD_DELIVERY);
+    addEEnumLiteral(deliveryOptionsEEnum, DeliveryOptions.NEXT_DAY_DELIVERY);
+
+    initEEnum(confirmEnumEEnum, ConfirmEnum.class, "ConfirmEnum");
+    addEEnumLiteral(confirmEnumEEnum, ConfirmEnum.CONFIRM);
+
     initEEnum(selfScannerEEnum, SelfScanner.class, "SelfScanner");
     addEEnumLiteral(selfScannerEEnum, SelfScanner.SELFSCANNER);
 

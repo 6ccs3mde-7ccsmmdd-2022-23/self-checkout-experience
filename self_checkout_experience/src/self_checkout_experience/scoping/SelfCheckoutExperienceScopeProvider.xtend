@@ -17,6 +17,7 @@ import self_checkout_experience.selfCheckoutExperience.IntVarExpression
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
 import self_checkout_experience.selfCheckoutExperience.Repeat
 import self_checkout_experience.selfCheckoutExperience.ItemDef
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
 
 /** 
  * This class contains custom scoping description.
@@ -45,7 +46,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 			loopContainer.visibleVariablesScope_walk
 		}
 		else{
-			val containingProgram = context.getContainerOfType(Self_checkout)
+			val containingProgram = context.getContainerOfType(SelfCheckoutInstore)
 				
 			scopeFor(containingProgram.walkstatements.filter(VariableDeclaration))
 		}
@@ -55,7 +56,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 		if (context instanceof Repeat){
 			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_walk)
 		}
-		else if (context instanceof Self_checkout){
+		else if (context instanceof SelfCheckoutInstore){
 			scopeFor(context.walkstatements.filter(VariableDeclaration))
 		}
 	}
@@ -70,7 +71,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 			loopContainer.visibleVariablesScope_pick
 		}
 		else{
-			val containingProgram = context.getContainerOfType(Self_checkout)
+			val containingProgram = context.getContainerOfType(SelfCheckoutInstore)
 				
 			scopeFor(containingProgram.pickstatements.filter(VariableDeclaration)
 			)
@@ -81,7 +82,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 		if (context instanceof Repeat){
 			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_pick)
 		}
-		else if (context instanceof Self_checkout){
+		else if (context instanceof SelfCheckoutInstore){
 			scopeFor(context.pickstatements.filter(VariableDeclaration))
 		}
 	}

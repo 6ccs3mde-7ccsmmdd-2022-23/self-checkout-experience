@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import self_checkout_experience.selfCheckoutExperience.Self_checkout
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
 import self_checkout_experience.selfCheckoutExperience.PickStatement
 import self_checkout_experience.selfCheckoutExperience.Drop
 import self_checkout_experience.selfCheckoutExperience.Scan
@@ -20,6 +21,10 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement
 import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
 import self_checkout_experience.selfCheckoutExperience.ScanExpression
 import self_checkout_experience.selfCheckoutExperience.CarryItems
+import org.eclipse.emf.common.util.EList
+import self_checkout_experience.selfCheckoutExperience.Search
+import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket
+import self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket
 
 /**
  * Generates code from your model files on save.
@@ -41,6 +46,12 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	def generate(Self_checkout checkout) '''
 		Self checkout summary:
 		
+		ONLINE
+		- «checkout.eAllContents.filter(Search).size» search statements
+		- «checkout.eAllContents.filter(AddToOnlineBasket).size» add to online basket statements
+		- «checkout.eAllContents.filter(RemoveFromOnlineBasket).size» remove from online basket statements
+		
+		IN STORE 
 		- «checkout.eAllContents.filter(PickStatement).size» pick statements
 		- «checkout.eAllContents.filter(ScanAndAddToBasket).size» scan and add to basket statements
 		- «checkout.eAllContents.filter(Drop).size» drop statements
@@ -49,8 +60,10 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		- «checkout.eAllContents.filter(CarryItems).size» carry item statements
 		- «checkout.eAllContents.filter(MoveStatement).size» move statements
 		- «checkout.eAllContents.filter(TurnStatement).size» turn statements
-		- «checkout.walkstatements.filter(Repeat).size» repeat statements
+		- «checkout.eAllContents.filter(Repeat).size» repeat statements
 		- «checkout.eAllContents.filter(WalkStatement).size» Walk statements
-		
 	'''
+	
+
+		
 }

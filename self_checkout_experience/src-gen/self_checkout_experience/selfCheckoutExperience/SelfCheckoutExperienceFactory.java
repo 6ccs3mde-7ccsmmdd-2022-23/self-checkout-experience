@@ -33,6 +33,69 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Self_checkout createSelf_checkout();
 
   /**
+   * Returns a new object of class '<em>Self Checkout Online</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Online</em>'.
+   * @generated
+   */
+  SelfCheckoutOnline createSelfCheckoutOnline();
+
+  /**
+   * Returns a new object of class '<em>Search</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search</em>'.
+   * @generated
+   */
+  Search createSearch();
+
+  /**
+   * Returns a new object of class '<em>Add To Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add To Online Basket</em>'.
+   * @generated
+   */
+  AddToOnlineBasket createAddToOnlineBasket();
+
+  /**
+   * Returns a new object of class '<em>Remove From Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Remove From Online Basket</em>'.
+   * @generated
+   */
+  RemoveFromOnlineBasket createRemoveFromOnlineBasket();
+
+  /**
+   * Returns a new object of class '<em>Online Checkout</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Online Checkout</em>'.
+   * @generated
+   */
+  OnlineCheckout createOnlineCheckout();
+
+  /**
+   * Returns a new object of class '<em>Confirm</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Confirm</em>'.
+   * @generated
+   */
+  Confirm createConfirm();
+
+  /**
+   * Returns a new object of class '<em>Self Checkout Instore</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Instore</em>'.
+   * @generated
+   */
+  SelfCheckoutInstore createSelfCheckoutInstore();
+
+  /**
    * Returns a new object of class '<em>Hold Self Scanner</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
