@@ -119,15 +119,15 @@ enum TurnCommand:
 	left | right
 ;
 
-Addition returns Expression:
+Addition returns IntExpression:
 	Multiplication ({Addition.left = current} operator+=("+"|"-") right+=Multiplication)*
 ;
 
-Multiplication returns Expression:
+Multiplication returns IntExpression:
 	Primary ({Multiplication.left = current} operator+=("*"|"/") right+=Primary)*
 ;
 
-Primary returns Expression:
+Primary returns IntExpression:
 	IntLiteral |
 	IntVarExpression |
 	"(" Addition ")"

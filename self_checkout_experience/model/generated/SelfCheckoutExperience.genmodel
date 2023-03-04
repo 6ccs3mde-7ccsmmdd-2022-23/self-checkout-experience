@@ -103,7 +103,7 @@
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//TurnStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//TurnStatement/command"/>
     </genClasses>
-    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Expression"/>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//IntExpression"/>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//IntLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//IntLiteral/val"/>
     </genClasses>

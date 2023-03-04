@@ -25,7 +25,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
  *
  * @generated
  */
-public class IntLiteralImpl extends ExpressionImpl implements IntLiteral
+public class IntLiteralImpl extends IntExpressionImpl implements IntLiteral
 {
   /**
    * The default value of the '{@link #getVal() <em>Val</em>}' attribute.

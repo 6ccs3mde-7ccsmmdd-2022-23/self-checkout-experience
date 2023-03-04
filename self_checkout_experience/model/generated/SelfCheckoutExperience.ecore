@@ -25,7 +25,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddToOnlineBasket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//ItemDef"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="removeFromOnlineBasket"
@@ -68,7 +68,7 @@
     <eLiterals name="selfscanner" literal="selfscanner"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PickStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemPicked" eType="#//ItemDef"
         containment="true"/>
@@ -90,14 +90,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//WalkStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveStatement" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//MoveCommand"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" eType="#//IntExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MoveCommand">
@@ -111,11 +111,11 @@
     <eLiterals name="left" literal="left"/>
     <eLiterals name="right" value="1" literal="right"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="IntExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntVarExpression" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="IntVarExpression" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkout">
@@ -137,21 +137,21 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Pay">
     <eLiterals name="pay" literal="pay"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//IntExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+        eType="#//IntExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//IntExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+        eType="#//IntExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexScan" eSuperTypes="#//ScanExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Scan"

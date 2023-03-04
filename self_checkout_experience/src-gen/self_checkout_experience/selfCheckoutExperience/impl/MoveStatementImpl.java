@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.MoveCommand;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
@@ -60,7 +60,7 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
    * @generated
    * @ordered
    */
-  protected Expression steps;
+  protected IntExpression steps;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
    * @generated
    */
   @Override
-  public Expression getSteps()
+  public IntExpression getSteps()
   {
     return steps;
   }
@@ -124,9 +124,9 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSteps(Expression newSteps, NotificationChain msgs)
+  public NotificationChain basicSetSteps(IntExpression newSteps, NotificationChain msgs)
   {
-    Expression oldSteps = steps;
+    IntExpression oldSteps = steps;
     steps = newSteps;
     if (eNotificationRequired())
     {
@@ -142,7 +142,7 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
    * @generated
    */
   @Override
-  public void setSteps(Expression newSteps)
+  public void setSteps(IntExpression newSteps)
   {
     if (newSteps != steps)
     {
@@ -206,7 +206,7 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
         setCommand((MoveCommand)newValue);
         return;
       case SelfCheckoutExperiencePackage.MOVE_STATEMENT__STEPS:
-        setSteps((Expression)newValue);
+        setSteps((IntExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +226,7 @@ public class MoveStatementImpl extends WalkStatementImpl implements MoveStatemen
         setCommand(COMMAND_EDEFAULT);
         return;
       case SelfCheckoutExperiencePackage.MOVE_STATEMENT__STEPS:
-        setSteps((Expression)null);
+        setSteps((IntExpression)null);
         return;
     }
     super.eUnset(featureID);

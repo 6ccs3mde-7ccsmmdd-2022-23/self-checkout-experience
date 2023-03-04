@@ -53,12 +53,12 @@ public interface MoveStatement extends WalkStatement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Steps</em>' containment reference.
-   * @see #setSteps(Expression)
+   * @see #setSteps(IntExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getMoveStatement_Steps()
    * @model containment="true"
    * @generated
    */
-  Expression getSteps();
+  IntExpression getSteps();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.MoveStatement#getSteps <em>Steps</em>}' containment reference.
@@ -68,6 +68,6 @@ public interface MoveStatement extends WalkStatement
    * @see #getSteps()
    * @generated
    */
-  void setSteps(Expression value);
+  void setSteps(IntExpression value);
 
 } // MoveStatement

@@ -203,10 +203,10 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.EXPRESSION:
+      case SelfCheckoutExperiencePackage.INT_EXPRESSION:
       {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
+        IntExpression intExpression = (IntExpression)theEObject;
+        T result = caseIntExpression(intExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -214,7 +214,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         IntLiteral intLiteral = (IntLiteral)theEObject;
         T result = caseIntLiteral(intLiteral);
-        if (result == null) result = caseExpression(intLiteral);
+        if (result == null) result = caseIntExpression(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -222,7 +222,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         IntVarExpression intVarExpression = (IntVarExpression)theEObject;
         T result = caseIntVarExpression(intVarExpression);
-        if (result == null) result = caseExpression(intVarExpression);
+        if (result == null) result = caseIntExpression(intVarExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -259,7 +259,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         Addition addition = (Addition)theEObject;
         T result = caseAddition(addition);
-        if (result == null) result = caseExpression(addition);
+        if (result == null) result = caseIntExpression(addition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -267,7 +267,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         Multiplication multiplication = (Multiplication)theEObject;
         T result = caseMultiplication(multiplication);
-        if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = caseIntExpression(multiplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -572,17 +572,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Int Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Int Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpression(Expression object)
+  public T caseIntExpression(IntExpression object)
   {
     return null;
   }
