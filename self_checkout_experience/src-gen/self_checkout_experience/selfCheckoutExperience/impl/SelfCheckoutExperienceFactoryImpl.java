@@ -84,7 +84,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
       case SelfCheckoutExperiencePackage.REPEAT: return createRepeat();
       case SelfCheckoutExperiencePackage.MOVE_STATEMENT: return createMoveStatement();
       case SelfCheckoutExperiencePackage.TURN_STATEMENT: return createTurnStatement();
-      case SelfCheckoutExperiencePackage.EXPRESSION: return createExpression();
+      case SelfCheckoutExperiencePackage.INT_EXPRESSION: return createIntExpression();
       case SelfCheckoutExperiencePackage.INT_LITERAL: return createIntLiteral();
       case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION: return createIntVarExpression();
       case SelfCheckoutExperiencePackage.CHECKOUT: return createCheckout();
@@ -383,10 +383,10 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   @Override
-  public Expression createExpression()
+  public IntExpression createIntExpression()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
+    IntExpressionImpl intExpression = new IntExpressionImpl();
+    return intExpression;
   }
 
   /**

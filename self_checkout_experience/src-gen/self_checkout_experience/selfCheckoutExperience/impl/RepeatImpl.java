@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
@@ -47,7 +47,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    * @ordered
    */
-  protected Expression count;
+  protected IntExpression count;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -86,7 +86,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    */
   @Override
-  public Expression getCount()
+  public IntExpression getCount()
   {
     return count;
   }
@@ -96,9 +96,9 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCount(Expression newCount, NotificationChain msgs)
+  public NotificationChain basicSetCount(IntExpression newCount, NotificationChain msgs)
   {
-    Expression oldCount = count;
+    IntExpression oldCount = count;
     count = newCount;
     if (eNotificationRequired())
     {
@@ -114,7 +114,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    */
   @Override
-  public void setCount(Expression newCount)
+  public void setCount(IntExpression newCount)
   {
     if (newCount != count)
     {
@@ -193,7 +193,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
-        setCount((Expression)newValue);
+        setCount((IntExpression)newValue);
         return;
       case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
         getStatements().clear();
@@ -214,7 +214,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
-        setCount((Expression)null);
+        setCount((IntExpression)null);
         return;
       case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
         getStatements().clear();

@@ -698,23 +698,23 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int TURN_STATEMENT_FEATURE_COUNT = WALK_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl <em>Expression</em>}' class.
+   * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntExpressionImpl <em>Int Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl
-   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getExpression()
+   * @see self_checkout_experience.selfCheckoutExperience.impl.IntExpressionImpl
+   * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getIntExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int INT_EXPRESSION = 18;
 
   /**
-   * The number of structural features of the '<em>Expression</em>' class.
+   * The number of structural features of the '<em>Int Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 0;
+  int INT_EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntLiteralImpl <em>Int Literal</em>}' class.
@@ -733,7 +733,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_LITERAL__VAL = EXPRESSION_FEATURE_COUNT + 0;
+  int INT_LITERAL__VAL = INT_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Int Literal</em>' class.
@@ -742,7 +742,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int INT_LITERAL_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntVarExpressionImpl <em>Int Var Expression</em>}' class.
@@ -761,7 +761,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_VAR_EXPRESSION__VAR = EXPRESSION_FEATURE_COUNT + 0;
+  int INT_VAR_EXPRESSION__VAR = INT_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Int Var Expression</em>' class.
@@ -770,7 +770,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_VAR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int INT_VAR_EXPRESSION_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.CheckoutImpl <em>Checkout</em>}' class.
@@ -901,7 +901,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int ADDITION__LEFT = INT_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute list.
@@ -910,7 +910,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
+  int ADDITION__OPERATOR = INT_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference list.
@@ -919,7 +919,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int ADDITION__RIGHT = INT_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Addition</em>' class.
@@ -928,7 +928,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int ADDITION_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.MultiplicationImpl <em>Multiplication</em>}' class.
@@ -947,7 +947,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLICATION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int MULTIPLICATION__LEFT = INT_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute list.
@@ -956,7 +956,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLICATION__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
+  int MULTIPLICATION__OPERATOR = INT_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference list.
@@ -965,7 +965,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLICATION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int MULTIPLICATION__RIGHT = INT_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Multiplication</em>' class.
@@ -974,7 +974,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLICATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int MULTIPLICATION_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ComplexScanImpl <em>Complex Scan</em>}' class.
@@ -1638,14 +1638,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EAttribute getTurnStatement_Command();
 
   /**
-   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.Expression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.IntExpression <em>Int Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.Expression
+   * @return the meta object for class '<em>Int Expression</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.IntExpression
    * @generated
    */
-  EClass getExpression();
+  EClass getIntExpression();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.IntLiteral <em>Int Literal</em>}'.
@@ -2439,14 +2439,14 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EAttribute TURN_STATEMENT__COMMAND = eINSTANCE.getTurnStatement_Command();
 
     /**
-     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl <em>Expression</em>}' class.
+     * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntExpressionImpl <em>Int Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see self_checkout_experience.selfCheckoutExperience.impl.ExpressionImpl
-     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getExpression()
+     * @see self_checkout_experience.selfCheckoutExperience.impl.IntExpressionImpl
+     * @see self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutExperiencePackageImpl#getIntExpression()
      * @generated
      */
-    EClass EXPRESSION = eINSTANCE.getExpression();
+    EClass INT_EXPRESSION = eINSTANCE.getIntExpression();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.IntLiteralImpl <em>Int Literal</em>}' class.

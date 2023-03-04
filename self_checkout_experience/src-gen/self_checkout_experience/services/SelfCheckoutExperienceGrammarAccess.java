@@ -703,7 +703,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightMultiplicationParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Addition returns Expression:
+		//Addition returns IntExpression:
 		//    Multiplication ({Addition.left = current} operator+=("+"|"-") right+=Multiplication)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -751,7 +751,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Multiplication returns Expression:
+		//Multiplication returns IntExpression:
 		//    Primary ({Multiplication.left = current} operator+=("*"|"/") right+=Primary)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -796,7 +796,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final RuleCall cAdditionParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
-		//Primary returns Expression:
+		//Primary returns IntExpression:
 		//    IntLiteral |
 		//    IntVarExpression |
 		//    "(" Addition ")"
@@ -1565,7 +1565,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getTurnCommandAccess().getRule();
 	}
 	
-	//Addition returns Expression:
+	//Addition returns IntExpression:
 	//    Multiplication ({Addition.left = current} operator+=("+"|"-") right+=Multiplication)*
 	//;
 	public AdditionElements getAdditionAccess() {
@@ -1576,7 +1576,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getAdditionAccess().getRule();
 	}
 	
-	//Multiplication returns Expression:
+	//Multiplication returns IntExpression:
 	//    Primary ({Multiplication.left = current} operator+=("*"|"/") right+=Primary)*
 	//;
 	public MultiplicationElements getMultiplicationAccess() {
@@ -1587,7 +1587,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getMultiplicationAccess().getRule();
 	}
 	
-	//Primary returns Expression:
+	//Primary returns IntExpression:
 	//    IntLiteral |
 	//    IntVarExpression |
 	//    "(" Addition ")"

@@ -30,12 +30,12 @@ public interface AddToOnlineBasket extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Item Count</em>' containment reference.
-   * @see #setItemCount(Expression)
+   * @see #setItemCount(IntExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getAddToOnlineBasket_ItemCount()
    * @model containment="true"
    * @generated
    */
-  Expression getItemCount();
+  IntExpression getItemCount();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket#getItemCount <em>Item Count</em>}' containment reference.
@@ -45,7 +45,7 @@ public interface AddToOnlineBasket extends EObject
    * @see #getItemCount()
    * @generated
    */
-  void setItemCount(Expression value);
+  void setItemCount(IntExpression value);
 
   /**
    * Returns the value of the '<em><b>Item</b></em>' reference.

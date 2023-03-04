@@ -31,12 +31,12 @@ public interface Repeat extends WalkStatement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Count</em>' containment reference.
-   * @see #setCount(Expression)
+   * @see #setCount(IntExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getRepeat_Count()
    * @model containment="true"
    * @generated
    */
-  Expression getCount();
+  IntExpression getCount();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Repeat#getCount <em>Count</em>}' containment reference.
@@ -46,7 +46,7 @@ public interface Repeat extends WalkStatement
    * @see #getCount()
    * @generated
    */
-  void setCount(Expression value);
+  void setCount(IntExpression value);
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.

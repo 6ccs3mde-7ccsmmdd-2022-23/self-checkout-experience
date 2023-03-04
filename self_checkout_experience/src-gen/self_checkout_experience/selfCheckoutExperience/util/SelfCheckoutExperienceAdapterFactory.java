@@ -166,9 +166,9 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createTurnStatementAdapter();
       }
       @Override
-      public Adapter caseExpression(Expression object)
+      public Adapter caseIntExpression(IntExpression object)
       {
-        return createExpressionAdapter();
+        return createIntExpressionAdapter();
       }
       @Override
       public Adapter caseIntLiteral(IntLiteral object)
@@ -508,16 +508,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Expression <em>Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.IntExpression <em>Int Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.Expression
+   * @see self_checkout_experience.selfCheckoutExperience.IntExpression
    * @generated
    */
-  public Adapter createExpressionAdapter()
+  public Adapter createIntExpressionAdapter()
   {
     return null;
   }

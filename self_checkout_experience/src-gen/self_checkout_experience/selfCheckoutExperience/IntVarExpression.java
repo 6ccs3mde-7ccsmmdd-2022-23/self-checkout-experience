@@ -20,7 +20,7 @@ package self_checkout_experience.selfCheckoutExperience;
  * @model
  * @generated
  */
-public interface IntVarExpression extends Expression
+public interface IntVarExpression extends IntExpression
 {
   /**
    * Returns the value of the '<em><b>Var</b></em>' reference.

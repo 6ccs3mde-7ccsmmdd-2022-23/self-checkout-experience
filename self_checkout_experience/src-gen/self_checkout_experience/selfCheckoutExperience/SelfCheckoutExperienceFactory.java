@@ -186,13 +186,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   TurnStatement createTurnStatement();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
+   * Returns a new object of class '<em>Int Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
+   * @return a new object of class '<em>Int Expression</em>'.
    * @generated
    */
-  Expression createExpression();
+  IntExpression createIntExpression();
 
   /**
    * Returns a new object of class '<em>Int Literal</em>'.

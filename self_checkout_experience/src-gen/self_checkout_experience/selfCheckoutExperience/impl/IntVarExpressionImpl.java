@@ -27,7 +27,7 @@ import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
  *
  * @generated
  */
-public class IntVarExpressionImpl extends ExpressionImpl implements IntVarExpression
+public class IntVarExpressionImpl extends IntExpressionImpl implements IntVarExpression
 {
   /**
    * The cached value of the '{@link #getVar() <em>Var</em>}' reference.

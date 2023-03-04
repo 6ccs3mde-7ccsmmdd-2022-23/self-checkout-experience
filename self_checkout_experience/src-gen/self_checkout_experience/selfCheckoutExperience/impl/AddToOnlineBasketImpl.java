@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket;
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
@@ -43,7 +43,7 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected Expression itemCount;
+  protected IntExpression itemCount;
 
   /**
    * The cached value of the '{@link #getItem() <em>Item</em>}' reference.
@@ -92,7 +92,7 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public Expression getItemCount()
+  public IntExpression getItemCount()
   {
     return itemCount;
   }
@@ -102,9 +102,9 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetItemCount(Expression newItemCount, NotificationChain msgs)
+  public NotificationChain basicSetItemCount(IntExpression newItemCount, NotificationChain msgs)
   {
-    Expression oldItemCount = itemCount;
+    IntExpression oldItemCount = itemCount;
     itemCount = newItemCount;
     if (eNotificationRequired())
     {
@@ -120,7 +120,7 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public void setItemCount(Expression newItemCount)
+  public void setItemCount(IntExpression newItemCount)
   {
     if (newItemCount != itemCount)
     {
@@ -281,7 +281,7 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET__ITEM_COUNT:
-        setItemCount((Expression)newValue);
+        setItemCount((IntExpression)newValue);
         return;
       case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET__ITEM:
         setItem((ItemDef)newValue);
@@ -304,7 +304,7 @@ public class AddToOnlineBasketImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET__ITEM_COUNT:
-        setItemCount((Expression)null);
+        setItemCount((IntExpression)null);
         return;
       case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET__ITEM:
         setItem((ItemDef)null);

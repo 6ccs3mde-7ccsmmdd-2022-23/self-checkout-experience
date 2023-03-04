@@ -20,7 +20,7 @@ package self_checkout_experience.selfCheckoutExperience;
  * @model
  * @generated
  */
-public interface IntLiteral extends Expression
+public interface IntLiteral extends IntExpression
 {
   /**
    * Returns the value of the '<em><b>Val</b></em>' attribute.

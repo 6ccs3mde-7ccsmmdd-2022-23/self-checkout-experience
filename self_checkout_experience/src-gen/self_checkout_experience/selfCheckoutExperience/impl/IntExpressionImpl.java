@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expression</b></em>'.
+ * An implementation of the model object '<em><b>Int Expression</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
+public class IntExpressionImpl extends MinimalEObjectImpl.Container implements IntExpression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExpressionImpl()
+  protected IntExpressionImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   @Override
   protected EClass eStaticClass()
   {
-    return SelfCheckoutExperiencePackage.Literals.EXPRESSION;
+    return SelfCheckoutExperiencePackage.Literals.INT_EXPRESSION;
   }
 
-} //ExpressionImpl
+} //IntExpressionImpl

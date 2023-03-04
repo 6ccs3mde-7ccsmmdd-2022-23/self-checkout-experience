@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
@@ -43,7 +43,7 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    * @ordered
    */
-  protected Expression itemCount;
+  protected IntExpression itemCount;
 
   /**
    * The cached value of the '{@link #getItemPicked() <em>Item Picked</em>}' containment reference.
@@ -92,7 +92,7 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public Expression getItemCount()
+  public IntExpression getItemCount()
   {
     return itemCount;
   }
@@ -102,9 +102,9 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetItemCount(Expression newItemCount, NotificationChain msgs)
+  public NotificationChain basicSetItemCount(IntExpression newItemCount, NotificationChain msgs)
   {
-    Expression oldItemCount = itemCount;
+    IntExpression oldItemCount = itemCount;
     itemCount = newItemCount;
     if (eNotificationRequired())
     {
@@ -120,7 +120,7 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public void setItemCount(Expression newItemCount)
+  public void setItemCount(IntExpression newItemCount)
   {
     if (newItemCount != itemCount)
     {
@@ -287,7 +287,7 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
-        setItemCount((Expression)newValue);
+        setItemCount((IntExpression)newValue);
         return;
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
         setItemPicked((ItemDef)newValue);
@@ -310,7 +310,7 @@ public class PickStatementImpl extends MinimalEObjectImpl.Container implements P
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_COUNT:
-        setItemCount((Expression)null);
+        setItemCount((IntExpression)null);
         return;
       case SelfCheckoutExperiencePackage.PICK_STATEMENT__ITEM_PICKED:
         setItemPicked((ItemDef)null);
