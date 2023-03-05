@@ -80,10 +80,18 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_EXPERIENCE:
+      {
+        SelfCheckoutExperience selfCheckoutExperience = (SelfCheckoutExperience)theEObject;
+        T result = caseSelfCheckoutExperience(selfCheckoutExperience);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_ONLINE:
       {
         SelfCheckoutOnline selfCheckoutOnline = (SelfCheckoutOnline)theEObject;
         T result = caseSelfCheckoutOnline(selfCheckoutOnline);
+        if (result == null) result = caseSelfCheckoutExperience(selfCheckoutOnline);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -126,6 +134,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         SelfCheckoutInstore selfCheckoutInstore = (SelfCheckoutInstore)theEObject;
         T result = caseSelfCheckoutInstore(selfCheckoutInstore);
+        if (result == null) result = caseSelfCheckoutExperience(selfCheckoutInstore);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -295,6 +304,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSelf_checkout(Self_checkout object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Self Checkout Experience</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Self Checkout Experience</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelfCheckoutExperience(SelfCheckoutExperience object)
   {
     return null;
   }

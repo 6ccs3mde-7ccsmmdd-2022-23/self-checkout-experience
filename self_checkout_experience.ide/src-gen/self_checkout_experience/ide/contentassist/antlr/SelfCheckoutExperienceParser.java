@@ -31,7 +31,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SelfCheckoutExperienceGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getSelf_checkoutAccess().getAlternatives(), "rule__Self_checkout__Alternatives");
+			builder.put(grammarAccess.getSelfCheckoutExperienceAccess().getAlternatives(), "rule__SelfCheckoutExperience__Alternatives");
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1(), "rule__SelfCheckoutInstore__Alternatives_1");
 			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0(), "rule__PickStatement__HoldingItemAlternatives_4_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
@@ -68,8 +68,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getScanExpressionAccess().getGroup_1(), "rule__ScanExpression__Group_1__0");
 			builder.put(grammarAccess.getScanAccess().getGroup(), "rule__Scan__Group__0");
 			builder.put(grammarAccess.getCarryItemsAccess().getGroup(), "rule__CarryItems__Group__0");
-			builder.put(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutOnlineAssignment_0(), "rule__Self_checkout__SelfCheckoutOnlineAssignment_0");
-			builder.put(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutInstoreAssignment_1(), "rule__Self_checkout__SelfCheckoutInstoreAssignment_1");
+			builder.put(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutExperienceAssignment(), "rule__Self_checkout__SelfCheckoutExperienceAssignment");
 			builder.put(grammarAccess.getSelfCheckoutOnlineAccess().getLoadShoppingSiteAssignment_0(), "rule__SelfCheckoutOnline__LoadShoppingSiteAssignment_0");
 			builder.put(grammarAccess.getSelfCheckoutOnlineAccess().getSearchAssignment_1(), "rule__SelfCheckoutOnline__SearchAssignment_1");
 			builder.put(grammarAccess.getSelfCheckoutOnlineAccess().getOnlineCheckoutAssignment_2(), "rule__SelfCheckoutOnline__OnlineCheckoutAssignment_2");

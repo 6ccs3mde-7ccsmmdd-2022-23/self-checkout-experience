@@ -81,6 +81,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createSelf_checkoutAdapter();
       }
       @Override
+      public Adapter caseSelfCheckoutExperience(SelfCheckoutExperience object)
+      {
+        return createSelfCheckoutExperienceAdapter();
+      }
+      @Override
       public Adapter caseSelfCheckoutOnline(SelfCheckoutOnline object)
       {
         return createSelfCheckoutOnlineAdapter();
@@ -248,6 +253,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelf_checkoutAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience <em>Self Checkout Experience</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience
+   * @generated
+   */
+  public Adapter createSelfCheckoutExperienceAdapter()
   {
     return null;
   }

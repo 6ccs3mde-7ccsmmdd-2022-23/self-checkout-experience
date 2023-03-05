@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -42,7 +41,7 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  *
  * @generated
  */
-public class SelfCheckoutInstoreImpl extends MinimalEObjectImpl.Container implements SelfCheckoutInstore
+public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implements SelfCheckoutInstore
 {
   /**
    * The cached value of the '{@link #getPickScanMachine() <em>Pick Scan Machine</em>}' containment reference.

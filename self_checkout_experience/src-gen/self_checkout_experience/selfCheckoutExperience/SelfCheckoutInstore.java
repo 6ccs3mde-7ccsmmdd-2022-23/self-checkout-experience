@@ -5,8 +5,6 @@ package self_checkout_experience.selfCheckoutExperience;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Self Checkout Instore</b></em>'.
@@ -26,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SelfCheckoutInstore extends EObject
+public interface SelfCheckoutInstore extends SelfCheckoutExperience
 {
   /**
    * Returns the value of the '<em><b>Pick Scan Machine</b></em>' containment reference.

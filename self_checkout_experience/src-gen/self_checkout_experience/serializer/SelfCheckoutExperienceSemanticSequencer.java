@@ -490,6 +490,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     SelfCheckoutExperience returns SelfCheckoutInstore
 	 *     SelfCheckoutInstore returns SelfCheckoutInstore
 	 *
 	 * Constraint:
@@ -502,6 +503,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     SelfCheckoutExperience returns SelfCheckoutOnline
 	 *     SelfCheckoutOnline returns SelfCheckoutOnline
 	 *
 	 * Constraint:
@@ -517,7 +519,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Self_checkout returns Self_checkout
 	 *
 	 * Constraint:
-	 *     (selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)
+	 *     selfCheckoutExperience+=SelfCheckoutExperience+
 	 */
 	protected void sequence_Self_checkout(ISerializationContext context, Self_checkout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

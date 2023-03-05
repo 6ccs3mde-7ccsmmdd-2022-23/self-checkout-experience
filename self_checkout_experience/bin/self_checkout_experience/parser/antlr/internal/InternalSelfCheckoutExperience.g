@@ -78,45 +78,59 @@ ruleSelf_checkout returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0());
+			{
+				newCompositeNode(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutExperienceSelfCheckoutExperienceParserRuleCall_0());
+			}
+			lv_selfCheckoutExperience_0_0=ruleSelfCheckoutExperience
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
 				}
-				lv_selfCheckoutOnline_0_0=ruleSelfCheckoutOnline
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
-					}
-					add(
-						$current,
-						"selfCheckoutOnline",
-						lv_selfCheckoutOnline_0_0,
-						"self_checkout_experience.SelfCheckoutExperience.SelfCheckoutOnline");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				add(
+					$current,
+					"selfCheckoutExperience",
+					lv_selfCheckoutExperience_0_0,
+					"self_checkout_experience.SelfCheckoutExperience.SelfCheckoutExperience");
+				afterParserOrEnumRuleCall();
+			}
 		)
+	)*
+;
+
+// Entry rule entryRuleSelfCheckoutExperience
+entryRuleSelfCheckoutExperience returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSelfCheckoutExperienceRule()); }
+	iv_ruleSelfCheckoutExperience=ruleSelfCheckoutExperience
+	{ $current=$iv_ruleSelfCheckoutExperience.current; }
+	EOF;
+
+// Rule SelfCheckoutExperience
+ruleSelfCheckoutExperience returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getSelfCheckoutExperienceAccess().getSelfCheckoutOnlineParserRuleCall_0());
+		}
+		this_SelfCheckoutOnline_0=ruleSelfCheckoutOnline
+		{
+			$current = $this_SelfCheckoutOnline_0.current;
+			afterParserOrEnumRuleCall();
+		}
 		    |
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSelf_checkoutAccess().getSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0());
-				}
-				lv_selfCheckoutInstore_1_0=ruleSelfCheckoutInstore
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSelf_checkoutRule());
-					}
-					add(
-						$current,
-						"selfCheckoutInstore",
-						lv_selfCheckoutInstore_1_0,
-						"self_checkout_experience.SelfCheckoutExperience.SelfCheckoutInstore");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-	)?
+		{
+			newCompositeNode(grammarAccess.getSelfCheckoutExperienceAccess().getSelfCheckoutInstoreParserRuleCall_1());
+		}
+		this_SelfCheckoutInstore_1=ruleSelfCheckoutInstore
+		{
+			$current = $this_SelfCheckoutInstore_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleSelfCheckoutOnline

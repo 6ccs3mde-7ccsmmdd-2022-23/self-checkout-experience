@@ -16,8 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getSelfCheckoutOnline <em>Self Checkout Online</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getSelfCheckoutInstore <em>Self Checkout Instore</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getSelfCheckoutExperience <em>Self Checkout Experience</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout()
@@ -27,27 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Self_checkout extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Self Checkout Online</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline}.
+   * Returns the value of the '<em><b>Self Checkout Experience</b></em>' containment reference list.
+   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Self Checkout Online</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_SelfCheckoutOnline()
+   * @return the value of the '<em>Self Checkout Experience</em>' containment reference list.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_SelfCheckoutExperience()
    * @model containment="true"
    * @generated
    */
-  EList<SelfCheckoutOnline> getSelfCheckoutOnline();
-
-  /**
-   * Returns the value of the '<em><b>Self Checkout Instore</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Self Checkout Instore</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_SelfCheckoutInstore()
-   * @model containment="true"
-   * @generated
-   */
-  EList<SelfCheckoutInstore> getSelfCheckoutInstore();
+  EList<SelfCheckoutExperience> getSelfCheckoutExperience();
 
 } // Self_checkout

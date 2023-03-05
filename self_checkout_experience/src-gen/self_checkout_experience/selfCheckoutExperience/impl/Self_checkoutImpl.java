@@ -17,9 +17,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
-import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
-import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
 
 /**
@@ -30,8 +29,7 @@ import self_checkout_experience.selfCheckoutExperience.Self_checkout;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getSelfCheckoutOnline <em>Self Checkout Online</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getSelfCheckoutInstore <em>Self Checkout Instore</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getSelfCheckoutExperience <em>Self Checkout Experience</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,24 +37,14 @@ import self_checkout_experience.selfCheckoutExperience.Self_checkout;
 public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements Self_checkout
 {
   /**
-   * The cached value of the '{@link #getSelfCheckoutOnline() <em>Self Checkout Online</em>}' containment reference list.
+   * The cached value of the '{@link #getSelfCheckoutExperience() <em>Self Checkout Experience</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSelfCheckoutOnline()
+   * @see #getSelfCheckoutExperience()
    * @generated
    * @ordered
    */
-  protected EList<SelfCheckoutOnline> selfCheckoutOnline;
-
-  /**
-   * The cached value of the '{@link #getSelfCheckoutInstore() <em>Self Checkout Instore</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSelfCheckoutInstore()
-   * @generated
-   * @ordered
-   */
-  protected EList<SelfCheckoutInstore> selfCheckoutInstore;
+  protected EList<SelfCheckoutExperience> selfCheckoutExperience;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,28 +73,13 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    */
   @Override
-  public EList<SelfCheckoutOnline> getSelfCheckoutOnline()
+  public EList<SelfCheckoutExperience> getSelfCheckoutExperience()
   {
-    if (selfCheckoutOnline == null)
+    if (selfCheckoutExperience == null)
     {
-      selfCheckoutOnline = new EObjectContainmentEList<SelfCheckoutOnline>(SelfCheckoutOnline.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE);
+      selfCheckoutExperience = new EObjectContainmentEList<SelfCheckoutExperience>(SelfCheckoutExperience.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE);
     }
-    return selfCheckoutOnline;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<SelfCheckoutInstore> getSelfCheckoutInstore()
-  {
-    if (selfCheckoutInstore == null)
-    {
-      selfCheckoutInstore = new EObjectContainmentEList<SelfCheckoutInstore>(SelfCheckoutInstore.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE);
-    }
-    return selfCheckoutInstore;
+    return selfCheckoutExperience;
   }
 
   /**
@@ -119,10 +92,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE:
-        return ((InternalEList<?>)getSelfCheckoutOnline()).basicRemove(otherEnd, msgs);
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE:
-        return ((InternalEList<?>)getSelfCheckoutInstore()).basicRemove(otherEnd, msgs);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return ((InternalEList<?>)getSelfCheckoutExperience()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,10 +108,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE:
-        return getSelfCheckoutOnline();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE:
-        return getSelfCheckoutInstore();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return getSelfCheckoutExperience();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,13 +125,9 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE:
-        getSelfCheckoutOnline().clear();
-        getSelfCheckoutOnline().addAll((Collection<? extends SelfCheckoutOnline>)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE:
-        getSelfCheckoutInstore().clear();
-        getSelfCheckoutInstore().addAll((Collection<? extends SelfCheckoutInstore>)newValue);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        getSelfCheckoutExperience().clear();
+        getSelfCheckoutExperience().addAll((Collection<? extends SelfCheckoutExperience>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -178,11 +143,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE:
-        getSelfCheckoutOnline().clear();
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE:
-        getSelfCheckoutInstore().clear();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        getSelfCheckoutExperience().clear();
         return;
     }
     super.eUnset(featureID);
@@ -198,10 +160,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_ONLINE:
-        return selfCheckoutOnline != null && !selfCheckoutOnline.isEmpty();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_INSTORE:
-        return selfCheckoutInstore != null && !selfCheckoutInstore.isEmpty();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return selfCheckoutExperience != null && !selfCheckoutExperience.isEmpty();
     }
     return super.eIsSet(featureID);
   }

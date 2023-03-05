@@ -39,6 +39,7 @@ import self_checkout_experience.selfCheckoutExperience.Scan;
 import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket;
 import self_checkout_experience.selfCheckoutExperience.ScanExpression;
 import self_checkout_experience.selfCheckoutExperience.Search;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperienceFactory;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
@@ -64,6 +65,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EClass self_checkoutEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selfCheckoutExperienceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -390,7 +398,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_SelfCheckoutOnline()
+  public EReference getSelf_checkout_SelfCheckoutExperience()
   {
     return (EReference)self_checkoutEClass.getEStructuralFeatures().get(0);
   }
@@ -401,9 +409,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelf_checkout_SelfCheckoutInstore()
+  public EClass getSelfCheckoutExperience()
   {
-    return (EReference)self_checkoutEClass.getEStructuralFeatures().get(1);
+    return selfCheckoutExperienceEClass;
   }
 
   /**
@@ -1318,8 +1326,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Create classes and their features
     self_checkoutEClass = createEClass(SELF_CHECKOUT);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__SELF_CHECKOUT_ONLINE);
-    createEReference(self_checkoutEClass, SELF_CHECKOUT__SELF_CHECKOUT_INSTORE);
+    createEReference(self_checkoutEClass, SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE);
+
+    selfCheckoutExperienceEClass = createEClass(SELF_CHECKOUT_EXPERIENCE);
 
     selfCheckoutOnlineEClass = createEClass(SELF_CHECKOUT_ONLINE);
     createEAttribute(selfCheckoutOnlineEClass, SELF_CHECKOUT_ONLINE__LOAD_SHOPPING_SITE);
@@ -1460,6 +1469,8 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    selfCheckoutOnlineEClass.getESuperTypes().add(this.getSelfCheckoutExperience());
+    selfCheckoutInstoreEClass.getESuperTypes().add(this.getSelfCheckoutExperience());
     variableDeclarationEClass.getESuperTypes().add(this.getWalkStatement());
     repeatEClass.getESuperTypes().add(this.getWalkStatement());
     moveStatementEClass.getESuperTypes().add(this.getWalkStatement());
@@ -1473,8 +1484,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     // Initialize classes and features; add operations and parameters
     initEClass(self_checkoutEClass, Self_checkout.class, "Self_checkout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelf_checkout_SelfCheckoutOnline(), this.getSelfCheckoutOnline(), null, "selfCheckoutOnline", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelf_checkout_SelfCheckoutInstore(), this.getSelfCheckoutInstore(), null, "selfCheckoutInstore", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelf_checkout_SelfCheckoutExperience(), this.getSelfCheckoutExperience(), null, "selfCheckoutExperience", null, 0, -1, Self_checkout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selfCheckoutExperienceEClass, SelfCheckoutExperience.class, "SelfCheckoutExperience", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(selfCheckoutOnlineEClass, SelfCheckoutOnline.class, "SelfCheckoutOnline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSelfCheckoutOnline_LoadShoppingSite(), this.getLoadShoppingSite(), "loadShoppingSite", null, 0, 1, SelfCheckoutOnline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -36,9 +36,9 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//Pay/pay"/>
     </genEnums>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Self_checkout">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/selfCheckoutOnline"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/selfCheckoutInstore"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Self_checkout/selfCheckoutExperience"/>
     </genClasses>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//SelfCheckoutExperience"/>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//SelfCheckoutOnline">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//SelfCheckoutOnline/loadShoppingSite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutOnline/search"/>

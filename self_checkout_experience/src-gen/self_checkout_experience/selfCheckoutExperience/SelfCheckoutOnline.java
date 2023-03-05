@@ -5,8 +5,6 @@ package self_checkout_experience.selfCheckoutExperience;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Self Checkout Online</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SelfCheckoutOnline extends EObject
+public interface SelfCheckoutOnline extends SelfCheckoutExperience
 {
   /**
    * Returns the value of the '<em><b>Load Shopping Site</b></em>' attribute.

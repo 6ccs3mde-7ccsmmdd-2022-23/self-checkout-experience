@@ -67,6 +67,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
     switch (eClass.getClassifierID())
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT: return createSelf_checkout();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_EXPERIENCE: return createSelfCheckoutExperience();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_ONLINE: return createSelfCheckoutOnline();
       case SelfCheckoutExperiencePackage.SEARCH: return createSearch();
       case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET: return createAddToOnlineBasket();
@@ -171,6 +172,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     Self_checkoutImpl self_checkout = new Self_checkoutImpl();
     return self_checkout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelfCheckoutExperience createSelfCheckoutExperience()
+  {
+    SelfCheckoutExperienceImpl selfCheckoutExperience = new SelfCheckoutExperienceImpl();
+    return selfCheckoutExperience;
   }
 
   /**

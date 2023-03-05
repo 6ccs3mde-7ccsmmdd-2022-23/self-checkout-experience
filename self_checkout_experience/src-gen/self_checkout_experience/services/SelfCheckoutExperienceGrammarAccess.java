@@ -28,31 +28,39 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public class Self_checkoutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.Self_checkout");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cSelfCheckoutOnlineAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0 = (RuleCall)cSelfCheckoutOnlineAssignment_0.eContents().get(0);
-		private final Assignment cSelfCheckoutInstoreAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0 = (RuleCall)cSelfCheckoutInstoreAssignment_1.eContents().get(0);
+		private final Assignment cSelfCheckoutExperienceAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cSelfCheckoutExperienceSelfCheckoutExperienceParserRuleCall_0 = (RuleCall)cSelfCheckoutExperienceAssignment.eContents().get(0);
 		
 		//Self_checkout:
-		//    (selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
+		//    selfCheckoutExperience+=SelfCheckoutExperience*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
+		//selfCheckoutExperience+=SelfCheckoutExperience*
+		public Assignment getSelfCheckoutExperienceAssignment() { return cSelfCheckoutExperienceAssignment; }
+		
+		//SelfCheckoutExperience
+		public RuleCall getSelfCheckoutExperienceSelfCheckoutExperienceParserRuleCall_0() { return cSelfCheckoutExperienceSelfCheckoutExperienceParserRuleCall_0; }
+	}
+	public class SelfCheckoutExperienceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.SelfCheckoutExperience");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSelfCheckoutOnlineParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSelfCheckoutInstoreParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//SelfCheckoutExperience:
+		//    SelfCheckoutOnline | SelfCheckoutInstore
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SelfCheckoutOnline | SelfCheckoutInstore
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//selfCheckoutOnline+=SelfCheckoutOnline
-		public Assignment getSelfCheckoutOnlineAssignment_0() { return cSelfCheckoutOnlineAssignment_0; }
-		
 		//SelfCheckoutOnline
-		public RuleCall getSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0() { return cSelfCheckoutOnlineSelfCheckoutOnlineParserRuleCall_0_0; }
-		
-		//selfCheckoutInstore+=SelfCheckoutInstore
-		public Assignment getSelfCheckoutInstoreAssignment_1() { return cSelfCheckoutInstoreAssignment_1; }
+		public RuleCall getSelfCheckoutOnlineParserRuleCall_0() { return cSelfCheckoutOnlineParserRuleCall_0; }
 		
 		//SelfCheckoutInstore
-		public RuleCall getSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0() { return cSelfCheckoutInstoreSelfCheckoutInstoreParserRuleCall_1_0; }
+		public RuleCall getSelfCheckoutInstoreParserRuleCall_1() { return cSelfCheckoutInstoreParserRuleCall_1; }
 	}
 	public class SelfCheckoutOnlineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.SelfCheckoutOnline");
@@ -1176,6 +1184,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	private final Self_checkoutElements pSelf_checkout;
+	private final SelfCheckoutExperienceElements pSelfCheckoutExperience;
 	private final SelfCheckoutOnlineElements pSelfCheckoutOnline;
 	private final LoadShoppingSiteElements eLoadShoppingSite;
 	private final SearchElements pSearch;
@@ -1221,6 +1230,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSelf_checkout = new Self_checkoutElements();
+		this.pSelfCheckoutExperience = new SelfCheckoutExperienceElements();
 		this.pSelfCheckoutOnline = new SelfCheckoutOnlineElements();
 		this.eLoadShoppingSite = new LoadShoppingSiteElements();
 		this.pSearch = new SearchElements();
@@ -1285,7 +1295,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 
 	
 	//Self_checkout:
-	//    (selfCheckoutOnline+=SelfCheckoutOnline | selfCheckoutInstore+=SelfCheckoutInstore)?
+	//    selfCheckoutExperience+=SelfCheckoutExperience*
 	//;
 	public Self_checkoutElements getSelf_checkoutAccess() {
 		return pSelf_checkout;
@@ -1293,6 +1303,17 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public ParserRule getSelf_checkoutRule() {
 		return getSelf_checkoutAccess().getRule();
+	}
+	
+	//SelfCheckoutExperience:
+	//    SelfCheckoutOnline | SelfCheckoutInstore
+	//;
+	public SelfCheckoutExperienceElements getSelfCheckoutExperienceAccess() {
+		return pSelfCheckoutExperience;
+	}
+	
+	public ParserRule getSelfCheckoutExperienceRule() {
+		return getSelfCheckoutExperienceAccess().getRule();
 	}
 	
 	////////////////////////////////////////ONLINE SELF-CHECKOUT//////////////////////////////////////////

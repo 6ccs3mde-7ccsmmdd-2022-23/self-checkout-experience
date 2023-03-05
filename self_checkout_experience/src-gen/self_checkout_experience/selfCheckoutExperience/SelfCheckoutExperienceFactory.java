@@ -33,6 +33,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Self_checkout createSelf_checkout();
 
   /**
+   * Returns a new object of class '<em>Self Checkout Experience</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Experience</em>'.
+   * @generated
+   */
+  SelfCheckoutExperience createSelfCheckoutExperience();
+
+  /**
    * Returns a new object of class '<em>Self Checkout Online</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -3,12 +3,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="selfCheckoutExperience" nsURI="http://www.SelfCheckoutExperience.self_checkout_experience"
     nsPrefix="selfCheckoutExperience">
   <eClassifiers xsi:type="ecore:EClass" name="Self_checkout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutOnline" upperBound="-1"
-        eType="#//SelfCheckoutOnline" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutInstore" upperBound="-1"
-        eType="#//SelfCheckoutInstore" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutExperience"
+        upperBound="-1" eType="#//SelfCheckoutExperience" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutOnline">
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutExperience"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutOnline" eSuperTypes="#//SelfCheckoutExperience">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="loadShoppingSite" eType="#//LoadShoppingSite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="search" upperBound="-1"
         eType="#//Search" containment="true"/>
@@ -51,7 +50,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ConfirmEnum">
     <eLiterals name="confirm" literal="confirm"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutInstore">
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutInstore" eSuperTypes="#//SelfCheckoutExperience">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pickScanMachine" eType="#//HoldSelfScanner"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatements" upperBound="-1"

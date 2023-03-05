@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -40,7 +39,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline;
  *
  * @generated
  */
-public class SelfCheckoutOnlineImpl extends MinimalEObjectImpl.Container implements SelfCheckoutOnline
+public class SelfCheckoutOnlineImpl extends SelfCheckoutExperienceImpl implements SelfCheckoutOnline
 {
   /**
    * The default value of the '{@link #getLoadShoppingSite() <em>Load Shopping Site</em>}' attribute.
