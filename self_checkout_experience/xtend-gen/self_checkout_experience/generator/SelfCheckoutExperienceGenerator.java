@@ -243,18 +243,38 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   protected String _generateJavaStatement(final SelfCheckoutInstore sci, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"You have entered the store\");");
-    return _builder.toString();
-  }
-  
-  protected String _generateJavaStatement(final MoveStatement smnt, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Move ");
-    String _firstUpper = StringExtensions.toFirstUpper(smnt.getCommand().getName());
-    _builder.append(_firstUpper);
-    _builder.append(" (");
-    String _generateJavaExpression = this.generateJavaExpression(smnt.getSteps());
-    _builder.append(_generateJavaExpression);
-    _builder.append(");");
+    _builder.newLine();
+    _builder.append("\t");
+    String _xifexpression = null;
+    HoldSelfScanner _pickScanMachine = sci.getPickScanMachine();
+    boolean _tripleNotEquals = (_pickScanMachine != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.generateJavaStatement(sci.getPickScanMachine(), env);
+    }
+    _builder.append(_xifexpression, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    final Function1<WalkStatement, String> _function = (WalkStatement it) -> {
+      return this.generateJavaStatement(it, env);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<WalkStatement, String>map(sci.getWalkstatements(), _function), "\n");
+    _builder.append(_join, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    final Function1<PickStatement, String> _function_1 = (PickStatement it) -> {
+      return this.generateJavaStatement(it, env);
+    };
+    String _join_1 = IterableExtensions.join(ListExtensions.<PickStatement, String>map(sci.getPickstatements(), _function_1), "\n");
+    _builder.append(_join_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    String _xifexpression_1 = null;
+    Checkout _checkout = sci.getCheckout();
+    boolean _tripleNotEquals_1 = (_checkout != null);
+    if (_tripleNotEquals_1) {
+      _xifexpression_1 = this.generateJavaStatement(sci.getCheckout(), env);
+    }
+    _builder.append(_xifexpression_1, "\t");
     return _builder.toString();
   }
   
@@ -273,6 +293,15 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     String _firstUpper = StringExtensions.toFirstUpper(picksmnt.getItemPicked().getName());
     _builder.append(_firstUpper);
     _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    String _xifexpression = null;
+    EObject _holdingItem = picksmnt.getHoldingItem();
+    boolean _tripleNotEquals = (_holdingItem != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.generateJavaStatement(picksmnt.getHoldingItem(), env);
+    }
+    _builder.append(_xifexpression, "\t");
     return _builder.toString();
   }
   
@@ -299,6 +328,18 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
+  protected String _generateJavaStatement(final MoveStatement smnt, final SelfCheckoutExperienceGenerator.Environment env) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(\"Move ");
+    String _firstUpper = StringExtensions.toFirstUpper(smnt.getCommand().getName());
+    _builder.append(_firstUpper);
+    _builder.append(" (");
+    String _generateJavaExpression = this.generateJavaExpression(smnt.getSteps());
+    _builder.append(_generateJavaExpression);
+    _builder.append(");");
+    return _builder.toString();
+  }
+  
   protected String _generateJavaStatement(final TurnStatement smnt, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"Turn ");
@@ -311,23 +352,37 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   protected String _generateJavaStatement(final Repeat stmt, final SelfCheckoutExperienceGenerator.Environment env) {
     String _xblockexpression = null;
     {
+      final CharSequence freshVarName = env.getFreshVarName();
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("System.out.println(\"Entering inside Repeat\"); ");
       _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("System.out.println(");
+      _builder.append("\t");
+      _builder.append("for (int ");
+      _builder.append(freshVarName, "\t");
+      _builder.append(" = 0; ");
+      _builder.append(freshVarName, "\t");
+      _builder.append(" < ");
+      String _generateJavaExpression = this.generateJavaExpression(stmt.getCount());
+      _builder.append(_generateJavaExpression, "\t");
+      _builder.append("; ");
+      _builder.append(freshVarName, "\t");
+      _builder.append("++) {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t");
       final Function1<EObject, String> _function = (EObject it) -> {
         return this.generateJavaStatement(it, env);
       };
       String _join = IterableExtensions.join(ListExtensions.<EObject, String>map(stmt.getStatements(), _function), "\n");
-      _builder.append(_join, "\t\t\t");
-      _builder.append(");");
+      _builder.append(_join, "\t\t");
       _builder.newLineIfNotEmpty();
-      _builder.append("\t\t\t");
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
       _builder.append("System.out.println(\"Existing Repeat\");");
-      String repeat = _builder.toString();
+      _builder.newLine();
+      final String result = _builder.toString();
       env.exit();
-      _xblockexpression = repeat;
+      _xblockexpression = result;
     }
     return _xblockexpression;
   }
@@ -335,6 +390,22 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   protected String _generateJavaStatement(final Checkout checkout, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"Going to checkout\");");
+    _builder.newLine();
+    String _xifexpression = null;
+    ScanExpression _scan = checkout.getScan();
+    boolean _tripleNotEquals = (_scan != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.generateJavaStatement(checkout.getScan(), env);
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    Pay _pay = checkout.getPay();
+    boolean _tripleNotEquals_1 = (_pay != null);
+    if (_tripleNotEquals_1) {
+      _xifexpression_1 = this.generateJavaStatement(checkout.getPay(), env);
+    }
+    _builder.append(_xifexpression_1);
     return _builder.toString();
   }
   
@@ -351,7 +422,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   
   protected String _generateJavaStatement(final ComplexScan compscan, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"");
     String _generateJavaStatement = this.generateJavaStatement(compscan.getStart(), env);
     _builder.append(_generateJavaStatement);
     _builder.append("; ");
@@ -360,7 +430,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     };
     String _join = IterableExtensions.join(ListExtensions.<CarryItems, String>map(compscan.getNext(), _function), "; ");
     _builder.append(_join);
-    _builder.append("\");");
     return _builder.toString();
   }
   
@@ -451,7 +520,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
       _xifexpression = this.generateJavaStatement(online.getOnlineCheckout(), env);
     }
     _builder.append(_xifexpression);
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -552,7 +620,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
       _xifexpression_1 = this.generateJavaStatement(checkout.getConfirm(), env);
     }
     _builder.append(_xifexpression_1);
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
