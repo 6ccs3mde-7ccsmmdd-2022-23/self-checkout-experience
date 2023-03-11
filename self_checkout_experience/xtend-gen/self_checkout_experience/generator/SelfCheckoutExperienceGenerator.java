@@ -399,14 +399,25 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     Pay _pay = checkout.getPay();
     boolean _tripleNotEquals_1 = (_pay != null);
     if (_tripleNotEquals_1) {
-      String _xblockexpression = null;
-      {
-        System.out.println("Checking out of web store");
-        _xblockexpression = this.generateJavaStatement(checkout.getPay(), env);
-      }
-      _xifexpression_1 = _xblockexpression;
+      _xifexpression_1 = this.myFunc();
     }
     _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_2 = null;
+    Pay _pay_1 = checkout.getPay();
+    boolean _tripleNotEquals_2 = (_pay_1 != null);
+    if (_tripleNotEquals_2) {
+      _xifexpression_2 = this.generateJavaStatement(checkout.getPay(), env);
+    }
+    _builder.append(_xifexpression_2);
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String myFunc() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(\"Checking out of store\");");
     return _builder.toString();
   }
   

@@ -151,9 +151,11 @@ for(int i=0; i <= «itemCount»; i++) {
 
 	dispatch def String generateJavaStatement(Checkout checkout, Environment env) '''System.out.println("Going to checkout");
 «if (checkout.scan !== null){generateJavaStatement(checkout.scan, env)}»
-«if (checkout.pay !== null){System.out.println("Checking out of web store");
-	generateJavaStatement(checkout.pay, env)
-}»'''	
+«if (checkout.pay !== null){myFunc()}»
+«if (checkout.pay !== null){generateJavaStatement(checkout.pay, env)}» 
+'''
+
+	def String myFunc(){'''System.out.println("Checking out of store");'''}
 	
 	dispatch def String generateJavaStatement(ScanExpression se, Environment env) ''''''
 	
