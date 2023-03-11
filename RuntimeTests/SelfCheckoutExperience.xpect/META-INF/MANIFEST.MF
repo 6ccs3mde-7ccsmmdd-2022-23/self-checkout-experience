@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xpect
+Bundle-SymbolicName: SelfCheckoutExperience.xpect
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: SelfCheckoutExperience.xpect
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: self_checkout_experience;bundle-version="1.0.0",
+ self_checkout_experience.ui;bundle-version="1.0.0",
+ org.eclipse.xpect.xtext.lib;bundle-version="0.2.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.25.0"

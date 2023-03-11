@@ -1,0 +1,1 @@
+hold selfscanner forward ( 9 ) pick up 55 watah drop watah pick up 5 car scan and add to basket car pick up 5 tea scan and add to basket tea var loopCount = 7 repeat loopCount times: forward ( 9 ) pick up 5 bread drop bread end pick up 5 mango scan and add to basket mango go to self-checkout scan barcode with selfscanner pay

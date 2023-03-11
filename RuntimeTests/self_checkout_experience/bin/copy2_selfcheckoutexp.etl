@@ -1,0 +1,172 @@
+rule CopySelf_checkoutProgram 
+    transform s : Source!Self_checkout
+    to t : Target!Self_checkout {
+    t.selfCheckoutExperience ::= s.selfCheckoutExperience;
+} 
+
+///////////////////////////////ONLINE////////////////////////////////////// 
+rule CopySelfCheckoutOnline2SelfCheckoutOnline
+   	transform s : Source!SelfCheckoutOnline
+    to t : Target!SelfCheckoutOnline {
+    t.loadShoppingSite = s.loadShoppingSite;
+    t.search ::= s.search;
+    t.onlineCheckout ::= s.onlineCheckout;
+} 
+
+rule CopySearch2Search
+    transform s : Source!Search
+    to t : Target!Search {
+    t.itemSearch ::= s.itemSearch;
+    t.addToOnlineBasket ::= s.addToOnlineBasket;
+} 
+
+rule CopyItemDef2ItemDef
+    transform s : Source!ItemDef
+    to t : Target!ItemDef {
+    t.name = s.name;
+}  
+
+rule CopyAddToOnlineBasket2AddToOnlineBasket
+    transform s : Source!AddToOnlineBasket
+    to t : Target!AddToOnlineBasket {
+    t.itemCount ::= s.itemCount;
+    t.item ::= s.item;
+    t.removeFromOnlineBasket ::= s.removeFromOnlineBasket;
+} 
+
+rule CopyRemoveFromOnlineBasket2RemoveFromOnlineBasket
+    transform s : Source!RemoveFromOnlineBasket
+    to t : Target!RemoveFromOnlineBasket {
+    t.removeItem ::= s.removeItem;
+} 
+
+rule CopyOnlineCheckout2OnlineCheckout
+    transform s : Source!OnlineCheckout
+    to t : Target!OnlineCheckout {
+    t.deliveryOptions = s.deliveryOptions;
+    t.confirm ::= s.confirm;
+}
+
+rule CopyConfirm2Confirm
+    transform s : Source!Confirm
+    to t : Target!Confirm {
+    t.confirmEnum = s.confirmEnum;
+    t.pay = s.pay;
+}  
+
+/////////////////////////////////IN-STORE//////////////////////////////////
+rule CopySelfCheckoutInstore2SelfCheckoutInstore
+    transform s : Source!SelfCheckoutInstore
+    to t : Target!SelfCheckoutInstore {
+    t.pickScanMachine ::= s.pickScanMachine;
+    t.statement ::= s.statement;
+    t.checkout ::= s.checkout;
+} 
+
+rule CopyHoldSelfScanner2HoldSelfScanner
+    transform s : Source!HoldSelfScanner
+    to t : Target!HoldSelfScanner {
+    t.scanMachine = s.scanMachine;
+} 
+
+rule CopyPickStatement2PickStatement
+    transform s : Source!PickStatement
+    to t : Target!PickStatement {
+    t.itemCount ::= s.itemCount;
+    t.itemPicked ::= s.itemPicked;
+    t.holdingItem ::= s.holdingItem;    
+} 
+
+rule CopyScanAndAddToBasket2ScanAndAddToBasket
+    transform s : Source!ScanAndAddToBasket
+    to t : Target!ScanAndAddToBasket {
+    t.itemInBasket ::= s.itemInBasket;    
+} 
+
+rule CopyDrop2Drop
+    transform s : Source!Drop
+    to t : Target!Drop {
+    t.itemDropped ::= s.itemDropped; 
+} 
+
+rule CopyCheckout2Checkout
+    transform s : Source!Checkout
+    to t : Target!Checkout {
+    t.scan ::= s.scan;    
+    t.pay = s.pay;
+} 
+
+rule CopyScanExpression2ScanExpression
+    transform s : Source!ScanExpression
+    to t : Target!ScanExpression {
+    t.t.start ::= s.start;
+    t.next ::= s.next;
+}   
+
+rule CopyScan2Scan
+    transform s: Source!Scan
+    to t: Target!Scan {
+    t.scanMachine = s.scanMachine;
+} 
+
+rule CopyCarryItems2CarryItems
+    transform s : Source!CarryItems
+    to t : Target!CarryItems {
+    t.carry = s.carry;
+}  
+
+/////////////////////////BROWSING/////////////////////////
+rule CopyVariableDeclaration2VariableDeclaration
+    transform s : Source!VariableDeclaration
+    to t : Target!VariableDeclaration {
+    t.name = s.name;
+    t.value = s.value;
+}   
+
+rule CopyRepeatStatement2RepeatStatement 
+    transform s : Source!Repeat
+    to t : Target!Repeat {
+    t.count ::= s.count;
+    t.statements ::= s.statements;
+}   
+
+rule CopyMoveStatement2MoveStatement
+    transform s : Source!MoveStatement
+    to t : Target!MoveStatement {
+    t.command = s.command;
+    t.steps ::= s.steps;
+} 
+
+rule CopyTurnStatement2TurnStatement
+    transform s : Source!TurnStatement
+    to t : Target!TurnStatement {
+    t.command = s.command;
+}  
+
+rule CopyIntLiteral2IntLiteral 
+    transform s : Source!IntLiteral
+    to t : Target!IntLiteral {
+    t.val = s.val;
+}  
+
+rule CopyIntVarExpression2IntVarExpression
+    transform s : Source!IntVarExpression
+    to t : Target!IntVarExpression {
+    t.`var` ::= s.`var`;
+}  
+
+rule CopyAddition2Addition
+    transform s : Source!Addition
+    to t : Target!Addition {
+    t.left ::= s.left;
+    t.operator = s.operator;
+    t.right ::= s.right;
+}  
+
+rule CopyMultiplication2Multiplication
+    transform s : Source!Multiplication
+    to t : Target!Multiplication {
+    t.left ::= s.left;
+    t.operator = s.operator;
+    t.right ::= s.right;
+}
