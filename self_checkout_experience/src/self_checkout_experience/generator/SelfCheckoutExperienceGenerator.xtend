@@ -60,11 +60,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	
 	def deriveClassName(Resource resource) {
 		val origFileName = resource.URI.lastSegment
-		
-		val x = origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"
-		System.out.println(x)
-		x
-		
+		origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"		
 	}
 
 	//////////////////////////////////////////////////////////////TEXT CODE GENERATOR //////////////////////////////////////
@@ -176,6 +172,7 @@ for(int i=0; i <= «itemCount»; i++) {
 		«exp.left.generateJavaExpression»«FOR idx: (0..exp.operator.size-1)» «exp.operator.get(idx)» «exp.right.get(idx).generateJavaExpression»«ENDFOR»'''
 	dispatch def String generateJavaExpression(IntLiteral exp) '''«exp.^val»'''
 	dispatch def String generateJavaExpression(IntVarExpression exp) '''«exp.^var.value»'''
+
 
 
 	////////////////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////

@@ -86,9 +86,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     {
       final String origFileName = resource.getURI().lastSegment();
       String _firstUpper = StringExtensions.toFirstUpper(origFileName.substring(0, origFileName.indexOf(".")));
-      final String x = (_firstUpper + "Self_checkout");
-      System.out.println(x);
-      _xblockexpression = x;
+      _xblockexpression = (_firstUpper + "Self_checkout");
     }
     return _xblockexpression;
   }
