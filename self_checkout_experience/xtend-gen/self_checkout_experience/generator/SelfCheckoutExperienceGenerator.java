@@ -373,12 +373,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  protected String _generateJavaStatement(final Pay pay, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Paying\");");
-    return _builder.toString();
-  }
-  
   protected String _generateJavaExpression(final IntExpression exp) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder.toString();
@@ -559,6 +553,28 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     }
     _builder.append(_xifexpression_1);
     _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final DeliveryOptions options, final SelfCheckoutExperienceGenerator.Environment env) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(\"Mode of delivery is ");
+    String _name = options.getName();
+    _builder.append(_name);
+    _builder.append(" \");");
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final Confirm confirm, final SelfCheckoutExperienceGenerator.Environment env) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(\"Confirming order\"); ");
+    String _generateJavaStatement = this.generateJavaStatement(confirm.getPay(), env);
+    _builder.append(_generateJavaStatement);
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final Pay pay, final SelfCheckoutExperienceGenerator.Environment env) {
+    StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"Checking out of web store\");");
     _builder.newLine();
     _builder.append("String str = String.join(\",\", items);");
@@ -579,21 +595,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
-  }
-  
-  protected String _generateJavaStatement(final DeliveryOptions options, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Mode of delivery is ");
-    String _name = options.getName();
-    _builder.append(_name);
-    _builder.append(" \");");
-    return _builder.toString();
-  }
-  
-  protected String _generateJavaStatement(final Confirm confirm, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Confirming order\");");
     return _builder.toString();
   }
   

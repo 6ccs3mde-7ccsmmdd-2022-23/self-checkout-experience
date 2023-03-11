@@ -140,7 +140,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	dispatch def String generateJavaStatement(Scan scan, Environment env) '''System.out.println("Load self scanner onto till");'''
 	dispatch def String generateJavaStatement(ComplexScan compscan, Environment env) '''System.out.println("«compscan.start.generateJavaStatement(env)»; «compscan.next.map[se | se.generateJavaStatement(env)].join('; ')»");'''
 	dispatch def String generateJavaStatement(CarryItems carryItems, Environment env) '''System.out.println("carry in" «carryItems.carry» );'''
-	dispatch def String generateJavaStatement(Pay pay, Environment env) '''System.out.println("Paying");'''
+//	dispatch def String generateJavaStatement(Pay pay, Environment env) '''System.out.println("Paying");'''
 	
 
 	dispatch def String generateJavaExpression(IntExpression exp) ''''''
@@ -178,6 +178,22 @@ while (i.hasNext()) {
 	dispatch def String generateJavaStatement(OnlineCheckout checkout, Environment env) '''
 	«if(checkout.deliveryOptions !== null) {generateJavaStatement(checkout.deliveryOptions, env)}»
 	«if(checkout.confirm !== null) {generateJavaStatement(checkout.confirm, env)}»
+«««	System.out.println("Checking out of web store");
+«««	String str = String.join(",", items);
+«««	System.out.println("Items purchased: " + str);
+«««	System.out.println("Number of items purchased: " + items.size());
+«««	if(items.size() >= 20){
+«««		System.out.println("You have purchased over 20 items, you have earnt a voucher for the next time you use the self checkout!");  //condition that we give voucher
+«««	else {
+«««		System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
+«««	}
+	'''
+	
+	dispatch def String generateJavaStatement(DeliveryOptions options, Environment env) '''System.out.println("Mode of delivery is «options.getName» ");'''
+	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order"); «generateJavaStatement(confirm.pay, env)»'''
+	
+	
+	dispatch def String generateJavaStatement(Pay pay, Environment env) '''
 	System.out.println("Checking out of web store");
 	String str = String.join(",", items);
 	System.out.println("Items purchased: " + str);
@@ -188,10 +204,6 @@ while (i.hasNext()) {
 		System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
 	}
 	'''
-	
-	dispatch def String generateJavaStatement(DeliveryOptions options, Environment env) '''System.out.println("Mode of delivery is «options.getName» ");'''
-	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order");'''
-		
 			
 }
 
