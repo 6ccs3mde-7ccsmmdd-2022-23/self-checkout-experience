@@ -651,7 +651,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelfCheckoutInstore_Pickstatements()
+  public EReference getSelfCheckoutInstore_Statement()
   {
     return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(1);
   }
@@ -662,20 +662,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getSelfCheckoutInstore_Walkstatements()
-  {
-    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getSelfCheckoutInstore_Checkout()
   {
-    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(3);
+    return (EReference)selfCheckoutInstoreEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1357,8 +1346,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     selfCheckoutInstoreEClass = createEClass(SELF_CHECKOUT_INSTORE);
     createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE);
-    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__PICKSTATEMENTS);
-    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__WALKSTATEMENTS);
+    createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__STATEMENT);
     createEReference(selfCheckoutInstoreEClass, SELF_CHECKOUT_INSTORE__CHECKOUT);
 
     holdSelfScannerEClass = createEClass(HOLD_SELF_SCANNER);
@@ -1515,8 +1503,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEClass(selfCheckoutInstoreEClass, SelfCheckoutInstore.class, "SelfCheckoutInstore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelfCheckoutInstore_PickScanMachine(), this.getHoldSelfScanner(), null, "pickScanMachine", null, 0, 1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelfCheckoutInstore_Pickstatements(), this.getPickStatement(), null, "pickstatements", null, 0, -1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelfCheckoutInstore_Walkstatements(), this.getWalkStatement(), null, "walkstatements", null, 0, -1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelfCheckoutInstore_Statement(), ecorePackage.getEObject(), null, "statement", null, 0, -1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelfCheckoutInstore_Checkout(), this.getCheckout(), null, "checkout", null, 0, 1, SelfCheckoutInstore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(holdSelfScannerEClass, HoldSelfScanner.class, "HoldSelfScanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

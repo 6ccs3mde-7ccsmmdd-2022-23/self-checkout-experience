@@ -356,22 +356,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Pickstatements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELF_CHECKOUT_INSTORE__PICKSTATEMENTS = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Walkstatements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELF_CHECKOUT_INSTORE__WALKSTATEMENTS = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 2;
+  int SELF_CHECKOUT_INSTORE__STATEMENT = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Checkout</b></em>' containment reference.
@@ -380,7 +371,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELF_CHECKOUT_INSTORE__CHECKOUT = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 3;
+  int SELF_CHECKOUT_INSTORE__CHECKOUT = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Self Checkout Instore</em>' class.
@@ -389,7 +380,7 @@ public interface SelfCheckoutExperiencePackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELF_CHECKOUT_INSTORE_FEATURE_COUNT = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 4;
+  int SELF_CHECKOUT_INSTORE_FEATURE_COUNT = SELF_CHECKOUT_EXPERIENCE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link self_checkout_experience.selfCheckoutExperience.impl.HoldSelfScannerImpl <em>Hold Self Scanner</em>}' class.
@@ -1360,26 +1351,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EReference getSelfCheckoutInstore_PickScanMachine();
 
   /**
-   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getPickstatements <em>Pickstatements</em>}'.
+   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getStatement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Pickstatements</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getPickstatements()
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getStatement()
    * @see #getSelfCheckoutInstore()
    * @generated
    */
-  EReference getSelfCheckoutInstore_Pickstatements();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getWalkstatements <em>Walkstatements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Walkstatements</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getWalkstatements()
-   * @see #getSelfCheckoutInstore()
-   * @generated
-   */
-  EReference getSelfCheckoutInstore_Walkstatements();
+  EReference getSelfCheckoutInstore_Statement();
 
   /**
    * Returns the meta object for the containment reference '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getCheckout <em>Checkout</em>}'.
@@ -2214,20 +2194,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EReference SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE = eINSTANCE.getSelfCheckoutInstore_PickScanMachine();
 
     /**
-     * The meta object literal for the '<em><b>Pickstatements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELF_CHECKOUT_INSTORE__PICKSTATEMENTS = eINSTANCE.getSelfCheckoutInstore_Pickstatements();
-
-    /**
-     * The meta object literal for the '<em><b>Walkstatements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELF_CHECKOUT_INSTORE__WALKSTATEMENTS = eINSTANCE.getSelfCheckoutInstore_Walkstatements();
+    EReference SELF_CHECKOUT_INSTORE__STATEMENT = eINSTANCE.getSelfCheckoutInstore_Statement();
 
     /**
      * The meta object literal for the '<em><b>Checkout</b></em>' containment reference feature.

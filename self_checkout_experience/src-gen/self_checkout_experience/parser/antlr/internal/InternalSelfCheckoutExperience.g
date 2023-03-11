@@ -557,37 +557,33 @@ ruleSelfCheckoutInstore returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsPickStatementParserRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getSelfCheckoutInstoreAccess().getStatementPickStatementParserRuleCall_1_0_0());
 					}
-					lv_pickstatements_1_0=rulePickStatement
+					lv_statement_1_1=rulePickStatement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSelfCheckoutInstoreRule());
 						}
 						add(
 							$current,
-							"pickstatements",
-							lv_pickstatements_1_0,
+							"statement",
+							lv_statement_1_1,
 							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
 						afterParserOrEnumRuleCall();
 					}
-				)
-			)
-			    |
-			(
-				(
+					    |
 					{
-						newCompositeNode(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getSelfCheckoutInstoreAccess().getStatementWalkStatementParserRuleCall_1_0_1());
 					}
-					lv_walkstatements_2_0=ruleWalkStatement
+					lv_statement_1_2=ruleWalkStatement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSelfCheckoutInstoreRule());
 						}
 						add(
 							$current,
-							"walkstatements",
-							lv_walkstatements_2_0,
+							"statement",
+							lv_statement_1_2,
 							"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
 						afterParserOrEnumRuleCall();
 					}
@@ -599,7 +595,7 @@ ruleSelfCheckoutInstore returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getSelfCheckoutInstoreAccess().getCheckoutCheckoutParserRuleCall_2_0());
 				}
-				lv_checkout_3_0=ruleCheckout
+				lv_checkout_2_0=ruleCheckout
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSelfCheckoutInstoreRule());
@@ -607,7 +603,7 @@ ruleSelfCheckoutInstore returns [EObject current=null]
 					set(
 						$current,
 						"checkout",
-						lv_checkout_3_0,
+						lv_checkout_2_0,
 						"self_checkout_experience.SelfCheckoutExperience.Checkout");
 					afterParserOrEnumRuleCall();
 				}

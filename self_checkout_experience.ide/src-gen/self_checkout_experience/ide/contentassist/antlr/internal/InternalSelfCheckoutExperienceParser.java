@@ -2726,14 +2726,14 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
     // $ANTLR end "rule__SelfCheckoutExperience__Alternatives"
 
 
-    // $ANTLR start "rule__SelfCheckoutInstore__Alternatives_1"
-    // InternalSelfCheckoutExperience.g:901:1: rule__SelfCheckoutInstore__Alternatives_1 : ( ( ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 ) ) | ( ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 ) ) );
-    public final void rule__SelfCheckoutInstore__Alternatives_1() throws RecognitionException {
+    // $ANTLR start "rule__SelfCheckoutInstore__StatementAlternatives_1_0"
+    // InternalSelfCheckoutExperience.g:901:1: rule__SelfCheckoutInstore__StatementAlternatives_1_0 : ( ( rulePickStatement ) | ( ruleWalkStatement ) );
+    public final void rule__SelfCheckoutInstore__StatementAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:905:1: ( ( ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 ) ) | ( ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 ) ) )
+            // InternalSelfCheckoutExperience.g:905:1: ( ( rulePickStatement ) | ( ruleWalkStatement ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2751,24 +2751,18 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             }
             switch (alt3) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:906:2: ( ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 ) )
+                    // InternalSelfCheckoutExperience.g:906:2: ( rulePickStatement )
                     {
-                    // InternalSelfCheckoutExperience.g:906:2: ( ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 ) )
-                    // InternalSelfCheckoutExperience.g:907:3: ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 )
+                    // InternalSelfCheckoutExperience.g:906:2: ( rulePickStatement )
+                    // InternalSelfCheckoutExperience.g:907:3: rulePickStatement
                     {
-                     before(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsAssignment_1_0()); 
-                    // InternalSelfCheckoutExperience.g:908:3: ( rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 )
-                    // InternalSelfCheckoutExperience.g:908:4: rule__SelfCheckoutInstore__PickstatementsAssignment_1_0
-                    {
+                     before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementPickStatementParserRuleCall_1_0_0()); 
                     pushFollow(FOLLOW_2);
-                    rule__SelfCheckoutInstore__PickstatementsAssignment_1_0();
+                    rulePickStatement();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsAssignment_1_0()); 
+                     after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementPickStatementParserRuleCall_1_0_0()); 
 
                     }
 
@@ -2776,24 +2770,18 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
                     }
                     break;
                 case 2 :
-                    // InternalSelfCheckoutExperience.g:912:2: ( ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 ) )
+                    // InternalSelfCheckoutExperience.g:912:2: ( ruleWalkStatement )
                     {
-                    // InternalSelfCheckoutExperience.g:912:2: ( ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 ) )
-                    // InternalSelfCheckoutExperience.g:913:3: ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 )
+                    // InternalSelfCheckoutExperience.g:912:2: ( ruleWalkStatement )
+                    // InternalSelfCheckoutExperience.g:913:3: ruleWalkStatement
                     {
-                     before(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsAssignment_1_1()); 
-                    // InternalSelfCheckoutExperience.g:914:3: ( rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 )
-                    // InternalSelfCheckoutExperience.g:914:4: rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1
-                    {
+                     before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementWalkStatementParserRuleCall_1_0_1()); 
                     pushFollow(FOLLOW_2);
-                    rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1();
+                    ruleWalkStatement();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsAssignment_1_1()); 
+                     after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementWalkStatementParserRuleCall_1_0_1()); 
 
                     }
 
@@ -2814,7 +2802,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
         }
         return ;
     }
-    // $ANTLR end "rule__SelfCheckoutInstore__Alternatives_1"
+    // $ANTLR end "rule__SelfCheckoutInstore__StatementAlternatives_1_0"
 
 
     // $ANTLR start "rule__PickStatement__HoldingItemAlternatives_4_0"
@@ -5649,20 +5637,20 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__SelfCheckoutInstore__Group__1__Impl"
-    // InternalSelfCheckoutExperience.g:1789:1: rule__SelfCheckoutInstore__Group__1__Impl : ( ( rule__SelfCheckoutInstore__Alternatives_1 )* ) ;
+    // InternalSelfCheckoutExperience.g:1789:1: rule__SelfCheckoutInstore__Group__1__Impl : ( ( rule__SelfCheckoutInstore__StatementAssignment_1 )* ) ;
     public final void rule__SelfCheckoutInstore__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:1793:1: ( ( ( rule__SelfCheckoutInstore__Alternatives_1 )* ) )
-            // InternalSelfCheckoutExperience.g:1794:1: ( ( rule__SelfCheckoutInstore__Alternatives_1 )* )
+            // InternalSelfCheckoutExperience.g:1793:1: ( ( ( rule__SelfCheckoutInstore__StatementAssignment_1 )* ) )
+            // InternalSelfCheckoutExperience.g:1794:1: ( ( rule__SelfCheckoutInstore__StatementAssignment_1 )* )
             {
-            // InternalSelfCheckoutExperience.g:1794:1: ( ( rule__SelfCheckoutInstore__Alternatives_1 )* )
-            // InternalSelfCheckoutExperience.g:1795:2: ( rule__SelfCheckoutInstore__Alternatives_1 )*
+            // InternalSelfCheckoutExperience.g:1794:1: ( ( rule__SelfCheckoutInstore__StatementAssignment_1 )* )
+            // InternalSelfCheckoutExperience.g:1795:2: ( rule__SelfCheckoutInstore__StatementAssignment_1 )*
             {
-             before(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1()); 
-            // InternalSelfCheckoutExperience.g:1796:2: ( rule__SelfCheckoutInstore__Alternatives_1 )*
+             before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1()); 
+            // InternalSelfCheckoutExperience.g:1796:2: ( rule__SelfCheckoutInstore__StatementAssignment_1 )*
             loop18:
             do {
                 int alt18=2;
@@ -5675,10 +5663,10 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
                 switch (alt18) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1796:3: rule__SelfCheckoutInstore__Alternatives_1
+            	    // InternalSelfCheckoutExperience.g:1796:3: rule__SelfCheckoutInstore__StatementAssignment_1
             	    {
             	    pushFollow(FOLLOW_18);
-            	    rule__SelfCheckoutInstore__Alternatives_1();
+            	    rule__SelfCheckoutInstore__StatementAssignment_1();
 
             	    state._fsp--;
 
@@ -5691,7 +5679,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
                 }
             } while (true);
 
-             after(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1()); 
+             after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1()); 
 
             }
 
@@ -11193,26 +11181,32 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
     // $ANTLR end "rule__SelfCheckoutInstore__PickScanMachineAssignment_0"
 
 
-    // $ANTLR start "rule__SelfCheckoutInstore__PickstatementsAssignment_1_0"
-    // InternalSelfCheckoutExperience.g:3691:1: rule__SelfCheckoutInstore__PickstatementsAssignment_1_0 : ( rulePickStatement ) ;
-    public final void rule__SelfCheckoutInstore__PickstatementsAssignment_1_0() throws RecognitionException {
+    // $ANTLR start "rule__SelfCheckoutInstore__StatementAssignment_1"
+    // InternalSelfCheckoutExperience.g:3691:1: rule__SelfCheckoutInstore__StatementAssignment_1 : ( ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 ) ) ;
+    public final void rule__SelfCheckoutInstore__StatementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3695:1: ( ( rulePickStatement ) )
-            // InternalSelfCheckoutExperience.g:3696:2: ( rulePickStatement )
+            // InternalSelfCheckoutExperience.g:3695:1: ( ( ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 ) ) )
+            // InternalSelfCheckoutExperience.g:3696:2: ( ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 ) )
             {
-            // InternalSelfCheckoutExperience.g:3696:2: ( rulePickStatement )
-            // InternalSelfCheckoutExperience.g:3697:3: rulePickStatement
+            // InternalSelfCheckoutExperience.g:3696:2: ( ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 ) )
+            // InternalSelfCheckoutExperience.g:3697:3: ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 )
             {
-             before(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsPickStatementParserRuleCall_1_0_0()); 
+             before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0()); 
+            // InternalSelfCheckoutExperience.g:3698:3: ( rule__SelfCheckoutInstore__StatementAlternatives_1_0 )
+            // InternalSelfCheckoutExperience.g:3698:4: rule__SelfCheckoutInstore__StatementAlternatives_1_0
+            {
             pushFollow(FOLLOW_2);
-            rulePickStatement();
+            rule__SelfCheckoutInstore__StatementAlternatives_1_0();
 
             state._fsp--;
 
-             after(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsPickStatementParserRuleCall_1_0_0()); 
+
+            }
+
+             after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0()); 
 
             }
 
@@ -11231,62 +11225,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
         }
         return ;
     }
-    // $ANTLR end "rule__SelfCheckoutInstore__PickstatementsAssignment_1_0"
-
-
-    // $ANTLR start "rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1"
-    // InternalSelfCheckoutExperience.g:3706:1: rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1 : ( ruleWalkStatement ) ;
-    public final void rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSelfCheckoutExperience.g:3710:1: ( ( ruleWalkStatement ) )
-            // InternalSelfCheckoutExperience.g:3711:2: ( ruleWalkStatement )
-            {
-            // InternalSelfCheckoutExperience.g:3711:2: ( ruleWalkStatement )
-            // InternalSelfCheckoutExperience.g:3712:3: ruleWalkStatement
-            {
-             before(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleWalkStatement();
-
-            state._fsp--;
-
-             after(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1"
+    // $ANTLR end "rule__SelfCheckoutInstore__StatementAssignment_1"
 
 
     // $ANTLR start "rule__SelfCheckoutInstore__CheckoutAssignment_2"
-    // InternalSelfCheckoutExperience.g:3721:1: rule__SelfCheckoutInstore__CheckoutAssignment_2 : ( ruleCheckout ) ;
+    // InternalSelfCheckoutExperience.g:3706:1: rule__SelfCheckoutInstore__CheckoutAssignment_2 : ( ruleCheckout ) ;
     public final void rule__SelfCheckoutInstore__CheckoutAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3725:1: ( ( ruleCheckout ) )
-            // InternalSelfCheckoutExperience.g:3726:2: ( ruleCheckout )
+            // InternalSelfCheckoutExperience.g:3710:1: ( ( ruleCheckout ) )
+            // InternalSelfCheckoutExperience.g:3711:2: ( ruleCheckout )
             {
-            // InternalSelfCheckoutExperience.g:3726:2: ( ruleCheckout )
-            // InternalSelfCheckoutExperience.g:3727:3: ruleCheckout
+            // InternalSelfCheckoutExperience.g:3711:2: ( ruleCheckout )
+            // InternalSelfCheckoutExperience.g:3712:3: ruleCheckout
             {
              before(grammarAccess.getSelfCheckoutInstoreAccess().getCheckoutCheckoutParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11317,17 +11270,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__HoldSelfScanner__ScanMachineAssignment_1"
-    // InternalSelfCheckoutExperience.g:3736:1: rule__HoldSelfScanner__ScanMachineAssignment_1 : ( ruleSelfScanner ) ;
+    // InternalSelfCheckoutExperience.g:3721:1: rule__HoldSelfScanner__ScanMachineAssignment_1 : ( ruleSelfScanner ) ;
     public final void rule__HoldSelfScanner__ScanMachineAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3740:1: ( ( ruleSelfScanner ) )
-            // InternalSelfCheckoutExperience.g:3741:2: ( ruleSelfScanner )
+            // InternalSelfCheckoutExperience.g:3725:1: ( ( ruleSelfScanner ) )
+            // InternalSelfCheckoutExperience.g:3726:2: ( ruleSelfScanner )
             {
-            // InternalSelfCheckoutExperience.g:3741:2: ( ruleSelfScanner )
-            // InternalSelfCheckoutExperience.g:3742:3: ruleSelfScanner
+            // InternalSelfCheckoutExperience.g:3726:2: ( ruleSelfScanner )
+            // InternalSelfCheckoutExperience.g:3727:3: ruleSelfScanner
             {
              before(grammarAccess.getHoldSelfScannerAccess().getScanMachineSelfScannerEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11358,17 +11311,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__PickStatement__ItemCountAssignment_2"
-    // InternalSelfCheckoutExperience.g:3751:1: rule__PickStatement__ItemCountAssignment_2 : ( ruleAddition ) ;
+    // InternalSelfCheckoutExperience.g:3736:1: rule__PickStatement__ItemCountAssignment_2 : ( ruleAddition ) ;
     public final void rule__PickStatement__ItemCountAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3755:1: ( ( ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:3756:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3740:1: ( ( ruleAddition ) )
+            // InternalSelfCheckoutExperience.g:3741:2: ( ruleAddition )
             {
-            // InternalSelfCheckoutExperience.g:3756:2: ( ruleAddition )
-            // InternalSelfCheckoutExperience.g:3757:3: ruleAddition
+            // InternalSelfCheckoutExperience.g:3741:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3742:3: ruleAddition
             {
              before(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11399,17 +11352,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__PickStatement__ItemPickedAssignment_3"
-    // InternalSelfCheckoutExperience.g:3766:1: rule__PickStatement__ItemPickedAssignment_3 : ( ruleItemDef ) ;
+    // InternalSelfCheckoutExperience.g:3751:1: rule__PickStatement__ItemPickedAssignment_3 : ( ruleItemDef ) ;
     public final void rule__PickStatement__ItemPickedAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3770:1: ( ( ruleItemDef ) )
-            // InternalSelfCheckoutExperience.g:3771:2: ( ruleItemDef )
+            // InternalSelfCheckoutExperience.g:3755:1: ( ( ruleItemDef ) )
+            // InternalSelfCheckoutExperience.g:3756:2: ( ruleItemDef )
             {
-            // InternalSelfCheckoutExperience.g:3771:2: ( ruleItemDef )
-            // InternalSelfCheckoutExperience.g:3772:3: ruleItemDef
+            // InternalSelfCheckoutExperience.g:3756:2: ( ruleItemDef )
+            // InternalSelfCheckoutExperience.g:3757:3: ruleItemDef
             {
              before(grammarAccess.getPickStatementAccess().getItemPickedItemDefParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11440,21 +11393,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__PickStatement__HoldingItemAssignment_4"
-    // InternalSelfCheckoutExperience.g:3781:1: rule__PickStatement__HoldingItemAssignment_4 : ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) ) ;
+    // InternalSelfCheckoutExperience.g:3766:1: rule__PickStatement__HoldingItemAssignment_4 : ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) ) ;
     public final void rule__PickStatement__HoldingItemAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3785:1: ( ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) ) )
-            // InternalSelfCheckoutExperience.g:3786:2: ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) )
+            // InternalSelfCheckoutExperience.g:3770:1: ( ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) ) )
+            // InternalSelfCheckoutExperience.g:3771:2: ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) )
             {
-            // InternalSelfCheckoutExperience.g:3786:2: ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) )
-            // InternalSelfCheckoutExperience.g:3787:3: ( rule__PickStatement__HoldingItemAlternatives_4_0 )
+            // InternalSelfCheckoutExperience.g:3771:2: ( ( rule__PickStatement__HoldingItemAlternatives_4_0 ) )
+            // InternalSelfCheckoutExperience.g:3772:3: ( rule__PickStatement__HoldingItemAlternatives_4_0 )
             {
              before(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0()); 
-            // InternalSelfCheckoutExperience.g:3788:3: ( rule__PickStatement__HoldingItemAlternatives_4_0 )
-            // InternalSelfCheckoutExperience.g:3788:4: rule__PickStatement__HoldingItemAlternatives_4_0
+            // InternalSelfCheckoutExperience.g:3773:3: ( rule__PickStatement__HoldingItemAlternatives_4_0 )
+            // InternalSelfCheckoutExperience.g:3773:4: rule__PickStatement__HoldingItemAlternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__PickStatement__HoldingItemAlternatives_4_0();
@@ -11487,17 +11440,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__ItemDef__NameAssignment"
-    // InternalSelfCheckoutExperience.g:3796:1: rule__ItemDef__NameAssignment : ( RULE_ID ) ;
+    // InternalSelfCheckoutExperience.g:3781:1: rule__ItemDef__NameAssignment : ( RULE_ID ) ;
     public final void rule__ItemDef__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3800:1: ( ( RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:3801:2: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3785:1: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3786:2: ( RULE_ID )
             {
-            // InternalSelfCheckoutExperience.g:3801:2: ( RULE_ID )
-            // InternalSelfCheckoutExperience.g:3802:3: RULE_ID
+            // InternalSelfCheckoutExperience.g:3786:2: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3787:3: RULE_ID
             {
              before(grammarAccess.getItemDefAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11524,21 +11477,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__ScanAndAddToBasket__ItemInBasketAssignment_5"
-    // InternalSelfCheckoutExperience.g:3811:1: rule__ScanAndAddToBasket__ItemInBasketAssignment_5 : ( ( RULE_ID ) ) ;
+    // InternalSelfCheckoutExperience.g:3796:1: rule__ScanAndAddToBasket__ItemInBasketAssignment_5 : ( ( RULE_ID ) ) ;
     public final void rule__ScanAndAddToBasket__ItemInBasketAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3815:1: ( ( ( RULE_ID ) ) )
-            // InternalSelfCheckoutExperience.g:3816:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3800:1: ( ( ( RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:3801:2: ( ( RULE_ID ) )
             {
-            // InternalSelfCheckoutExperience.g:3816:2: ( ( RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:3817:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3801:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3802:3: ( RULE_ID )
             {
              before(grammarAccess.getScanAndAddToBasketAccess().getItemInBasketItemDefCrossReference_5_0()); 
-            // InternalSelfCheckoutExperience.g:3818:3: ( RULE_ID )
-            // InternalSelfCheckoutExperience.g:3819:4: RULE_ID
+            // InternalSelfCheckoutExperience.g:3803:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3804:4: RULE_ID
             {
              before(grammarAccess.getScanAndAddToBasketAccess().getItemInBasketItemDefIDTerminalRuleCall_5_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11569,21 +11522,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Drop__ItemDroppedAssignment_1"
-    // InternalSelfCheckoutExperience.g:3830:1: rule__Drop__ItemDroppedAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalSelfCheckoutExperience.g:3815:1: rule__Drop__ItemDroppedAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__Drop__ItemDroppedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3834:1: ( ( ( RULE_ID ) ) )
-            // InternalSelfCheckoutExperience.g:3835:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3819:1: ( ( ( RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:3820:2: ( ( RULE_ID ) )
             {
-            // InternalSelfCheckoutExperience.g:3835:2: ( ( RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:3836:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3820:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3821:3: ( RULE_ID )
             {
              before(grammarAccess.getDropAccess().getItemDroppedItemDefCrossReference_1_0()); 
-            // InternalSelfCheckoutExperience.g:3837:3: ( RULE_ID )
-            // InternalSelfCheckoutExperience.g:3838:4: RULE_ID
+            // InternalSelfCheckoutExperience.g:3822:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3823:4: RULE_ID
             {
              before(grammarAccess.getDropAccess().getItemDroppedItemDefIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11614,17 +11567,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__VariableDeclaration__NameAssignment_1"
-    // InternalSelfCheckoutExperience.g:3849:1: rule__VariableDeclaration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSelfCheckoutExperience.g:3834:1: rule__VariableDeclaration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__VariableDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3853:1: ( ( RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:3854:2: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3838:1: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:3839:2: ( RULE_ID )
             {
-            // InternalSelfCheckoutExperience.g:3854:2: ( RULE_ID )
-            // InternalSelfCheckoutExperience.g:3855:3: RULE_ID
+            // InternalSelfCheckoutExperience.g:3839:2: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:3840:3: RULE_ID
             {
              before(grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11651,17 +11604,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__VariableDeclaration__ValueAssignment_3"
-    // InternalSelfCheckoutExperience.g:3864:1: rule__VariableDeclaration__ValueAssignment_3 : ( RULE_INT ) ;
+    // InternalSelfCheckoutExperience.g:3849:1: rule__VariableDeclaration__ValueAssignment_3 : ( RULE_INT ) ;
     public final void rule__VariableDeclaration__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3868:1: ( ( RULE_INT ) )
-            // InternalSelfCheckoutExperience.g:3869:2: ( RULE_INT )
+            // InternalSelfCheckoutExperience.g:3853:1: ( ( RULE_INT ) )
+            // InternalSelfCheckoutExperience.g:3854:2: ( RULE_INT )
             {
-            // InternalSelfCheckoutExperience.g:3869:2: ( RULE_INT )
-            // InternalSelfCheckoutExperience.g:3870:3: RULE_INT
+            // InternalSelfCheckoutExperience.g:3854:2: ( RULE_INT )
+            // InternalSelfCheckoutExperience.g:3855:3: RULE_INT
             {
              before(grammarAccess.getVariableDeclarationAccess().getValueINTTerminalRuleCall_3_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -11688,17 +11641,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Repeat__CountAssignment_1"
-    // InternalSelfCheckoutExperience.g:3879:1: rule__Repeat__CountAssignment_1 : ( ruleAddition ) ;
+    // InternalSelfCheckoutExperience.g:3864:1: rule__Repeat__CountAssignment_1 : ( ruleAddition ) ;
     public final void rule__Repeat__CountAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3883:1: ( ( ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:3884:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3868:1: ( ( ruleAddition ) )
+            // InternalSelfCheckoutExperience.g:3869:2: ( ruleAddition )
             {
-            // InternalSelfCheckoutExperience.g:3884:2: ( ruleAddition )
-            // InternalSelfCheckoutExperience.g:3885:3: ruleAddition
+            // InternalSelfCheckoutExperience.g:3869:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3870:3: ruleAddition
             {
              before(grammarAccess.getRepeatAccess().getCountAdditionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11729,21 +11682,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Repeat__StatementsAssignment_3"
-    // InternalSelfCheckoutExperience.g:3894:1: rule__Repeat__StatementsAssignment_3 : ( ( rule__Repeat__StatementsAlternatives_3_0 ) ) ;
+    // InternalSelfCheckoutExperience.g:3879:1: rule__Repeat__StatementsAssignment_3 : ( ( rule__Repeat__StatementsAlternatives_3_0 ) ) ;
     public final void rule__Repeat__StatementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3898:1: ( ( ( rule__Repeat__StatementsAlternatives_3_0 ) ) )
-            // InternalSelfCheckoutExperience.g:3899:2: ( ( rule__Repeat__StatementsAlternatives_3_0 ) )
+            // InternalSelfCheckoutExperience.g:3883:1: ( ( ( rule__Repeat__StatementsAlternatives_3_0 ) ) )
+            // InternalSelfCheckoutExperience.g:3884:2: ( ( rule__Repeat__StatementsAlternatives_3_0 ) )
             {
-            // InternalSelfCheckoutExperience.g:3899:2: ( ( rule__Repeat__StatementsAlternatives_3_0 ) )
-            // InternalSelfCheckoutExperience.g:3900:3: ( rule__Repeat__StatementsAlternatives_3_0 )
+            // InternalSelfCheckoutExperience.g:3884:2: ( ( rule__Repeat__StatementsAlternatives_3_0 ) )
+            // InternalSelfCheckoutExperience.g:3885:3: ( rule__Repeat__StatementsAlternatives_3_0 )
             {
              before(grammarAccess.getRepeatAccess().getStatementsAlternatives_3_0()); 
-            // InternalSelfCheckoutExperience.g:3901:3: ( rule__Repeat__StatementsAlternatives_3_0 )
-            // InternalSelfCheckoutExperience.g:3901:4: rule__Repeat__StatementsAlternatives_3_0
+            // InternalSelfCheckoutExperience.g:3886:3: ( rule__Repeat__StatementsAlternatives_3_0 )
+            // InternalSelfCheckoutExperience.g:3886:4: rule__Repeat__StatementsAlternatives_3_0
             {
             pushFollow(FOLLOW_2);
             rule__Repeat__StatementsAlternatives_3_0();
@@ -11776,17 +11729,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__MoveStatement__CommandAssignment_0"
-    // InternalSelfCheckoutExperience.g:3909:1: rule__MoveStatement__CommandAssignment_0 : ( ruleMoveCommand ) ;
+    // InternalSelfCheckoutExperience.g:3894:1: rule__MoveStatement__CommandAssignment_0 : ( ruleMoveCommand ) ;
     public final void rule__MoveStatement__CommandAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3913:1: ( ( ruleMoveCommand ) )
-            // InternalSelfCheckoutExperience.g:3914:2: ( ruleMoveCommand )
+            // InternalSelfCheckoutExperience.g:3898:1: ( ( ruleMoveCommand ) )
+            // InternalSelfCheckoutExperience.g:3899:2: ( ruleMoveCommand )
             {
-            // InternalSelfCheckoutExperience.g:3914:2: ( ruleMoveCommand )
-            // InternalSelfCheckoutExperience.g:3915:3: ruleMoveCommand
+            // InternalSelfCheckoutExperience.g:3899:2: ( ruleMoveCommand )
+            // InternalSelfCheckoutExperience.g:3900:3: ruleMoveCommand
             {
              before(grammarAccess.getMoveStatementAccess().getCommandMoveCommandEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -11817,17 +11770,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__MoveStatement__StepsAssignment_2"
-    // InternalSelfCheckoutExperience.g:3924:1: rule__MoveStatement__StepsAssignment_2 : ( ruleAddition ) ;
+    // InternalSelfCheckoutExperience.g:3909:1: rule__MoveStatement__StepsAssignment_2 : ( ruleAddition ) ;
     public final void rule__MoveStatement__StepsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3928:1: ( ( ruleAddition ) )
-            // InternalSelfCheckoutExperience.g:3929:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3913:1: ( ( ruleAddition ) )
+            // InternalSelfCheckoutExperience.g:3914:2: ( ruleAddition )
             {
-            // InternalSelfCheckoutExperience.g:3929:2: ( ruleAddition )
-            // InternalSelfCheckoutExperience.g:3930:3: ruleAddition
+            // InternalSelfCheckoutExperience.g:3914:2: ( ruleAddition )
+            // InternalSelfCheckoutExperience.g:3915:3: ruleAddition
             {
              before(grammarAccess.getMoveStatementAccess().getStepsAdditionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11858,17 +11811,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__TurnStatement__CommandAssignment_1"
-    // InternalSelfCheckoutExperience.g:3939:1: rule__TurnStatement__CommandAssignment_1 : ( ruleTurnCommand ) ;
+    // InternalSelfCheckoutExperience.g:3924:1: rule__TurnStatement__CommandAssignment_1 : ( ruleTurnCommand ) ;
     public final void rule__TurnStatement__CommandAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3943:1: ( ( ruleTurnCommand ) )
-            // InternalSelfCheckoutExperience.g:3944:2: ( ruleTurnCommand )
+            // InternalSelfCheckoutExperience.g:3928:1: ( ( ruleTurnCommand ) )
+            // InternalSelfCheckoutExperience.g:3929:2: ( ruleTurnCommand )
             {
-            // InternalSelfCheckoutExperience.g:3944:2: ( ruleTurnCommand )
-            // InternalSelfCheckoutExperience.g:3945:3: ruleTurnCommand
+            // InternalSelfCheckoutExperience.g:3929:2: ( ruleTurnCommand )
+            // InternalSelfCheckoutExperience.g:3930:3: ruleTurnCommand
             {
              before(grammarAccess.getTurnStatementAccess().getCommandTurnCommandEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11899,21 +11852,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Addition__OperatorAssignment_1_1"
-    // InternalSelfCheckoutExperience.g:3954:1: rule__Addition__OperatorAssignment_1_1 : ( ( rule__Addition__OperatorAlternatives_1_1_0 ) ) ;
+    // InternalSelfCheckoutExperience.g:3939:1: rule__Addition__OperatorAssignment_1_1 : ( ( rule__Addition__OperatorAlternatives_1_1_0 ) ) ;
     public final void rule__Addition__OperatorAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3958:1: ( ( ( rule__Addition__OperatorAlternatives_1_1_0 ) ) )
-            // InternalSelfCheckoutExperience.g:3959:2: ( ( rule__Addition__OperatorAlternatives_1_1_0 ) )
+            // InternalSelfCheckoutExperience.g:3943:1: ( ( ( rule__Addition__OperatorAlternatives_1_1_0 ) ) )
+            // InternalSelfCheckoutExperience.g:3944:2: ( ( rule__Addition__OperatorAlternatives_1_1_0 ) )
             {
-            // InternalSelfCheckoutExperience.g:3959:2: ( ( rule__Addition__OperatorAlternatives_1_1_0 ) )
-            // InternalSelfCheckoutExperience.g:3960:3: ( rule__Addition__OperatorAlternatives_1_1_0 )
+            // InternalSelfCheckoutExperience.g:3944:2: ( ( rule__Addition__OperatorAlternatives_1_1_0 ) )
+            // InternalSelfCheckoutExperience.g:3945:3: ( rule__Addition__OperatorAlternatives_1_1_0 )
             {
              before(grammarAccess.getAdditionAccess().getOperatorAlternatives_1_1_0()); 
-            // InternalSelfCheckoutExperience.g:3961:3: ( rule__Addition__OperatorAlternatives_1_1_0 )
-            // InternalSelfCheckoutExperience.g:3961:4: rule__Addition__OperatorAlternatives_1_1_0
+            // InternalSelfCheckoutExperience.g:3946:3: ( rule__Addition__OperatorAlternatives_1_1_0 )
+            // InternalSelfCheckoutExperience.g:3946:4: rule__Addition__OperatorAlternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Addition__OperatorAlternatives_1_1_0();
@@ -11946,17 +11899,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Addition__RightAssignment_1_2"
-    // InternalSelfCheckoutExperience.g:3969:1: rule__Addition__RightAssignment_1_2 : ( ruleMultiplication ) ;
+    // InternalSelfCheckoutExperience.g:3954:1: rule__Addition__RightAssignment_1_2 : ( ruleMultiplication ) ;
     public final void rule__Addition__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3973:1: ( ( ruleMultiplication ) )
-            // InternalSelfCheckoutExperience.g:3974:2: ( ruleMultiplication )
+            // InternalSelfCheckoutExperience.g:3958:1: ( ( ruleMultiplication ) )
+            // InternalSelfCheckoutExperience.g:3959:2: ( ruleMultiplication )
             {
-            // InternalSelfCheckoutExperience.g:3974:2: ( ruleMultiplication )
-            // InternalSelfCheckoutExperience.g:3975:3: ruleMultiplication
+            // InternalSelfCheckoutExperience.g:3959:2: ( ruleMultiplication )
+            // InternalSelfCheckoutExperience.g:3960:3: ruleMultiplication
             {
              before(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11987,21 +11940,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Multiplication__OperatorAssignment_1_1"
-    // InternalSelfCheckoutExperience.g:3984:1: rule__Multiplication__OperatorAssignment_1_1 : ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) ) ;
+    // InternalSelfCheckoutExperience.g:3969:1: rule__Multiplication__OperatorAssignment_1_1 : ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) ) ;
     public final void rule__Multiplication__OperatorAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3988:1: ( ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) ) )
-            // InternalSelfCheckoutExperience.g:3989:2: ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) )
+            // InternalSelfCheckoutExperience.g:3973:1: ( ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) ) )
+            // InternalSelfCheckoutExperience.g:3974:2: ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) )
             {
-            // InternalSelfCheckoutExperience.g:3989:2: ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) )
-            // InternalSelfCheckoutExperience.g:3990:3: ( rule__Multiplication__OperatorAlternatives_1_1_0 )
+            // InternalSelfCheckoutExperience.g:3974:2: ( ( rule__Multiplication__OperatorAlternatives_1_1_0 ) )
+            // InternalSelfCheckoutExperience.g:3975:3: ( rule__Multiplication__OperatorAlternatives_1_1_0 )
             {
              before(grammarAccess.getMultiplicationAccess().getOperatorAlternatives_1_1_0()); 
-            // InternalSelfCheckoutExperience.g:3991:3: ( rule__Multiplication__OperatorAlternatives_1_1_0 )
-            // InternalSelfCheckoutExperience.g:3991:4: rule__Multiplication__OperatorAlternatives_1_1_0
+            // InternalSelfCheckoutExperience.g:3976:3: ( rule__Multiplication__OperatorAlternatives_1_1_0 )
+            // InternalSelfCheckoutExperience.g:3976:4: rule__Multiplication__OperatorAlternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Multiplication__OperatorAlternatives_1_1_0();
@@ -12034,17 +11987,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Multiplication__RightAssignment_1_2"
-    // InternalSelfCheckoutExperience.g:3999:1: rule__Multiplication__RightAssignment_1_2 : ( rulePrimary ) ;
+    // InternalSelfCheckoutExperience.g:3984:1: rule__Multiplication__RightAssignment_1_2 : ( rulePrimary ) ;
     public final void rule__Multiplication__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4003:1: ( ( rulePrimary ) )
-            // InternalSelfCheckoutExperience.g:4004:2: ( rulePrimary )
+            // InternalSelfCheckoutExperience.g:3988:1: ( ( rulePrimary ) )
+            // InternalSelfCheckoutExperience.g:3989:2: ( rulePrimary )
             {
-            // InternalSelfCheckoutExperience.g:4004:2: ( rulePrimary )
-            // InternalSelfCheckoutExperience.g:4005:3: rulePrimary
+            // InternalSelfCheckoutExperience.g:3989:2: ( rulePrimary )
+            // InternalSelfCheckoutExperience.g:3990:3: rulePrimary
             {
              before(grammarAccess.getMultiplicationAccess().getRightPrimaryParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12075,17 +12028,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__IntLiteral__ValAssignment"
-    // InternalSelfCheckoutExperience.g:4014:1: rule__IntLiteral__ValAssignment : ( RULE_INT ) ;
+    // InternalSelfCheckoutExperience.g:3999:1: rule__IntLiteral__ValAssignment : ( RULE_INT ) ;
     public final void rule__IntLiteral__ValAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4018:1: ( ( RULE_INT ) )
-            // InternalSelfCheckoutExperience.g:4019:2: ( RULE_INT )
+            // InternalSelfCheckoutExperience.g:4003:1: ( ( RULE_INT ) )
+            // InternalSelfCheckoutExperience.g:4004:2: ( RULE_INT )
             {
-            // InternalSelfCheckoutExperience.g:4019:2: ( RULE_INT )
-            // InternalSelfCheckoutExperience.g:4020:3: RULE_INT
+            // InternalSelfCheckoutExperience.g:4004:2: ( RULE_INT )
+            // InternalSelfCheckoutExperience.g:4005:3: RULE_INT
             {
              before(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -12112,21 +12065,21 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__IntVarExpression__VarAssignment"
-    // InternalSelfCheckoutExperience.g:4029:1: rule__IntVarExpression__VarAssignment : ( ( RULE_ID ) ) ;
+    // InternalSelfCheckoutExperience.g:4014:1: rule__IntVarExpression__VarAssignment : ( ( RULE_ID ) ) ;
     public final void rule__IntVarExpression__VarAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4033:1: ( ( ( RULE_ID ) ) )
-            // InternalSelfCheckoutExperience.g:4034:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:4018:1: ( ( ( RULE_ID ) ) )
+            // InternalSelfCheckoutExperience.g:4019:2: ( ( RULE_ID ) )
             {
-            // InternalSelfCheckoutExperience.g:4034:2: ( ( RULE_ID ) )
-            // InternalSelfCheckoutExperience.g:4035:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:4019:2: ( ( RULE_ID ) )
+            // InternalSelfCheckoutExperience.g:4020:3: ( RULE_ID )
             {
              before(grammarAccess.getIntVarExpressionAccess().getVarVariableDeclarationCrossReference_0()); 
-            // InternalSelfCheckoutExperience.g:4036:3: ( RULE_ID )
-            // InternalSelfCheckoutExperience.g:4037:4: RULE_ID
+            // InternalSelfCheckoutExperience.g:4021:3: ( RULE_ID )
+            // InternalSelfCheckoutExperience.g:4022:4: RULE_ID
             {
              before(grammarAccess.getIntVarExpressionAccess().getVarVariableDeclarationIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12157,17 +12110,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Checkout__ScanAssignment_3"
-    // InternalSelfCheckoutExperience.g:4048:1: rule__Checkout__ScanAssignment_3 : ( ruleScanExpression ) ;
+    // InternalSelfCheckoutExperience.g:4033:1: rule__Checkout__ScanAssignment_3 : ( ruleScanExpression ) ;
     public final void rule__Checkout__ScanAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4052:1: ( ( ruleScanExpression ) )
-            // InternalSelfCheckoutExperience.g:4053:2: ( ruleScanExpression )
+            // InternalSelfCheckoutExperience.g:4037:1: ( ( ruleScanExpression ) )
+            // InternalSelfCheckoutExperience.g:4038:2: ( ruleScanExpression )
             {
-            // InternalSelfCheckoutExperience.g:4053:2: ( ruleScanExpression )
-            // InternalSelfCheckoutExperience.g:4054:3: ruleScanExpression
+            // InternalSelfCheckoutExperience.g:4038:2: ( ruleScanExpression )
+            // InternalSelfCheckoutExperience.g:4039:3: ruleScanExpression
             {
              before(grammarAccess.getCheckoutAccess().getScanScanExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12198,17 +12151,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Checkout__PayAssignment_4"
-    // InternalSelfCheckoutExperience.g:4063:1: rule__Checkout__PayAssignment_4 : ( rulePay ) ;
+    // InternalSelfCheckoutExperience.g:4048:1: rule__Checkout__PayAssignment_4 : ( rulePay ) ;
     public final void rule__Checkout__PayAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4067:1: ( ( rulePay ) )
-            // InternalSelfCheckoutExperience.g:4068:2: ( rulePay )
+            // InternalSelfCheckoutExperience.g:4052:1: ( ( rulePay ) )
+            // InternalSelfCheckoutExperience.g:4053:2: ( rulePay )
             {
-            // InternalSelfCheckoutExperience.g:4068:2: ( rulePay )
-            // InternalSelfCheckoutExperience.g:4069:3: rulePay
+            // InternalSelfCheckoutExperience.g:4053:2: ( rulePay )
+            // InternalSelfCheckoutExperience.g:4054:3: rulePay
             {
              before(grammarAccess.getCheckoutAccess().getPayPayEnumRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -12239,17 +12192,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__ScanExpression__NextAssignment_1_2"
-    // InternalSelfCheckoutExperience.g:4078:1: rule__ScanExpression__NextAssignment_1_2 : ( ruleCarryItems ) ;
+    // InternalSelfCheckoutExperience.g:4063:1: rule__ScanExpression__NextAssignment_1_2 : ( ruleCarryItems ) ;
     public final void rule__ScanExpression__NextAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4082:1: ( ( ruleCarryItems ) )
-            // InternalSelfCheckoutExperience.g:4083:2: ( ruleCarryItems )
+            // InternalSelfCheckoutExperience.g:4067:1: ( ( ruleCarryItems ) )
+            // InternalSelfCheckoutExperience.g:4068:2: ( ruleCarryItems )
             {
-            // InternalSelfCheckoutExperience.g:4083:2: ( ruleCarryItems )
-            // InternalSelfCheckoutExperience.g:4084:3: ruleCarryItems
+            // InternalSelfCheckoutExperience.g:4068:2: ( ruleCarryItems )
+            // InternalSelfCheckoutExperience.g:4069:3: ruleCarryItems
             {
              before(grammarAccess.getScanExpressionAccess().getNextCarryItemsParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12280,17 +12233,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Scan__ScanMachineAssignment_3"
-    // InternalSelfCheckoutExperience.g:4093:1: rule__Scan__ScanMachineAssignment_3 : ( ruleSelfScanner ) ;
+    // InternalSelfCheckoutExperience.g:4078:1: rule__Scan__ScanMachineAssignment_3 : ( ruleSelfScanner ) ;
     public final void rule__Scan__ScanMachineAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4097:1: ( ( ruleSelfScanner ) )
-            // InternalSelfCheckoutExperience.g:4098:2: ( ruleSelfScanner )
+            // InternalSelfCheckoutExperience.g:4082:1: ( ( ruleSelfScanner ) )
+            // InternalSelfCheckoutExperience.g:4083:2: ( ruleSelfScanner )
             {
-            // InternalSelfCheckoutExperience.g:4098:2: ( ruleSelfScanner )
-            // InternalSelfCheckoutExperience.g:4099:3: ruleSelfScanner
+            // InternalSelfCheckoutExperience.g:4083:2: ( ruleSelfScanner )
+            // InternalSelfCheckoutExperience.g:4084:3: ruleSelfScanner
             {
              before(grammarAccess.getScanAccess().getScanMachineSelfScannerEnumRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12321,17 +12274,17 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__CarryItems__CarryAssignment_0"
-    // InternalSelfCheckoutExperience.g:4108:1: rule__CarryItems__CarryAssignment_0 : ( ruleCarry ) ;
+    // InternalSelfCheckoutExperience.g:4093:1: rule__CarryItems__CarryAssignment_0 : ( ruleCarry ) ;
     public final void rule__CarryItems__CarryAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:4112:1: ( ( ruleCarry ) )
-            // InternalSelfCheckoutExperience.g:4113:2: ( ruleCarry )
+            // InternalSelfCheckoutExperience.g:4097:1: ( ( ruleCarry ) )
+            // InternalSelfCheckoutExperience.g:4098:2: ( ruleCarry )
             {
-            // InternalSelfCheckoutExperience.g:4113:2: ( ruleCarry )
-            // InternalSelfCheckoutExperience.g:4114:3: ruleCarry
+            // InternalSelfCheckoutExperience.g:4098:2: ( ruleCarry )
+            // InternalSelfCheckoutExperience.g:4099:3: ruleCarry
             {
              before(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);

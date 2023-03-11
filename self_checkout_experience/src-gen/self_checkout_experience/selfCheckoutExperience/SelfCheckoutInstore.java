@@ -5,6 +5,8 @@ package self_checkout_experience.selfCheckoutExperience;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Self Checkout Instore</b></em>'.
@@ -15,8 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getPickScanMachine <em>Pick Scan Machine</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getPickstatements <em>Pickstatements</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getWalkstatements <em>Walkstatements</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getStatement <em>Statement</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore#getCheckout <em>Checkout</em>}</li>
  * </ul>
  *
@@ -49,28 +50,16 @@ public interface SelfCheckoutInstore extends SelfCheckoutExperience
   void setPickScanMachine(HoldSelfScanner value);
 
   /**
-   * Returns the value of the '<em><b>Pickstatements</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.PickStatement}.
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pickstatements</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelfCheckoutInstore_Pickstatements()
+   * @return the value of the '<em>Statement</em>' containment reference list.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelfCheckoutInstore_Statement()
    * @model containment="true"
    * @generated
    */
-  EList<PickStatement> getPickstatements();
-
-  /**
-   * Returns the value of the '<em><b>Walkstatements</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.WalkStatement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Walkstatements</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelfCheckoutInstore_Walkstatements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<WalkStatement> getWalkstatements();
+  EList<EObject> getStatement();
 
   /**
    * Returns the value of the '<em><b>Checkout</b></em>' containment reference.

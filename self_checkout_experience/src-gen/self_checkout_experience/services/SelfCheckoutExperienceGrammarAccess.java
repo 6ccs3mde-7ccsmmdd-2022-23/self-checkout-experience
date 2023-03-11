@@ -72,7 +72,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Assignment cOnlineCheckoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cOnlineCheckoutOnlineCheckoutParserRuleCall_2_0 = (RuleCall)cOnlineCheckoutAssignment_2.eContents().get(0);
 		
-		////////////////////////////////////////ONLINE SELF-CHECKOUT//////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////ONLINE SELF-CHECKOUT/////////////////////////////////////////////////////////////////////
 		//SelfCheckoutOnline:
 		//    loadShoppingSite=LoadShoppingSite
 		//    search+=Search*
@@ -302,24 +302,23 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPickScanMachineAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cPickScanMachineHoldSelfScannerParserRuleCall_0_0 = (RuleCall)cPickScanMachineAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cPickstatementsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cPickstatementsPickStatementParserRuleCall_1_0_0 = (RuleCall)cPickstatementsAssignment_1_0.eContents().get(0);
-		private final Assignment cWalkstatementsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cWalkstatementsWalkStatementParserRuleCall_1_1_0 = (RuleCall)cWalkstatementsAssignment_1_1.eContents().get(0);
+		private final Assignment cStatementAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cStatementAlternatives_1_0 = (Alternatives)cStatementAssignment_1.eContents().get(0);
+		private final RuleCall cStatementPickStatementParserRuleCall_1_0_0 = (RuleCall)cStatementAlternatives_1_0.eContents().get(0);
+		private final RuleCall cStatementWalkStatementParserRuleCall_1_0_1 = (RuleCall)cStatementAlternatives_1_0.eContents().get(1);
 		private final Assignment cCheckoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCheckoutCheckoutParserRuleCall_2_0 = (RuleCall)cCheckoutAssignment_2.eContents().get(0);
 		
-		////////////////////////////////////////IN-STORE SELF-CHECKOUT/////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
 		//SelfCheckoutInstore:
 		//    pickScanMachine = HoldSelfScanner
-		//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
+		//    statement+=(PickStatement|WalkStatement)*
 		//    checkout = Checkout?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//pickScanMachine = HoldSelfScanner
-		//(pickstatements+=PickStatement | walkstatements += WalkStatement)*
+		//statement+=(PickStatement|WalkStatement)*
 		//checkout = Checkout?
 		public Group getGroup() { return cGroup; }
 		
@@ -329,20 +328,17 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//HoldSelfScanner
 		public RuleCall getPickScanMachineHoldSelfScannerParserRuleCall_0_0() { return cPickScanMachineHoldSelfScannerParserRuleCall_0_0; }
 		
-		//(pickstatements+=PickStatement | walkstatements += WalkStatement)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		//statement+=(PickStatement|WalkStatement)*
+		public Assignment getStatementAssignment_1() { return cStatementAssignment_1; }
 		
-		//pickstatements+=PickStatement
-		public Assignment getPickstatementsAssignment_1_0() { return cPickstatementsAssignment_1_0; }
+		//(PickStatement|WalkStatement)
+		public Alternatives getStatementAlternatives_1_0() { return cStatementAlternatives_1_0; }
 		
 		//PickStatement
-		public RuleCall getPickstatementsPickStatementParserRuleCall_1_0_0() { return cPickstatementsPickStatementParserRuleCall_1_0_0; }
-		
-		//walkstatements += WalkStatement
-		public Assignment getWalkstatementsAssignment_1_1() { return cWalkstatementsAssignment_1_1; }
+		public RuleCall getStatementPickStatementParserRuleCall_1_0_0() { return cStatementPickStatementParserRuleCall_1_0_0; }
 		
 		//WalkStatement
-		public RuleCall getWalkstatementsWalkStatementParserRuleCall_1_1_0() { return cWalkstatementsWalkStatementParserRuleCall_1_1_0; }
+		public RuleCall getStatementWalkStatementParserRuleCall_1_0_1() { return cStatementWalkStatementParserRuleCall_1_0_1; }
 		
 		//checkout = Checkout?
 		public Assignment getCheckoutAssignment_2() { return cCheckoutAssignment_2; }
@@ -1316,7 +1312,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getSelfCheckoutExperienceAccess().getRule();
 	}
 	
-	////////////////////////////////////////ONLINE SELF-CHECKOUT//////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////ONLINE SELF-CHECKOUT/////////////////////////////////////////////////////////////////////
 	//SelfCheckoutOnline:
 	//    loadShoppingSite=LoadShoppingSite
 	//    search+=Search*
@@ -1423,10 +1419,10 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getConfirmEnumAccess().getRule();
 	}
 	
-	////////////////////////////////////////IN-STORE SELF-CHECKOUT/////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
 	//SelfCheckoutInstore:
 	//    pickScanMachine = HoldSelfScanner
-	//    (pickstatements+=PickStatement | walkstatements += WalkStatement)*
+	//    statement+=(PickStatement|WalkStatement)*
 	//    checkout = Checkout?
 	//;
 	public SelfCheckoutInstoreElements getSelfCheckoutInstoreAccess() {

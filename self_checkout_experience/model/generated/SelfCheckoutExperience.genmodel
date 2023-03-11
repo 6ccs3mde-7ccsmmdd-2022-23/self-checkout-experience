@@ -66,8 +66,7 @@
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//SelfCheckoutInstore">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/pickScanMachine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/pickstatements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/walkstatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/statement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//SelfCheckoutInstore/checkout"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//HoldSelfScanner">

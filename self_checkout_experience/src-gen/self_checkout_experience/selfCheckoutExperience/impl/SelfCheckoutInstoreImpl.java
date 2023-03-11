@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,10 +21,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
-import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
-import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +33,7 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutInstoreImpl#getPickScanMachine <em>Pick Scan Machine</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutInstoreImpl#getPickstatements <em>Pickstatements</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutInstoreImpl#getWalkstatements <em>Walkstatements</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutInstoreImpl#getStatement <em>Statement</em>}</li>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.SelfCheckoutInstoreImpl#getCheckout <em>Checkout</em>}</li>
  * </ul>
  *
@@ -54,24 +52,14 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
   protected HoldSelfScanner pickScanMachine;
 
   /**
-   * The cached value of the '{@link #getPickstatements() <em>Pickstatements</em>}' containment reference list.
+   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPickstatements()
+   * @see #getStatement()
    * @generated
    * @ordered
    */
-  protected EList<PickStatement> pickstatements;
-
-  /**
-   * The cached value of the '{@link #getWalkstatements() <em>Walkstatements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWalkstatements()
-   * @generated
-   * @ordered
-   */
-  protected EList<WalkStatement> walkstatements;
+  protected EList<EObject> statement;
 
   /**
    * The cached value of the '{@link #getCheckout() <em>Checkout</em>}' containment reference.
@@ -160,28 +148,13 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
    * @generated
    */
   @Override
-  public EList<PickStatement> getPickstatements()
+  public EList<EObject> getStatement()
   {
-    if (pickstatements == null)
+    if (statement == null)
     {
-      pickstatements = new EObjectContainmentEList<PickStatement>(PickStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS);
+      statement = new EObjectContainmentEList<EObject>(EObject.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT);
     }
-    return pickstatements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<WalkStatement> getWalkstatements()
-  {
-    if (walkstatements == null)
-    {
-      walkstatements = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS);
-    }
-    return walkstatements;
+    return statement;
   }
 
   /**
@@ -246,10 +219,8 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE:
         return basicSetPickScanMachine(null, msgs);
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS:
-        return ((InternalEList<?>)getPickstatements()).basicRemove(otherEnd, msgs);
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS:
-        return ((InternalEList<?>)getWalkstatements()).basicRemove(otherEnd, msgs);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT:
+        return ((InternalEList<?>)getStatement()).basicRemove(otherEnd, msgs);
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__CHECKOUT:
         return basicSetCheckout(null, msgs);
     }
@@ -268,10 +239,8 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE:
         return getPickScanMachine();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS:
-        return getPickstatements();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS:
-        return getWalkstatements();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT:
+        return getStatement();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__CHECKOUT:
         return getCheckout();
     }
@@ -292,13 +261,9 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE:
         setPickScanMachine((HoldSelfScanner)newValue);
         return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS:
-        getPickstatements().clear();
-        getPickstatements().addAll((Collection<? extends PickStatement>)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS:
-        getWalkstatements().clear();
-        getWalkstatements().addAll((Collection<? extends WalkStatement>)newValue);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT:
+        getStatement().clear();
+        getStatement().addAll((Collection<? extends EObject>)newValue);
         return;
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__CHECKOUT:
         setCheckout((Checkout)newValue);
@@ -320,11 +285,8 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE:
         setPickScanMachine((HoldSelfScanner)null);
         return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS:
-        getPickstatements().clear();
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS:
-        getWalkstatements().clear();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT:
+        getStatement().clear();
         return;
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__CHECKOUT:
         setCheckout((Checkout)null);
@@ -345,10 +307,8 @@ public class SelfCheckoutInstoreImpl extends SelfCheckoutExperienceImpl implemen
     {
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICK_SCAN_MACHINE:
         return pickScanMachine != null;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__PICKSTATEMENTS:
-        return pickstatements != null && !pickstatements.isEmpty();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__WALKSTATEMENTS:
-        return walkstatements != null && !walkstatements.isEmpty();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__STATEMENT:
+        return statement != null && !statement.isEmpty();
       case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE__CHECKOUT:
         return checkout != null;
     }

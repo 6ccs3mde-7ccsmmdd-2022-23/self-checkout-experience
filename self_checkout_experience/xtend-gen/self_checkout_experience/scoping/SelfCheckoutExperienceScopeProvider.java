@@ -33,7 +33,7 @@ public class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScop
         IScope _xblockexpression_1 = null;
         {
           final SelfCheckoutInstore containingProgram = EcoreUtil2.<SelfCheckoutInstore>getContainerOfType(context, SelfCheckoutInstore.class);
-          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getWalkstatements(), VariableDeclaration.class));
+          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getStatement(), VariableDeclaration.class));
         }
         _xifexpression = _xblockexpression_1;
       }
@@ -49,41 +49,7 @@ public class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScop
     } else {
       IScope _xifexpression_1 = null;
       if ((context instanceof SelfCheckoutInstore)) {
-        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((SelfCheckoutInstore)context).getWalkstatements(), VariableDeclaration.class));
-      }
-      _xifexpression = _xifexpression_1;
-    }
-    return _xifexpression;
-  }
-  
-  public IScope scope_IntVarExpression_var_pick(final IntVarExpression context, final EReference ref) {
-    IScope _xblockexpression = null;
-    {
-      final Repeat loopContainer = EcoreUtil2.<Repeat>getContainerOfType(context, Repeat.class);
-      IScope _xifexpression = null;
-      if ((loopContainer != null)) {
-        _xifexpression = this.visibleVariablesScope_pick(loopContainer);
-      } else {
-        IScope _xblockexpression_1 = null;
-        {
-          final SelfCheckoutInstore containingProgram = EcoreUtil2.<SelfCheckoutInstore>getContainerOfType(context, SelfCheckoutInstore.class);
-          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getPickstatements(), VariableDeclaration.class));
-        }
-        _xifexpression = _xblockexpression_1;
-      }
-      _xblockexpression = _xifexpression;
-    }
-    return _xblockexpression;
-  }
-  
-  public IScope visibleVariablesScope_pick(final EObject context) {
-    IScope _xifexpression = null;
-    if ((context instanceof Repeat)) {
-      _xifexpression = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Repeat)context).getStatements(), VariableDeclaration.class), this.visibleVariablesScope_pick(((Repeat)context).eContainer()));
-    } else {
-      IScope _xifexpression_1 = null;
-      if ((context instanceof SelfCheckoutInstore)) {
-        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((SelfCheckoutInstore)context).getPickstatements(), VariableDeclaration.class));
+        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((SelfCheckoutInstore)context).getStatement(), VariableDeclaration.class));
       }
       _xifexpression = _xifexpression_1;
     }

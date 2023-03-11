@@ -32,7 +32,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SelfCheckoutExperienceGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getSelfCheckoutExperienceAccess().getAlternatives(), "rule__SelfCheckoutExperience__Alternatives");
-			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1(), "rule__SelfCheckoutInstore__Alternatives_1");
+			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0(), "rule__SelfCheckoutInstore__StatementAlternatives_1_0");
 			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0(), "rule__PickStatement__HoldingItemAlternatives_4_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
 			builder.put(grammarAccess.getRepeatAccess().getStatementsAlternatives_3_0(), "rule__Repeat__StatementsAlternatives_3_0");
@@ -83,8 +83,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConfirmAccess().getConfirmEnumAssignment_0(), "rule__Confirm__ConfirmEnumAssignment_0");
 			builder.put(grammarAccess.getConfirmAccess().getPayAssignment_1(), "rule__Confirm__PayAssignment_1");
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getPickScanMachineAssignment_0(), "rule__SelfCheckoutInstore__PickScanMachineAssignment_0");
-			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsAssignment_1_0(), "rule__SelfCheckoutInstore__PickstatementsAssignment_1_0");
-			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsAssignment_1_1(), "rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1");
+			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1(), "rule__SelfCheckoutInstore__StatementAssignment_1");
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getCheckoutAssignment_2(), "rule__SelfCheckoutInstore__CheckoutAssignment_2");
 			builder.put(grammarAccess.getHoldSelfScannerAccess().getScanMachineAssignment_1(), "rule__HoldSelfScanner__ScanMachineAssignment_1");
 			builder.put(grammarAccess.getPickStatementAccess().getItemCountAssignment_2(), "rule__PickStatement__ItemCountAssignment_2");

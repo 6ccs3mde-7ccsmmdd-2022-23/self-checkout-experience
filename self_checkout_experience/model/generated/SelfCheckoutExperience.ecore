@@ -53,10 +53,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutInstore" eSuperTypes="#//SelfCheckoutExperience">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pickScanMachine" eType="#//HoldSelfScanner"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatements" upperBound="-1"
-        eType="#//PickStatement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="walkstatements" upperBound="-1"
-        eType="#//WalkStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="checkout" eType="#//Checkout"
         containment="true"/>
   </eClassifiers>

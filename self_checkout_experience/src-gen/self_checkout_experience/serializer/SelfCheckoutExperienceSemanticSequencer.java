@@ -494,7 +494,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     SelfCheckoutInstore returns SelfCheckoutInstore
 	 *
 	 * Constraint:
-	 *     (pickScanMachine=HoldSelfScanner (pickstatements+=PickStatement | walkstatements+=WalkStatement)* checkout=Checkout?)
+	 *     (pickScanMachine=HoldSelfScanner (statement+=PickStatement | statement+=WalkStatement)* checkout=Checkout?)
 	 */
 	protected void sequence_SelfCheckoutInstore(ISerializationContext context, SelfCheckoutInstore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

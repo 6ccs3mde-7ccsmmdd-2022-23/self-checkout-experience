@@ -63,11 +63,8 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		
 		origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"
 	}
-//	def deriveTargetFileNameFor(Self_checkout checkout, Resource resource) {
-//		resource.URI.appendFileExtension("txt").lastSegment
-//	}
-	
-	//////////////////////////////////////TEXT CODE GENERATOR //////////////////////////////////////
+
+	//////////////////////////////////////////////////////////////TEXT CODE GENERATOR //////////////////////////////////////
 	def generate(Self_checkout checkout) '''
 		Self checkout summary:
 		IN STORE 
@@ -111,76 +108,52 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		}
 	'''
 
-	
 	private static class Environment {
 		var int counter = 0
 		def getFreshVarName() '''i«counter++»'''
 		def exit() { counter-- }
 	}
 
-		
 	dispatch def String generateJavaStatement(SelfCheckoutInstore sci, Environment env) '''System.out.println("You have entered the store");
-	«if(sci.pickScanMachine !== null){generateJavaStatement(sci.pickScanMachine, env)}»
-	«sci.walkstatements.map[generateJavaStatement(env)].join('\n')»
-	«sci.pickstatements.map[generateJavaStatement(env)].join('\n')»
-	«if(sci.checkout !== null){generateJavaStatement(sci.checkout, env)}»'''
+«if(sci.pickScanMachine !== null){generateJavaStatement(sci.pickScanMachine, env)}»
+«sci.statement.map[generateJavaStatement(env)].join('\n')»
+«if(sci.checkout !== null){generateJavaStatement(sci.checkout, env)}»'''
 	
 	dispatch def String generateJavaStatement(HoldSelfScanner sci, Environment env) '''System.out.println("Self Checkout Scanner aquired");'''
+		
+	dispatch def String generateJavaStatement(PickStatement picksmnt, Environment env) '''System.out.println("Picked up: «picksmnt.itemCount.generateJavaExpression()» «picksmnt.itemPicked.getName.toFirstUpper»");
+«if(picksmnt.holdingItem !== null ){generateJavaStatement(picksmnt.holdingItem, picksmnt.itemCount.generateJavaExpression(), env)}»'''
 	
-	///////PICK STATEMENTS/////
+	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket");
+for(int i=0; i <= «itemCount»; i++) {
+	items.add("«item.itemInBasket.name»")
+}
+	'''
 	
-	dispatch def String generateJavaStatement(PickStatement picksmnt, Environment env) '''System.out.println("«picksmnt.itemCount.generateJavaExpression()» , «picksmnt.itemPicked.getName.toFirstUpper»");
-	«if(picksmnt.holdingItem !== null ){generateJavaStatement(picksmnt.holdingItem, env)}»'''
+	dispatch def String generateJavaStatement(Drop item, String itemCount, Environment env) '''System.out.println("Dropping «item.itemDropped.name»");'''
 	
-	dispatch def String generateJavaStatement(ScanAndAddToBasket item, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket");'''
-	
-	dispatch def String generateJavaStatement(Drop item, Environment env) '''System.out.println("Dropping «item.itemDropped.name»");'''
-	
-	
-	//////WALK STATEMENTS////////
 	dispatch def String generateJavaStatement(WalkStatement smnt, Environment env) ''''''
 	
-	dispatch def String generateJavaStatement(MoveStatement smnt, Environment env) '''System.out.println("Move «smnt.command.getName.toFirstUpper» («smnt.steps.generateJavaExpression»);'''
+	dispatch def String generateJavaStatement(MoveStatement smnt, Environment env) '''System.out.println("Move «smnt.command.getName.toFirstUpper» («smnt.steps.generateJavaExpression»));'''
 	
 	dispatch def String generateJavaStatement(TurnStatement smnt, Environment env) '''System.out.println("Turn «smnt.command»");'''
 	
 	dispatch def String generateJavaStatement(Repeat stmt, Environment env){
-//		val freshVarName = env.getFreshVarName
-//		var repeat = '''System.out.println("Entering inside Repeat"); 
-//			System.out.println(«stmt.statements.map[generateJavaStatement(env)].join('\n')»);
-//			System.out.println("Existing Repeat");'''
-//		env.exit
-//		repeat
-//	}
-	
-	
-	
-//	dispatch def String generateJavaStatement(LoopStatement stmt, Environment env) {
 		val freshVarName = env.getFreshVarName
-
 		val result = '''
-		System.out.println("Entering inside Repeat"); 
 			for (int «freshVarName» = 0; «freshVarName» < «stmt.count.generateJavaExpression»; «freshVarName»++) {
 				«stmt.statements.map[generateJavaStatement(env)].join('\n')»
 			}
-		System.out.println("Existing Repeat");
 		'''
-
 		env.exit
-
 		result
 	}
-	
-	
-	
-	
-	
-	
 
-	////////CHECKOUT//////
 	dispatch def String generateJavaStatement(Checkout checkout, Environment env) '''System.out.println("Going to checkout");
 «if (checkout.scan !== null){generateJavaStatement(checkout.scan, env)}»
-«if (checkout.pay !== null){generateJavaStatement(checkout.pay, env)}»'''	
+«if (checkout.pay !== null){System.out.println("Checking out of web store");
+	generateJavaStatement(checkout.pay, env)
+}»'''	
 	
 	dispatch def String generateJavaStatement(ScanExpression se, Environment env) ''''''
 	
@@ -189,13 +162,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	dispatch def String generateJavaStatement(ComplexScan compscan, Environment env) 
 	'''«compscan.start.generateJavaStatement(env)»; «compscan.next.map[se | se.generateJavaStatement(env)].join('; ')»'''
 	
-	dispatch def String generateJavaStatement(CarryItems carryItems, Environment env) '''System.out.println("carry in" «carryItems.carry» );'''
-//	dispatch def String generateJavaStatement(Pay pay, Environment env) '''System.out.println("Paying");'''
-	
-
-
-
-
+	dispatch def String generateJavaStatement(CarryItems carryItems, Environment env) '''System.out.println("carry in" «carryItems.carry» );'''	
 
 	dispatch def String generateJavaExpression(IntExpression exp) ''''''
 	dispatch def String generateJavaExpression(Addition exp) '''
@@ -206,12 +173,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	dispatch def String generateJavaExpression(IntVarExpression exp) '''«exp.^var.value»'''
 
 
-
-
-
-
-
-	////////////////////////////////////////////ONLINE///////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////
 	
 	dispatch def String generateJavaStatement(SelfCheckoutOnline online, Environment env) '''System.out.println("You have logged in");
 «online.search.map[generateJavaStatement(env)].join('\n')»
@@ -241,10 +203,11 @@ while (i.hasNext()) {
 	
 	dispatch def String generateJavaStatement(DeliveryOptions options, Environment env) '''System.out.println("Mode of delivery is «options.getName» ");'''
 	
-	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order"); «generateJavaStatement(confirm.pay, env)»'''
+	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order"); 
+System.out.println("Checking out of web store");
+«generateJavaStatement(confirm.pay, env)»'''
 	
 	dispatch def String generateJavaStatement(Pay pay, Environment env) '''
-	System.out.println("Checking out of web store");
 	String str = String.join(",", items);
 	System.out.println("Items purchased: " + str);
 	System.out.println("Number of items purchased: " + items.size());
@@ -253,7 +216,6 @@ while (i.hasNext()) {
 	else {
 		System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
 	}
-	'''
-			
+	'''		
 }
 

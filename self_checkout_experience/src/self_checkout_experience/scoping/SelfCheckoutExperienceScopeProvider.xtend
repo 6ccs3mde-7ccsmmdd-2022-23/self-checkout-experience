@@ -48,7 +48,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 		else{
 			val containingProgram = context.getContainerOfType(SelfCheckoutInstore)
 				
-			scopeFor(containingProgram.walkstatements.filter(VariableDeclaration))
+			scopeFor(containingProgram.statement.filter(VariableDeclaration))
 		}
 	}
 	
@@ -57,35 +57,35 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_walk)
 		}
 		else if (context instanceof SelfCheckoutInstore){
-			scopeFor(context.walkstatements.filter(VariableDeclaration))
+			scopeFor(context.statement.filter(VariableDeclaration))
 		}
 	}
 
 
 
-//	scope for picking part in loop
-	def IScope scope_IntVarExpression_var_pick(IntVarExpression context, EReference ref){
-		val loopContainer = context.getContainerOfType(Repeat)
-		
-		if (loopContainer !== null){
-			loopContainer.visibleVariablesScope_pick
-		}
-		else{
-			val containingProgram = context.getContainerOfType(SelfCheckoutInstore)
-				
-			scopeFor(containingProgram.pickstatements.filter(VariableDeclaration)
-			)
-		}
-	}
-	
-	def IScope visibleVariablesScope_pick(EObject context){
-		if (context instanceof Repeat){
-			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_pick)
-		}
-		else if (context instanceof SelfCheckoutInstore){
-			scopeFor(context.pickstatements.filter(VariableDeclaration))
-		}
-	}
+////	scope for picking part in loop
+//	def IScope scope_IntVarExpression_var_pick(IntVarExpression context, EReference ref){
+//		val loopContainer = context.getContainerOfType(Repeat)
+//		
+//		if (loopContainer !== null){
+//			loopContainer.visibleVariablesScope_pick
+//		}
+//		else{
+//			val containingProgram = context.getContainerOfType(SelfCheckoutInstore)
+//				
+//			scopeFor(containingProgram.pickstatements.filter(VariableDeclaration)
+//			)
+//		}
+////	}
+//	
+//	def IScope visibleVariablesScope_pick(EObject context){
+//		if (context instanceof Repeat){
+//			scopeFor(context.statements.filter(VariableDeclaration), context.eContainer.visibleVariablesScope_pick)
+//		}
+//		else if (context instanceof SelfCheckoutInstore){
+//			scopeFor(context.pickstatements.filter(VariableDeclaration))
+//		}
+//	}
 	
 	
 	

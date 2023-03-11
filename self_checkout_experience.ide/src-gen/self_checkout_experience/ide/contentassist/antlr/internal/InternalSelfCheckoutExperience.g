@@ -898,21 +898,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SelfCheckoutInstore__Alternatives_1
+rule__SelfCheckoutInstore__StatementAlternatives_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsAssignment_1_0()); }
-		(rule__SelfCheckoutInstore__PickstatementsAssignment_1_0)
-		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsAssignment_1_0()); }
+		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementPickStatementParserRuleCall_1_0_0()); }
+		rulePickStatement
+		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementPickStatementParserRuleCall_1_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsAssignment_1_1()); }
-		(rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1)
-		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsAssignment_1_1()); }
+		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementWalkStatementParserRuleCall_1_0_1()); }
+		ruleWalkStatement
+		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementWalkStatementParserRuleCall_1_0_1()); }
 	)
 ;
 finally {
@@ -1792,9 +1792,9 @@ rule__SelfCheckoutInstore__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1()); }
-	(rule__SelfCheckoutInstore__Alternatives_1)*
-	{ after(grammarAccess.getSelfCheckoutInstoreAccess().getAlternatives_1()); }
+	{ before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1()); }
+	(rule__SelfCheckoutInstore__StatementAssignment_1)*
+	{ after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1()); }
 )
 ;
 finally {
@@ -3688,30 +3688,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SelfCheckoutInstore__PickstatementsAssignment_1_0
+rule__SelfCheckoutInstore__StatementAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsPickStatementParserRuleCall_1_0_0()); }
-		rulePickStatement
-		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getPickstatementsPickStatementParserRuleCall_1_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SelfCheckoutInstore__WalkstatementsAssignment_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0()); }
-		ruleWalkStatement
-		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getWalkstatementsWalkStatementParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0()); }
+		(rule__SelfCheckoutInstore__StatementAlternatives_1_0)
+		{ after(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0()); }
 	)
 ;
 finally {
