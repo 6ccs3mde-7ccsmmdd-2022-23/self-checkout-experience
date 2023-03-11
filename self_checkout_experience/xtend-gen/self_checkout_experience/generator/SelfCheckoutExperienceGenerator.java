@@ -86,7 +86,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     {
       final String origFileName = resource.getURI().lastSegment();
       String _firstUpper = StringExtensions.toFirstUpper(origFileName.substring(0, origFileName.indexOf(".")));
-      _xblockexpression = (_firstUpper + "Self_checkout");
+      final String x = (_firstUpper + "Self_checkout");
+      System.out.println(x);
+      _xblockexpression = x;
     }
     return _xblockexpression;
   }
@@ -205,13 +207,13 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("Self_checkout sc = new Self_checkout(scf) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("@override");
+    _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("public void run() {");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("ArrayList<String> items = new ArrayList<String>(); // Create an ArrayList object");
+    _builder.append("ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     final Function1<SelfCheckoutExperience, String> _function = (SelfCheckoutExperience it) -> {
@@ -338,7 +340,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append(" (");
     String _generateJavaExpression = this.generateJavaExpression(smnt.getSteps());
     _builder.append(_generateJavaExpression);
-    _builder.append("));");
+    _builder.append(")\");");
     return _builder.toString();
   }
   

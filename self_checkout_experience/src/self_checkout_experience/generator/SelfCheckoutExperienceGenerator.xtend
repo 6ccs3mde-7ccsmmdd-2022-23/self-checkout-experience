@@ -61,7 +61,10 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	def deriveClassName(Resource resource) {
 		val origFileName = resource.URI.lastSegment
 		
-		origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"
+		val x = origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"
+		System.out.println(x)
+		x
+		
 	}
 
 	//////////////////////////////////////////////////////////////TEXT CODE GENERATOR //////////////////////////////////////
@@ -96,9 +99,9 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 				SelfCheckoutFrame scf = new SelfCheckoutFrame();
 				
 				Self_checkout sc = new Self_checkout(scf) {
-					@override
+					@Override
 					public void run() {
-						ArrayList<String> items = new ArrayList<String>(); // Create an ArrayList object
+						ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
 						«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
 					}
 				};
@@ -134,7 +137,7 @@ for(int i=0; i <= «itemCount»; i++) {
 	
 	dispatch def String generateJavaStatement(WalkStatement smnt, Environment env) ''''''
 	
-	dispatch def String generateJavaStatement(MoveStatement smnt, Environment env) '''System.out.println("Move «smnt.command.getName.toFirstUpper» («smnt.steps.generateJavaExpression»));'''
+	dispatch def String generateJavaStatement(MoveStatement smnt, Environment env) '''System.out.println("Move «smnt.command.getName.toFirstUpper» («smnt.steps.generateJavaExpression»)");'''
 	
 	dispatch def String generateJavaStatement(TurnStatement smnt, Environment env) '''System.out.println("Turn «smnt.command»");'''
 	
