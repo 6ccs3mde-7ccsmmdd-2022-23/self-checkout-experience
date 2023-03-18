@@ -1058,9 +1058,9 @@ ruleRepeat returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0());
 				}
-				lv_statements_3_0=rulePickStatement
+				lv_statements_3_0=ruleWalkStatement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRepeatRule());
@@ -1069,7 +1069,7 @@ ruleRepeat returns [EObject current=null]
 						$current,
 						"statements",
 						lv_statements_3_0,
-						"self_checkout_experience.SelfCheckoutExperience.PickStatement");
+						"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
 					afterParserOrEnumRuleCall();
 				}
 			)

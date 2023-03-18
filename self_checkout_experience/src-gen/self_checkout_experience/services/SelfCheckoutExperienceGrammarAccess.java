@@ -609,18 +609,18 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final RuleCall cCountAdditionParserRuleCall_1_0 = (RuleCall)cCountAssignment_1.eContents().get(0);
 		private final Keyword cTimesKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStatementsPickStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
+		private final RuleCall cStatementsWalkStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
 		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Repeat:
 		//    "repeat" count = Addition "times:"
-		//      statements += (PickStatement)+
+		//      statements += WalkStatement+
 		//    "end"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//"repeat" count = Addition "times:"
-		//  statements += (PickStatement)+
+		//  statements += WalkStatement+
 		//"end"
 		public Group getGroup() { return cGroup; }
 		
@@ -636,11 +636,11 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//"times:"
 		public Keyword getTimesKeyword_2() { return cTimesKeyword_2; }
 		
-		//statements += (PickStatement)+
+		//statements += WalkStatement+
 		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 		
-		//(PickStatement)
-		public RuleCall getStatementsPickStatementParserRuleCall_3_0() { return cStatementsPickStatementParserRuleCall_3_0; }
+		//WalkStatement
+		public RuleCall getStatementsWalkStatementParserRuleCall_3_0() { return cStatementsWalkStatementParserRuleCall_3_0; }
 		
 		//"end"
 		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
@@ -1539,7 +1539,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	//Repeat:
 	//    "repeat" count = Addition "times:"
-	//      statements += (PickStatement)+
+	//      statements += WalkStatement+
 	//    "end"
 	//;
 	public RepeatElements getRepeatAccess() {

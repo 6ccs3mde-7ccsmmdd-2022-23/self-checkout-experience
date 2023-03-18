@@ -2609,7 +2609,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
 
     // $ANTLR start "ruleRepeat"
-    // InternalSelfCheckoutExperience.g:1023:1: ruleRepeat returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= rulePickStatement ) )+ otherlv_4= 'end' ) ;
+    // InternalSelfCheckoutExperience.g:1023:1: ruleRepeat returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' ) ;
     public final EObject ruleRepeat() throws RecognitionException {
         EObject current = null;
 
@@ -2625,11 +2625,11 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
         	enterRule();
 
         try {
-            // InternalSelfCheckoutExperience.g:1029:2: ( (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= rulePickStatement ) )+ otherlv_4= 'end' ) )
-            // InternalSelfCheckoutExperience.g:1030:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= rulePickStatement ) )+ otherlv_4= 'end' )
+            // InternalSelfCheckoutExperience.g:1029:2: ( (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' ) )
+            // InternalSelfCheckoutExperience.g:1030:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' )
             {
-            // InternalSelfCheckoutExperience.g:1030:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= rulePickStatement ) )+ otherlv_4= 'end' )
-            // InternalSelfCheckoutExperience.g:1031:3: otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= rulePickStatement ) )+ otherlv_4= 'end'
+            // InternalSelfCheckoutExperience.g:1030:2: (otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end' )
+            // InternalSelfCheckoutExperience.g:1031:3: otherlv_0= 'repeat' ( (lv_count_1_0= ruleAddition ) ) otherlv_2= 'times:' ( (lv_statements_3_0= ruleWalkStatement ) )+ otherlv_4= 'end'
             {
             otherlv_0=(Token)match(input,29,FOLLOW_11); 
 
@@ -2670,30 +2670,30 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
 
             			newLeafNode(otherlv_2, grammarAccess.getRepeatAccess().getTimesKeyword_2());
             		
-            // InternalSelfCheckoutExperience.g:1058:3: ( (lv_statements_3_0= rulePickStatement ) )+
+            // InternalSelfCheckoutExperience.g:1058:3: ( (lv_statements_3_0= ruleWalkStatement ) )+
             int cnt12=0;
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==22) ) {
+                if ( (LA12_0==27||LA12_0==29||LA12_0==32||(LA12_0>=50 && LA12_0<=51)) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1059:4: (lv_statements_3_0= rulePickStatement )
+            	    // InternalSelfCheckoutExperience.g:1059:4: (lv_statements_3_0= ruleWalkStatement )
             	    {
-            	    // InternalSelfCheckoutExperience.g:1059:4: (lv_statements_3_0= rulePickStatement )
-            	    // InternalSelfCheckoutExperience.g:1060:5: lv_statements_3_0= rulePickStatement
+            	    // InternalSelfCheckoutExperience.g:1059:4: (lv_statements_3_0= ruleWalkStatement )
+            	    // InternalSelfCheckoutExperience.g:1060:5: lv_statements_3_0= ruleWalkStatement
             	    {
 
-            	    					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0());
+            	    					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0());
             	    				
             	    pushFollow(FOLLOW_28);
-            	    lv_statements_3_0=rulePickStatement();
+            	    lv_statements_3_0=ruleWalkStatement();
 
             	    state._fsp--;
 
@@ -2705,7 +2705,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
             	    						current,
             	    						"statements",
             	    						lv_statements_3_0,
-            	    						"self_checkout_experience.SelfCheckoutExperience.PickStatement");
+            	    						"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -4947,8 +4947,8 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalAntlrP
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000080400000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x000C000128400000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000C0001A8400000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0030000000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000600000002L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000001800000002L});

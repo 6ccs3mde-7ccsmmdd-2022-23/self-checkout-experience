@@ -106,7 +106,7 @@ VariableDeclaration:
 
 Repeat:
 	"repeat" count = Addition "times:" 
-	  statements += (PickStatement)+
+	  statements += WalkStatement+
 	"end"
 ;
 

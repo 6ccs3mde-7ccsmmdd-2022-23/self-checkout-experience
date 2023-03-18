@@ -7786,7 +7786,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2532:3: ( rule__Repeat__StatementsAssignment_3 )
             // InternalSelfCheckoutExperience.g:2532:4: rule__Repeat__StatementsAssignment_3
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_20);
             rule__Repeat__StatementsAssignment_3();
 
             state._fsp--;
@@ -7808,7 +7808,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( (LA19_0==38) ) {
+                if ( ((LA19_0>=22 && LA19_0<=23)||LA19_0==43||LA19_0==45||LA19_0==48) ) {
                     alt19=1;
                 }
 
@@ -7817,7 +7817,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             	case 1 :
             	    // InternalSelfCheckoutExperience.g:2537:4: rule__Repeat__StatementsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_20);
             	    rule__Repeat__StatementsAssignment_3();
 
             	    state._fsp--;
@@ -8251,7 +8251,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2685:1: ( rule__TurnStatement__Group__0__Impl rule__TurnStatement__Group__1 )
             // InternalSelfCheckoutExperience.g:2686:2: rule__TurnStatement__Group__0__Impl rule__TurnStatement__Group__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__TurnStatement__Group__0__Impl();
 
             state._fsp--;
@@ -8406,7 +8406,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2739:1: ( rule__Addition__Group__0__Impl rule__Addition__Group__1 )
             // InternalSelfCheckoutExperience.g:2740:2: rule__Addition__Group__0__Impl rule__Addition__Group__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__Addition__Group__0__Impl();
 
             state._fsp--;
@@ -8537,7 +8537,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             	case 1 :
             	    // InternalSelfCheckoutExperience.g:2780:3: rule__Addition__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_33);
+            	    pushFollow(FOLLOW_32);
             	    rule__Addition__Group_1__0();
 
             	    state._fsp--;
@@ -8583,7 +8583,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2793:1: ( rule__Addition__Group_1__0__Impl rule__Addition__Group_1__1 )
             // InternalSelfCheckoutExperience.g:2794:2: rule__Addition__Group_1__0__Impl rule__Addition__Group_1__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__Addition__Group_1__0__Impl();
 
             state._fsp--;
@@ -8823,7 +8823,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2874:1: ( rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1 )
             // InternalSelfCheckoutExperience.g:2875:2: rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__Multiplication__Group__0__Impl();
 
             state._fsp--;
@@ -8954,7 +8954,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             	case 1 :
             	    // InternalSelfCheckoutExperience.g:2915:3: rule__Multiplication__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_35);
+            	    pushFollow(FOLLOW_34);
             	    rule__Multiplication__Group_1__0();
 
             	    state._fsp--;
@@ -9000,7 +9000,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:2928:1: ( rule__Multiplication__Group_1__0__Impl rule__Multiplication__Group_1__1 )
             // InternalSelfCheckoutExperience.g:2929:2: rule__Multiplication__Group_1__0__Impl rule__Multiplication__Group_1__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__Multiplication__Group_1__0__Impl();
 
             state._fsp--;
@@ -9539,7 +9539,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3117:1: ( rule__Checkout__Group__1__Impl rule__Checkout__Group__2 )
             // InternalSelfCheckoutExperience.g:3118:2: rule__Checkout__Group__1__Impl rule__Checkout__Group__2
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__Checkout__Group__1__Impl();
 
             state._fsp--;
@@ -9614,7 +9614,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3144:1: ( rule__Checkout__Group__2__Impl rule__Checkout__Group__3 )
             // InternalSelfCheckoutExperience.g:3145:2: rule__Checkout__Group__2__Impl rule__Checkout__Group__3
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_36);
             rule__Checkout__Group__2__Impl();
 
             state._fsp--;
@@ -9854,7 +9854,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3225:1: ( rule__ScanExpression__Group__0__Impl rule__ScanExpression__Group__1 )
             // InternalSelfCheckoutExperience.g:3226:2: rule__ScanExpression__Group__0__Impl rule__ScanExpression__Group__1
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__ScanExpression__Group__0__Impl();
 
             state._fsp--;
@@ -10024,7 +10024,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3279:1: ( rule__ScanExpression__Group_1__0__Impl rule__ScanExpression__Group_1__1 )
             // InternalSelfCheckoutExperience.g:3280:2: rule__ScanExpression__Group_1__0__Impl rule__ScanExpression__Group_1__1
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__ScanExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -10099,7 +10099,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3306:1: ( rule__ScanExpression__Group_1__1__Impl rule__ScanExpression__Group_1__2 )
             // InternalSelfCheckoutExperience.g:3307:2: rule__ScanExpression__Group_1__1__Impl rule__ScanExpression__Group_1__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__ScanExpression__Group_1__1__Impl();
 
             state._fsp--;
@@ -10254,7 +10254,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3360:1: ( rule__Scan__Group__0__Impl rule__Scan__Group__1 )
             // InternalSelfCheckoutExperience.g:3361:2: rule__Scan__Group__0__Impl rule__Scan__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__Scan__Group__0__Impl();
 
             state._fsp--;
@@ -10329,7 +10329,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3387:1: ( rule__Scan__Group__1__Impl rule__Scan__Group__2 )
             // InternalSelfCheckoutExperience.g:3388:2: rule__Scan__Group__1__Impl rule__Scan__Group__2
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__Scan__Group__1__Impl();
 
             state._fsp--;
@@ -10559,7 +10559,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3468:1: ( rule__CarryItems__Group__0__Impl rule__CarryItems__Group__1 )
             // InternalSelfCheckoutExperience.g:3469:2: rule__CarryItems__Group__0__Impl rule__CarryItems__Group__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_41);
             rule__CarryItems__Group__0__Impl();
 
             state._fsp--;
@@ -10644,7 +10644,7 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
             // InternalSelfCheckoutExperience.g:3495:1: ( rule__CarryItems__Group__1__Impl rule__CarryItems__Group__2 )
             // InternalSelfCheckoutExperience.g:3496:2: rule__CarryItems__Group__1__Impl rule__CarryItems__Group__2
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__CarryItems__Group__1__Impl();
 
             state._fsp--;
@@ -11903,25 +11903,25 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
 
 
     // $ANTLR start "rule__Repeat__StatementsAssignment_3"
-    // InternalSelfCheckoutExperience.g:3966:1: rule__Repeat__StatementsAssignment_3 : ( rulePickStatement ) ;
+    // InternalSelfCheckoutExperience.g:3966:1: rule__Repeat__StatementsAssignment_3 : ( ruleWalkStatement ) ;
     public final void rule__Repeat__StatementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSelfCheckoutExperience.g:3970:1: ( ( rulePickStatement ) )
-            // InternalSelfCheckoutExperience.g:3971:2: ( rulePickStatement )
+            // InternalSelfCheckoutExperience.g:3970:1: ( ( ruleWalkStatement ) )
+            // InternalSelfCheckoutExperience.g:3971:2: ( ruleWalkStatement )
             {
-            // InternalSelfCheckoutExperience.g:3971:2: ( rulePickStatement )
-            // InternalSelfCheckoutExperience.g:3972:3: rulePickStatement
+            // InternalSelfCheckoutExperience.g:3971:2: ( ruleWalkStatement )
+            // InternalSelfCheckoutExperience.g:3972:3: ruleWalkStatement
             {
-             before(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0()); 
+             before(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            rulePickStatement();
+            ruleWalkStatement();
 
             state._fsp--;
 
-             after(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0()); 
+             after(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0()); 
 
             }
 
@@ -12560,21 +12560,20 @@ public class InternalSelfCheckoutExperienceParser extends AbstractInternalConten
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0001284000C00000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000018002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000060002L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000018000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000018002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000060002L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0080000000000000L});
 
 }

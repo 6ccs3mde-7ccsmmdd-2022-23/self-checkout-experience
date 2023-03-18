@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import self_checkout_experience.selfCheckoutExperience.IntExpression;
-import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    * @ordered
    */
-  protected EList<PickStatement> statements;
+  protected EList<WalkStatement> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,11 +136,11 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    */
   @Override
-  public EList<PickStatement> getStatements()
+  public EList<WalkStatement> getStatements()
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<PickStatement>(PickStatement.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENTS);
+      statements = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENTS);
     }
     return statements;
   }
@@ -197,7 +197,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
         return;
       case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
         getStatements().clear();
-        getStatements().addAll((Collection<? extends PickStatement>)newValue);
+        getStatements().addAll((Collection<? extends WalkStatement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

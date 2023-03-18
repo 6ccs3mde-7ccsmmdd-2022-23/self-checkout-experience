@@ -3969,9 +3969,9 @@ rule__Repeat__StatementsAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0()); }
-		rulePickStatement
-		{ after(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0()); }
+		{ before(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0()); }
+		ruleWalkStatement
+		{ after(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0()); }
 	)
 ;
 finally {

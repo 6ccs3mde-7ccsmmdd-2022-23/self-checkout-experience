@@ -48,7 +48,7 @@ public interface Repeat extends WalkStatement
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.PickStatement}.
+   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.WalkStatement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Statements</em>' containment reference list.
@@ -56,6 +56,6 @@ public interface Repeat extends WalkStatement
    * @model containment="true"
    * @generated
    */
-  EList<PickStatement> getStatements();
+  EList<WalkStatement> getStatements();
 
 } // Repeat
