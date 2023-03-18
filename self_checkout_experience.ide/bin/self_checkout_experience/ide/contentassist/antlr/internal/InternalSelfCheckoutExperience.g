@@ -624,6 +624,39 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleINTEGER
+entryRuleINTEGER
+@init { 
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+:
+{ before(grammarAccess.getINTEGERRule()); }
+	 ruleINTEGER
+{ after(grammarAccess.getINTEGERRule()); } 
+	 EOF 
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule INTEGER
+ruleINTEGER 
+	@init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getINTEGERAccess().getINTTerminalRuleCall()); }
+		RULE_INT
+		{ after(grammarAccess.getINTEGERAccess().getINTTerminalRuleCall()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
+}
+
 // Entry rule entryRuleIntVarExpression
 entryRuleIntVarExpression
 :
@@ -4089,9 +4122,9 @@ rule__IntLiteral__ValAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0()); }
-		RULE_INT
-		{ after(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0()); }
+		{ before(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0()); }
+		ruleINTEGER
+		{ after(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0()); }
 	)
 ;
 finally {

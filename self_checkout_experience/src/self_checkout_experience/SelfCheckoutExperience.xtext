@@ -141,8 +141,16 @@ Primary returns IntExpression:
 ;
 
 IntLiteral:
-	val = INT
+	val = INTEGER
 ;
+
+INTEGER returns ecore::EInt hidden():
+	INT
+;
+//REAL returns ecore::EFloat hidden():
+//	INT? "." INT
+//; 
+
 
 IntVarExpression:
 	var = [VariableDeclaration]

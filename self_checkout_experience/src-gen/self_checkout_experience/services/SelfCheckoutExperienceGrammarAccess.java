@@ -844,18 +844,30 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	public class IntLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntLiteral");
 		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValINTTerminalRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		private final RuleCall cValINTEGERParserRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
 		
 		//IntLiteral:
-		//    val = INT
+		//    val = INTEGER
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//val = INT
+		//val = INTEGER
 		public Assignment getValAssignment() { return cValAssignment; }
 		
+		//INTEGER
+		public RuleCall getValINTEGERParserRuleCall_0() { return cValINTEGERParserRuleCall_0; }
+	}
+	public class INTEGERElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.INTEGER");
+		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//INTEGER returns ecore::EInt hidden():
+		//    INT
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
 		//INT
-		public RuleCall getValINTTerminalRuleCall_0() { return cValINTTerminalRuleCall_0; }
+		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
 	}
 	public class IntVarExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntVarExpression");
@@ -863,6 +875,9 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final CrossReference cVarVariableDeclarationCrossReference_0 = (CrossReference)cVarAssignment.eContents().get(0);
 		private final RuleCall cVarVariableDeclarationIDTerminalRuleCall_0_1 = (RuleCall)cVarVariableDeclarationCrossReference_0.eContents().get(1);
 		
+		////REAL returns ecore::EFloat hidden():
+		////    INT? "." INT
+		////;
 		//IntVarExpression:
 		//    var = [VariableDeclaration]
 		//;
@@ -1219,6 +1234,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final MultiplicationElements pMultiplication;
 	private final PrimaryElements pPrimary;
 	private final IntLiteralElements pIntLiteral;
+	private final INTEGERElements pINTEGER;
 	private final IntVarExpressionElements pIntVarExpression;
 	private final CheckoutElements pCheckout;
 	private final ScanExpressionElements pScanExpression;
@@ -1265,6 +1281,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pMultiplication = new MultiplicationElements();
 		this.pPrimary = new PrimaryElements();
 		this.pIntLiteral = new IntLiteralElements();
+		this.pINTEGER = new INTEGERElements();
 		this.pIntVarExpression = new IntVarExpressionElements();
 		this.pCheckout = new CheckoutElements();
 		this.pScanExpression = new ScanExpressionElements();
@@ -1630,7 +1647,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//IntLiteral:
-	//    val = INT
+	//    val = INTEGER
 	//;
 	public IntLiteralElements getIntLiteralAccess() {
 		return pIntLiteral;
@@ -1640,6 +1657,20 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getIntLiteralAccess().getRule();
 	}
 	
+	//INTEGER returns ecore::EInt hidden():
+	//    INT
+	//;
+	public INTEGERElements getINTEGERAccess() {
+		return pINTEGER;
+	}
+	
+	public ParserRule getINTEGERRule() {
+		return getINTEGERAccess().getRule();
+	}
+	
+	////REAL returns ecore::EFloat hidden():
+	////    INT? "." INT
+	////;
 	//IntVarExpression:
 	//    var = [VariableDeclaration]
 	//;

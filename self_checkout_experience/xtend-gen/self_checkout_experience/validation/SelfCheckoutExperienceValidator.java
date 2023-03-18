@@ -3,6 +3,13 @@
  */
 package self_checkout_experience.validation;
 
+import java.util.List;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
+
 /**
  * This class contains custom validation rules.
  * 
@@ -10,4 +17,59 @@ package self_checkout_experience.validation;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
+  public static final String INVALID_VARIABLE_NAME = "uk.ac.kcl.inf.szschaler.turtles.INVALID_VARIABLE_NAME";
+  
+  public static final String INVALID_ITEM_NAME = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_NAME";
+  
+  public static final String INVALID_ITEM_PLURAL = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_PLURAL";
+  
+  public static final String INVALID_ITEM_BOUGHT = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_BOUGHT";
+  
+  public static final String MAY_NOT_PAY = "uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_PAY";
+  
+  @Check
+  public void checkVariableNamesStartWithLowerCase(final VariableDeclaration decl) {
+    boolean _isLowerCase = Character.isLowerCase(decl.getName().charAt(0));
+    boolean _not = (!_isLowerCase);
+    if (_not) {
+      this.warning("Name should start with a lower-case character", decl, 
+        SelfCheckoutExperiencePackage.Literals.VARIABLE_DECLARATION__NAME, SelfCheckoutExperienceValidator.INVALID_VARIABLE_NAME);
+    }
+  }
+  
+  @Check
+  public void checkItemsStartWithUpperCase(final ItemDef item) {
+    boolean _isUpperCase = Character.isUpperCase(item.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("Item should start with a upper-case character", item, 
+        SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, SelfCheckoutExperienceValidator.INVALID_ITEM_NAME);
+    }
+  }
+  
+  @Check
+  public void checkNotSoldItemsAtSelfCheckout(final ItemDef item) {
+    List<String> notSoldItemsList = CollectionLiterals.<String>newArrayList();
+    notSoldItemsList.add("car");
+    notSoldItemsList.add("house");
+    notSoldItemsList.add("plane");
+    notSoldItemsList.add("human");
+    notSoldItemsList.add("university");
+    notSoldItemsList.add("grade");
+    notSoldItemsList.add("wall");
+    notSoldItemsList.add("homework");
+    notSoldItemsList.add("cars");
+    notSoldItemsList.add("houses");
+    notSoldItemsList.add("planes");
+    notSoldItemsList.add("humans");
+    notSoldItemsList.add("universities");
+    notSoldItemsList.add("grades");
+    notSoldItemsList.add("walls");
+    notSoldItemsList.add("homeworks");
+    boolean _contains = notSoldItemsList.contains(item.getName().toString().toLowerCase());
+    if (_contains) {
+      this.warning("Item is not purchasable at self checkout!", item, 
+        SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, SelfCheckoutExperienceValidator.INVALID_ITEM_BOUGHT);
+    }
+  }
 }

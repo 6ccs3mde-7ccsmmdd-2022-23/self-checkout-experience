@@ -1424,23 +1424,57 @@ ruleIntLiteral returns [EObject current=null]
 }:
 	(
 		(
-			lv_val_0_0=RULE_INT
 			{
-				newLeafNode(lv_val_0_0, grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0());
+				newCompositeNode(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0());
 			}
+			lv_val_0_0=ruleINTEGER
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getIntLiteralRule());
+					$current = createModelElementForParent(grammarAccess.getIntLiteralRule());
 				}
-				setWithLastConsumed(
+				set(
 					$current,
 					"val",
 					lv_val_0_0,
-					"org.eclipse.xtext.common.Terminals.INT");
+					"self_checkout_experience.SelfCheckoutExperience.INTEGER");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
 ;
+
+// Entry rule entryRuleINTEGER
+entryRuleINTEGER returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
+	{ newCompositeNode(grammarAccess.getINTEGERRule()); }
+	iv_ruleINTEGER=ruleINTEGER
+	{ $current=$iv_ruleINTEGER.current.getText(); }
+	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule INTEGER
+ruleINTEGER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+@after {
+	leaveRule();
+}:
+	this_INT_0=RULE_INT
+	{
+		$current.merge(this_INT_0);
+	}
+	{
+		newLeafNode(this_INT_0, grammarAccess.getINTEGERAccess().getINTTerminalRuleCall());
+	}
+;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Entry rule entryRuleIntVarExpression
 entryRuleIntVarExpression returns [EObject current=null]:

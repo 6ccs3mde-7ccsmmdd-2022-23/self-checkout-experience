@@ -55,7 +55,7 @@ public class SelfCheckoutExperienceSyntacticSequencer extends AbstractSyntacticS
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) val=INT
+	 *     (rule start) (ambiguity) val=INTEGER
 	 *     (rule start) (ambiguity) var=[VariableDeclaration|ID]
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}

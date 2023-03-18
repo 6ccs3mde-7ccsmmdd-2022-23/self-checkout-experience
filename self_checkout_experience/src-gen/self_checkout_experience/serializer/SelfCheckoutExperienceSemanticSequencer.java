@@ -270,7 +270,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     IntLiteral returns IntLiteral
 	 *
 	 * Constraint:
-	 *     val=INT
+	 *     val=INTEGER
 	 */
 	protected void sequence_IntLiteral(ISerializationContext context, IntLiteral semanticObject) {
 		if (errorAcceptor != null) {
@@ -278,7 +278,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.INT_LITERAL__VAL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0(), semanticObject.getVal());
 		feeder.finish();
 	}
 	
