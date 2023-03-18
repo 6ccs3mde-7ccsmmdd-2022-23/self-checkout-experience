@@ -189,11 +189,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:16:7: ( 'remove' )
-            // InternalSelfCheckoutExperience.g:16:9: 'remove'
+            // InternalSelfCheckoutExperience.g:16:7: ( '(' )
+            // InternalSelfCheckoutExperience.g:16:9: '('
             {
-            match("remove"); 
-
+            match('('); 
 
             }
 
@@ -210,11 +209,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:17:7: ( 'from' )
-            // InternalSelfCheckoutExperience.g:17:9: 'from'
+            // InternalSelfCheckoutExperience.g:17:7: ( ')' )
+            // InternalSelfCheckoutExperience.g:17:9: ')'
             {
-            match("from"); 
-
+            match(')'); 
 
             }
 
@@ -231,10 +229,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:18:7: ( 'checkout' )
-            // InternalSelfCheckoutExperience.g:18:9: 'checkout'
+            // InternalSelfCheckoutExperience.g:18:7: ( 'remove' )
+            // InternalSelfCheckoutExperience.g:18:9: 'remove'
             {
-            match("checkout"); 
+            match("remove"); 
 
 
             }
@@ -252,10 +250,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:19:7: ( 'hold' )
-            // InternalSelfCheckoutExperience.g:19:9: 'hold'
+            // InternalSelfCheckoutExperience.g:19:7: ( 'from' )
+            // InternalSelfCheckoutExperience.g:19:9: 'from'
             {
-            match("hold"); 
+            match("from"); 
 
 
             }
@@ -273,10 +271,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:20:7: ( 'pick' )
-            // InternalSelfCheckoutExperience.g:20:9: 'pick'
+            // InternalSelfCheckoutExperience.g:20:7: ( 'checkout' )
+            // InternalSelfCheckoutExperience.g:20:9: 'checkout'
             {
-            match("pick"); 
+            match("checkout"); 
 
 
             }
@@ -294,10 +292,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:21:7: ( 'up' )
-            // InternalSelfCheckoutExperience.g:21:9: 'up'
+            // InternalSelfCheckoutExperience.g:21:7: ( 'hold' )
+            // InternalSelfCheckoutExperience.g:21:9: 'hold'
             {
-            match("up"); 
+            match("hold"); 
 
 
             }
@@ -315,10 +313,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:22:7: ( 'scan' )
-            // InternalSelfCheckoutExperience.g:22:9: 'scan'
+            // InternalSelfCheckoutExperience.g:22:7: ( 'pick' )
+            // InternalSelfCheckoutExperience.g:22:9: 'pick'
             {
-            match("scan"); 
+            match("pick"); 
 
 
             }
@@ -336,10 +334,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:23:7: ( 'and' )
-            // InternalSelfCheckoutExperience.g:23:9: 'and'
+            // InternalSelfCheckoutExperience.g:23:7: ( 'up' )
+            // InternalSelfCheckoutExperience.g:23:9: 'up'
             {
-            match("and"); 
+            match("up"); 
 
 
             }
@@ -357,10 +355,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:24:7: ( 'drop' )
-            // InternalSelfCheckoutExperience.g:24:9: 'drop'
+            // InternalSelfCheckoutExperience.g:24:7: ( 'scan' )
+            // InternalSelfCheckoutExperience.g:24:9: 'scan'
             {
-            match("drop"); 
+            match("scan"); 
 
 
             }
@@ -378,10 +376,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:25:7: ( 'var' )
-            // InternalSelfCheckoutExperience.g:25:9: 'var'
+            // InternalSelfCheckoutExperience.g:25:7: ( 'and' )
+            // InternalSelfCheckoutExperience.g:25:9: 'and'
             {
-            match("var"); 
+            match("and"); 
 
 
             }
@@ -399,10 +397,11 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:26:7: ( '=' )
-            // InternalSelfCheckoutExperience.g:26:9: '='
+            // InternalSelfCheckoutExperience.g:26:7: ( 'drop' )
+            // InternalSelfCheckoutExperience.g:26:9: 'drop'
             {
-            match('='); 
+            match("drop"); 
+
 
             }
 
@@ -419,10 +418,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:27:7: ( 'repeat' )
-            // InternalSelfCheckoutExperience.g:27:9: 'repeat'
+            // InternalSelfCheckoutExperience.g:27:7: ( 'var' )
+            // InternalSelfCheckoutExperience.g:27:9: 'var'
             {
-            match("repeat"); 
+            match("var"); 
 
 
             }
@@ -440,11 +439,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:28:7: ( 'times:' )
-            // InternalSelfCheckoutExperience.g:28:9: 'times:'
+            // InternalSelfCheckoutExperience.g:28:7: ( '=' )
+            // InternalSelfCheckoutExperience.g:28:9: '='
             {
-            match("times:"); 
-
+            match('='); 
 
             }
 
@@ -461,10 +459,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:29:7: ( 'end' )
-            // InternalSelfCheckoutExperience.g:29:9: 'end'
+            // InternalSelfCheckoutExperience.g:29:7: ( 'repeat' )
+            // InternalSelfCheckoutExperience.g:29:9: 'repeat'
             {
-            match("end"); 
+            match("repeat"); 
 
 
             }
@@ -482,10 +480,11 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:30:7: ( '(' )
-            // InternalSelfCheckoutExperience.g:30:9: '('
+            // InternalSelfCheckoutExperience.g:30:7: ( 'times:' )
+            // InternalSelfCheckoutExperience.g:30:9: 'times:'
             {
-            match('('); 
+            match("times:"); 
+
 
             }
 
@@ -502,10 +501,11 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:31:7: ( ')' )
-            // InternalSelfCheckoutExperience.g:31:9: ')'
+            // InternalSelfCheckoutExperience.g:31:7: ( 'end' )
+            // InternalSelfCheckoutExperience.g:31:9: 'end'
             {
-            match(')'); 
+            match("end"); 
+
 
             }
 
@@ -1022,10 +1022,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1885:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSelfCheckoutExperience.g:1885:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSelfCheckoutExperience.g:1883:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSelfCheckoutExperience.g:1883:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalSelfCheckoutExperience.g:1885:11: ( '^' )?
+            // InternalSelfCheckoutExperience.g:1883:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1034,7 +1034,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:1885:11: '^'
+                    // InternalSelfCheckoutExperience.g:1883:11: '^'
                     {
                     match('^'); 
 
@@ -1052,7 +1052,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSelfCheckoutExperience.g:1885:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSelfCheckoutExperience.g:1883:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1101,10 +1101,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1887:10: ( ( '0' .. '9' )+ )
-            // InternalSelfCheckoutExperience.g:1887:12: ( '0' .. '9' )+
+            // InternalSelfCheckoutExperience.g:1885:10: ( ( '0' .. '9' )+ )
+            // InternalSelfCheckoutExperience.g:1885:12: ( '0' .. '9' )+
             {
-            // InternalSelfCheckoutExperience.g:1887:12: ( '0' .. '9' )+
+            // InternalSelfCheckoutExperience.g:1885:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1118,7 +1118,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1887:13: '0' .. '9'
+            	    // InternalSelfCheckoutExperience.g:1885:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1150,10 +1150,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1889:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSelfCheckoutExperience.g:1889:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSelfCheckoutExperience.g:1887:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSelfCheckoutExperience.g:1887:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalSelfCheckoutExperience.g:1889:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSelfCheckoutExperience.g:1887:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1171,10 +1171,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:1889:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalSelfCheckoutExperience.g:1887:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalSelfCheckoutExperience.g:1889:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalSelfCheckoutExperience.g:1887:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1190,7 +1190,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSelfCheckoutExperience.g:1889:21: '\\\\' .
+                    	    // InternalSelfCheckoutExperience.g:1887:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1198,7 +1198,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSelfCheckoutExperience.g:1889:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalSelfCheckoutExperience.g:1887:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1223,10 +1223,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSelfCheckoutExperience.g:1889:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalSelfCheckoutExperience.g:1887:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalSelfCheckoutExperience.g:1889:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalSelfCheckoutExperience.g:1887:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1242,7 +1242,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalSelfCheckoutExperience.g:1889:54: '\\\\' .
+                    	    // InternalSelfCheckoutExperience.g:1887:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1250,7 +1250,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSelfCheckoutExperience.g:1889:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalSelfCheckoutExperience.g:1887:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1293,12 +1293,12 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1891:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSelfCheckoutExperience.g:1891:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSelfCheckoutExperience.g:1889:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSelfCheckoutExperience.g:1889:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSelfCheckoutExperience.g:1891:24: ( options {greedy=false; } : . )*
+            // InternalSelfCheckoutExperience.g:1889:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1323,7 +1323,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1891:52: .
+            	    // InternalSelfCheckoutExperience.g:1889:52: .
             	    {
             	    matchAny(); 
 
@@ -1353,12 +1353,12 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1893:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSelfCheckoutExperience.g:1893:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSelfCheckoutExperience.g:1891:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSelfCheckoutExperience.g:1891:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalSelfCheckoutExperience.g:1893:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSelfCheckoutExperience.g:1891:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1371,7 +1371,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSelfCheckoutExperience.g:1893:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSelfCheckoutExperience.g:1891:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1391,7 +1391,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSelfCheckoutExperience.g:1893:40: ( ( '\\r' )? '\\n' )?
+            // InternalSelfCheckoutExperience.g:1891:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1400,9 +1400,9 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalSelfCheckoutExperience.g:1893:41: ( '\\r' )? '\\n'
+                    // InternalSelfCheckoutExperience.g:1891:41: ( '\\r' )? '\\n'
                     {
-                    // InternalSelfCheckoutExperience.g:1893:41: ( '\\r' )?
+                    // InternalSelfCheckoutExperience.g:1891:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1411,7 +1411,7 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalSelfCheckoutExperience.g:1893:41: '\\r'
+                            // InternalSelfCheckoutExperience.g:1891:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1443,10 +1443,10 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1895:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSelfCheckoutExperience.g:1895:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSelfCheckoutExperience.g:1893:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSelfCheckoutExperience.g:1893:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSelfCheckoutExperience.g:1895:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSelfCheckoutExperience.g:1893:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1500,8 +1500,8 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSelfCheckoutExperience.g:1897:16: ( . )
-            // InternalSelfCheckoutExperience.g:1897:18: .
+            // InternalSelfCheckoutExperience.g:1895:16: ( . )
+            // InternalSelfCheckoutExperience.g:1895:18: .
             {
             matchAny(); 
 
@@ -1892,35 +1892,35 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\14\44\1\uffff\1\44\5\uffff\1\103\5\44\1\40\2\uffff\2\40\2\uffff\3\44\1\uffff\5\44\1\126\14\44\1\147\2\44\1\uffff\1\44\10\uffff\1\153\5\44\3\uffff\4\44\1\166\1\44\1\170\1\171\1\172\1\uffff\6\44\1\u0081\10\44\1\u008a\1\uffff\1\44\1\u008c\1\u008d\1\uffff\7\44\1\u0096\2\44\1\uffff\1\u0099\3\uffff\1\44\1\u009b\1\u009c\3\44\1\uffff\5\44\1\u00a5\1\u00a6\1\44\1\uffff\1\u00a8\2\uffff\1\u00a9\2\44\1\u00ac\2\44\1\uffff\1\44\1\uffff\2\44\1\uffff\1\44\2\uffff\5\44\1\u00b8\2\44\2\uffff\1\44\2\uffff\1\u00bc\1\44\1\uffff\1\44\1\u00bf\3\44\1\uffff\1\u00c3\2\44\1\u00c6\1\u00c7\1\uffff\3\44\1\uffff\2\44\1\uffff\2\44\1\u00cf\1\uffff\1\u00d0\1\44\2\uffff\1\44\1\u00d3\5\44\2\uffff\1\u00d9\1\u00da\1\uffff\5\44\2\uffff\10\44\1\u00e8\4\44\1\uffff\12\44\1\u00f7\3\44\1\uffff\2\44\1\u00fd\1\44\1\u00ff\1\uffff\1\u0100\2\uffff";
+        "\1\uffff\5\44\2\uffff\7\44\1\uffff\1\44\3\uffff\1\103\5\44\1\40\2\uffff\2\40\2\uffff\3\44\1\uffff\5\44\1\126\4\44\2\uffff\10\44\1\147\2\44\1\uffff\1\44\6\uffff\1\153\5\44\3\uffff\4\44\1\166\1\44\1\170\1\171\1\172\1\uffff\6\44\1\u0081\10\44\1\u008a\1\uffff\1\44\1\u008c\1\u008d\1\uffff\7\44\1\u0096\2\44\1\uffff\1\u0099\3\uffff\1\44\1\u009b\1\u009c\3\44\1\uffff\5\44\1\u00a5\1\u00a6\1\44\1\uffff\1\u00a8\2\uffff\1\u00a9\2\44\1\u00ac\2\44\1\uffff\1\44\1\uffff\2\44\1\uffff\1\44\2\uffff\5\44\1\u00b8\2\44\2\uffff\1\44\2\uffff\1\u00bc\1\44\1\uffff\1\44\1\u00bf\3\44\1\uffff\1\u00c3\2\44\1\u00c6\1\u00c7\1\uffff\3\44\1\uffff\2\44\1\uffff\2\44\1\u00cf\1\uffff\1\u00d0\1\44\2\uffff\1\44\1\u00d3\5\44\2\uffff\1\u00d9\1\u00da\1\uffff\5\44\2\uffff\10\44\1\u00e8\4\44\1\uffff\12\44\1\u00f7\3\44\1\uffff\2\44\1\u00fd\1\44\1\u00ff\1\uffff\1\u0100\2\uffff";
     static final String DFA12_eofS =
         "\u0101\uffff";
     static final String DFA12_minS =
-        "\1\0\1\143\1\157\1\144\1\150\1\141\1\145\1\150\1\157\1\141\1\160\1\162\1\141\1\uffff\1\156\5\uffff\1\52\1\157\1\151\1\164\2\145\1\101\2\uffff\2\0\2\uffff\3\141\1\uffff\1\162\1\157\2\144\1\154\1\60\1\155\1\162\1\145\1\143\1\155\1\147\1\145\1\156\1\154\1\143\1\145\1\171\1\60\1\157\1\162\1\uffff\1\144\10\uffff\1\60\1\164\1\145\1\141\1\146\1\170\3\uffff\1\162\1\146\2\156\1\60\1\155\3\60\1\uffff\1\145\2\156\1\153\1\143\1\153\1\60\1\157\1\145\1\150\1\143\1\146\1\144\1\153\1\155\1\60\1\uffff\1\160\2\60\1\uffff\1\150\1\155\1\144\2\164\1\143\1\55\1\60\1\144\1\141\1\uffff\1\60\3\uffff\1\163\2\60\1\145\1\157\1\167\1\uffff\1\166\1\141\1\164\1\153\1\151\2\60\1\151\1\uffff\1\60\2\uffff\1\60\1\163\1\137\1\60\1\137\1\150\1\uffff\1\143\1\uffff\1\141\1\162\1\uffff\1\72\2\uffff\1\164\1\144\1\141\1\145\1\164\1\60\1\157\1\162\2\uffff\1\165\2\uffff\1\60\1\163\1\uffff\1\144\1\60\1\141\1\162\1\144\1\uffff\1\60\1\145\1\162\2\60\1\uffff\1\165\2\155\1\uffff\1\150\1\141\1\uffff\1\156\1\144\1\60\1\uffff\1\60\1\144\2\uffff\1\164\1\60\1\137\1\157\1\171\1\156\1\137\2\uffff\2\60\1\uffff\1\144\1\160\1\137\1\145\1\144\2\uffff\1\145\1\137\1\144\1\162\1\145\1\154\1\163\1\145\1\60\1\154\2\151\1\154\1\uffff\1\151\1\166\1\164\1\151\1\166\2\145\1\166\1\145\1\162\1\60\1\145\1\162\1\171\1\uffff\1\162\1\171\1\60\1\171\1\60\1\uffff\1\60\2\uffff";
+        "\1\0\1\143\1\157\1\144\1\150\1\141\2\uffff\1\145\1\150\1\157\1\141\1\160\1\162\1\141\1\uffff\1\156\3\uffff\1\52\1\157\1\151\1\164\2\145\1\101\2\uffff\2\0\2\uffff\3\141\1\uffff\1\162\1\157\2\144\1\154\1\60\1\155\1\162\1\145\1\143\2\uffff\1\155\1\147\1\145\1\156\1\154\1\143\1\145\1\171\1\60\1\157\1\162\1\uffff\1\144\6\uffff\1\60\1\164\1\145\1\141\1\146\1\170\3\uffff\1\162\1\146\2\156\1\60\1\155\3\60\1\uffff\1\145\2\156\1\153\1\143\1\153\1\60\1\157\1\145\1\150\1\143\1\146\1\144\1\153\1\155\1\60\1\uffff\1\160\2\60\1\uffff\1\150\1\155\1\144\2\164\1\143\1\55\1\60\1\144\1\141\1\uffff\1\60\3\uffff\1\163\2\60\1\145\1\157\1\167\1\uffff\1\166\1\141\1\164\1\153\1\151\2\60\1\151\1\uffff\1\60\2\uffff\1\60\1\163\1\137\1\60\1\137\1\150\1\uffff\1\143\1\uffff\1\141\1\162\1\uffff\1\72\2\uffff\1\164\1\144\1\141\1\145\1\164\1\60\1\157\1\162\2\uffff\1\165\2\uffff\1\60\1\163\1\uffff\1\144\1\60\1\141\1\162\1\144\1\uffff\1\60\1\145\1\162\2\60\1\uffff\1\165\2\155\1\uffff\1\150\1\141\1\uffff\1\156\1\144\1\60\1\uffff\1\60\1\144\2\uffff\1\164\1\60\1\137\1\157\1\171\1\156\1\137\2\uffff\2\60\1\uffff\1\144\1\160\1\137\1\145\1\144\2\uffff\1\145\1\137\1\144\1\162\1\145\1\154\1\163\1\145\1\60\1\154\2\151\1\154\1\uffff\1\151\1\166\1\164\1\151\1\166\2\145\1\166\1\145\1\162\1\60\1\145\1\162\1\171\1\uffff\1\162\1\171\1\60\1\171\1\60\1\uffff\1\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\164\1\162\1\156\1\165\1\141\1\151\2\157\1\162\1\160\1\162\1\141\1\uffff\1\156\5\uffff\1\57\1\157\1\151\1\164\1\157\1\145\1\172\2\uffff\2\uffff\2\uffff\1\154\2\141\1\uffff\1\162\1\157\2\144\1\154\1\172\1\155\1\162\1\145\1\163\1\160\1\147\1\145\1\156\1\154\1\143\1\145\1\171\1\172\1\157\1\162\1\uffff\1\144\10\uffff\1\172\1\164\1\145\1\141\1\146\1\170\3\uffff\1\162\1\146\2\156\1\172\1\155\3\172\1\uffff\1\145\2\156\1\153\1\143\1\153\1\172\1\157\1\145\1\150\1\143\1\146\1\144\1\153\1\155\1\172\1\uffff\1\160\2\172\1\uffff\1\150\1\155\1\144\2\164\1\143\1\163\1\172\1\144\1\141\1\uffff\1\172\3\uffff\1\163\2\172\1\145\1\157\1\167\1\uffff\1\166\1\141\1\164\1\153\1\151\2\172\1\151\1\uffff\1\172\2\uffff\1\172\1\163\1\137\1\172\1\137\1\150\1\uffff\1\143\1\uffff\1\141\1\162\1\uffff\1\72\2\uffff\1\164\1\144\1\141\1\145\1\164\1\172\1\157\1\162\2\uffff\1\165\2\uffff\1\172\1\163\1\uffff\1\144\1\172\1\141\1\162\1\144\1\uffff\1\172\1\145\1\162\2\172\1\uffff\1\165\2\155\1\uffff\1\150\1\141\1\uffff\1\156\1\144\1\172\1\uffff\1\172\1\144\2\uffff\1\164\1\172\1\137\1\157\1\171\1\156\1\137\2\uffff\2\172\1\uffff\1\144\1\160\1\137\1\145\1\144\2\uffff\1\145\1\137\1\144\1\162\1\145\1\154\1\163\1\145\1\172\1\154\2\151\1\154\1\uffff\1\151\1\166\1\164\1\151\1\166\2\145\1\166\1\145\1\162\1\172\1\145\1\162\1\171\1\uffff\1\162\1\171\1\172\1\171\1\172\1\uffff\1\172\2\uffff";
+        "\1\uffff\1\164\1\162\1\156\1\165\1\141\2\uffff\1\151\2\157\1\162\1\160\1\162\1\141\1\uffff\1\156\3\uffff\1\57\1\157\1\151\1\164\1\157\1\145\1\172\2\uffff\2\uffff\2\uffff\1\154\2\141\1\uffff\1\162\1\157\2\144\1\154\1\172\1\155\1\162\1\145\1\163\2\uffff\1\160\1\147\1\145\1\156\1\154\1\143\1\145\1\171\1\172\1\157\1\162\1\uffff\1\144\6\uffff\1\172\1\164\1\145\1\141\1\146\1\170\3\uffff\1\162\1\146\2\156\1\172\1\155\3\172\1\uffff\1\145\2\156\1\153\1\143\1\153\1\172\1\157\1\145\1\150\1\143\1\146\1\144\1\153\1\155\1\172\1\uffff\1\160\2\172\1\uffff\1\150\1\155\1\144\2\164\1\143\1\163\1\172\1\144\1\141\1\uffff\1\172\3\uffff\1\163\2\172\1\145\1\157\1\167\1\uffff\1\166\1\141\1\164\1\153\1\151\2\172\1\151\1\uffff\1\172\2\uffff\1\172\1\163\1\137\1\172\1\137\1\150\1\uffff\1\143\1\uffff\1\141\1\162\1\uffff\1\72\2\uffff\1\164\1\144\1\141\1\145\1\164\1\172\1\157\1\162\2\uffff\1\165\2\uffff\1\172\1\163\1\uffff\1\144\1\172\1\141\1\162\1\144\1\uffff\1\172\1\145\1\162\2\172\1\uffff\1\165\2\155\1\uffff\1\150\1\141\1\uffff\1\156\1\144\1\172\1\uffff\1\172\1\144\2\uffff\1\164\1\172\1\137\1\157\1\171\1\156\1\137\2\uffff\2\172\1\uffff\1\144\1\160\1\137\1\145\1\144\2\uffff\1\145\1\137\1\144\1\162\1\145\1\154\1\163\1\145\1\172\1\154\2\151\1\154\1\uffff\1\151\1\166\1\164\1\151\1\166\2\145\1\166\1\145\1\162\1\172\1\145\1\162\1\171\1\uffff\1\162\1\171\1\172\1\171\1\172\1\uffff\1\172\2\uffff";
     static final String DFA12_acceptS =
-        "\15\uffff\1\20\1\uffff\1\24\1\25\1\27\1\30\1\31\7\uffff\1\56\1\57\2\uffff\1\63\1\64\3\uffff\1\56\25\uffff\1\20\1\uffff\1\24\1\25\1\27\1\30\1\31\1\61\1\62\1\32\6\uffff\1\57\1\60\1\63\11\uffff\1\4\20\uffff\1\13\3\uffff\1\33\12\uffff\1\2\1\uffff\1\3\1\15\1\40\6\uffff\1\54\10\uffff\1\55\1\uffff\1\17\1\23\6\uffff\1\34\1\uffff\1\14\2\uffff\1\7\1\uffff\1\26\1\35\10\uffff\1\11\1\12\1\uffff\1\16\1\37\2\uffff\1\52\5\uffff\1\22\5\uffff\1\53\3\uffff\1\41\2\uffff\1\1\3\uffff\1\5\2\uffff\1\6\1\21\7\uffff\1\50\1\36\2\uffff\1\46\5\uffff\1\51\1\10\15\uffff\1\47\16\uffff\1\42\5\uffff\1\43\1\uffff\1\44\1\45";
+        "\6\uffff\1\6\1\7\7\uffff\1\22\1\uffff\1\27\1\30\1\31\7\uffff\1\56\1\57\2\uffff\1\63\1\64\3\uffff\1\56\12\uffff\1\6\1\7\13\uffff\1\22\1\uffff\1\27\1\30\1\31\1\61\1\62\1\32\6\uffff\1\57\1\60\1\63\11\uffff\1\4\20\uffff\1\15\3\uffff\1\33\12\uffff\1\2\1\uffff\1\3\1\17\1\40\6\uffff\1\54\10\uffff\1\55\1\uffff\1\21\1\25\6\uffff\1\34\1\uffff\1\16\2\uffff\1\11\1\uffff\1\26\1\35\10\uffff\1\13\1\14\1\uffff\1\20\1\37\2\uffff\1\52\5\uffff\1\24\5\uffff\1\53\3\uffff\1\41\2\uffff\1\1\3\uffff\1\5\2\uffff\1\10\1\23\7\uffff\1\50\1\36\2\uffff\1\46\5\uffff\1\51\1\12\15\uffff\1\47\16\uffff\1\42\5\uffff\1\43\1\uffff\1\44\1\45";
     static final String DFA12_specialS =
-        "\1\0\34\uffff\1\1\1\2\u00e2\uffff}>";
+        "\1\1\34\uffff\1\0\1\2\u00e2\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\40\2\37\2\40\1\37\22\40\1\37\1\40\1\35\4\40\1\36\1\17\1\20\1\23\1\21\1\40\1\22\1\40\1\24\12\34\3\40\1\15\3\40\32\33\3\40\1\32\1\33\1\40\1\3\1\5\1\7\1\13\1\16\1\2\1\25\1\10\1\27\2\33\1\30\1\33\1\31\1\33\1\11\1\33\1\6\1\1\1\4\1\12\1\14\1\26\3\33\uff85\40",
+            "\11\40\2\37\2\40\1\37\22\40\1\37\1\40\1\35\4\40\1\36\1\6\1\7\1\23\1\21\1\40\1\22\1\40\1\24\12\34\3\40\1\17\3\40\32\33\3\40\1\32\1\33\1\40\1\3\1\5\1\11\1\15\1\20\1\2\1\25\1\12\1\27\2\33\1\30\1\33\1\31\1\33\1\13\1\33\1\10\1\1\1\4\1\14\1\16\1\26\3\33\uff85\40",
             "\1\42\1\uffff\1\41\16\uffff\1\43",
             "\1\45\2\uffff\1\46",
             "\1\47\7\uffff\1\51\1\uffff\1\50",
             "\1\55\1\53\5\uffff\1\52\5\uffff\1\54",
             "\1\56",
-            "\1\57\3\uffff\1\60",
-            "\1\61\6\uffff\1\62",
-            "\1\63",
-            "\1\66\7\uffff\1\64\10\uffff\1\65",
-            "\1\67",
-            "\1\70",
-            "\1\71",
             "",
+            "",
+            "\1\61\3\uffff\1\62",
+            "\1\63\6\uffff\1\64",
+            "\1\65",
+            "\1\70\7\uffff\1\66\10\uffff\1\67",
+            "\1\71",
+            "\1\72",
             "\1\73",
             "",
-            "",
+            "\1\75",
             "",
             "",
             "",
@@ -1951,6 +1951,8 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
             "\1\130",
             "\1\131",
             "\1\134\3\uffff\1\135\12\uffff\1\133\1\132",
+            "",
+            "",
             "\1\136\2\uffff\1\137",
             "\1\140",
             "\1\141",
@@ -1964,8 +1966,6 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
             "\1\151",
             "",
             "\1\152",
-            "",
-            "",
             "",
             "",
             "",
@@ -2200,6 +2200,16 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA12_29 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_29>='\u0000' && LA12_29<='\uFFFF')) ) {s = 75;}
+
+                        else s = 32;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -2213,27 +2223,27 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
 
                         else if ( (LA12_0=='b') ) {s = 5;}
 
-                        else if ( (LA12_0=='r') ) {s = 6;}
+                        else if ( (LA12_0=='(') ) {s = 6;}
 
-                        else if ( (LA12_0=='c') ) {s = 7;}
+                        else if ( (LA12_0==')') ) {s = 7;}
 
-                        else if ( (LA12_0=='h') ) {s = 8;}
+                        else if ( (LA12_0=='r') ) {s = 8;}
 
-                        else if ( (LA12_0=='p') ) {s = 9;}
+                        else if ( (LA12_0=='c') ) {s = 9;}
 
-                        else if ( (LA12_0=='u') ) {s = 10;}
+                        else if ( (LA12_0=='h') ) {s = 10;}
 
-                        else if ( (LA12_0=='d') ) {s = 11;}
+                        else if ( (LA12_0=='p') ) {s = 11;}
 
-                        else if ( (LA12_0=='v') ) {s = 12;}
+                        else if ( (LA12_0=='u') ) {s = 12;}
 
-                        else if ( (LA12_0=='=') ) {s = 13;}
+                        else if ( (LA12_0=='d') ) {s = 13;}
 
-                        else if ( (LA12_0=='e') ) {s = 14;}
+                        else if ( (LA12_0=='v') ) {s = 14;}
 
-                        else if ( (LA12_0=='(') ) {s = 15;}
+                        else if ( (LA12_0=='=') ) {s = 15;}
 
-                        else if ( (LA12_0==')') ) {s = 16;}
+                        else if ( (LA12_0=='e') ) {s = 16;}
 
                         else if ( (LA12_0=='+') ) {s = 17;}
 
@@ -2266,16 +2276,6 @@ public class InternalSelfCheckoutExperienceLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 31;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||LA12_0==','||LA12_0=='.'||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 32;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_29 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_29>='\u0000' && LA12_29<='\uFFFF')) ) {s = 75;}
-
-                        else s = 32;
 
                         if ( s>=0 ) return s;
                         break;

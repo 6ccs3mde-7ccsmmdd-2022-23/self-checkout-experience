@@ -30,7 +30,9 @@ Search:
 ;
 
 AddToOnlineBasket:
-	"add" "to" "basket" itemCount = Addition item=[ItemDef]
+//	"add" "to" "basket" itemCount = Addition item=[ItemDef]
+	"add" "to" "basket" "(" itemCount = Addition ")" item=[ItemDef]
+
 	removeFromOnlineBasket=RemoveFromOnlineBasket?
 ;
 
@@ -74,7 +76,7 @@ enum SelfScanner:
 ;	
 	
 PickStatement:
-	"pick" "up" itemCount = Addition itemPicked = ItemDef
+	"pick" "up" "(" itemCount = Addition ")"  itemPicked = ItemDef
 	holdingItem = (ScanAndAddToBasket | Drop)
 ;
 
@@ -104,7 +106,7 @@ VariableDeclaration:
 
 Repeat:
 	"repeat" count = Addition "times:" 
-	  statements += (WalkStatement | PickStatement)+
+	  statements += (PickStatement)+
 	"end"
 ;
 

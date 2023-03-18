@@ -302,12 +302,16 @@ ruleAddToOnlineBasket returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getAddToOnlineBasketAccess().getBasketKeyword_2());
 		}
+		otherlv_3='('
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAddToOnlineBasketAccess().getLeftParenthesisKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddToOnlineBasketAccess().getItemCountAdditionParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAddToOnlineBasketAccess().getItemCountAdditionParserRuleCall_4_0());
 				}
-				lv_itemCount_3_0=ruleAddition
+				lv_itemCount_4_0=ruleAddition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddToOnlineBasketRule());
@@ -315,12 +319,16 @@ ruleAddToOnlineBasket returns [EObject current=null]
 					set(
 						$current,
 						"itemCount",
-						lv_itemCount_3_0,
+						lv_itemCount_4_0,
 						"self_checkout_experience.SelfCheckoutExperience.Addition");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getAddToOnlineBasketAccess().getRightParenthesisKeyword_5());
+		}
 		(
 			(
 				{
@@ -328,18 +336,18 @@ ruleAddToOnlineBasket returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAddToOnlineBasketRule());
 					}
 				}
-				otherlv_4=RULE_ID
+				otherlv_6=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getAddToOnlineBasketAccess().getItemItemDefCrossReference_4_0());
+					newLeafNode(otherlv_6, grammarAccess.getAddToOnlineBasketAccess().getItemItemDefCrossReference_6_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddToOnlineBasketAccess().getRemoveFromOnlineBasketRemoveFromOnlineBasketParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getAddToOnlineBasketAccess().getRemoveFromOnlineBasketRemoveFromOnlineBasketParserRuleCall_7_0());
 				}
-				lv_removeFromOnlineBasket_5_0=ruleRemoveFromOnlineBasket
+				lv_removeFromOnlineBasket_7_0=ruleRemoveFromOnlineBasket
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddToOnlineBasketRule());
@@ -347,7 +355,7 @@ ruleAddToOnlineBasket returns [EObject current=null]
 					set(
 						$current,
 						"removeFromOnlineBasket",
-						lv_removeFromOnlineBasket_5_0,
+						lv_removeFromOnlineBasket_7_0,
 						"self_checkout_experience.SelfCheckoutExperience.RemoveFromOnlineBasket");
 					afterParserOrEnumRuleCall();
 				}
@@ -678,12 +686,16 @@ rulePickStatement returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getPickStatementAccess().getUpKeyword_1());
 		}
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPickStatementAccess().getLeftParenthesisKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getPickStatementAccess().getItemCountAdditionParserRuleCall_3_0());
 				}
-				lv_itemCount_2_0=ruleAddition
+				lv_itemCount_3_0=ruleAddition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -691,18 +703,22 @@ rulePickStatement returns [EObject current=null]
 					set(
 						$current,
 						"itemCount",
-						lv_itemCount_2_0,
+						lv_itemCount_3_0,
 						"self_checkout_experience.SelfCheckoutExperience.Addition");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getPickStatementAccess().getRightParenthesisKeyword_4());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPickStatementAccess().getItemPickedItemDefParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPickStatementAccess().getItemPickedItemDefParserRuleCall_5_0());
 				}
-				lv_itemPicked_3_0=ruleItemDef
+				lv_itemPicked_5_0=ruleItemDef
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -710,7 +726,7 @@ rulePickStatement returns [EObject current=null]
 					set(
 						$current,
 						"itemPicked",
-						lv_itemPicked_3_0,
+						lv_itemPicked_5_0,
 						"self_checkout_experience.SelfCheckoutExperience.ItemDef");
 					afterParserOrEnumRuleCall();
 				}
@@ -720,9 +736,9 @@ rulePickStatement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemScanAndAddToBasketParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemScanAndAddToBasketParserRuleCall_6_0_0());
 					}
-					lv_holdingItem_4_1=ruleScanAndAddToBasket
+					lv_holdingItem_6_1=ruleScanAndAddToBasket
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -730,15 +746,15 @@ rulePickStatement returns [EObject current=null]
 						set(
 							$current,
 							"holdingItem",
-							lv_holdingItem_4_1,
+							lv_holdingItem_6_1,
 							"self_checkout_experience.SelfCheckoutExperience.ScanAndAddToBasket");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_4_0_1());
+						newCompositeNode(grammarAccess.getPickStatementAccess().getHoldingItemDropParserRuleCall_6_0_1());
 					}
-					lv_holdingItem_4_2=ruleDrop
+					lv_holdingItem_6_2=ruleDrop
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPickStatementRule());
@@ -746,7 +762,7 @@ rulePickStatement returns [EObject current=null]
 						set(
 							$current,
 							"holdingItem",
-							lv_holdingItem_4_2,
+							lv_holdingItem_6_2,
 							"self_checkout_experience.SelfCheckoutExperience.Drop");
 						afterParserOrEnumRuleCall();
 					}
@@ -1041,39 +1057,21 @@ ruleRepeat returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0_0());
+				{
+					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0());
+				}
+				lv_statements_3_0=rulePickStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRepeatRule());
 					}
-					lv_statements_3_1=ruleWalkStatement
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRepeatRule());
-						}
-						add(
-							$current,
-							"statements",
-							lv_statements_3_1,
-							"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getRepeatAccess().getStatementsPickStatementParserRuleCall_3_0_1());
-					}
-					lv_statements_3_2=rulePickStatement
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRepeatRule());
-						}
-						add(
-							$current,
-							"statements",
-							lv_statements_3_2,
-							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					add(
+						$current,
+						"statements",
+						lv_statements_3_0,
+						"self_checkout_experience.SelfCheckoutExperience.PickStatement");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)+
 		otherlv_4='end'

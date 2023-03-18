@@ -33,9 +33,8 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SelfCheckoutExperienceGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getSelfCheckoutExperienceAccess().getAlternatives(), "rule__SelfCheckoutExperience__Alternatives");
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0(), "rule__SelfCheckoutInstore__StatementAlternatives_1_0");
-			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_4_0(), "rule__PickStatement__HoldingItemAlternatives_4_0");
+			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_6_0(), "rule__PickStatement__HoldingItemAlternatives_6_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
-			builder.put(grammarAccess.getRepeatAccess().getStatementsAlternatives_3_0(), "rule__Repeat__StatementsAlternatives_3_0");
 			builder.put(grammarAccess.getAdditionAccess().getOperatorAlternatives_1_1_0(), "rule__Addition__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getMultiplicationAccess().getOperatorAlternatives_1_1_0(), "rule__Multiplication__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
@@ -74,9 +73,9 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSelfCheckoutOnlineAccess().getOnlineCheckoutAssignment_2(), "rule__SelfCheckoutOnline__OnlineCheckoutAssignment_2");
 			builder.put(grammarAccess.getSearchAccess().getItemSearchAssignment_2(), "rule__Search__ItemSearchAssignment_2");
 			builder.put(grammarAccess.getSearchAccess().getAddToOnlineBasketAssignment_3(), "rule__Search__AddToOnlineBasketAssignment_3");
-			builder.put(grammarAccess.getAddToOnlineBasketAccess().getItemCountAssignment_3(), "rule__AddToOnlineBasket__ItemCountAssignment_3");
-			builder.put(grammarAccess.getAddToOnlineBasketAccess().getItemAssignment_4(), "rule__AddToOnlineBasket__ItemAssignment_4");
-			builder.put(grammarAccess.getAddToOnlineBasketAccess().getRemoveFromOnlineBasketAssignment_5(), "rule__AddToOnlineBasket__RemoveFromOnlineBasketAssignment_5");
+			builder.put(grammarAccess.getAddToOnlineBasketAccess().getItemCountAssignment_4(), "rule__AddToOnlineBasket__ItemCountAssignment_4");
+			builder.put(grammarAccess.getAddToOnlineBasketAccess().getItemAssignment_6(), "rule__AddToOnlineBasket__ItemAssignment_6");
+			builder.put(grammarAccess.getAddToOnlineBasketAccess().getRemoveFromOnlineBasketAssignment_7(), "rule__AddToOnlineBasket__RemoveFromOnlineBasketAssignment_7");
 			builder.put(grammarAccess.getRemoveFromOnlineBasketAccess().getRemoveItemAssignment_3(), "rule__RemoveFromOnlineBasket__RemoveItemAssignment_3");
 			builder.put(grammarAccess.getOnlineCheckoutAccess().getDeliveryOptionsAssignment_1(), "rule__OnlineCheckout__DeliveryOptionsAssignment_1");
 			builder.put(grammarAccess.getOnlineCheckoutAccess().getConfirmAssignment_2(), "rule__OnlineCheckout__ConfirmAssignment_2");
@@ -86,9 +85,9 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAssignment_1(), "rule__SelfCheckoutInstore__StatementAssignment_1");
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getCheckoutAssignment_2(), "rule__SelfCheckoutInstore__CheckoutAssignment_2");
 			builder.put(grammarAccess.getHoldSelfScannerAccess().getScanMachineAssignment_1(), "rule__HoldSelfScanner__ScanMachineAssignment_1");
-			builder.put(grammarAccess.getPickStatementAccess().getItemCountAssignment_2(), "rule__PickStatement__ItemCountAssignment_2");
-			builder.put(grammarAccess.getPickStatementAccess().getItemPickedAssignment_3(), "rule__PickStatement__ItemPickedAssignment_3");
-			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_4(), "rule__PickStatement__HoldingItemAssignment_4");
+			builder.put(grammarAccess.getPickStatementAccess().getItemCountAssignment_3(), "rule__PickStatement__ItemCountAssignment_3");
+			builder.put(grammarAccess.getPickStatementAccess().getItemPickedAssignment_5(), "rule__PickStatement__ItemPickedAssignment_5");
+			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAssignment_6(), "rule__PickStatement__HoldingItemAssignment_6");
 			builder.put(grammarAccess.getItemDefAccess().getNameAssignment(), "rule__ItemDef__NameAssignment");
 			builder.put(grammarAccess.getScanAndAddToBasketAccess().getItemInBasketAssignment_5(), "rule__ScanAndAddToBasket__ItemInBasketAssignment_5");
 			builder.put(grammarAccess.getDropAccess().getItemDroppedAssignment_1(), "rule__Drop__ItemDroppedAssignment_1");
