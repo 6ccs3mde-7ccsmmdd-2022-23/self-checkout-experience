@@ -3,14 +3,23 @@
  */
 package self_checkout_experience.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.epsilon.emc.emf.EmfModel;
+import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -42,6 +51,7 @@ import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket;
 import self_checkout_experience.selfCheckoutExperience.ScanExpression;
 import self_checkout_experience.selfCheckoutExperience.Search;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
@@ -56,6 +66,39 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
+  private static class ConstantFolder extends ETLRunner {
+    private final Resource inModel;
+    
+    public ConstantFolder(final Resource inModel) {
+      this.inModel = inModel;
+    }
+    
+    @Override
+    protected String getSource() {
+      return "incentives.etl";
+    }
+    
+    @Override
+    protected List<IModel> getModels() throws Exception {
+      List<IModel> _xblockexpression = null;
+      {
+        final EmfModel srcModel = this.createInMemoryEmfModel(this.inModel, "Source", SelfCheckoutExperiencePackage.eNS_URI);
+        final ResourceSet resourceSet = this.inModel.getResourceSet();
+        final URI tgtResourceURI = URI.createFileURI("synthetic.selfcheckoutexp");
+        Resource tgtResource = resourceSet.getResource(tgtResourceURI, false);
+        boolean _notEquals = (!Objects.equal(tgtResource, null));
+        if (_notEquals) {
+          tgtResource.getContents().clear();
+        } else {
+          tgtResource = resourceSet.createResource(tgtResourceURI);
+        }
+        final EmfModel tgtModel = this.createInMemoryEmfModel(tgtResource, "Target", SelfCheckoutExperiencePackage.eNS_URI);
+        _xblockexpression = Collections.<IModel>unmodifiableList(CollectionLiterals.<IModel>newArrayList(srcModel, tgtModel));
+      }
+      return _xblockexpression;
+    }
+  }
+  
   private static class Environment {
     private int counter = 0;
     
@@ -74,11 +117,17 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
-    final Self_checkout model = ((Self_checkout) _head);
-    fsa.generateFile("self_checkout_experience.txt", this.generate(model));
-    final String className = this.deriveClassName(resource);
-    fsa.generateFile((className + ".java"), this.doGenerateClass(model, className));
+    try {
+      EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+      final Self_checkout model = ((Self_checkout) _head);
+      fsa.generateFile("self_checkout_experience.txt", this.generate(model));
+      final String className = this.deriveClassName(resource);
+      EObject _execute = new SelfCheckoutExperienceGenerator.ConstantFolder(resource).execute();
+      final Self_checkout interimModel = ((Self_checkout) _execute);
+      fsa.generateFile((className + ".java"), this.doGenerateClass(interimModel, className));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public String deriveClassName(final Resource resource) {

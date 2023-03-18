@@ -41,6 +41,8 @@ import self_checkout_experience.selfCheckoutExperience.LoadShoppingSite
 import self_checkout_experience.selfCheckoutExperience.OnlineCheckout
 import self_checkout_experience.selfCheckoutExperience.DeliveryOptions
 import self_checkout_experience.selfCheckoutExperience.Confirm
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage
+import org.eclipse.emf.common.util.URI
 
 /**
  * Generates code from your model files on save.
@@ -49,12 +51,48 @@ import self_checkout_experience.selfCheckoutExperience.Confirm
  */
 class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 
+	private static class ConstantFolder extends ETLRunner {
+
+		val Resource inModel
+
+		new(Resource inModel) {
+			this.inModel = inModel
+		}
+
+		override protected getSource() {
+			"incentives.etl"
+		}
+
+		override protected getModels() throws Exception {
+			val srcModel = inModel.createInMemoryEmfModel("Source", SelfCheckoutExperiencePackage.eNS_URI)
+			val resourceSet = inModel.resourceSet
+			val tgtResourceURI = URI.createFileURI("synthetic.selfcheckoutexp")
+			var tgtResource = resourceSet.getResource(tgtResourceURI, false)
+			if (tgtResource != null) {
+				tgtResource.contents.clear			
+			} else {
+				tgtResource = resourceSet.createResource(tgtResourceURI)
+			}
+			val tgtModel = tgtResource.createInMemoryEmfModel("Target", SelfCheckoutExperiencePackage.eNS_URI)
+			
+			#[
+				srcModel,
+				tgtModel
+			]
+		}
+
+	}
+
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head as Self_checkout
-		
 		fsa.generateFile("self_checkout_experience.txt", model.generate)
+		
 		val className = resource.deriveClassName
-		fsa.generateFile(className + ".java", model.doGenerateClass(className))
+		
+		val interimModel = new ConstantFolder(resource).execute as Self_checkout 
+		
+		fsa.generateFile(className + ".java", interimModel.doGenerateClass(className))
 	}
 		
 	
