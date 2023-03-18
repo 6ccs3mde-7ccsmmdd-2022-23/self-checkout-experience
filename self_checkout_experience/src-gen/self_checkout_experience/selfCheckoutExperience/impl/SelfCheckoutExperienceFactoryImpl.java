@@ -81,6 +81,7 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
       case SelfCheckoutExperiencePackage.SCAN_AND_ADD_TO_BASKET: return createScanAndAddToBasket();
       case SelfCheckoutExperiencePackage.DROP: return createDrop();
       case SelfCheckoutExperiencePackage.WALK_STATEMENT: return createWalkStatement();
+      case SelfCheckoutExperiencePackage.HOLD_BASKET_STATEMENT: return createHoldBasketStatement();
       case SelfCheckoutExperiencePackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case SelfCheckoutExperiencePackage.REPEAT: return createRepeat();
       case SelfCheckoutExperiencePackage.MOVE_STATEMENT: return createMoveStatement();
@@ -118,6 +119,8 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
         return createConfirmEnumFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.SELF_SCANNER:
         return createSelfScannerFromString(eDataType, initialValue);
+      case SelfCheckoutExperiencePackage.GRIP_STATE:
+        return createGripStateFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
         return createMoveCommandFromString(eDataType, initialValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
@@ -149,6 +152,8 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
         return convertConfirmEnumToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.SELF_SCANNER:
         return convertSelfScannerToString(eDataType, instanceValue);
+      case SelfCheckoutExperiencePackage.GRIP_STATE:
+        return convertGripStateToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.MOVE_COMMAND:
         return convertMoveCommandToString(eDataType, instanceValue);
       case SelfCheckoutExperiencePackage.TURN_COMMAND:
@@ -340,6 +345,18 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
   {
     WalkStatementImpl walkStatement = new WalkStatementImpl();
     return walkStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HoldBasketStatement createHoldBasketStatement()
+  {
+    HoldBasketStatementImpl holdBasketStatement = new HoldBasketStatementImpl();
+    return holdBasketStatement;
   }
 
   /**
@@ -594,6 +611,28 @@ public class SelfCheckoutExperienceFactoryImpl extends EFactoryImpl implements S
    * @generated
    */
   public String convertSelfScannerToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GripState createGripStateFromString(EDataType eDataType, String initialValue)
+  {
+    GripState result = GripState.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertGripStateToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

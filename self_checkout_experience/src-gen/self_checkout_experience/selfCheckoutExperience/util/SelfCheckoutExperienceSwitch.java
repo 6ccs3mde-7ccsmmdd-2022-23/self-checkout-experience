@@ -180,6 +180,14 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.HOLD_BASKET_STATEMENT:
+      {
+        HoldBasketStatement holdBasketStatement = (HoldBasketStatement)theEObject;
+        T result = caseHoldBasketStatement(holdBasketStatement);
+        if (result == null) result = caseWalkStatement(holdBasketStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.VARIABLE_DECLARATION:
       {
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
@@ -528,6 +536,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWalkStatement(WalkStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hold Basket Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hold Basket Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHoldBasketStatement(HoldBasketStatement object)
   {
     return null;
   }

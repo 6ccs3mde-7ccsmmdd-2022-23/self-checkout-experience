@@ -20,6 +20,10 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//SelfScanner">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//SelfScanner/selfscanner"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//GripState">
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/up"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/down"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//MoveCommand">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//MoveCommand/forward"/>
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//MoveCommand/backward"/>
@@ -87,6 +91,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Drop/itemDropped"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//WalkStatement"/>
+    <genClasses ecoreClass="SelfCheckoutExperience.ecore#//HoldBasketStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//HoldBasketStatement/state"/>
+    </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//VariableDeclaration/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//VariableDeclaration/value"/>

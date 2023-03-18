@@ -6,15 +6,16 @@ import org.eclipse.xtext.validation.Check
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage
 import self_checkout_experience.selfCheckoutExperience.ItemDef
-import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket
 import java.util.List
 import self_checkout_experience.selfCheckoutExperience.Self_checkout
 import org.eclipse.emf.common.util.EList
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience
-import self_checkout_experience.selfCheckoutExperience.Pay
-import self_checkout_experience.selfCheckoutExperience.Confirm
 import self_checkout_experience.selfCheckoutExperience.Repeat
-import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
+import self_checkout_experience.selfCheckoutExperience.WalkStatement
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
+import self_checkout_experience.selfCheckoutExperience.GripState
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 /**
  * This class contains custom validation rules. 
@@ -23,23 +24,12 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline
  */
 class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					SelfCheckoutExperiencePackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
-	
+
 	public static val INVALID_VARIABLE_NAME = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_VARIABLE_NAME'
 	public static val INVALID_ITEM_NAME = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_NAME'
 	public static val INVALID_ITEM_PLURAL = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_PLURAL'	
 	public static val INVALID_ITEM_BOUGHT = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_BOUGHT'
-	public static val MAY_NOT_PAY = 'uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_PAY'
+	public static val MAY_NOT_BASKET_UP = 'uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_BASKET_UP'
 	
 	
 
@@ -90,30 +80,38 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 				SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, INVALID_ITEM_BOUGHT)	
 		}
 	}
-	
+
+//////////////////////////////ASK STEFFEN///////////////////////////////////
+//	// Validate that basket is up before they pay
 //	@Check(NORMAL)
-//	def checkAlwaysPay(SelfCheckoutOnline program) {
+//	def checkAlwaysHaveBasketUp(SelfCheckoutInstore program) {
 //		
-//		if (!(program.onlineCheckout.checkAlwaysPay(true))) {
-//			warning('This program may not end with the pen down', program,
-//				SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE, MAY_NOT_PAY)
-////				TURTLE_PROGRAM__STATEMENTS, MAY_NOT_PEN_DOWN)
+//		val walking = program.statement.filter(WalkStatement).toList
+//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
+//
+////		if (!(walking.checkAlwaysHavePenDown(true))) {
+//		if (!(eList.checkAlwaysHaveBasketUp(true))) {
+//			warning('This program may not end with the basket down', program,
+//				SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT_INSTORE__STATEMENT, MAY_NOT_BASKET_UP )
 //		}
 //	}
 //
-//	def boolean checkAlwaysPay(EList<SelfCheckoutExperience> selfCheckoutExp, boolean startState) {
-//		selfCheckoutExp.fold(startState, [ previousState, stmt |
-//			stmt.predictPenOutcome(previousState)
+//	def boolean checkAlwaysHaveBasketUp(EList<WalkStatement> statements, boolean startState) {
+//		statements.fold(startState, [ previousState, stmt |
+//			stmt.predictBasketGripOutcome(previousState)
 //		])
 //	}
+//	
+//	dispatch def predictBasketGripOutcome(WalkStatement stmt, boolean previousState) { previousState }
 //
-//	dispatch def predictPenOutcome(SelfCheckoutExperience stmt, boolean previousState) { previousState }
+//	dispatch def predictBasketGripOutcome(HoldBasketStatement stmt, boolean previousState) { 
+//				println(stmt.state)
+//				stmt.state === GripState.UP
+//	}
 //
-//	dispatch def predictPenOutcome(Confirm stmt, boolean previousState) { stmt.pay === Pay.PAY }
-//
-//	dispatch def predictPenOutcome(Repeat stmt, boolean previousState) {
-//		stmt.statements.checkAlwaysPay(previousState)
-//	}	
-	
-	
+//	dispatch def predictBasketGripOutcome(Repeat stmt, boolean previousState) {
+//		stmt.statements.checkAlwaysHaveBasketUp(previousState)
+//	}
+//	
+//	
 }

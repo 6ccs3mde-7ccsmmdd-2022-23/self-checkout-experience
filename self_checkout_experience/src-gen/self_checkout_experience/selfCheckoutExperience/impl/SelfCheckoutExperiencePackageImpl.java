@@ -21,6 +21,8 @@ import self_checkout_experience.selfCheckoutExperience.Confirm;
 import self_checkout_experience.selfCheckoutExperience.ConfirmEnum;
 import self_checkout_experience.selfCheckoutExperience.DeliveryOptions;
 import self_checkout_experience.selfCheckoutExperience.Drop;
+import self_checkout_experience.selfCheckoutExperience.GripState;
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
 import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
@@ -169,6 +171,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass holdBasketStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass variableDeclarationEClass = null;
 
   /**
@@ -289,6 +298,13 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   private EEnum selfScannerEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum gripStateEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -816,6 +832,28 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
+  public EClass getHoldBasketStatement()
+  {
+    return holdBasketStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getHoldBasketStatement_State()
+  {
+    return (EAttribute)holdBasketStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getVariableDeclaration()
   {
     return variableDeclarationEClass;
@@ -1245,6 +1283,17 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
+  public EEnum getGripState()
+  {
+    return gripStateEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EEnum getMoveCommand()
   {
     return moveCommandEEnum;
@@ -1368,6 +1417,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     walkStatementEClass = createEClass(WALK_STATEMENT);
 
+    holdBasketStatementEClass = createEClass(HOLD_BASKET_STATEMENT);
+    createEAttribute(holdBasketStatementEClass, HOLD_BASKET_STATEMENT__STATE);
+
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VALUE);
@@ -1422,6 +1474,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     deliveryOptionsEEnum = createEEnum(DELIVERY_OPTIONS);
     confirmEnumEEnum = createEEnum(CONFIRM_ENUM);
     selfScannerEEnum = createEEnum(SELF_SCANNER);
+    gripStateEEnum = createEEnum(GRIP_STATE);
     moveCommandEEnum = createEEnum(MOVE_COMMAND);
     turnCommandEEnum = createEEnum(TURN_COMMAND);
     carryEEnum = createEEnum(CARRY);
@@ -1459,6 +1512,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     // Add supertypes to classes
     selfCheckoutOnlineEClass.getESuperTypes().add(this.getSelfCheckoutExperience());
     selfCheckoutInstoreEClass.getESuperTypes().add(this.getSelfCheckoutExperience());
+    holdBasketStatementEClass.getESuperTypes().add(this.getWalkStatement());
     variableDeclarationEClass.getESuperTypes().add(this.getWalkStatement());
     repeatEClass.getESuperTypes().add(this.getWalkStatement());
     moveStatementEClass.getESuperTypes().add(this.getWalkStatement());
@@ -1525,6 +1579,9 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEClass(walkStatementEClass, WalkStatement.class, "WalkStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(holdBasketStatementEClass, HoldBasketStatement.class, "HoldBasketStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHoldBasketStatement_State(), this.getGripState(), "state", null, 0, 1, HoldBasketStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariableDeclaration_Value(), ecorePackage.getEInt(), "value", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1588,6 +1645,10 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEEnum(selfScannerEEnum, SelfScanner.class, "SelfScanner");
     addEEnumLiteral(selfScannerEEnum, SelfScanner.SELFSCANNER);
+
+    initEEnum(gripStateEEnum, GripState.class, "GripState");
+    addEEnumLiteral(gripStateEEnum, GripState.UP);
+    addEEnumLiteral(gripStateEEnum, GripState.DOWN);
 
     initEEnum(moveCommandEEnum, MoveCommand.class, "MoveCommand");
     addEEnumLiteral(moveCommandEEnum, MoveCommand.FORWARD);

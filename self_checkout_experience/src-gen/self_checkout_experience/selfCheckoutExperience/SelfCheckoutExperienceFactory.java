@@ -159,6 +159,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   WalkStatement createWalkStatement();
 
   /**
+   * Returns a new object of class '<em>Hold Basket Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hold Basket Statement</em>'.
+   * @generated
+   */
+  HoldBasketStatement createHoldBasketStatement();
+
+  /**
    * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

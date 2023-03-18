@@ -96,9 +96,19 @@ WalkStatement:
 	MoveStatement |
 	TurnStatement |
 	Repeat |
+//	VariableDeclaration
+//;
+	HoldBasketStatement |
 	VariableDeclaration
 ;
 
+HoldBasketStatement:
+	'basket' state=GripState
+;
+
+enum GripState:
+	up | down
+;
 
 VariableDeclaration:
 	"var" name=ID "=" value=INT

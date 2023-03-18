@@ -21,6 +21,7 @@ import self_checkout_experience.selfCheckoutExperience.Checkout;
 import self_checkout_experience.selfCheckoutExperience.ComplexScan;
 import self_checkout_experience.selfCheckoutExperience.Confirm;
 import self_checkout_experience.selfCheckoutExperience.Drop;
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
 import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
@@ -76,6 +77,9 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case SelfCheckoutExperiencePackage.DROP:
 				sequence_Drop(context, (Drop) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.HOLD_BASKET_STATEMENT:
+				sequence_HoldBasketStatement(context, (HoldBasketStatement) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.HOLD_SELF_SCANNER:
 				sequence_HoldSelfScanner(context, (HoldSelfScanner) semanticObject); 
@@ -238,6 +242,25 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDropAccess().getItemDroppedItemDefIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     WalkStatement returns HoldBasketStatement
+	 *     HoldBasketStatement returns HoldBasketStatement
+	 *
+	 * Constraint:
+	 *     state=GripState
+	 */
+	protected void sequence_HoldBasketStatement(ISerializationContext context, HoldBasketStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_1_0(), semanticObject.getState());
 		feeder.finish();
 	}
 	

@@ -151,6 +151,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createWalkStatementAdapter();
       }
       @Override
+      public Adapter caseHoldBasketStatement(HoldBasketStatement object)
+      {
+        return createHoldBasketStatementAdapter();
+      }
+      @Override
       public Adapter caseVariableDeclaration(VariableDeclaration object)
       {
         return createVariableDeclarationAdapter();
@@ -463,6 +468,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWalkStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.HoldBasketStatement <em>Hold Basket Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
+   * @generated
+   */
+  public Adapter createHoldBasketStatementAdapter()
   {
     return null;
   }

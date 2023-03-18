@@ -39,6 +39,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicationAccess().getOperatorAlternatives_1_1_0(), "rule__Multiplication__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getDeliveryOptionsAccess().getAlternatives(), "rule__DeliveryOptions__Alternatives");
+			builder.put(grammarAccess.getGripStateAccess().getAlternatives(), "rule__GripState__Alternatives");
 			builder.put(grammarAccess.getMoveCommandAccess().getAlternatives(), "rule__MoveCommand__Alternatives");
 			builder.put(grammarAccess.getTurnCommandAccess().getAlternatives(), "rule__TurnCommand__Alternatives");
 			builder.put(grammarAccess.getCarryAccess().getAlternatives(), "rule__Carry__Alternatives");
@@ -53,6 +54,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPickStatementAccess().getGroup(), "rule__PickStatement__Group__0");
 			builder.put(grammarAccess.getScanAndAddToBasketAccess().getGroup(), "rule__ScanAndAddToBasket__Group__0");
 			builder.put(grammarAccess.getDropAccess().getGroup(), "rule__Drop__Group__0");
+			builder.put(grammarAccess.getHoldBasketStatementAccess().getGroup(), "rule__HoldBasketStatement__Group__0");
 			builder.put(grammarAccess.getVariableDeclarationAccess().getGroup(), "rule__VariableDeclaration__Group__0");
 			builder.put(grammarAccess.getRepeatAccess().getGroup(), "rule__Repeat__Group__0");
 			builder.put(grammarAccess.getMoveStatementAccess().getGroup(), "rule__MoveStatement__Group__0");
@@ -91,6 +93,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getItemDefAccess().getNameAssignment(), "rule__ItemDef__NameAssignment");
 			builder.put(grammarAccess.getScanAndAddToBasketAccess().getItemInBasketAssignment_5(), "rule__ScanAndAddToBasket__ItemInBasketAssignment_5");
 			builder.put(grammarAccess.getDropAccess().getItemDroppedAssignment_1(), "rule__Drop__ItemDroppedAssignment_1");
+			builder.put(grammarAccess.getHoldBasketStatementAccess().getStateAssignment_1(), "rule__HoldBasketStatement__StateAssignment_1");
 			builder.put(grammarAccess.getVariableDeclarationAccess().getNameAssignment_1(), "rule__VariableDeclaration__NameAssignment_1");
 			builder.put(grammarAccess.getVariableDeclarationAccess().getValueAssignment_3(), "rule__VariableDeclaration__ValueAssignment_3");
 			builder.put(grammarAccess.getRepeatAccess().getCountAssignment_1(), "rule__Repeat__CountAssignment_1");

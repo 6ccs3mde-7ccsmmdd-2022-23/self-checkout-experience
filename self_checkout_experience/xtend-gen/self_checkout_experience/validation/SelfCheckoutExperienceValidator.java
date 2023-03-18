@@ -25,7 +25,7 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   
   public static final String INVALID_ITEM_BOUGHT = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_BOUGHT";
   
-  public static final String MAY_NOT_PAY = "uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_PAY";
+  public static final String MAY_NOT_BASKET_UP = "uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_BASKET_UP";
   
   @Check
   public void checkVariableNamesStartWithLowerCase(final VariableDeclaration decl) {

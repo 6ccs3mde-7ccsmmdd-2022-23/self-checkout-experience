@@ -82,6 +82,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemDropped" eType="#//ItemDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WalkStatement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HoldBasketStatement" eSuperTypes="#//WalkStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//GripState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GripState">
+    <eLiterals name="up" literal="up"/>
+    <eLiterals name="down" value="1" literal="down"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

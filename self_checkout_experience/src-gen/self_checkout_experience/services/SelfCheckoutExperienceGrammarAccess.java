@@ -537,20 +537,27 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final RuleCall cMoveStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTurnStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cRepeatParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cVariableDeclarationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cHoldBasketStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cVariableDeclarationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//WalkStatement:
 		//    MoveStatement |
 		//    TurnStatement |
 		//    Repeat |
+		////    VariableDeclaration
+		////;
+		//    HoldBasketStatement |
 		//    VariableDeclaration
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MoveStatement |
-		//TurnStatement |
-		//Repeat |
-		//VariableDeclaration
+		//    MoveStatement |
+		//    TurnStatement |
+		//    Repeat |
+		////    VariableDeclaration
+		////;
+		//    HoldBasketStatement |
+		//    VariableDeclaration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MoveStatement
@@ -562,8 +569,37 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//Repeat
 		public RuleCall getRepeatParserRuleCall_2() { return cRepeatParserRuleCall_2; }
 		
+		////    VariableDeclaration
+		////;
+		//    HoldBasketStatement
+		public RuleCall getHoldBasketStatementParserRuleCall_3() { return cHoldBasketStatementParserRuleCall_3; }
+		
 		//VariableDeclaration
-		public RuleCall getVariableDeclarationParserRuleCall_3() { return cVariableDeclarationParserRuleCall_3; }
+		public RuleCall getVariableDeclarationParserRuleCall_4() { return cVariableDeclarationParserRuleCall_4; }
+	}
+	public class HoldBasketStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.HoldBasketStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBasketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStateGripStateEnumRuleCall_1_0 = (RuleCall)cStateAssignment_1.eContents().get(0);
+		
+		//HoldBasketStatement:
+		//    'basket' state=GripState
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'basket' state=GripState
+		public Group getGroup() { return cGroup; }
+		
+		//'basket'
+		public Keyword getBasketKeyword_0() { return cBasketKeyword_0; }
+		
+		//state=GripState
+		public Assignment getStateAssignment_1() { return cStateAssignment_1; }
+		
+		//GripState
+		public RuleCall getStateGripStateEnumRuleCall_1_0() { return cStateGripStateEnumRuleCall_1_0; }
 	}
 	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.VariableDeclaration");
@@ -1111,6 +1147,32 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		
 		public Keyword getSelfscannerSelfscannerKeyword_0() { return cSelfscannerSelfscannerKeyword_0; }
 	}
+	public class GripStateElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.GripState");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cUpEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cUpUpKeyword_0_0 = (Keyword)cUpEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDownEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDownDownKeyword_1_0 = (Keyword)cDownEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum GripState:
+		//    up | down
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//up | down
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//up
+		public EnumLiteralDeclaration getUpEnumLiteralDeclaration_0() { return cUpEnumLiteralDeclaration_0; }
+		
+		public Keyword getUpUpKeyword_0_0() { return cUpUpKeyword_0_0; }
+		
+		//down
+		public EnumLiteralDeclaration getDownEnumLiteralDeclaration_1() { return cDownEnumLiteralDeclaration_1; }
+		
+		public Keyword getDownDownKeyword_1_0() { return cDownDownKeyword_1_0; }
+	}
 	public class MoveCommandElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.MoveCommand");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1224,6 +1286,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final ScanAndAddToBasketElements pScanAndAddToBasket;
 	private final DropElements pDrop;
 	private final WalkStatementElements pWalkStatement;
+	private final HoldBasketStatementElements pHoldBasketStatement;
+	private final GripStateElements eGripState;
 	private final VariableDeclarationElements pVariableDeclaration;
 	private final RepeatElements pRepeat;
 	private final MoveStatementElements pMoveStatement;
@@ -1271,6 +1335,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pScanAndAddToBasket = new ScanAndAddToBasketElements();
 		this.pDrop = new DropElements();
 		this.pWalkStatement = new WalkStatementElements();
+		this.pHoldBasketStatement = new HoldBasketStatementElements();
+		this.eGripState = new GripStateElements();
 		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pRepeat = new RepeatElements();
 		this.pMoveStatement = new MoveStatementElements();
@@ -1533,6 +1599,9 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//    MoveStatement |
 	//    TurnStatement |
 	//    Repeat |
+	////    VariableDeclaration
+	////;
+	//    HoldBasketStatement |
 	//    VariableDeclaration
 	//;
 	public WalkStatementElements getWalkStatementAccess() {
@@ -1541,6 +1610,28 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	public ParserRule getWalkStatementRule() {
 		return getWalkStatementAccess().getRule();
+	}
+	
+	//HoldBasketStatement:
+	//    'basket' state=GripState
+	//;
+	public HoldBasketStatementElements getHoldBasketStatementAccess() {
+		return pHoldBasketStatement;
+	}
+	
+	public ParserRule getHoldBasketStatementRule() {
+		return getHoldBasketStatementAccess().getRule();
+	}
+	
+	//enum GripState:
+	//    up | down
+	//;
+	public GripStateElements getGripStateAccess() {
+		return eGripState;
+	}
+	
+	public EnumRule getGripStateRule() {
+		return getGripStateAccess().getRule();
 	}
 	
 	//VariableDeclaration:

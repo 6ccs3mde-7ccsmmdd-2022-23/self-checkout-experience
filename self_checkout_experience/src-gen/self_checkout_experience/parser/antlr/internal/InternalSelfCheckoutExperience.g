@@ -939,13 +939,64 @@ ruleWalkStatement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getWalkStatementAccess().getVariableDeclarationParserRuleCall_3());
+			newCompositeNode(grammarAccess.getWalkStatementAccess().getHoldBasketStatementParserRuleCall_3());
 		}
-		this_VariableDeclaration_3=ruleVariableDeclaration
+		this_HoldBasketStatement_3=ruleHoldBasketStatement
 		{
-			$current = $this_VariableDeclaration_3.current;
+			$current = $this_HoldBasketStatement_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getWalkStatementAccess().getVariableDeclarationParserRuleCall_4());
+		}
+		this_VariableDeclaration_4=ruleVariableDeclaration
+		{
+			$current = $this_VariableDeclaration_4.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleHoldBasketStatement
+entryRuleHoldBasketStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHoldBasketStatementRule()); }
+	iv_ruleHoldBasketStatement=ruleHoldBasketStatement
+	{ $current=$iv_ruleHoldBasketStatement.current; }
+	EOF;
+
+// Rule HoldBasketStatement
+ruleHoldBasketStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='basket'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_1_0());
+				}
+				lv_state_1_0=ruleGripState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getHoldBasketStatementRule());
+					}
+					set(
+						$current,
+						"state",
+						lv_state_1_0,
+						"self_checkout_experience.SelfCheckoutExperience.GripState");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -1813,6 +1864,33 @@ ruleSelfScanner returns [Enumerator current=null]
 			$current = grammarAccess.getSelfScannerAccess().getSelfscannerEnumLiteralDeclaration().getEnumLiteral().getInstance();
 			newLeafNode(enumLiteral_0, grammarAccess.getSelfScannerAccess().getSelfscannerEnumLiteralDeclaration());
 		}
+	)
+;
+
+// Rule GripState
+ruleGripState returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='up'
+			{
+				$current = grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='down'
+			{
+				$current = grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 
