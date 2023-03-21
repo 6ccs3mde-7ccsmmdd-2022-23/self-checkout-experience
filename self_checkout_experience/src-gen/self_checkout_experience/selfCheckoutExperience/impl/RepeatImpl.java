@@ -32,7 +32,7 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl#getCount <em>Count</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.RepeatImpl#getStatement <em>Statement</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +50,14 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
   protected IntExpression count;
 
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
+   * @see #getStatement()
    * @generated
    * @ordered
    */
-  protected EList<WalkStatement> statements;
+  protected EList<WalkStatement> statement;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,13 +136,13 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    */
   @Override
-  public EList<WalkStatement> getStatements()
+  public EList<WalkStatement> getStatement()
   {
-    if (statements == null)
+    if (statement == null)
     {
-      statements = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENTS);
+      statement = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENT);
     }
-    return statements;
+    return statement;
   }
 
   /**
@@ -157,8 +157,8 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
     {
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
         return basicSetCount(null, msgs);
-      case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+      case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
+        return ((InternalEList<?>)getStatement()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -175,8 +175,8 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
     {
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
         return getCount();
-      case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
-        return getStatements();
+      case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
+        return getStatement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -195,9 +195,9 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
         setCount((IntExpression)newValue);
         return;
-      case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends WalkStatement>)newValue);
+      case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
+        getStatement().clear();
+        getStatement().addAll((Collection<? extends WalkStatement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -216,8 +216,8 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
         setCount((IntExpression)null);
         return;
-      case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
-        getStatements().clear();
+      case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
+        getStatement().clear();
         return;
     }
     super.eUnset(featureID);
@@ -235,8 +235,8 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
     {
       case SelfCheckoutExperiencePackage.REPEAT__COUNT:
         return count != null;
-      case SelfCheckoutExperiencePackage.REPEAT__STATEMENTS:
-        return statements != null && !statements.isEmpty();
+      case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
+        return statement != null && !statement.isEmpty();
     }
     return super.eIsSet(featureID);
   }

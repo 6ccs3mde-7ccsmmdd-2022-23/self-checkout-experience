@@ -644,13 +644,13 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   int REPEAT__COUNT = WALK_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPEAT__STATEMENTS = WALK_STATEMENT_FEATURE_COUNT + 1;
+  int REPEAT__STATEMENT = WALK_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Repeat</em>' class.
@@ -1622,15 +1622,15 @@ public interface SelfCheckoutExperiencePackage extends EPackage
   EReference getRepeat_Count();
 
   /**
-   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Repeat#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference list '{@link self_checkout_experience.selfCheckoutExperience.Repeat#getStatement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see self_checkout_experience.selfCheckoutExperience.Repeat#getStatements()
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat#getStatement()
    * @see #getRepeat()
    * @generated
    */
-  EReference getRepeat_Statements();
+  EReference getRepeat_Statement();
 
   /**
    * Returns the meta object for class '{@link self_checkout_experience.selfCheckoutExperience.MoveStatement <em>Move Statement</em>}'.
@@ -2457,12 +2457,12 @@ public interface SelfCheckoutExperiencePackage extends EPackage
     EReference REPEAT__COUNT = eINSTANCE.getRepeat_Count();
 
     /**
-     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REPEAT__STATEMENTS = eINSTANCE.getRepeat_Statements();
+    EReference REPEAT__STATEMENT = eINSTANCE.getRepeat_Statement();
 
     /**
      * The meta object literal for the '{@link self_checkout_experience.selfCheckoutExperience.impl.MoveStatementImpl <em>Move Statement</em>}' class.

@@ -442,7 +442,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Repeat returns Repeat
 	 *
 	 * Constraint:
-	 *     (count=Addition statements+=WalkStatement+)
+	 *     (count=Addition statement+=WalkStatement+)
 	 */
 	protected void sequence_Repeat(ISerializationContext context, Repeat semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

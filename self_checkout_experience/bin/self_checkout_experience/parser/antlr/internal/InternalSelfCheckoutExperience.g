@@ -1109,17 +1109,17 @@ ruleRepeat returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRepeatAccess().getStatementsWalkStatementParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRepeatAccess().getStatementWalkStatementParserRuleCall_3_0());
 				}
-				lv_statements_3_0=ruleWalkStatement
+				lv_statement_3_0=ruleWalkStatement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRepeatRule());
 					}
 					add(
 						$current,
-						"statements",
-						lv_statements_3_0,
+						"statement",
+						lv_statement_3_0,
 						"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
 					afterParserOrEnumRuleCall();
 				}

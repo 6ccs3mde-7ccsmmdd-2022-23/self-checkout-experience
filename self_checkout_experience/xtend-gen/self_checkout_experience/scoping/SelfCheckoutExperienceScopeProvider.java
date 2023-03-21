@@ -48,7 +48,7 @@ public class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScop
   }
   
   protected IScope _internalVisibleVariablesScope(final Repeat ls) {
-    return Scopes.scopeFor(Iterables.<VariableDeclaration>filter(ls.getStatements(), VariableDeclaration.class), this.internalVisibleVariablesScope(ls.eContainer()));
+    return Scopes.scopeFor(Iterables.<VariableDeclaration>filter(ls.getStatement(), VariableDeclaration.class), this.internalVisibleVariablesScope(ls.eContainer()));
   }
   
   public IScope visibleVariablesScope(final EObject ls) {

@@ -81,37 +81,37 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		}
 	}
 
-//////////////////////////////ASK STEFFEN///////////////////////////////////
-//	// Validate that basket is up before they pay
-//	@Check(NORMAL)
-//	def checkAlwaysHaveBasketUp(SelfCheckoutInstore program) {
-//		
-//		val walking = program.statement.filter(WalkStatement).toList
-//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
-//
-////		if (!(walking.checkAlwaysHavePenDown(true))) {
-//		if (!(eList.checkAlwaysHaveBasketUp(true))) {
-//			warning('This program may not end with the basket down', program,
-//				SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT_INSTORE__STATEMENT, MAY_NOT_BASKET_UP )
-//		}
-//	}
-//
-//	def boolean checkAlwaysHaveBasketUp(EList<WalkStatement> statements, boolean startState) {
-//		statements.fold(startState, [ previousState, stmt |
-//			stmt.predictBasketGripOutcome(previousState)
-//		])
-//	}
-//	
-//	dispatch def predictBasketGripOutcome(WalkStatement stmt, boolean previousState) { previousState }
-//
-//	dispatch def predictBasketGripOutcome(HoldBasketStatement stmt, boolean previousState) { 
-//				println(stmt.state)
-//				stmt.state === GripState.UP
-//	}
-//
-//	dispatch def predictBasketGripOutcome(Repeat stmt, boolean previousState) {
-//		stmt.statements.checkAlwaysHaveBasketUp(previousState)
-//	}
-//	
-//	
+////////////////////////////ASK STEFFEN///////////////////////////////////
+	// Validate that basket is up before they pay
+	@Check(NORMAL)
+	def checkAlwaysHaveBasketUp(SelfCheckoutInstore program) {
+		
+		val walking = program.statement.filter(WalkStatement).toList
+		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
+
+//		if (!(walking.checkAlwaysHavePenDown(true))) {
+		if (!(eList.checkAlwaysHaveBasketUp(true))) {
+			warning('This program may not end with the basket down', program,
+				SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT_INSTORE__STATEMENT, MAY_NOT_BASKET_UP )
+		}
+	}
+
+	def boolean checkAlwaysHaveBasketUp(EList<WalkStatement> statements, boolean startState) {
+		statements.fold(startState, [ previousState, stmt |
+			stmt.predictBasketGripOutcome(previousState)
+		])
+	}
+	
+	dispatch def predictBasketGripOutcome(WalkStatement stmt, boolean previousState) { previousState }
+
+	dispatch def predictBasketGripOutcome(HoldBasketStatement stmt, boolean previousState) { 
+				println(stmt.state)
+				stmt.state === GripState.UP
+	}
+
+	dispatch def predictBasketGripOutcome(Repeat stmt, boolean previousState) {
+		stmt.statement.checkAlwaysHaveBasketUp(previousState)
+	}
+	
+	
 }

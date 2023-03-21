@@ -100,7 +100,7 @@
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//Repeat">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Repeat/count"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Repeat/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfCheckoutExperience.ecore#//Repeat/statement"/>
     </genClasses>
     <genClasses ecoreClass="SelfCheckoutExperience.ecore#//MoveStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfCheckoutExperience.ecore#//MoveStatement/command"/>

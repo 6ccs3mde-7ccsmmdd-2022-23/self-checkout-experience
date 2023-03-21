@@ -909,7 +909,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
    * @generated
    */
   @Override
-  public EReference getRepeat_Statements()
+  public EReference getRepeat_Statement()
   {
     return (EReference)repeatEClass.getEStructuralFeatures().get(1);
   }
@@ -1426,7 +1426,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     repeatEClass = createEClass(REPEAT);
     createEReference(repeatEClass, REPEAT__COUNT);
-    createEReference(repeatEClass, REPEAT__STATEMENTS);
+    createEReference(repeatEClass, REPEAT__STATEMENT);
 
     moveStatementEClass = createEClass(MOVE_STATEMENT);
     createEAttribute(moveStatementEClass, MOVE_STATEMENT__COMMAND);
@@ -1588,7 +1588,7 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
 
     initEClass(repeatEClass, Repeat.class, "Repeat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRepeat_Count(), this.getIntExpression(), null, "count", null, 0, 1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRepeat_Statements(), this.getWalkStatement(), null, "statements", null, 0, -1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRepeat_Statement(), this.getWalkStatement(), null, "statement", null, 0, -1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moveStatementEClass, MoveStatement.class, "MoveStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMoveStatement_Command(), this.getMoveCommand(), "command", null, 0, 1, MoveStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

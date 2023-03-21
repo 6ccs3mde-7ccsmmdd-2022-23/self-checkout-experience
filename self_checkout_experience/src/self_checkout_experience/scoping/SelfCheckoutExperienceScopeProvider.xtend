@@ -53,7 +53,7 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 	}
 	
 	dispatch def IScope internalVisibleVariablesScope(Repeat ls) {
-		scopeFor(ls.statements.filter(VariableDeclaration), ls.eContainer.internalVisibleVariablesScope)
+		scopeFor(ls.statement.filter(VariableDeclaration), ls.eContainer.internalVisibleVariablesScope)
 	}
 
 }

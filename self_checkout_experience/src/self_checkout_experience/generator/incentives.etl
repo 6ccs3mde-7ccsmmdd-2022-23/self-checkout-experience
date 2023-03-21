@@ -152,7 +152,7 @@ rule CopyRepeatStatement2RepeatStatement 
     t.count ::= s.count;
 	s.statement.println();
     t.statement ::= s.statement;
-    t.statements ::= s.statements;
+//    t.statements ::= s.statements;
 
 }  
 

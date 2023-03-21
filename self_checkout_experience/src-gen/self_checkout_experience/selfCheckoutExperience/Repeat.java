@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.Repeat#getCount <em>Count</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Repeat#getStatements <em>Statements</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Repeat#getStatement <em>Statement</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getRepeat()
@@ -47,15 +47,15 @@ public interface Repeat extends WalkStatement
   void setCount(IntExpression value);
 
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference list.
    * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.WalkStatement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getRepeat_Statements()
+   * @return the value of the '<em>Statement</em>' containment reference list.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getRepeat_Statement()
    * @model containment="true"
    * @generated
    */
-  EList<WalkStatement> getStatements();
+  EList<WalkStatement> getStatement();
 
 } // Repeat

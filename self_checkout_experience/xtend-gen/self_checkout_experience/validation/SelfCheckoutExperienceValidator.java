@@ -3,12 +3,26 @@
  */
 package self_checkout_experience.validation;
 
+import com.google.common.collect.Iterables;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import self_checkout_experience.selfCheckoutExperience.GripState;
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
+import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * This class contains custom validation rules.
@@ -70,6 +84,57 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
     if (_contains) {
       this.warning("Item is not purchasable at self checkout!", item, 
         SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, SelfCheckoutExperienceValidator.INVALID_ITEM_BOUGHT);
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void checkAlwaysHaveBasketUp(final SelfCheckoutInstore program) {
+    final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(program.getStatement(), WalkStatement.class));
+    Collection<WalkStatement> _copyAll = EcoreUtil.<WalkStatement>copyAll(walking);
+    final EList<WalkStatement> eList = ((EList<WalkStatement>) _copyAll);
+    boolean _checkAlwaysHaveBasketUp = this.checkAlwaysHaveBasketUp(eList, true);
+    boolean _not = (!_checkAlwaysHaveBasketUp);
+    if (_not) {
+      this.warning("This program may not end with the basket down", program, 
+        SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT_INSTORE__STATEMENT, SelfCheckoutExperienceValidator.MAY_NOT_BASKET_UP);
+    }
+  }
+  
+  public boolean checkAlwaysHaveBasketUp(final EList<WalkStatement> statements, final boolean startState) {
+    final Function2<Boolean, WalkStatement, Boolean> _function = (Boolean previousState, WalkStatement stmt) -> {
+      return Boolean.valueOf(this.predictBasketGripOutcome(stmt, (previousState).booleanValue()));
+    };
+    return (boolean) IterableExtensions.<WalkStatement, Boolean>fold(statements, Boolean.valueOf(startState), _function);
+  }
+  
+  protected boolean _predictBasketGripOutcome(final WalkStatement stmt, final boolean previousState) {
+    return previousState;
+  }
+  
+  protected boolean _predictBasketGripOutcome(final HoldBasketStatement stmt, final boolean previousState) {
+    boolean _xblockexpression = false;
+    {
+      InputOutput.<GripState>println(stmt.getState());
+      GripState _state = stmt.getState();
+      _xblockexpression = (_state == GripState.UP);
+    }
+    return _xblockexpression;
+  }
+  
+  protected boolean _predictBasketGripOutcome(final Repeat stmt, final boolean previousState) {
+    return this.checkAlwaysHaveBasketUp(stmt.getStatement(), previousState);
+  }
+  
+  public boolean predictBasketGripOutcome(final WalkStatement stmt, final boolean previousState) {
+    if (stmt instanceof HoldBasketStatement) {
+      return _predictBasketGripOutcome((HoldBasketStatement)stmt, previousState);
+    } else if (stmt instanceof Repeat) {
+      return _predictBasketGripOutcome((Repeat)stmt, previousState);
+    } else if (stmt != null) {
+      return _predictBasketGripOutcome(stmt, previousState);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(stmt, previousState).toString());
     }
   }
 }

@@ -96,7 +96,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//IntExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
         eType="#//WalkStatement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveStatement" eSuperTypes="#//WalkStatement">

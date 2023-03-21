@@ -420,7 +420,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
       final Function1<WalkStatement, String> _function = (WalkStatement it) -> {
         return this.generateJavaStatement(it, env);
       };
-      String _join = IterableExtensions.join(ListExtensions.<WalkStatement, String>map(stmt.getStatements(), _function), "\n");
+      String _join = IterableExtensions.join(ListExtensions.<WalkStatement, String>map(stmt.getStatement(), _function), "\n");
       _builder.append(_join, "\t");
       _builder.newLineIfNotEmpty();
       _builder.append("}");

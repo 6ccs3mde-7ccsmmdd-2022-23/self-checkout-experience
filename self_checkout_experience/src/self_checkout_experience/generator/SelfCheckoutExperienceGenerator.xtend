@@ -179,7 +179,7 @@ for(int i=0; i <= «itemCount»; i++) {
 		val freshVarName = env.getFreshVarName
 		val result = '''
 			for (int «freshVarName» = 0; «freshVarName» < «stmt.count.generateJavaExpression»; «freshVarName»++) {
-				«stmt.statements.map[generateJavaStatement(env)].join('\n')»
+				«stmt.statement.map[generateJavaStatement(env)].join('\n')»
 			}
 		'''
 		env.exit
