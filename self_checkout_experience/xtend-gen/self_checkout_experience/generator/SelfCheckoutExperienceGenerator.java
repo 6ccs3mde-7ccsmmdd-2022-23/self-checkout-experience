@@ -394,10 +394,10 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
       _builder.append("++) {");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
-      final Function1<WalkStatement, String> _function = (WalkStatement it) -> {
+      final Function1<EObject, String> _function = (EObject it) -> {
         return this.generateJavaStatement(it, env);
       };
-      String _join = IterableExtensions.join(ListExtensions.<WalkStatement, String>map(stmt.getStatement(), _function), "\n");
+      String _join = IterableExtensions.join(ListExtensions.<EObject, String>map(stmt.getStatement(), _function), "\n");
       _builder.append(_join, "\t");
       _builder.newLineIfNotEmpty();
       _builder.append("}");
@@ -715,7 +715,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("System.out.println(\"//    You bought over 20 items!    //\");");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("System.out.println(\"//     You\'ve earnt a voucher      //\");");
+    _builder.append("System.out.println(\"//     You\'ve earned a voucher     //\");");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("System.out.println(\"//    to spend on self-checkout    //\");");

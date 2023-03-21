@@ -5,6 +5,8 @@ package self_checkout_experience.selfCheckoutExperience;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Repeat</b></em>'.
@@ -48,7 +50,7 @@ public interface Repeat extends WalkStatement
 
   /**
    * Returns the value of the '<em><b>Statement</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.WalkStatement}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Statement</em>' containment reference list.
@@ -56,6 +58,6 @@ public interface Repeat extends WalkStatement
    * @model containment="true"
    * @generated
    */
-  EList<WalkStatement> getStatement();
+  EList<EObject> getStatement();
 
 } // Repeat

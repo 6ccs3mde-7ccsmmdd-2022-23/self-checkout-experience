@@ -16,6 +16,9 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement
 import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
 import self_checkout_experience.selfCheckoutExperience.GripState
 import org.eclipse.emf.ecore.util.EcoreUtil
+import self_checkout_experience.selfCheckoutExperience.PickStatement
+
+//////REQUIRED: ONE SYNTAX, STATIC SEMATNICS, DYNAMIC SEMANTICS 
 
 /**
  * This class contains custom validation rules. 
@@ -25,12 +28,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
 	
 
-	public static val INVALID_VARIABLE_NAME = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_VARIABLE_NAME'
-	public static val INVALID_ITEM_NAME = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_NAME'
-	public static val INVALID_ITEM_PLURAL = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_PLURAL'	
-	public static val INVALID_ITEM_BOUGHT = 'uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_BOUGHT'
-	public static val MAY_NOT_BASKET_UP = 'uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_BASKET_UP'
-	
+	public static val INVALID_VARIABLE_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME'
+	public static val INVALID_ITEM_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME'
+	public static val INVALID_ITEM_PLURAL = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_PLURAL'	
+	public static val INVALID_ITEM_BOUGHT = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT'
+	public static val MAY_NOT_BASKET_UP = 'self_checkout_experience.selfCheckoutExperience.MAY_NOT_BASKET_UP'
+	public static val INVALID_HOLDING_ITEM_ACTION = 'self_checkout_experience.selfCheckoutExperience.INVALID_HOLDING_ITEM_ACTION'
 	
 
 	// Validation check for variable declarations to start with lower case
@@ -51,10 +54,8 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		}
 	}
 	
-
-	
 	// Validation check for items sold in shop
-	@Check
+	@Check(NORMAL)
 	def checkNotSoldItemsAtSelfCheckout(ItemDef item) {
 		var List<String> notSoldItemsList = newArrayList
 		
@@ -66,20 +67,32 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		notSoldItemsList.add("grade")
 		notSoldItemsList.add("wall")
 		notSoldItemsList.add("homework")		
-		notSoldItemsList.add("cars")
-		notSoldItemsList.add("houses")
-		notSoldItemsList.add("planes")
-		notSoldItemsList.add("humans")
-		notSoldItemsList.add("universities")	
-		notSoldItemsList.add("grades")
-		notSoldItemsList.add("walls")	
-		notSoldItemsList.add("homeworks")
 				
 		if (notSoldItemsList.contains(item.name.toString.toLowerCase)){
 			warning('Item is not purchasable at self checkout!', item,
 				SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, INVALID_ITEM_BOUGHT)	
 		}
 	}
+	
+	@Check
+	def checkAddToBasketOrDropComesAfterPick(PickStatement pickStmn){
+		if(pickStmn.holdingItem === null){
+			warning('Holding item needs assignment', pickStmn,
+				SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
+				INVALID_HOLDING_ITEM_ACTION)
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 
 //////////////////////////////ASK STEFFEN///////////////////////////////////
 //	// Validate that basket is up before they pay
@@ -110,8 +123,11 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 //	}
 //
 //	dispatch def predictBasketGripOutcome(Repeat stmt, boolean previousState) {
-//		stmt.statement.checkAlwaysHaveBasketUp(previousState)
+//		val walking = stmt.statement.filter(WalkStatement).toList
+//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
+//		eList.checkAlwaysHaveBasketUp(previousState)
 //	}
-	
-	
-}
+////	set pay to fasle
+//// then check at every statement that pay is true -> warning to say maek sure to pay
+//// set to true if pay cmnd is used
+//}

@@ -191,19 +191,10 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Checkout returns Checkout
 	 *
 	 * Constraint:
-	 *     (scan=ScanExpression pay=Pay)
+	 *     (scan=ScanExpression pay=Pay?)
 	 */
 	protected void sequence_Checkout(ISerializationContext context, Checkout semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CHECKOUT__SCAN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CHECKOUT__SCAN));
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CHECKOUT__PAY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CHECKOUT__PAY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCheckoutAccess().getScanScanExpressionParserRuleCall_3_0(), semanticObject.getScan());
-		feeder.accept(grammarAccess.getCheckoutAccess().getPayPayEnumRuleCall_4_0(), semanticObject.getPay());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -442,7 +433,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Repeat returns Repeat
 	 *
 	 * Constraint:
-	 *     (count=Addition statement+=WalkStatement+)
+	 *     (count=Addition (statement+=PickStatement | statement+=WalkStatement)+)
 	 */
 	protected void sequence_Repeat(ISerializationContext context, Repeat semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

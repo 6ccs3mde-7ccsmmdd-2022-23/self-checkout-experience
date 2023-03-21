@@ -255,7 +255,7 @@ System.out.println("Checking out of web store\n");
 		System.out.println();
 		System.out.println("///////////////VOUCHER///////////////");
 		System.out.println("//    You bought over 20 items!    //");
-		System.out.println("//     You've earnt a voucher      //");
+		System.out.println("//     You've earned a voucher     //");
 		System.out.println("//    to spend on self-checkout    //");
 		System.out.println("//     next time you shop here.    //");
 		System.out.println("/////////////////////////////////////");

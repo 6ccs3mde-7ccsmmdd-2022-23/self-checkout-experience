@@ -645,18 +645,20 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final RuleCall cCountAdditionParserRuleCall_1_0 = (RuleCall)cCountAssignment_1.eContents().get(0);
 		private final Keyword cTimesKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cStatementAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStatementWalkStatementParserRuleCall_3_0 = (RuleCall)cStatementAssignment_3.eContents().get(0);
+		private final Alternatives cStatementAlternatives_3_0 = (Alternatives)cStatementAssignment_3.eContents().get(0);
+		private final RuleCall cStatementPickStatementParserRuleCall_3_0_0 = (RuleCall)cStatementAlternatives_3_0.eContents().get(0);
+		private final RuleCall cStatementWalkStatementParserRuleCall_3_0_1 = (RuleCall)cStatementAlternatives_3_0.eContents().get(1);
 		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Repeat:
 		//    "repeat" count = Addition "times:"
-		//      statement += WalkStatement+////////
+		//      statement += (PickStatement | WalkStatement)+////////
 		//    "end"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//"repeat" count = Addition "times:"
-		//  statement += WalkStatement+////////
+		//  statement += (PickStatement | WalkStatement)+////////
 		//"end"
 		public Group getGroup() { return cGroup; }
 		
@@ -672,11 +674,17 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//"times:"
 		public Keyword getTimesKeyword_2() { return cTimesKeyword_2; }
 		
-		//statement += WalkStatement+
+		//statement += (PickStatement | WalkStatement)+
 		public Assignment getStatementAssignment_3() { return cStatementAssignment_3; }
 		
+		//(PickStatement | WalkStatement)
+		public Alternatives getStatementAlternatives_3_0() { return cStatementAlternatives_3_0; }
+		
+		//PickStatement
+		public RuleCall getStatementPickStatementParserRuleCall_3_0_0() { return cStatementPickStatementParserRuleCall_3_0_0; }
+		
 		//WalkStatement
-		public RuleCall getStatementWalkStatementParserRuleCall_3_0() { return cStatementWalkStatementParserRuleCall_3_0; }
+		public RuleCall getStatementWalkStatementParserRuleCall_3_0_1() { return cStatementWalkStatementParserRuleCall_3_0_1; }
 		
 		//////////
 		//    "end"
@@ -943,13 +951,13 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//Checkout:
 		//    "go" "to" "self-checkout"
 		//    scan = ScanExpression
-		//    pay = Pay
+		//    pay = Pay?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//"go" "to" "self-checkout"
 		//scan = ScanExpression
-		//pay = Pay
+		//pay = Pay?
 		public Group getGroup() { return cGroup; }
 		
 		//"go"
@@ -967,7 +975,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//ScanExpression
 		public RuleCall getScanScanExpressionParserRuleCall_3_0() { return cScanScanExpressionParserRuleCall_3_0; }
 		
-		//pay = Pay
+		//pay = Pay?
 		public Assignment getPayAssignment_4() { return cPayAssignment_4; }
 		
 		//Pay
@@ -1648,7 +1656,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	
 	//Repeat:
 	//    "repeat" count = Addition "times:"
-	//      statement += WalkStatement+////////
+	//      statement += (PickStatement | WalkStatement)+////////
 	//    "end"
 	//;
 	public RepeatElements getRepeatAccess() {
@@ -1777,7 +1785,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//Checkout:
 	//    "go" "to" "self-checkout"
 	//    scan = ScanExpression
-	//    pay = Pay
+	//    pay = Pay?
 	//;
 	public CheckoutElements getCheckoutAccess() {
 		return pCheckout;

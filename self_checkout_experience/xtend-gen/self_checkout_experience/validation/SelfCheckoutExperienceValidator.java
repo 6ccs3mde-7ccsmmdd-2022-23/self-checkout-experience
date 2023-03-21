@@ -4,9 +4,12 @@
 package self_checkout_experience.validation;
 
 import java.util.List;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
+import self_checkout_experience.selfCheckoutExperience.PickStatement;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
 
@@ -17,15 +20,17 @@ import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
-  public static final String INVALID_VARIABLE_NAME = "uk.ac.kcl.inf.szschaler.turtles.INVALID_VARIABLE_NAME";
+  public static final String INVALID_VARIABLE_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME";
   
-  public static final String INVALID_ITEM_NAME = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_NAME";
+  public static final String INVALID_ITEM_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME";
   
-  public static final String INVALID_ITEM_PLURAL = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_PLURAL";
+  public static final String INVALID_ITEM_PLURAL = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_PLURAL";
   
-  public static final String INVALID_ITEM_BOUGHT = "uk.ac.kcl.inf.szschaler.turtles.INVALID_ITEM_BOUGHT";
+  public static final String INVALID_ITEM_BOUGHT = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT";
   
-  public static final String MAY_NOT_BASKET_UP = "uk.ac.kcl.inf.szschaler.turtles.MAY_NOT_BASKET_UP";
+  public static final String MAY_NOT_BASKET_UP = "self_checkout_experience.selfCheckoutExperience.MAY_NOT_BASKET_UP";
+  
+  public static final String INVALID_HOLDING_ITEM_ACTION = "self_checkout_experience.selfCheckoutExperience.INVALID_HOLDING_ITEM_ACTION";
   
   @Check
   public void checkVariableNamesStartWithLowerCase(final VariableDeclaration decl) {
@@ -47,7 +52,7 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
     }
   }
   
-  @Check
+  @Check(CheckType.NORMAL)
   public void checkNotSoldItemsAtSelfCheckout(final ItemDef item) {
     List<String> notSoldItemsList = CollectionLiterals.<String>newArrayList();
     notSoldItemsList.add("car");
@@ -58,18 +63,21 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
     notSoldItemsList.add("grade");
     notSoldItemsList.add("wall");
     notSoldItemsList.add("homework");
-    notSoldItemsList.add("cars");
-    notSoldItemsList.add("houses");
-    notSoldItemsList.add("planes");
-    notSoldItemsList.add("humans");
-    notSoldItemsList.add("universities");
-    notSoldItemsList.add("grades");
-    notSoldItemsList.add("walls");
-    notSoldItemsList.add("homeworks");
     boolean _contains = notSoldItemsList.contains(item.getName().toString().toLowerCase());
     if (_contains) {
       this.warning("Item is not purchasable at self checkout!", item, 
         SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME, SelfCheckoutExperienceValidator.INVALID_ITEM_BOUGHT);
+    }
+  }
+  
+  @Check
+  public void checkAddToBasketOrDropComesAfterPick(final PickStatement pickStmn) {
+    EObject _holdingItem = pickStmn.getHoldingItem();
+    boolean _tripleEquals = (_holdingItem == null);
+    if (_tripleEquals) {
+      this.warning("Holding item needs assignment", pickStmn, 
+        SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
+        SelfCheckoutExperienceValidator.INVALID_HOLDING_ITEM_ACTION);
     }
   }
 }

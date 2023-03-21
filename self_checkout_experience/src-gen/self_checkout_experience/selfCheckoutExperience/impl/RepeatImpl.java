@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
-import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    * @ordered
    */
-  protected EList<WalkStatement> statement;
+  protected EList<EObject> statement;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,11 +136,11 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
    * @generated
    */
   @Override
-  public EList<WalkStatement> getStatement()
+  public EList<EObject> getStatement()
   {
     if (statement == null)
     {
-      statement = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENT);
+      statement = new EObjectContainmentEList<EObject>(EObject.class, this, SelfCheckoutExperiencePackage.REPEAT__STATEMENT);
     }
     return statement;
   }
@@ -197,7 +197,7 @@ public class RepeatImpl extends WalkStatementImpl implements Repeat
         return;
       case SelfCheckoutExperiencePackage.REPEAT__STATEMENT:
         getStatement().clear();
-        getStatement().addAll((Collection<? extends WalkStatement>)newValue);
+        getStatement().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

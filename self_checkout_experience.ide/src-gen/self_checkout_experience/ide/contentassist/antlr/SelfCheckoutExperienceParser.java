@@ -35,6 +35,7 @@ public class SelfCheckoutExperienceParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSelfCheckoutInstoreAccess().getStatementAlternatives_1_0(), "rule__SelfCheckoutInstore__StatementAlternatives_1_0");
 			builder.put(grammarAccess.getPickStatementAccess().getHoldingItemAlternatives_6_0(), "rule__PickStatement__HoldingItemAlternatives_6_0");
 			builder.put(grammarAccess.getWalkStatementAccess().getAlternatives(), "rule__WalkStatement__Alternatives");
+			builder.put(grammarAccess.getRepeatAccess().getStatementAlternatives_3_0(), "rule__Repeat__StatementAlternatives_3_0");
 			builder.put(grammarAccess.getAdditionAccess().getOperatorAlternatives_1_1_0(), "rule__Addition__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getMultiplicationAccess().getOperatorAlternatives_1_1_0(), "rule__Multiplication__OperatorAlternatives_1_1_0");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");

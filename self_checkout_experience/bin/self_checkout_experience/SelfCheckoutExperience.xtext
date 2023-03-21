@@ -116,7 +116,7 @@ VariableDeclaration:
 
 Repeat:
 	"repeat" count = Addition "times:" 
-	  statement += WalkStatement+////////
+	  statement += (PickStatement | WalkStatement)+////////
 	"end"
 ;
 
@@ -169,7 +169,7 @@ IntVarExpression:
 Checkout:
 	"go" "to" "self-checkout"
 	scan = ScanExpression
-	pay = Pay
+	pay = Pay?
 ;
 
 ScanExpression:

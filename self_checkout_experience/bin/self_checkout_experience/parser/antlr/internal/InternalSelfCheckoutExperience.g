@@ -1108,21 +1108,39 @@ ruleRepeat returns [EObject current=null]
 		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getRepeatAccess().getStatementWalkStatementParserRuleCall_3_0());
-				}
-				lv_statement_3_0=ruleWalkStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRepeatRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getRepeatAccess().getStatementPickStatementParserRuleCall_3_0_0());
 					}
-					add(
-						$current,
-						"statement",
-						lv_statement_3_0,
-						"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
-					afterParserOrEnumRuleCall();
-				}
+					lv_statement_3_1=rulePickStatement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRepeatRule());
+						}
+						add(
+							$current,
+							"statement",
+							lv_statement_3_1,
+							"self_checkout_experience.SelfCheckoutExperience.PickStatement");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getRepeatAccess().getStatementWalkStatementParserRuleCall_3_0_1());
+					}
+					lv_statement_3_2=ruleWalkStatement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRepeatRule());
+						}
+						add(
+							$current,
+							"statement",
+							lv_statement_3_2,
+							"self_checkout_experience.SelfCheckoutExperience.WalkStatement");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)+
 		otherlv_4='end'
@@ -1622,7 +1640,7 @@ ruleCheckout returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 	)
 ;
 

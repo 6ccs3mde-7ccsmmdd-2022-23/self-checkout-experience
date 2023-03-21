@@ -59,8 +59,8 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 }
 
 
-//
-//// */
+
+// */
 //class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider { 
 //
 //
@@ -142,5 +142,5 @@ class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvid
 ////		
 ////		
 ////	}
-//
-//}
+
+
