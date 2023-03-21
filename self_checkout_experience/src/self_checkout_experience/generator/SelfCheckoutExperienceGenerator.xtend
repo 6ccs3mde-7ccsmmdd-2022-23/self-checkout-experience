@@ -130,17 +130,8 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		
 		public class «className» {
 			public static void main(String[] args) {
-				SelfCheckoutFrame scf = new SelfCheckoutFrame();
-				
-				Self_checkout sc = new Self_checkout(scf) {
-					@Override
-					public void run() {
-						ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
-						«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
-					}
-				};
-				
-				sc.run();
+				ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
+				«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
 			}
 		}
 	'''
@@ -163,7 +154,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	
 	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket");
 for(int i=0; i <= «itemCount»; i++) {
-	items.add("«item.itemInBasket.name»")
+	items.add("«item.itemInBasket.name»");
 }
 	'''
 	
@@ -224,7 +215,7 @@ for(int i=0; i <= «itemCount»; i++) {
 	
 	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env) '''System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket");
 for(int i=0; i <= «basket.itemCount.generateJavaExpression»; i++) {
-	items.add("«basket.item.name»")
+	items.add("«basket.item.name»");
 }
 «if(basket.removeFromOnlineBasket !== null){generateJavaStatement(basket.removeFromOnlineBasket, env)}»'''
 	
