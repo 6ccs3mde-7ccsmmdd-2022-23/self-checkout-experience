@@ -231,11 +231,11 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   
   public CharSequence doGenerateClass(final Self_checkout program, final String className) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import self_checkout_experience.*;");
-    _builder.newLine();
     _builder.append("import java.util.ArrayList;");
     _builder.newLine();
     _builder.append("import java.util.stream.Collectors;");
+    _builder.newLine();
+    _builder.append("import java.util.Map;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
@@ -267,6 +267,8 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   protected String _generateJavaStatement(final SelfCheckoutInstore sci, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"You have entered the store\");");
+    _builder.newLine();
+    _builder.append("System.out.println(\"***We are giving away EXTRA items for your purchases for using the selfcheckout!***\\n\");");
     _builder.newLine();
     String _xifexpression = null;
     HoldSelfScanner _pickScanMachine = sci.getPickScanMachine();
@@ -323,9 +325,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("System.out.println(\"Adding ");
     String _name = item.getItemInBasket().getName();
     _builder.append(_name);
-    _builder.append(" in basket\");");
+    _builder.append(" in basket\\n\");");
     _builder.newLineIfNotEmpty();
-    _builder.append("for(int i=0; i <= ");
+    _builder.append("for(int i=0; i < ");
     _builder.append(itemCount);
     _builder.append("; i++) {");
     _builder.newLineIfNotEmpty();
@@ -345,7 +347,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append("System.out.println(\"Dropping ");
     String _name = item.getItemDropped().getName();
     _builder.append(_name);
-    _builder.append("\");");
+    _builder.append("\\n\");");
     return _builder.toString();
   }
   
@@ -423,7 +425,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     Pay _pay = checkout.getPay();
     boolean _tripleNotEquals_1 = (_pay != null);
     if (_tripleNotEquals_1) {
-      _xifexpression_1 = this.myFunc();
+      _xifexpression_1 = this.checkingOutOfStore();
     }
     _builder.append(_xifexpression_1);
     _builder.newLineIfNotEmpty();
@@ -439,9 +441,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  public String myFunc() {
+  public String checkingOutOfStore() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Checking out of store\");");
+    _builder.append("System.out.println(\"Checking out of store\\n\");");
     return _builder.toString();
   }
   
@@ -543,6 +545,8 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"You have logged in\");");
     _builder.newLine();
+    _builder.append("System.out.println(\"***We are giving an EXTRA item for every time you buy online!***\\n\");");
+    _builder.newLine();
     final Function1<Search, String> _function = (Search it) -> {
       return this.generateJavaStatement(it, env);
     };
@@ -584,9 +588,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.append(" ");
     String _name = basket.getItem().getName();
     _builder.append(_name);
-    _builder.append(" to basket\");");
+    _builder.append(" to basket\\n\");");
     _builder.newLineIfNotEmpty();
-    _builder.append("for(int i=0; i <= ");
+    _builder.append("for(int i=0; i < ");
     String _generateJavaExpression_1 = this.generateJavaExpression(basket.getItemCount());
     _builder.append(_generateJavaExpression_1);
     _builder.append("; i++) {");
@@ -672,7 +676,7 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("System.out.println(\"Confirming order\"); ");
     _builder.newLine();
-    _builder.append("System.out.println(\"Checking out of web store\");");
+    _builder.append("System.out.println(\"Checking out of web store\\n\");");
     _builder.newLine();
     String _generateJavaStatement = this.generateJavaStatement(confirm.getPay(), env);
     _builder.append(_generateJavaStatement);
@@ -681,18 +685,48 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   
   protected String _generateJavaStatement(final Pay pay, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("String str = String.join(\",\", items);");
+    _builder.append("System.out.println(\"///////////////RECEIPT//////////////\" );");
     _builder.newLine();
-    _builder.append("System.out.println(\"Items purchased: \" + str);");
+    _builder.append("Map<Object, Long> counts =");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("items.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));");
+    _builder.newLine();
+    _builder.append("for(Map.Entry<Object, Long> entry : counts.entrySet()) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"- \" + entry.getKey() + \" x\" + entry.getValue());");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("System.out.println();");
     _builder.newLine();
     _builder.append("System.out.println(\"Number of items purchased: \" + items.size());");
     _builder.newLine();
     _builder.append("if(items.size() >= 20){");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("System.out.println(\"You have purchased over 20 items, you have earnt a voucher for the next time you use the self checkout!\");  //condition that we give voucher");
+    _builder.append("System.out.println();");
     _builder.newLine();
-    _builder.append("else {");
+    _builder.append("\t");
+    _builder.append("System.out.println(\"///////////////VOUCHER///////////////\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"//    You bought over 20 items!    //\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"//     You\'ve earnt a voucher      //\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"//    to spend on self-checkout    //\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"//     next time you shop here.    //\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"/////////////////////////////////////\");");
+    _builder.newLine();
+    _builder.append("}else {");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("System.out.println(\"Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order\");  //condition that we don\'t give voucher");

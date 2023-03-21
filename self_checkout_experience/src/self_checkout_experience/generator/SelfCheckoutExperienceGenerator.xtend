@@ -124,9 +124,9 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 
 	/////////////////////////////////////JAVA CODE GENERATOR ////////////////////////////////////////
 	def doGenerateClass(Self_checkout program, String className) '''
-		import self_checkout_experience.*;
 		import java.util.ArrayList;
 		import java.util.stream.Collectors;
+		import java.util.Map;
 		
 		public class «className» {
 			public static void main(String[] args) {
@@ -142,7 +142,9 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		def exit() { counter-- }
 	}
 
-	dispatch def String generateJavaStatement(SelfCheckoutInstore sci, Environment env) '''System.out.println("You have entered the store");
+	dispatch def String generateJavaStatement(SelfCheckoutInstore sci, Environment env) '''
+	System.out.println("You have entered the store");
+	System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
 «if(sci.pickScanMachine !== null){generateJavaStatement(sci.pickScanMachine, env)}»
 «sci.statement.map[generateJavaStatement(env)].join('\n')»
 «if(sci.checkout !== null){generateJavaStatement(sci.checkout, env)}»'''
@@ -152,13 +154,13 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 	dispatch def String generateJavaStatement(PickStatement picksmnt, Environment env) '''System.out.println("Picked up: «picksmnt.itemCount.generateJavaExpression()» «picksmnt.itemPicked.getName.toFirstUpper»");
 «if(picksmnt.holdingItem !== null ){generateJavaStatement(picksmnt.holdingItem, picksmnt.itemCount.generateJavaExpression(), env)}»'''
 	
-	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket");
-for(int i=0; i <= «itemCount»; i++) {
+	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket\n");
+for(int i=0; i < «itemCount»; i++) {
 	items.add("«item.itemInBasket.name»");
 }
 	'''
 	
-	dispatch def String generateJavaStatement(Drop item, String itemCount, Environment env) '''System.out.println("Dropping «item.itemDropped.name»");'''
+	dispatch def String generateJavaStatement(Drop item, String itemCount, Environment env) '''System.out.println("Dropping «item.itemDropped.name»\n");'''
 	
 	dispatch def String generateJavaStatement(WalkStatement smnt, Environment env) ''''''
 	
@@ -179,11 +181,11 @@ for(int i=0; i <= «itemCount»; i++) {
 
 	dispatch def String generateJavaStatement(Checkout checkout, Environment env) '''System.out.println("Going to checkout");
 «if (checkout.scan !== null){generateJavaStatement(checkout.scan, env)}»
-«if (checkout.pay !== null){myFunc()}»
+«if (checkout.pay !== null){checkingOutOfStore()}»
 «if (checkout.pay !== null){generateJavaStatement(checkout.pay, env)}» 
 '''
 
-	def String myFunc(){'''System.out.println("Checking out of store");'''}
+	def String checkingOutOfStore(){'''System.out.println("Checking out of store\n");'''}
 	
 	dispatch def String generateJavaStatement(ScanExpression se, Environment env) ''''''
 	
@@ -204,17 +206,19 @@ for(int i=0; i <= «itemCount»; i++) {
 
 
 
-	////////////////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////
 	
-	dispatch def String generateJavaStatement(SelfCheckoutOnline online, Environment env) '''System.out.println("You have logged in");
+	dispatch def String generateJavaStatement(SelfCheckoutOnline online, Environment env) '''
+	System.out.println("You have logged in");
+	System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
 «online.search.map[generateJavaStatement(env)].join('\n')»
 «if(online.onlineCheckout !== null){generateJavaStatement(online.onlineCheckout, env)}»'''
 	
 	dispatch def String generateJavaStatement(Search search, Environment env) '''System.out.println("Searching for: «search.itemSearch.name»");
 «if(search.addToOnlineBasket !== null){generateJavaStatement(search.addToOnlineBasket, env)}»'''
 	
-	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env) '''System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket");
-for(int i=0; i <= «basket.itemCount.generateJavaExpression»; i++) {
+	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env) '''System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket\n");
+for(int i=0; i < «basket.itemCount.generateJavaExpression»; i++) {
 	items.add("«basket.item.name»");
 }
 «if(basket.removeFromOnlineBasket !== null){generateJavaStatement(basket.removeFromOnlineBasket, env)}»'''
@@ -235,16 +239,27 @@ while (i.hasNext()) {
 	dispatch def String generateJavaStatement(DeliveryOptions options, Environment env) '''System.out.println("Mode of delivery is «options.getName» ");'''
 	
 	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order"); 
-System.out.println("Checking out of web store");
+System.out.println("Checking out of web store\n");
 «generateJavaStatement(confirm.pay, env)»'''
 	
 	dispatch def String generateJavaStatement(Pay pay, Environment env) '''
-	String str = String.join(",", items);
-	System.out.println("Items purchased: " + str);
+	System.out.println("///////////////RECEIPT//////////////" );
+	Map<Object, Long> counts =
+			items.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+	for(Map.Entry<Object, Long> entry : counts.entrySet()) {
+		System.out.println("- " + entry.getKey() + " x" + entry.getValue());
+	}
+	System.out.println();
 	System.out.println("Number of items purchased: " + items.size());
 	if(items.size() >= 20){
-		System.out.println("You have purchased over 20 items, you have earnt a voucher for the next time you use the self checkout!");  //condition that we give voucher
-	else {
+		System.out.println();
+		System.out.println("///////////////VOUCHER///////////////");
+		System.out.println("//    You bought over 20 items!    //");
+		System.out.println("//     You've earnt a voucher      //");
+		System.out.println("//    to spend on self-checkout    //");
+		System.out.println("//     next time you shop here.    //");
+		System.out.println("/////////////////////////////////////");
+	}else {
 		System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
 	}
 	'''		
