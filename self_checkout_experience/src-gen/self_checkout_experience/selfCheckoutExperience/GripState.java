@@ -21,46 +21,46 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum GripState implements Enumerator
 {
   /**
-   * The '<em><b>Up</b></em>' literal object.
+   * The '<em><b>Grip</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #UP_VALUE
+   * @see #GRIP_VALUE
    * @generated
    * @ordered
    */
-  UP(0, "up", "up"),
+  GRIP(0, "grip", "grip"),
 
   /**
-   * The '<em><b>Down</b></em>' literal object.
+   * The '<em><b>Release</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DOWN_VALUE
+   * @see #RELEASE_VALUE
    * @generated
    * @ordered
    */
-  DOWN(1, "down", "down");
+  RELEASE(1, "release", "release");
 
   /**
-   * The '<em><b>Up</b></em>' literal value.
+   * The '<em><b>Grip</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #UP
-   * @model name="up"
+   * @see #GRIP
+   * @model name="grip"
    * @generated
    * @ordered
    */
-  public static final int UP_VALUE = 0;
+  public static final int GRIP_VALUE = 0;
 
   /**
-   * The '<em><b>Down</b></em>' literal value.
+   * The '<em><b>Release</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DOWN
-   * @model name="down"
+   * @see #RELEASE
+   * @model name="release"
    * @generated
    * @ordered
    */
-  public static final int DOWN_VALUE = 1;
+  public static final int RELEASE_VALUE = 1;
 
   /**
    * An array of all the '<em><b>Grip State</b></em>' enumerators.
@@ -71,8 +71,8 @@ public enum GripState implements Enumerator
   private static final GripState[] VALUES_ARRAY =
     new GripState[]
     {
-      UP,
-      DOWN,
+      GRIP,
+      RELEASE,
     };
 
   /**
@@ -137,8 +137,8 @@ public enum GripState implements Enumerator
   {
     switch (value)
     {
-      case UP_VALUE: return UP;
-      case DOWN_VALUE: return DOWN;
+      case GRIP_VALUE: return GRIP;
+      case RELEASE_VALUE: return RELEASE;
     }
     return null;
   }

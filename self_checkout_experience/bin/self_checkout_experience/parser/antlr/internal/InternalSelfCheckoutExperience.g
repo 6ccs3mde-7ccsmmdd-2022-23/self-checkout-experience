@@ -974,16 +974,12 @@ ruleHoldBasketStatement returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='basket'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_1_0());
+					newCompositeNode(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_0_0());
 				}
-				lv_state_1_0=ruleGripState
+				lv_state_0_0=ruleGripState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHoldBasketStatementRule());
@@ -991,12 +987,16 @@ ruleHoldBasketStatement returns [EObject current=null]
 					set(
 						$current,
 						"state",
-						lv_state_1_0,
+						lv_state_0_0,
 						"self_checkout_experience.SelfCheckoutExperience.GripState");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_1='basket'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_1());
+		}
 	)
 ;
 
@@ -1493,57 +1493,23 @@ ruleIntLiteral returns [EObject current=null]
 }:
 	(
 		(
+			lv_val_0_0=RULE_INT
 			{
-				newCompositeNode(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0());
+				newLeafNode(lv_val_0_0, grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0());
 			}
-			lv_val_0_0=ruleINTEGER
 			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getIntLiteralRule());
+					$current = createModelElement(grammarAccess.getIntLiteralRule());
 				}
-				set(
+				setWithLastConsumed(
 					$current,
 					"val",
 					lv_val_0_0,
-					"self_checkout_experience.SelfCheckoutExperience.INTEGER");
-				afterParserOrEnumRuleCall();
+					"org.eclipse.xtext.common.Terminals.INT");
 			}
 		)
 	)
 ;
-
-// Entry rule entryRuleINTEGER
-entryRuleINTEGER returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
-	{ newCompositeNode(grammarAccess.getINTEGERRule()); }
-	iv_ruleINTEGER=ruleINTEGER
-	{ $current=$iv_ruleINTEGER.current.getText(); }
-	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule INTEGER
-ruleINTEGER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
-@after {
-	leaveRule();
-}:
-	this_INT_0=RULE_INT
-	{
-		$current.merge(this_INT_0);
-	}
-	{
-		newLeafNode(this_INT_0, grammarAccess.getINTEGERAccess().getINTTerminalRuleCall());
-	}
-;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleIntVarExpression
 entryRuleIntVarExpression returns [EObject current=null]:
@@ -1895,18 +1861,18 @@ ruleGripState returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='up'
+			enumLiteral_0='grip'
 			{
-				$current = grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0());
+				$current = grammarAccess.getGripStateAccess().getGripEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getGripStateAccess().getGripEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='down'
+			enumLiteral_1='release'
 			{
-				$current = grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1());
+				$current = grammarAccess.getGripStateAccess().getReleaseEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getGripStateAccess().getReleaseEnumLiteralDeclaration_1());
 			}
 		)
 	)

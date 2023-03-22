@@ -21,8 +21,8 @@
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//SelfScanner/selfscanner"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//GripState">
-      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/up"/>
-      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/down"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/grip"/>
+      <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//GripState/release"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="SelfCheckoutExperience.ecore#//MoveCommand">
       <genEnumLiterals ecoreEnumLiteral="SelfCheckoutExperience.ecore#//MoveCommand/forward"/>

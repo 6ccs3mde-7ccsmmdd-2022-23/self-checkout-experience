@@ -36,7 +36,7 @@ public class HoldBasketStatementImpl extends WalkStatementImpl implements HoldBa
    * @generated
    * @ordered
    */
-  protected static final GripState STATE_EDEFAULT = GripState.UP;
+  protected static final GripState STATE_EDEFAULT = GripState.GRIP;
 
   /**
    * The cached value of the '{@link #getState() <em>State</em>}' attribute.

@@ -86,8 +86,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//GripState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GripState">
-    <eLiterals name="up" literal="up"/>
-    <eLiterals name="down" value="1" literal="down"/>
+    <eLiterals name="grip" literal="grip"/>
+    <eLiterals name="release" value="1" literal="release"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

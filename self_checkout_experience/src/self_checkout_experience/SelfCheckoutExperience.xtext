@@ -60,7 +60,7 @@ enum ConfirmEnum:
 ;
 
 
-////////////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
 SelfCheckoutInstore:
 	pickScanMachine = HoldSelfScanner	
 	statement+=(PickStatement|WalkStatement)*
@@ -96,18 +96,16 @@ WalkStatement:
 	MoveStatement |
 	TurnStatement |
 	Repeat |
-//	VariableDeclaration
-//;
 	HoldBasketStatement |
 	VariableDeclaration
 ;
 
 HoldBasketStatement:
-	'basket' state=GripState
+	state=GripState 'basket' 
 ;
 
 enum GripState:
-	up | down
+	grip | release 
 ;
 
 VariableDeclaration:
@@ -151,16 +149,12 @@ Primary returns IntExpression:
 ;
 
 IntLiteral:
-	val = INTEGER
+	val = INT
 ;
 
-INTEGER returns ecore::EInt hidden():
-	INT
-;
-//REAL returns ecore::EFloat hidden():
-//	INT? "." INT
-//; 
-
+//INTEGER returns ecore::EInt hidden():
+//	INT
+//;
 
 IntVarExpression:
 	var = [VariableDeclaration]
@@ -169,7 +163,7 @@ IntVarExpression:
 Checkout:
 	"go" "to" "self-checkout"
 	scan = ScanExpression
-	pay = Pay?
+	pay = Pay?///////////////////////////////////////////////////////////////
 ;
 
 ScanExpression:

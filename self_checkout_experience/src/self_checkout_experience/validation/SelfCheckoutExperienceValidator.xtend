@@ -17,6 +17,7 @@ import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
 import self_checkout_experience.selfCheckoutExperience.GripState
 import org.eclipse.emf.ecore.util.EcoreUtil
 import self_checkout_experience.selfCheckoutExperience.PickStatement
+import self_checkout_experience.selfCheckoutExperience.Checkout
 
 //////REQUIRED: ONE SYNTAX, STATIC SEMATNICS, DYNAMIC SEMANTICS 
 
@@ -32,7 +33,7 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 	public static val INVALID_ITEM_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME'
 	public static val INVALID_ITEM_PLURAL = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_PLURAL'	
 	public static val INVALID_ITEM_BOUGHT = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT'
-	public static val MAY_NOT_BASKET_UP = 'self_checkout_experience.selfCheckoutExperience.MAY_NOT_BASKET_UP'
+	public static val INVALID_BASKET_GRIP = 'self_checkout_experience.selfCheckoutExperience.INVALID_BASKET_GRIP'
 	public static val INVALID_HOLDING_ITEM_ACTION = 'self_checkout_experience.selfCheckoutExperience.INVALID_HOLDING_ITEM_ACTION'
 	
 
@@ -80,54 +81,68 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 			warning('Holding item needs assignment', pickStmn,
 				SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
 				INVALID_HOLDING_ITEM_ACTION)
-		}
+		}		
+	}
+	
+	// Validate that basket is in hand before they pay--------
+	@Check(NORMAL)
+	def checkAlwaysHaveBasketGrip(SelfCheckoutInstore program) {
 		
+		val walking = program.statement.filter(WalkStatement).toList
+		println(walking)
+ 		if (!(walking.checkAlwaysHaveBasketGrip(true))) {
+			val listOfHolding = walking.filter(HoldBasketStatement)
+			val lastHolding = listOfHolding.get(listOfHolding.size()-1)
+			println("HOLDING LIST  " + listOfHolding)
+			println("LAST HOLDING   "+ lastHolding)
+			println("prog  "+ program)
+
+			warning('This program cannot end with the basket on floor', lastHolding,
+				SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE, INVALID_BASKET_GRIP)
+		}
+	}
+
+	def boolean checkAlwaysHaveBasketGrip(List<WalkStatement> statements, boolean startState) {
+		statements.fold(startState, [ previousState, stmt |
+			println("StartState" + startState)
+			println("previous State" + previousState)
+			println("stmt" + stmt)
+			stmt.predictBasketGrip(previousState)
+		])
+	}
+	
+	dispatch def predictBasketGrip(WalkStatement stmt, boolean previousState) { previousState }
+
+	dispatch def predictBasketGrip(HoldBasketStatement stmt, boolean previousState) { 
+				println(stmt.state)
+				stmt.state === GripState.GRIP
+	}
+	
+	dispatch def predictBasketGrip(Repeat stmt, boolean previousState) {
+		val walking = stmt.statement.filter(WalkStatement).toList
+//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
+		walking.checkAlwaysHaveBasketGrip(previousState)
 	}
 	
 	
+//	set pay to fasle
+// then check at every statement that pay is true -> warning to say maek sure to pay
+// set to true if pay cmnd is used
+
+//	@Check(NORMAL)
+//	def checkCustomerHasPaid(Checkout checkout){
+//		
+//		
+//	}
 	
-	
-	
-	
-	
-	
+//	def boolean checkAlwaysHaveBasketUp(SelfCheckoutInstore instore, boolean startState) {
+//		
+//		val picking = instore.statement.filter(PickStatement)
+//		val walking = instore.statement.filter(WalkStatement)
+//		
+////		statement.fold(startState, [ previousState, stmt |
+////			stmt.predictBasketGripOutcome(previousState)
+////		])
+//	}
 	
 }
-
-//////////////////////////////ASK STEFFEN///////////////////////////////////
-//	// Validate that basket is up before they pay
-//	@Check(NORMAL)
-//	def checkAlwaysHaveBasketUp(SelfCheckoutInstore program) {
-//		
-//		val walking = program.statement.filter(WalkStatement).toList
-//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
-//
-////		if (!(walking.checkAlwaysHavePenDown(true))) {
-//		if (!(eList.checkAlwaysHaveBasketUp(true))) {
-//			warning('This program may not end with the basket down', program,
-//				SelfCheckoutExperiencePackage.Literals.SELF_CHECKOUT_INSTORE__STATEMENT, MAY_NOT_BASKET_UP )
-//		}
-//	}
-//
-//	def boolean checkAlwaysHaveBasketUp(EList<WalkStatement> statements, boolean startState) {
-//		statements.fold(startState, [ previousState, stmt |
-//			stmt.predictBasketGripOutcome(previousState)
-//		])
-//	}
-//	
-//	dispatch def predictBasketGripOutcome(WalkStatement stmt, boolean previousState) { previousState }
-//
-//	dispatch def predictBasketGripOutcome(HoldBasketStatement stmt, boolean previousState) { 
-//				println(stmt.state)
-//				stmt.state === GripState.UP
-//	}
-//
-//	dispatch def predictBasketGripOutcome(Repeat stmt, boolean previousState) {
-//		val walking = stmt.statement.filter(WalkStatement).toList
-//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
-//		eList.checkAlwaysHaveBasketUp(previousState)
-//	}
-////	set pay to fasle
-//// then check at every statement that pay is true -> warning to say maek sure to pay
-//// set to true if pay cmnd is used
-//}

@@ -649,39 +649,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleINTEGER
-entryRuleINTEGER
-@init { 
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
-:
-{ before(grammarAccess.getINTEGERRule()); }
-	 ruleINTEGER
-{ after(grammarAccess.getINTEGERRule()); } 
-	 EOF 
-;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule INTEGER
-ruleINTEGER 
-	@init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getINTEGERAccess().getINTTerminalRuleCall()); }
-		RULE_INT
-		{ after(grammarAccess.getINTEGERAccess().getINTTerminalRuleCall()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-	myHiddenTokenState.restore();
-}
-
 // Entry rule entryRuleIntVarExpression
 entryRuleIntVarExpression
 :
@@ -1176,15 +1143,15 @@ rule__GripState__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0()); }
-		('up')
-		{ after(grammarAccess.getGripStateAccess().getUpEnumLiteralDeclaration_0()); }
+		{ before(grammarAccess.getGripStateAccess().getGripEnumLiteralDeclaration_0()); }
+		('grip')
+		{ after(grammarAccess.getGripStateAccess().getGripEnumLiteralDeclaration_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1()); }
-		('down')
-		{ after(grammarAccess.getGripStateAccess().getDownEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getGripStateAccess().getReleaseEnumLiteralDeclaration_1()); }
+		('release')
+		{ after(grammarAccess.getGripStateAccess().getReleaseEnumLiteralDeclaration_1()); }
 	)
 ;
 finally {
@@ -2460,9 +2427,9 @@ rule__HoldBasketStatement__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_0()); }
-	'basket'
-	{ after(grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_0()); }
+	{ before(grammarAccess.getHoldBasketStatementAccess().getStateAssignment_0()); }
+	(rule__HoldBasketStatement__StateAssignment_0)
+	{ after(grammarAccess.getHoldBasketStatementAccess().getStateAssignment_0()); }
 )
 ;
 finally {
@@ -2486,9 +2453,9 @@ rule__HoldBasketStatement__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getHoldBasketStatementAccess().getStateAssignment_1()); }
-	(rule__HoldBasketStatement__StateAssignment_1)
-	{ after(grammarAccess.getHoldBasketStatementAccess().getStateAssignment_1()); }
+	{ before(grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_1()); }
+	'basket'
+	{ after(grammarAccess.getHoldBasketStatementAccess().getBasketKeyword_1()); }
 )
 ;
 finally {
@@ -4094,15 +4061,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__HoldBasketStatement__StateAssignment_1
+rule__HoldBasketStatement__StateAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_1_0()); }
+		{ before(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_0_0()); }
 		ruleGripState
-		{ after(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_1_0()); }
+		{ after(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -4280,9 +4247,9 @@ rule__IntLiteral__ValAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0()); }
-		ruleINTEGER
-		{ after(grammarAccess.getIntLiteralAccess().getValINTEGERParserRuleCall_0()); }
+		{ before(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0()); }
+		RULE_INT
+		{ after(grammarAccess.getIntLiteralAccess().getValINTTerminalRuleCall_0()); }
 	)
 ;
 finally {

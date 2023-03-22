@@ -1647,8 +1647,8 @@ public class SelfCheckoutExperiencePackageImpl extends EPackageImpl implements S
     addEEnumLiteral(selfScannerEEnum, SelfScanner.SELFSCANNER);
 
     initEEnum(gripStateEEnum, GripState.class, "GripState");
-    addEEnumLiteral(gripStateEEnum, GripState.UP);
-    addEEnumLiteral(gripStateEEnum, GripState.DOWN);
+    addEEnumLiteral(gripStateEEnum, GripState.GRIP);
+    addEEnumLiteral(gripStateEEnum, GripState.RELEASE);
 
     initEEnum(moveCommandEEnum, MoveCommand.class, "MoveCommand");
     addEEnumLiteral(moveCommandEEnum, MoveCommand.FORWARD);

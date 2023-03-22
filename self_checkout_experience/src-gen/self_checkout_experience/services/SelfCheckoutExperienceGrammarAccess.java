@@ -320,7 +320,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final Assignment cCheckoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCheckoutCheckoutParserRuleCall_2_0 = (RuleCall)cCheckoutAssignment_2.eContents().get(0);
 		
-		//////////////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
 		//SelfCheckoutInstore:
 		//    pickScanMachine = HoldSelfScanner
 		//    statement+=(PickStatement|WalkStatement)*
@@ -544,20 +544,16 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//    MoveStatement |
 		//    TurnStatement |
 		//    Repeat |
-		////    VariableDeclaration
-		////;
 		//    HoldBasketStatement |
 		//    VariableDeclaration
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//    MoveStatement |
-		//    TurnStatement |
-		//    Repeat |
-		////    VariableDeclaration
-		////;
-		//    HoldBasketStatement |
-		//    VariableDeclaration
+		//MoveStatement |
+		//TurnStatement |
+		//Repeat |
+		//HoldBasketStatement |
+		//VariableDeclaration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MoveStatement
@@ -569,9 +565,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//Repeat
 		public RuleCall getRepeatParserRuleCall_2() { return cRepeatParserRuleCall_2; }
 		
-		////    VariableDeclaration
-		////;
-		//    HoldBasketStatement
+		//HoldBasketStatement
 		public RuleCall getHoldBasketStatementParserRuleCall_3() { return cHoldBasketStatementParserRuleCall_3; }
 		
 		//VariableDeclaration
@@ -580,26 +574,26 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	public class HoldBasketStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.HoldBasketStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBasketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStateGripStateEnumRuleCall_1_0 = (RuleCall)cStateAssignment_1.eContents().get(0);
+		private final Assignment cStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cStateGripStateEnumRuleCall_0_0 = (RuleCall)cStateAssignment_0.eContents().get(0);
+		private final Keyword cBasketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//HoldBasketStatement:
-		//    'basket' state=GripState
+		//    state=GripState 'basket'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'basket' state=GripState
+		//state=GripState 'basket'
 		public Group getGroup() { return cGroup; }
 		
-		//'basket'
-		public Keyword getBasketKeyword_0() { return cBasketKeyword_0; }
-		
 		//state=GripState
-		public Assignment getStateAssignment_1() { return cStateAssignment_1; }
+		public Assignment getStateAssignment_0() { return cStateAssignment_0; }
 		
 		//GripState
-		public RuleCall getStateGripStateEnumRuleCall_1_0() { return cStateGripStateEnumRuleCall_1_0; }
+		public RuleCall getStateGripStateEnumRuleCall_0_0() { return cStateGripStateEnumRuleCall_0_0; }
+		
+		//'basket'
+		public Keyword getBasketKeyword_1() { return cBasketKeyword_1; }
 	}
 	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.VariableDeclaration");
@@ -889,30 +883,18 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	public class IntLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntLiteral");
 		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValINTEGERParserRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		private final RuleCall cValINTTerminalRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
 		
 		//IntLiteral:
-		//    val = INTEGER
+		//    val = INT
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//val = INTEGER
+		//val = INT
 		public Assignment getValAssignment() { return cValAssignment; }
 		
-		//INTEGER
-		public RuleCall getValINTEGERParserRuleCall_0() { return cValINTEGERParserRuleCall_0; }
-	}
-	public class INTEGERElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.INTEGER");
-		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//INTEGER returns ecore::EInt hidden():
-		//    INT
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
 		//INT
-		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
+		public RuleCall getValINTTerminalRuleCall_0() { return cValINTTerminalRuleCall_0; }
 	}
 	public class IntVarExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.IntVarExpression");
@@ -920,8 +902,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		private final CrossReference cVarVariableDeclarationCrossReference_0 = (CrossReference)cVarAssignment.eContents().get(0);
 		private final RuleCall cVarVariableDeclarationIDTerminalRuleCall_0_1 = (RuleCall)cVarVariableDeclarationCrossReference_0.eContents().get(1);
 		
-		////REAL returns ecore::EFloat hidden():
-		////    INT? "." INT
+		////INTEGER returns ecore::EInt hidden():
+		////    INT
 		////;
 		//IntVarExpression:
 		//    var = [VariableDeclaration]
@@ -951,7 +933,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		//Checkout:
 		//    "go" "to" "self-checkout"
 		//    scan = ScanExpression
-		//    pay = Pay?
+		//    pay = Pay?///////////////////////////////////////////////////////////////
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1159,28 +1141,28 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	public class GripStateElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.GripState");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cUpEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cUpUpKeyword_0_0 = (Keyword)cUpEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDownEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDownDownKeyword_1_0 = (Keyword)cDownEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cGripEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cGripGripKeyword_0_0 = (Keyword)cGripEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cReleaseEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cReleaseReleaseKeyword_1_0 = (Keyword)cReleaseEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum GripState:
-		//    up | down
+		//    grip | release
 		//;
 		public EnumRule getRule() { return rule; }
 		
-		//up | down
+		//grip | release
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//up
-		public EnumLiteralDeclaration getUpEnumLiteralDeclaration_0() { return cUpEnumLiteralDeclaration_0; }
+		//grip
+		public EnumLiteralDeclaration getGripEnumLiteralDeclaration_0() { return cGripEnumLiteralDeclaration_0; }
 		
-		public Keyword getUpUpKeyword_0_0() { return cUpUpKeyword_0_0; }
+		public Keyword getGripGripKeyword_0_0() { return cGripGripKeyword_0_0; }
 		
-		//down
-		public EnumLiteralDeclaration getDownEnumLiteralDeclaration_1() { return cDownEnumLiteralDeclaration_1; }
+		//release
+		public EnumLiteralDeclaration getReleaseEnumLiteralDeclaration_1() { return cReleaseEnumLiteralDeclaration_1; }
 		
-		public Keyword getDownDownKeyword_1_0() { return cDownDownKeyword_1_0; }
+		public Keyword getReleaseReleaseKeyword_1_0() { return cReleaseReleaseKeyword_1_0; }
 	}
 	public class MoveCommandElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "self_checkout_experience.SelfCheckoutExperience.MoveCommand");
@@ -1307,7 +1289,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	private final MultiplicationElements pMultiplication;
 	private final PrimaryElements pPrimary;
 	private final IntLiteralElements pIntLiteral;
-	private final INTEGERElements pINTEGER;
 	private final IntVarExpressionElements pIntVarExpression;
 	private final CheckoutElements pCheckout;
 	private final ScanExpressionElements pScanExpression;
@@ -1356,7 +1337,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		this.pMultiplication = new MultiplicationElements();
 		this.pPrimary = new PrimaryElements();
 		this.pIntLiteral = new IntLiteralElements();
-		this.pINTEGER = new INTEGERElements();
 		this.pIntVarExpression = new IntVarExpressionElements();
 		this.pCheckout = new CheckoutElements();
 		this.pScanExpression = new ScanExpressionElements();
@@ -1523,7 +1503,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getConfirmEnumAccess().getRule();
 	}
 	
-	//////////////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////IN-STORE SELF-CHECKOUT//////////////////////////////////////////////////////////////////////
 	//SelfCheckoutInstore:
 	//    pickScanMachine = HoldSelfScanner
 	//    statement+=(PickStatement|WalkStatement)*
@@ -1608,8 +1588,6 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//    MoveStatement |
 	//    TurnStatement |
 	//    Repeat |
-	////    VariableDeclaration
-	////;
 	//    HoldBasketStatement |
 	//    VariableDeclaration
 	//;
@@ -1622,7 +1600,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//HoldBasketStatement:
-	//    'basket' state=GripState
+	//    state=GripState 'basket'
 	//;
 	public HoldBasketStatementElements getHoldBasketStatementAccess() {
 		return pHoldBasketStatement;
@@ -1633,7 +1611,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//enum GripState:
-	//    up | down
+	//    grip | release
 	//;
 	public GripStateElements getGripStateAccess() {
 		return eGripState;
@@ -1747,7 +1725,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	}
 	
 	//IntLiteral:
-	//    val = INTEGER
+	//    val = INT
 	//;
 	public IntLiteralElements getIntLiteralAccess() {
 		return pIntLiteral;
@@ -1757,19 +1735,8 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 		return getIntLiteralAccess().getRule();
 	}
 	
-	//INTEGER returns ecore::EInt hidden():
-	//    INT
-	//;
-	public INTEGERElements getINTEGERAccess() {
-		return pINTEGER;
-	}
-	
-	public ParserRule getINTEGERRule() {
-		return getINTEGERAccess().getRule();
-	}
-	
-	////REAL returns ecore::EFloat hidden():
-	////    INT? "." INT
+	////INTEGER returns ecore::EInt hidden():
+	////    INT
 	////;
 	//IntVarExpression:
 	//    var = [VariableDeclaration]
@@ -1785,7 +1752,7 @@ public class SelfCheckoutExperienceGrammarAccess extends AbstractElementFinder.A
 	//Checkout:
 	//    "go" "to" "self-checkout"
 	//    scan = ScanExpression
-	//    pay = Pay?
+	//    pay = Pay?///////////////////////////////////////////////////////////////
 	//;
 	public CheckoutElements getCheckoutAccess() {
 		return pCheckout;

@@ -3,15 +3,26 @@
  */
 package self_checkout_experience.validation;
 
+import com.google.common.collect.Iterables;
+import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import self_checkout_experience.selfCheckoutExperience.GripState;
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
 import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
+import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * This class contains custom validation rules.
@@ -28,7 +39,7 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   
   public static final String INVALID_ITEM_BOUGHT = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT";
   
-  public static final String MAY_NOT_BASKET_UP = "self_checkout_experience.selfCheckoutExperience.MAY_NOT_BASKET_UP";
+  public static final String INVALID_BASKET_GRIP = "self_checkout_experience.selfCheckoutExperience.INVALID_BASKET_GRIP";
   
   public static final String INVALID_HOLDING_ITEM_ACTION = "self_checkout_experience.selfCheckoutExperience.INVALID_HOLDING_ITEM_ACTION";
   
@@ -78,6 +89,75 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
       this.warning("Holding item needs assignment", pickStmn, 
         SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
         SelfCheckoutExperienceValidator.INVALID_HOLDING_ITEM_ACTION);
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void checkAlwaysHaveBasketGrip(final SelfCheckoutInstore program) {
+    final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(program.getStatement(), WalkStatement.class));
+    InputOutput.<List<WalkStatement>>println(walking);
+    boolean _checkAlwaysHaveBasketGrip = this.checkAlwaysHaveBasketGrip(walking, true);
+    boolean _not = (!_checkAlwaysHaveBasketGrip);
+    if (_not) {
+      final Iterable<HoldBasketStatement> listOfHolding = Iterables.<HoldBasketStatement>filter(walking, HoldBasketStatement.class);
+      int _size = IterableExtensions.size(listOfHolding);
+      int _minus = (_size - 1);
+      final HoldBasketStatement lastHolding = ((HoldBasketStatement[])Conversions.unwrapArray(listOfHolding, HoldBasketStatement.class))[_minus];
+      InputOutput.<String>println(("HOLDING LIST  " + listOfHolding));
+      InputOutput.<String>println(("LAST HOLDING   " + lastHolding));
+      InputOutput.<String>println(("prog  " + program));
+      this.warning("This program cannot end with the basket on floor", lastHolding, 
+        SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE, SelfCheckoutExperienceValidator.INVALID_BASKET_GRIP);
+    }
+  }
+  
+  public boolean checkAlwaysHaveBasketGrip(final List<WalkStatement> statements, final boolean startState) {
+    final Function2<Boolean, WalkStatement, Boolean> _function = (Boolean previousState, WalkStatement stmt) -> {
+      boolean _xblockexpression = false;
+      {
+        InputOutput.<String>println(("StartState" + Boolean.valueOf(startState)));
+        InputOutput.<String>println(("previous State" + previousState));
+        InputOutput.<String>println(("stmt" + stmt));
+        _xblockexpression = this.predictBasketGrip(stmt, (previousState).booleanValue());
+      }
+      return Boolean.valueOf(_xblockexpression);
+    };
+    return (boolean) IterableExtensions.<WalkStatement, Boolean>fold(statements, Boolean.valueOf(startState), _function);
+  }
+  
+  protected boolean _predictBasketGrip(final WalkStatement stmt, final boolean previousState) {
+    return previousState;
+  }
+  
+  protected boolean _predictBasketGrip(final HoldBasketStatement stmt, final boolean previousState) {
+    boolean _xblockexpression = false;
+    {
+      InputOutput.<GripState>println(stmt.getState());
+      GripState _state = stmt.getState();
+      _xblockexpression = (_state == GripState.GRIP);
+    }
+    return _xblockexpression;
+  }
+  
+  protected boolean _predictBasketGrip(final Repeat stmt, final boolean previousState) {
+    boolean _xblockexpression = false;
+    {
+      final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(stmt.getStatement(), WalkStatement.class));
+      _xblockexpression = this.checkAlwaysHaveBasketGrip(walking, previousState);
+    }
+    return _xblockexpression;
+  }
+  
+  public boolean predictBasketGrip(final WalkStatement stmt, final boolean previousState) {
+    if (stmt instanceof HoldBasketStatement) {
+      return _predictBasketGrip((HoldBasketStatement)stmt, previousState);
+    } else if (stmt instanceof Repeat) {
+      return _predictBasketGrip((Repeat)stmt, previousState);
+    } else if (stmt != null) {
+      return _predictBasketGrip(stmt, previousState);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(stmt, previousState).toString());
     }
   }
 }
