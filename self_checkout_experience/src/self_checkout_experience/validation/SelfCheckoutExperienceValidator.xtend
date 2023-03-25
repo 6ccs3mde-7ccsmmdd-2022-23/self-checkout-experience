@@ -108,7 +108,4 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		walking.checkAlwaysHaveBasketGrip(previousState)
 	}
 	
-	
-
-	
 }

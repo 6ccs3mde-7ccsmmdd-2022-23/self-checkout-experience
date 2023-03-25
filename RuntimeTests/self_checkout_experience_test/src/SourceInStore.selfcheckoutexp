@@ -1,0 +1,26 @@
+hold selfscanner
+forward(13)
+pick up (5) Water
+drop Water
+pick up (4) Laptop
+scan and add to basket Laptop
+
+release basket
+grip basket
+pick up (3) Tea
+scan and add to basket Tea
+var loopCount = 3
+repeat loopCount times: 
+	forward(8)	
+	pick up (1) Ipad
+	drop Ipad
+end
+release basket
+grip basket
+pick up (1) Mangos
+scan and add to basket Mangos
+pick up (9) Coffee
+drop Coffee
+go to self-checkout
+scan barcode with selfscanner
+pay

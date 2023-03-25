@@ -1,44 +1,20 @@
-/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
-
-/*
-XPECT generated file self_checkout_experience.txt---
-Self checkout summary:
-IN STORE 
-	- 6 pick statements
-	- 3 scan and add to basket statements
-	- 3 drop statements
-	- 1 go to self-checkout statements
-	- 1 scan statements
-	- 0 carry item statements
-	- 2 move statements
-	- 0 turn statements
-	- 1 repeat statements
-	- 8 Walk statements
-ONLINE
-	- 0 search statements
-	- 0 add to online basket statements
-	- 0 remove from online basket statements
-
----
-
-XPECT generated file InstoretestCodeGenSelf_checkout.java---
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Map;
 import java.util.Iterator;
 
-public class InstoretestCodeGenSelf_checkout {
+public class OnlineNovoucherSelf_checkout {
 	public static void main(String[] args) {
 		ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
 		System.out.println("You have entered the store");
 		System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
 		System.out.println("Self Checkout Scanner aquired");
 		System.out.println("Move Forward (13)");
-		System.out.println("Picked up: (2 + 1) Water");
+		System.out.println("Picked up: (5 + 1) Water");
 		System.out.println("Dropping Water\n");
-		System.out.println("Picked up: (6 + 1) Laptop");
+		System.out.println("Picked up: (4 + 1) Laptop");
 		System.out.println("Adding Laptop in basket\n");
-		for (int i0 = 0; i0 < (6 + 1); i0++) {
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
 			items.add("Laptop");
 		}
 		
@@ -49,9 +25,9 @@ public class InstoretestCodeGenSelf_checkout {
 		}
 		
 		
-		for (int i0 = 0; i0 < 7; i0++) {
+		for (int i0 = 0; i0 < 3; i0++) {
 			System.out.println("Move Forward (8)");
-			System.out.println("Picked up: (4 + 1) Ipad");
+			System.out.println("Picked up: (1 + 1) Ipad");
 			System.out.println("Dropping Ipad\n");
 		}
 		
@@ -87,32 +63,3 @@ public class InstoretestCodeGenSelf_checkout {
 		}
 	}
 }
-
----
-*/
-
-hold selfscanner
-forward(13)
-pick up (2) Water
-drop Water
-pick up (6) Laptop
-scan and add to basket Laptop
-release basket
-grip basket
-pick up (3) Tea
-scan and add to basket Tea
-var loopCount = 7
-repeat loopCount times: 
-	forward(8)	
-	pick up (4) Ipad
-	drop Ipad
-end
-release basket
-grip basket
-pick up (1) Mangos
-scan and add to basket Mangos
-pick up (9) Coffee
-drop Coffee
-go to self-checkout
-scan barcode with selfscanner
-pay

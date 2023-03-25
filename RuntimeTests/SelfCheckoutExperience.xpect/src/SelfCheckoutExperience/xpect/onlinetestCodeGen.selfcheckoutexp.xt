@@ -15,34 +15,58 @@ IN STORE
 	- 0 repeat statements
 	- 0 Walk statements
 ONLINE
-- 1 search statements
-- 1 add to online basket statements
-- 1 remove from online basket statements
+	- 4 search statements
+	- 3 add to online basket statements
+	- 2 remove from online basket statements
 ---
 
 XPECT generated file OnlinetestCodeGenSelf_checkout.java---
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Map;
+import java.util.Iterator;
 
 public class OnlinetestCodeGenSelf_checkout {
 	public static void main(String[] args) {
 		ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
+		Iterator<String> i = items.iterator();
 		System.out.println("You have logged in");
 		System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
 		System.out.println("Searching for: Pencil");
-		System.out.println("Adding ((3 + 8) + 1) Pencil to basket\n");
-		for(int i=0; i < ((3 + 8) + 1); i++) {
+		System.out.println("Adding ((8 + 1) + 1) Pencil to basket\n");
+		for (int i0 = 0; i0 <  ((8 + 1) + 1); i0++) {
 			items.add("Pencil");
 		}
 		System.out.println("Removing Pencil from basket");
-		Iterator i = items.iterator();
+		i = items.iterator();
 		while (i.hasNext()) {
-			str = (String) i.next();
-			if (str.equals(Pencil) {
-				i.remove();
+			String str = (String) i.next();
+			if (str.equals("Pencil")) {
+				 i.remove();
 			}
+		}	
+		
+		System.out.println("Searching for: Wrapper");
+		
+		System.out.println("Searching for: Nappies");
+		System.out.println("Adding (5 + 1) Nappies to basket\n");
+		for (int i0 = 0; i0 <  (5 + 1); i0++) {
+			items.add("Nappies");
 		}
+		
+		System.out.println("Searching for: Chocolate");
+		System.out.println("Adding (2 + 1) Chocolate to basket\n");
+		for (int i0 = 0; i0 <  (2 + 1); i0++) {
+			items.add("Chocolate");
+		}
+		System.out.println("Removing Chocolate from basket");
+		i = items.iterator();
+		while (i.hasNext()) {
+			String str = (String) i.next();
+			if (str.equals("Chocolate")) {
+				 i.remove();
+			}
+		}	
 		System.out.println("Mode of delivery is next_day_delivery ");
 		System.out.println("Confirming order"); 
 		System.out.println("Checking out of web store\n");
@@ -67,15 +91,20 @@ public class OnlinetestCodeGenSelf_checkout {
 		}
 	}
 }
-OnlinetestCodeGenSelf_checkout
 
 ---
 */
 
-load_shop_site 
+load_shop_site
 search for Pencil
-add to basket (3+1) Pencil
+add to basket (8+1) Pencil
 remove from basket Pencil
+search for Wrapper
+search for Nappies
+add to basket (5) Nappies
+search for Chocolate
+add to basket (2) Chocolate
+remove from basket Chocolate
 checkout
 next_day_delivery
 confirm

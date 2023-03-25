@@ -1,20 +1,19 @@
 /* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
 
-
 /*
 XPECT generated file self_checkout_experience.txt---
 Self checkout summary:
 IN STORE 
-	- 9 pick statements
-	- 6 scan and add to basket statements
+	- 6 pick statements
+	- 3 scan and add to basket statements
 	- 3 drop statements
 	- 1 go to self-checkout statements
 	- 1 scan statements
 	- 0 carry item statements
-	- 1 move statements
+	- 2 move statements
 	- 0 turn statements
 	- 1 repeat statements
-	- 3 Walk statements
+	- 8 Walk statements
 ONLINE
 	- 0 search statements
 	- 0 add to online basket statements
@@ -26,6 +25,7 @@ XPECT generated file InstoretestCodeGenSelf_checkout.java---
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Map;
+import java.util.Iterator;
 
 public class InstoretestCodeGenSelf_checkout {
 	public static void main(String[] args) {
@@ -33,45 +33,36 @@ public class InstoretestCodeGenSelf_checkout {
 		System.out.println("You have entered the store");
 		System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
 		System.out.println("Self Checkout Scanner aquired");
-		System.out.println("Move Forward (9)");
-		System.out.println("Picked up: (55 + 1) Water");
+		System.out.println("Move Forward (13)");
+		System.out.println("Picked up: (2 + 1) Water");
 		System.out.println("Dropping Water\n");
-		System.out.println("Picked up: (5 + 1) Phone");
-		System.out.println("Adding Phone in basket\n");
-		for(int i=0; i < (5 + 1); i++) {
-			items.add("Phone");
+		System.out.println("Picked up: (6 + 1) Laptop");
+		System.out.println("Adding Laptop in basket\n");
+		for (int i0 = 0; i0 < (6 + 1); i0++) {
+			items.add("Laptop");
 		}
 		
-		System.out.println("Picked up: (8 + 1) Tea");
+		System.out.println("Picked up: (3 + 1) Tea");
 		System.out.println("Adding Tea in basket\n");
-		for(int i=0; i < (5 + 1); i++) {
+		for (int i0 = 0; i0 < (3 + 1); i0++) {
 			items.add("Tea");
 		}
 		
-		System.out.println("Picked up: (2 + 1) Tea");
-		System.out.println("Dropping Tea\n");
-		System.out.println("Picked up: (8 + 1) Tea");
-		System.out.println("Adding Tea in basket\n");
-		for(int i=0; i < (8 + 1); i++) {
-			items.add("Tea");
-		}
-		
-		System.out.println("Picked up: (2 + 1) Tea");
-		System.out.println("Dropping Tea\n");
 		
 		for (int i0 = 0; i0 < 7; i0++) {
-			System.out.println("Picked up: (2 + 1) Bread");
-			System.out.println("Adding Bread in basket\n");
-			for(int i=0; i < (2 + 1); i++) {
-				items.add("Bread");
-			}
+			System.out.println("Move Forward (8)");
+			System.out.println("Picked up: (4 + 1) Ipad");
+			System.out.println("Dropping Ipad\n");
 		}
 		
-		System.out.println("Picked up: (5 + 1) Mango");
-		System.out.println("Adding Mango in basket\n");
-		for(int i=0; i < (5 + 1); i++) {
-			items.add("Mango");
+		System.out.println("Picked up: (1 + 1) Mangos");
+		System.out.println("Adding Mangos in basket\n");
+		for (int i0 = 0; i0 < (1 + 1); i0++) {
+			items.add("Mangos");
 		}
+		
+		System.out.println("Picked up: (9 + 1) Coffee");
+		System.out.println("Dropping Coffee\n");
 		System.out.println("Going to checkout");
 		System.out.println("Load self scanner onto till");
 		System.out.println("Checking out of store\n");
@@ -101,22 +92,27 @@ public class InstoretestCodeGenSelf_checkout {
 */
 
 hold selfscanner
-forward(9)
-//pick up (55) Water
-//drop Water
-pick up (5) Phone
-scan and add to basket Phone
-pick up (8) Tea
+forward(13)
+pick up (2) Water
+drop Water
+pick up (6) Laptop
+scan and add to basket Laptop
+release basket
+grip basket
+pick up (3) Tea
 scan and add to basket Tea
-pick up (2) Tea
-drop Tea
 var loopCount = 7
 repeat loopCount times: 
-	pick up (2) Bread
-	scan and add to basket Bread	
+	forward(8)	
+	pick up (4) Ipad
+	drop Ipad
 end
-pick up (5) Mango
-scan and add to basket Mango
+release basket
+grip basket
+pick up (1) Mangos
+scan and add to basket Mangos
+pick up (9) Coffee
+drop Coffee
 go to self-checkout
 scan barcode with selfscanner
 pay

@@ -2,21 +2,34 @@
 
 
 hold selfscanner
-forward(9)
+forward(13)
 //XPECT warnings --> "Item should start with a upper-case character" at "water"
-pick up (55) water
+pick up (2) water
 drop water
-pick up (5) Phone
-scan and add to basket Phone
+//XPECT warnings --> "Item should start with a upper-case character" at "laptop"
+pick up (6) laptop
+scan and add to basket laptop
+release basket
+grip basket
+pick up (3) Tea
+scan and add to basket Tea
+//XPECT warnings --> "Name should start with a lower-case character" at "Count"
+var Count = 7
+var itemCount = 3
+//XPECT scope at Count -->Count, itemCount
+repeat Count times: 
+	forward(8)	
+	//XPECT scope at itemCount -->Count, itemCount
+	pick up (itemCount) Ipad
+	drop Ipad
+end
 //XPECT warnings --> "This program cannot end with the basket on floor" at "release"
 release basket
-var loopCount = 7
-repeat loopCount times: 
-	pick up (2) Bread
-	scan and add to basket Bread	
-end
-pick up (5) Mango
-scan and add to basket Mango
+pick up (1) Mangos
+scan and add to basket Mangos
+//XPECT scope at itemCount -->Count, itemCount
+pick up (itemCount) Coffee
+drop Coffee
 go to self-checkout
 scan barcode with selfscanner
 pay

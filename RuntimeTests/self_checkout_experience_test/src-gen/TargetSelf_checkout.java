@@ -1,40 +1,17 @@
-/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
-
-/*
-XPECT generated file self_checkout_experience.txt---
-Self checkout summary:
-IN STORE 
-	- 0 pick statements
-	- 0 scan and add to basket statements
-	- 0 drop statements
-	- 0 go to self-checkout statements
-	- 0 scan statements
-	- 0 carry item statements
-	- 0 move statements
-	- 0 turn statements
-	- 0 repeat statements
-	- 0 Walk statements
-ONLINE
-	- 4 search statements
-	- 3 add to online basket statements
-	- 2 remove from online basket statements
----
-
-XPECT generated file OnlinetestCodeGenSelf_checkout.java---
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Map;
 import java.util.Iterator;
 
-public class OnlinetestCodeGenSelf_checkout {
+public class TargetSelf_checkout {
 	public static void main(String[] args) {
 		ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
 		Iterator<String> i = items.iterator();
 		System.out.println("You have logged in");
 		System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
 		System.out.println("Searching for: Pencil");
-		System.out.println("Adding ((8 + 1) + 1) Pencil to basket\n");
-		for (int i0 = 0; i0 <  ((8 + 1) + 1); i0++) {
+		System.out.println("Adding (((8 + 1) + 1) + 1) Pencil to basket\n");
+		for (int i0 = 0; i0 <  (((8 + 1) + 1) + 1); i0++) {
 			items.add("Pencil");
 		}
 		System.out.println("Removing Pencil from basket");
@@ -47,16 +24,20 @@ public class OnlinetestCodeGenSelf_checkout {
 		}	
 		
 		System.out.println("Searching for: Wrapper");
+		System.out.println("Adding ((6 + 1) + 1) Wrapper to basket\n");
+		for (int i0 = 0; i0 <  ((6 + 1) + 1); i0++) {
+			items.add("Wrapper");
+		}
 		
 		System.out.println("Searching for: Nappies");
-		System.out.println("Adding (5 + 1) Nappies to basket\n");
-		for (int i0 = 0; i0 <  (5 + 1); i0++) {
+		System.out.println("Adding ((14 + 1) + 1) Nappies to basket\n");
+		for (int i0 = 0; i0 <  ((14 + 1) + 1); i0++) {
 			items.add("Nappies");
 		}
 		
 		System.out.println("Searching for: Chocolate");
-		System.out.println("Adding (2 + 1) Chocolate to basket\n");
-		for (int i0 = 0; i0 <  (2 + 1); i0++) {
+		System.out.println("Adding ((2 + 1) + 1) Chocolate to basket\n");
+		for (int i0 = 0; i0 <  ((2 + 1) + 1); i0++) {
 			items.add("Chocolate");
 		}
 		System.out.println("Removing Chocolate from basket");
@@ -91,21 +72,3 @@ public class OnlinetestCodeGenSelf_checkout {
 		}
 	}
 }
-
----
-*/
-
-load_shop_site
-search for Pencil
-add to basket (8+1) Pencil
-remove from basket Pencil
-search for Wrapper
-search for Nappies
-add to basket (5) Nappies
-search for Chocolate
-add to basket (2) Chocolate
-remove from basket Chocolate
-checkout
-next_day_delivery
-confirm
-pay
