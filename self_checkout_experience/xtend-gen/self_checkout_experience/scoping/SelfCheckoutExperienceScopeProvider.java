@@ -4,16 +4,15 @@
 package self_checkout_experience.scoping;
 
 import com.google.common.collect.Iterables;
-import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
 import self_checkout_experience.selfCheckoutExperience.Repeat;
-import self_checkout_experience.selfCheckoutExperience.Self_checkout;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
 
 /**
@@ -27,51 +26,37 @@ import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider {
-  public IScope scope_IntVarExpression_var(final IntVarExpression context, final EReference ref) {
-    return this.visibleVariablesScope(context);
-  }
-  
-  protected IScope _visibleVariablesScope(final IntExpression ip) {
-    return this.visibleVariablesScope(ip.eContainer());
-  }
-  
-  protected IScope _visibleVariablesScope(final Self_checkout tp) {
-    return Scopes.scopeFor(Iterables.<VariableDeclaration>filter(tp.getSelfCheckoutExperience(), VariableDeclaration.class));
-  }
-  
-  protected IScope _visibleVariablesScope(final Repeat ls) {
-    return this.internalVisibleVariablesScope(ls.eContainer());
-  }
-  
-  protected IScope _internalVisibleVariablesScope(final Self_checkout tp) {
-    return Scopes.scopeFor(Iterables.<VariableDeclaration>filter(tp.getSelfCheckoutExperience(), VariableDeclaration.class));
-  }
-  
-  protected IScope _internalVisibleVariablesScope(final Repeat ls) {
-    return Scopes.scopeFor(Iterables.<VariableDeclaration>filter(ls.getStatement(), VariableDeclaration.class), this.internalVisibleVariablesScope(ls.eContainer()));
-  }
-  
-  public IScope visibleVariablesScope(final EObject ls) {
-    if (ls instanceof Repeat) {
-      return _visibleVariablesScope((Repeat)ls);
-    } else if (ls instanceof IntExpression) {
-      return _visibleVariablesScope((IntExpression)ls);
-    } else if (ls instanceof Self_checkout) {
-      return _visibleVariablesScope((Self_checkout)ls);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(ls).toString());
+  public IScope scope_IntVarExpression_var_walkAndPick(final IntVarExpression context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      final Repeat loopContainer = EcoreUtil2.<Repeat>getContainerOfType(context, Repeat.class);
+      IScope _xifexpression = null;
+      if ((loopContainer != null)) {
+        _xifexpression = this.visibleVariablesScope_walkAndPick(loopContainer);
+      } else {
+        IScope _xblockexpression_1 = null;
+        {
+          final SelfCheckoutInstore containingProgram = EcoreUtil2.<SelfCheckoutInstore>getContainerOfType(context, SelfCheckoutInstore.class);
+          _xblockexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(containingProgram.getStatement(), VariableDeclaration.class));
+        }
+        _xifexpression = _xblockexpression_1;
+      }
+      _xblockexpression = _xifexpression;
     }
+    return _xblockexpression;
   }
   
-  public IScope internalVisibleVariablesScope(final EObject ls) {
-    if (ls instanceof Repeat) {
-      return _internalVisibleVariablesScope((Repeat)ls);
-    } else if (ls instanceof Self_checkout) {
-      return _internalVisibleVariablesScope((Self_checkout)ls);
+  public IScope visibleVariablesScope_walkAndPick(final EObject context) {
+    IScope _xifexpression = null;
+    if ((context instanceof Repeat)) {
+      _xifexpression = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((Repeat)context).getStatement(), VariableDeclaration.class), this.visibleVariablesScope_walkAndPick(((Repeat)context).eContainer()));
     } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(ls).toString());
+      IScope _xifexpression_1 = null;
+      if ((context instanceof SelfCheckoutInstore)) {
+        _xifexpression_1 = Scopes.scopeFor(Iterables.<VariableDeclaration>filter(((SelfCheckoutInstore)context).getStatement(), VariableDeclaration.class));
+      }
+      _xifexpression = _xifexpression_1;
     }
+    return _xifexpression;
   }
 }
