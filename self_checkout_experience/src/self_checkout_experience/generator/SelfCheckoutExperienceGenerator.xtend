@@ -134,6 +134,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 				«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
 			}
 		}
+		«print(className)»
 	'''
 
 	private static class Environment {

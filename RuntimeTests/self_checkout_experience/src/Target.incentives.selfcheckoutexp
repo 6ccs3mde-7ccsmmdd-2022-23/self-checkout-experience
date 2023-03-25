@@ -1,0 +1,1 @@
+hold selfscanner forward ( 13 ) pick up ( 2 + 1 ) Water drop Water pick up ( 4 + 1 ) Laptop scan and add to basket Laptop pick up ( 5 + 1 ) Tea scan and add to basket Tea var loopCount = 7 repeat loopCount times: forward ( 8 ) pick up ( 3 + 1 ) Ipad drop Ipad end pick up ( 1 + 1 ) Mango scan and add to basket Mango go to self-checkout scan barcode with selfscanner pay

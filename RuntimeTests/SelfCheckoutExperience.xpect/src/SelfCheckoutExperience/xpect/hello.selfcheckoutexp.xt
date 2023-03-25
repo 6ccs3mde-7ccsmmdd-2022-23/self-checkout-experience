@@ -1,0 +1,32 @@
+/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
+
+
+/*
+XPECT generated file self_checkout_experience.txt---
+
+---
+
+XPECT generated file HelloSelf_checkout.java---
+---
+*/
+
+hold selfscanner
+forward(9)
+pick up (55) Water
+drop Water
+pick up (5) Phone
+scan and add to basket Phone
+pick up (8) Tea
+scan and add to basket Tea
+pick up (2) Tea
+drop Tea
+var loopCount = 7
+repeat loopCount times: 
+	pick up (2) Bread
+	scan and add to basket Bread	
+end
+pick up (5) Mango
+scan and add to basket Mango
+go to self-checkout
+scan barcode with selfscanner
+pay

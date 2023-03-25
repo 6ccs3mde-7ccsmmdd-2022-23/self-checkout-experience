@@ -21,6 +21,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -261,6 +262,9 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    String _print = InputOutput.<String>print(className);
+    _builder.append(_print);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

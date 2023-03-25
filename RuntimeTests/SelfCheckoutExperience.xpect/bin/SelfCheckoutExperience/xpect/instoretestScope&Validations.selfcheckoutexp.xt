@@ -1,0 +1,22 @@
+/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
+
+
+hold selfscanner
+forward(9)
+//XPECT warnings --> "Item should start with a upper-case character" at "water"
+pick up (55) water
+drop water
+pick up (5) Phone
+scan and add to basket Phone
+//XPECT warnings --> "This program cannot end with the basket on floor" at "release"
+release basket
+var loopCount = 7
+repeat loopCount times: 
+	pick up (2) Bread
+	scan and add to basket Bread	
+end
+pick up (5) Mango
+scan and add to basket Mango
+go to self-checkout
+scan barcode with selfscanner
+pay

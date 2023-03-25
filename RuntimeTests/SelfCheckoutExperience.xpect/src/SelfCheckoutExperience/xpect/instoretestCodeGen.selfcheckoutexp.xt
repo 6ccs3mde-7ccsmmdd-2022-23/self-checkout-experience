@@ -1,0 +1,122 @@
+/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
+
+
+/*
+XPECT generated file self_checkout_experience.txt---
+Self checkout summary:
+IN STORE 
+	- 9 pick statements
+	- 6 scan and add to basket statements
+	- 3 drop statements
+	- 1 go to self-checkout statements
+	- 1 scan statements
+	- 0 carry item statements
+	- 1 move statements
+	- 0 turn statements
+	- 1 repeat statements
+	- 3 Walk statements
+ONLINE
+	- 0 search statements
+	- 0 add to online basket statements
+	- 0 remove from online basket statements
+
+---
+
+XPECT generated file InstoretestCodeGenSelf_checkout.java---
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Map;
+
+public class InstoretestCodeGenSelf_checkout {
+	public static void main(String[] args) {
+		ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
+		System.out.println("You have entered the store");
+		System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
+		System.out.println("Self Checkout Scanner aquired");
+		System.out.println("Move Forward (9)");
+		System.out.println("Picked up: (55 + 1) Water");
+		System.out.println("Dropping Water\n");
+		System.out.println("Picked up: (5 + 1) Phone");
+		System.out.println("Adding Phone in basket\n");
+		for(int i=0; i < (5 + 1); i++) {
+			items.add("Phone");
+		}
+		
+		System.out.println("Picked up: (8 + 1) Tea");
+		System.out.println("Adding Tea in basket\n");
+		for(int i=0; i < (5 + 1); i++) {
+			items.add("Tea");
+		}
+		
+		System.out.println("Picked up: (2 + 1) Tea");
+		System.out.println("Dropping Tea\n");
+		System.out.println("Picked up: (8 + 1) Tea");
+		System.out.println("Adding Tea in basket\n");
+		for(int i=0; i < (8 + 1); i++) {
+			items.add("Tea");
+		}
+		
+		System.out.println("Picked up: (2 + 1) Tea");
+		System.out.println("Dropping Tea\n");
+		
+		for (int i0 = 0; i0 < 7; i0++) {
+			System.out.println("Picked up: (2 + 1) Bread");
+			System.out.println("Adding Bread in basket\n");
+			for(int i=0; i < (2 + 1); i++) {
+				items.add("Bread");
+			}
+		}
+		
+		System.out.println("Picked up: (5 + 1) Mango");
+		System.out.println("Adding Mango in basket\n");
+		for(int i=0; i < (5 + 1); i++) {
+			items.add("Mango");
+		}
+		System.out.println("Going to checkout");
+		System.out.println("Load self scanner onto till");
+		System.out.println("Checking out of store\n");
+		System.out.println("///////////////RECEIPT//////////////" );
+		Map<Object, Long> counts =
+				items.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+		for(Map.Entry<Object, Long> entry : counts.entrySet()) {
+			System.out.println("- " + entry.getKey() + " x" + entry.getValue());
+		}
+		System.out.println();
+		System.out.println("Number of items purchased: " + items.size());
+		if(items.size() >= 20){
+			System.out.println();
+			System.out.println("///////////////VOUCHER///////////////");
+			System.out.println("//    You bought over 20 items!    //");
+			System.out.println("//     You've earned a voucher     //");
+			System.out.println("//    to spend on self-checkout    //");
+			System.out.println("//     next time you shop here.    //");
+			System.out.println("/////////////////////////////////////");
+		}else {
+			System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
+		}
+	}
+}
+
+---
+*/
+
+hold selfscanner
+forward(9)
+//pick up (55) Water
+//drop Water
+pick up (5) Phone
+scan and add to basket Phone
+pick up (8) Tea
+scan and add to basket Tea
+pick up (2) Tea
+drop Tea
+var loopCount = 7
+repeat loopCount times: 
+	pick up (2) Bread
+	scan and add to basket Bread	
+end
+pick up (5) Mango
+scan and add to basket Mango
+go to self-checkout
+scan barcode with selfscanner
+pay
