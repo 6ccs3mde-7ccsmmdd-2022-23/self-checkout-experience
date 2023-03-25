@@ -21,7 +21,6 @@ import self_checkout_experience.selfCheckoutExperience.PickStatement
  */
 class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
 	
-
 	public static val INVALID_VARIABLE_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME'
 	public static val INVALID_ITEM_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME'
 	public static val INVALID_ITEM_BOUGHT = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT'
