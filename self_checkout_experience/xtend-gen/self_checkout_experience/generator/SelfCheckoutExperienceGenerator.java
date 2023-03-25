@@ -21,7 +21,6 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -238,6 +237,8 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import java.util.Map;");
     _builder.newLine();
+    _builder.append("import java.util.Iterator;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(className);
@@ -262,9 +263,6 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    String _print = InputOutput.<String>print(className);
-    _builder.append(_print);
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -325,25 +323,38 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   }
   
   protected String _generateJavaStatement(final ScanAndAddToBasket item, final String itemCount, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Adding ");
-    String _name = item.getItemInBasket().getName();
-    _builder.append(_name);
-    _builder.append(" in basket\\n\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("for(int i=0; i < ");
-    _builder.append(itemCount);
-    _builder.append("; i++) {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("items.add(\"");
-    String _name_1 = item.getItemInBasket().getName();
-    _builder.append(_name_1, "\t");
-    _builder.append("\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
+    String _xblockexpression = null;
+    {
+      final CharSequence freshVarName = env.getFreshVarName();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("System.out.println(\"Adding ");
+      String _name = item.getItemInBasket().getName();
+      _builder.append(_name);
+      _builder.append(" in basket\\n\");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("for (int ");
+      _builder.append(freshVarName);
+      _builder.append(" = 0; ");
+      _builder.append(freshVarName);
+      _builder.append(" < ");
+      _builder.append(itemCount);
+      _builder.append("; ");
+      _builder.append(freshVarName);
+      _builder.append("++) {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("items.add(\"");
+      String _name_1 = item.getItemInBasket().getName();
+      _builder.append(_name_1, "\t");
+      _builder.append("\");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("}");
+      _builder.newLine();
+      final String result = _builder.toString();
+      env.exit();
+      _xblockexpression = result;
+    }
+    return _xblockexpression;
   }
   
   protected String _generateJavaStatement(final Drop item, final String itemCount, final SelfCheckoutExperienceGenerator.Environment env) {
@@ -547,6 +558,8 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   
   protected String _generateJavaStatement(final SelfCheckoutOnline online, final SelfCheckoutExperienceGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Iterator<String> i = items.iterator();");
+    _builder.newLine();
     _builder.append("System.out.println(\"You have logged in\");");
     _builder.newLine();
     _builder.append("System.out.println(\"***We are giving an EXTRA item for every time you buy online!***\\n\");");
@@ -585,66 +598,88 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
   }
   
   protected String _generateJavaStatement(final AddToOnlineBasket basket, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Adding ");
-    String _generateJavaExpression = this.generateJavaExpression(basket.getItemCount());
-    _builder.append(_generateJavaExpression);
-    _builder.append(" ");
-    String _name = basket.getItem().getName();
-    _builder.append(_name);
-    _builder.append(" to basket\\n\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("for(int i=0; i < ");
-    String _generateJavaExpression_1 = this.generateJavaExpression(basket.getItemCount());
-    _builder.append(_generateJavaExpression_1);
-    _builder.append("; i++) {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("items.add(\"");
-    String _name_1 = basket.getItem().getName();
-    _builder.append(_name_1, "\t");
-    _builder.append("\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    String _xifexpression = null;
-    RemoveFromOnlineBasket _removeFromOnlineBasket = basket.getRemoveFromOnlineBasket();
-    boolean _tripleNotEquals = (_removeFromOnlineBasket != null);
-    if (_tripleNotEquals) {
-      _xifexpression = this.generateJavaStatement(basket.getRemoveFromOnlineBasket(), env);
+    String _xblockexpression = null;
+    {
+      final CharSequence freshVarName = env.getFreshVarName();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("System.out.println(\"Adding ");
+      String _generateJavaExpression = this.generateJavaExpression(basket.getItemCount());
+      _builder.append(_generateJavaExpression);
+      _builder.append(" ");
+      String _name = basket.getItem().getName();
+      _builder.append(_name);
+      _builder.append(" to basket\\n\");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("for (int ");
+      _builder.append(freshVarName);
+      _builder.append(" = 0; ");
+      _builder.append(freshVarName);
+      _builder.append(" <  ");
+      String _generateJavaExpression_1 = this.generateJavaExpression(basket.getItemCount());
+      _builder.append(_generateJavaExpression_1);
+      _builder.append("; ");
+      _builder.append(freshVarName);
+      _builder.append("++) {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("items.add(\"");
+      String _name_1 = basket.getItem().getName();
+      _builder.append(_name_1, "\t");
+      _builder.append("\");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("}");
+      _builder.newLine();
+      String _xifexpression = null;
+      RemoveFromOnlineBasket _removeFromOnlineBasket = basket.getRemoveFromOnlineBasket();
+      boolean _tripleNotEquals = (_removeFromOnlineBasket != null);
+      if (_tripleNotEquals) {
+        _xifexpression = this.generateJavaStatement(basket.getRemoveFromOnlineBasket(), env);
+      }
+      _builder.append(_xifexpression);
+      _builder.newLineIfNotEmpty();
+      final String result = _builder.toString();
+      env.exit();
+      _xblockexpression = result;
     }
-    _builder.append(_xifexpression);
-    return _builder.toString();
+    return _xblockexpression;
   }
   
   protected String _generateJavaStatement(final RemoveFromOnlineBasket itemRemove, final SelfCheckoutExperienceGenerator.Environment env) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"Removing ");
-    String _name = itemRemove.getRemoveItem().getName();
-    _builder.append(_name);
-    _builder.append(" from basket\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("Iterator i = items.iterator();");
-    _builder.newLine();
-    _builder.append("while (i.hasNext()) {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("str = (String) i.next();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("if (str.equals(");
-    String _name_1 = itemRemove.getRemoveItem().getName();
-    _builder.append(_name_1, "\t");
-    _builder.append(") {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("i.remove();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("}");
-    return _builder.toString();
+    String _xblockexpression = null;
+    {
+      final CharSequence freshVarName = env.getFreshVarName();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("System.out.println(\"Removing ");
+      String _name = itemRemove.getRemoveItem().getName();
+      _builder.append(_name);
+      _builder.append(" from basket\");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("i = items.iterator();");
+      _builder.newLine();
+      _builder.append("while (i.hasNext()) {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("String str = (String) i.next();");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("if (str.equals(\"");
+      String _name_1 = itemRemove.getRemoveItem().getName();
+      _builder.append(_name_1, "\t");
+      _builder.append("\")) {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t ");
+      _builder.append("i.remove();");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}\t");
+      _builder.newLine();
+      final String result = _builder.toString();
+      env.exit();
+      _xblockexpression = result;
+    }
+    return _xblockexpression;
   }
   
   protected String _generateJavaStatement(final OnlineCheckout checkout, final SelfCheckoutExperienceGenerator.Environment env) {

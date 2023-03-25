@@ -127,6 +127,7 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		import java.util.ArrayList;
 		import java.util.stream.Collectors;
 		import java.util.Map;
+		import java.util.Iterator;
 		
 		public class «className» {
 			public static void main(String[] args) {
@@ -134,7 +135,6 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 				«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
 			}
 		}
-		«print(className)»
 	'''
 
 	private static class Environment {
@@ -154,13 +154,19 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 		
 	dispatch def String generateJavaStatement(PickStatement picksmnt, Environment env) '''System.out.println("Picked up: «picksmnt.itemCount.generateJavaExpression()» «picksmnt.itemPicked.getName.toFirstUpper»");
 «if(picksmnt.holdingItem !== null ){generateJavaStatement(picksmnt.holdingItem, picksmnt.itemCount.generateJavaExpression(), env)}»'''
-	
-	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env) '''System.out.println("Adding «item.itemInBasket.name» in basket\n");
-for(int i=0; i < «itemCount»; i++) {
-	items.add("«item.itemInBasket.name»");
-}
-	'''
-	
+
+	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+		System.out.println("Adding «item.itemInBasket.name» in basket\n");
+		for (int «freshVarName» = 0; «freshVarName» < «itemCount»; «freshVarName»++) {
+			items.add("«item.itemInBasket.name»");
+		}
+		'''
+		env.exit
+		result
+	}
+
 	dispatch def String generateJavaStatement(Drop item, String itemCount, Environment env) '''System.out.println("Dropping «item.itemDropped.name»\n");'''
 	
 	dispatch def String generateJavaStatement(WalkStatement smnt, Environment env) ''''''
@@ -210,6 +216,7 @@ for(int i=0; i < «itemCount»; i++) {
 	////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////
 	
 	dispatch def String generateJavaStatement(SelfCheckoutOnline online, Environment env) '''
+	Iterator<String> i = items.iterator();
 	System.out.println("You have logged in");
 	System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
 «online.search.map[generateJavaStatement(env)].join('\n')»
@@ -218,20 +225,35 @@ for(int i=0; i < «itemCount»; i++) {
 	dispatch def String generateJavaStatement(Search search, Environment env) '''System.out.println("Searching for: «search.itemSearch.name»");
 «if(search.addToOnlineBasket !== null){generateJavaStatement(search.addToOnlineBasket, env)}»'''
 	
-	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env) '''System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket\n");
-for(int i=0; i < «basket.itemCount.generateJavaExpression»; i++) {
-	items.add("«basket.item.name»");
-}
-«if(basket.removeFromOnlineBasket !== null){generateJavaStatement(basket.removeFromOnlineBasket, env)}»'''
-	
-	dispatch def String generateJavaStatement(RemoveFromOnlineBasket itemRemove, Environment env) '''System.out.println("Removing «itemRemove.removeItem.name» from basket");
-Iterator i = items.iterator();
-while (i.hasNext()) {
-	str = (String) i.next();
-	if (str.equals(«itemRemove.removeItem.name») {
-		i.remove();
+
+	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+			System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket\n");
+			for (int «freshVarName» = 0; «freshVarName» <  «basket.itemCount.generateJavaExpression»; «freshVarName»++) {
+				items.add("«basket.item.name»");
+			}
+			«if(basket.removeFromOnlineBasket !== null){generateJavaStatement(basket.removeFromOnlineBasket, env)}»
+		'''
+		env.exit
+		result
 	}
-}'''
+
+	dispatch def String generateJavaStatement(RemoveFromOnlineBasket itemRemove, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+			System.out.println("Removing «itemRemove.removeItem.name» from basket");
+			i = items.iterator();
+			while (i.hasNext()) {
+				String str = (String) i.next();
+				if (str.equals("«itemRemove.removeItem.name»")) {
+					 i.remove();
+				}
+			}	
+		'''
+		env.exit
+		result
+	}
 	
 	dispatch def String generateJavaStatement(OnlineCheckout checkout, Environment env) '''
 	«if(checkout.deliveryOptions !== null) {generateJavaStatement(checkout.deliveryOptions, env)}»
