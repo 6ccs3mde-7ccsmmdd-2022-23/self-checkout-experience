@@ -29,7 +29,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
 class SelfCheckoutExperienceScopeProvider extends AbstractDeclarativeScopeProvider { 
 
 
-	// scope for variable declarations when walking in a repeat
+	// scope for variable declarations when walking and picking in a repeat
 	def IScope scope_IntVarExpression_var_walkAndPick(IntVarExpression context, EReference ref){
 		val loopContainer = context.getContainerOfType(Repeat)
 		

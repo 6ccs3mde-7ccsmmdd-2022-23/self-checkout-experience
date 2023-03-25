@@ -7,19 +7,12 @@ import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage
 import self_checkout_experience.selfCheckoutExperience.ItemDef
 import java.util.List
-import self_checkout_experience.selfCheckoutExperience.Self_checkout
-import org.eclipse.emf.common.util.EList
-import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience
 import self_checkout_experience.selfCheckoutExperience.Repeat
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
 import self_checkout_experience.selfCheckoutExperience.WalkStatement
 import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
 import self_checkout_experience.selfCheckoutExperience.GripState
-import org.eclipse.emf.ecore.util.EcoreUtil
 import self_checkout_experience.selfCheckoutExperience.PickStatement
-import self_checkout_experience.selfCheckoutExperience.Checkout
-
-//////REQUIRED: ONE SYNTAX, STATIC SEMATNICS, DYNAMIC SEMANTICS 
 
 /**
  * This class contains custom validation rules. 
@@ -31,7 +24,6 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 
 	public static val INVALID_VARIABLE_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME'
 	public static val INVALID_ITEM_NAME = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME'
-	public static val INVALID_ITEM_PLURAL = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_PLURAL'	
 	public static val INVALID_ITEM_BOUGHT = 'self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT'
 	public static val INVALID_BASKET_GRIP = 'self_checkout_experience.selfCheckoutExperience.INVALID_BASKET_GRIP'
 	public static val INVALID_HOLDING_ITEM_ACTION = 'self_checkout_experience.selfCheckoutExperience.INVALID_HOLDING_ITEM_ACTION'
@@ -75,27 +67,24 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		}
 	}
 	
+	// Validate a holding item is dropped or added to basket
 	@Check
 	def checkAddToBasketOrDropComesAfterPick(PickStatement pickStmn){
 		if(pickStmn.holdingItem === null){
-			warning('Holding item needs assignment', pickStmn,
+			warning('Drop or add to basket item', pickStmn,
 				SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
 				INVALID_HOLDING_ITEM_ACTION)
 		}		
 	}
 	
-	// Validate that basket is in hand before they pay--------
+	// Validate that basket is in hand before they pay
 	@Check(NORMAL)
 	def checkAlwaysHaveBasketGrip(SelfCheckoutInstore program) {
 		
 		val walking = program.statement.filter(WalkStatement).toList
-		println(walking)
  		if (!(walking.checkAlwaysHaveBasketGrip(true))) {
 			val listOfHolding = walking.filter(HoldBasketStatement)
 			val lastHolding = listOfHolding.get(listOfHolding.size()-1)
-			println("HOLDING LIST  " + listOfHolding)
-			println("LAST HOLDING   "+ lastHolding)
-			println("prog  "+ program)
 
 			warning('This program cannot end with the basket on floor', lastHolding,
 				SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE, INVALID_BASKET_GRIP)
@@ -104,9 +93,6 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 
 	def boolean checkAlwaysHaveBasketGrip(List<WalkStatement> statements, boolean startState) {
 		statements.fold(startState, [ previousState, stmt |
-			println("StartState" + startState)
-			println("previous State" + previousState)
-			println("stmt" + stmt)
 			stmt.predictBasketGrip(previousState)
 		])
 	}
@@ -114,35 +100,15 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 	dispatch def predictBasketGrip(WalkStatement stmt, boolean previousState) { previousState }
 
 	dispatch def predictBasketGrip(HoldBasketStatement stmt, boolean previousState) { 
-				println(stmt.state)
 				stmt.state === GripState.GRIP
 	}
 	
 	dispatch def predictBasketGrip(Repeat stmt, boolean previousState) {
 		val walking = stmt.statement.filter(WalkStatement).toList
-//		val eList = EcoreUtil.copyAll(walking) as EList<WalkStatement>
 		walking.checkAlwaysHaveBasketGrip(previousState)
 	}
 	
 	
-//	set pay to fasle
-// then check at every statement that pay is true -> warning to say maek sure to pay
-// set to true if pay cmnd is used
 
-//	@Check(NORMAL)
-//	def checkCustomerHasPaid(Checkout checkout){
-//		
-//		
-//	}
-	
-//	def boolean checkAlwaysHaveBasketUp(SelfCheckoutInstore instore, boolean startState) {
-//		
-//		val picking = instore.statement.filter(PickStatement)
-//		val walking = instore.statement.filter(WalkStatement)
-//		
-////		statement.fold(startState, [ previousState, stmt |
-////			stmt.predictBasketGripOutcome(previousState)
-////		])
-//	}
 	
 }

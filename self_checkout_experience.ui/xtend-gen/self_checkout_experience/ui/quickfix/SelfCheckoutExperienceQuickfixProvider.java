@@ -3,7 +3,16 @@
  */
 package self_checkout_experience.ui.quickfix;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.editor.model.edit.IMultiModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
+import self_checkout_experience.validation.SelfCheckoutExperienceValidator;
 
 /**
  * Custom quickfixes.
@@ -12,4 +21,40 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceQuickfixProvider extends DefaultQuickfixProvider {
+  @Fix(SelfCheckoutExperienceValidator.INVALID_VARIABLE_NAME)
+  public void lowerCaseVariableName(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final VariableDeclaration decl = ((VariableDeclaration) element);
+      decl.setName(StringExtensions.toFirstLower(decl.getName()));
+    };
+    acceptor.<EObject>acceptMulti(issue, "Lower case variable name", "Change the variable name to start with a lower case character", null, _function);
+  }
+  
+  @Fix(SelfCheckoutExperienceValidator.INVALID_ITEM_NAME)
+  public void upperCaseItemName(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final ItemDef item = ((ItemDef) element);
+      item.setName(StringExtensions.toFirstUpper(item.getName()));
+    };
+    acceptor.<EObject>acceptMulti(issue, "Upper case item name", "Change the item name to start with an upper case character", null, _function);
+  }
+  
+  @Fix(SelfCheckoutExperienceValidator.INVALID_ITEM_BOUGHT)
+  public void invalidItem(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final ItemDef item = ((ItemDef) element);
+      item.setName("Apple");
+    };
+    acceptor.<EObject>acceptMulti(issue, "Suggestion: Apple", "Change the item to a valid item, some examples:", null, _function);
+    final IMultiModification<EObject> _function_1 = (EObject element) -> {
+      final ItemDef item = ((ItemDef) element);
+      item.setName("Pear");
+    };
+    acceptor.<EObject>acceptMulti(issue, "Suggestion: Pear", "Change the item to a valid item, some examples:", null, _function_1);
+    final IMultiModification<EObject> _function_2 = (EObject element) -> {
+      final ItemDef item = ((ItemDef) element);
+      item.setName("Banana");
+    };
+    acceptor.<EObject>acceptMulti(issue, "Suggestion: Banana", "Change the item to a valid item, some examples:", null, _function_2);
+  }
 }

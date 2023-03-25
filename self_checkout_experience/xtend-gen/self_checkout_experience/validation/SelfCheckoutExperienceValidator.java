@@ -12,7 +12,6 @@ import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import self_checkout_experience.selfCheckoutExperience.GripState;
 import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
@@ -34,8 +33,6 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   public static final String INVALID_VARIABLE_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME";
   
   public static final String INVALID_ITEM_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME";
-  
-  public static final String INVALID_ITEM_PLURAL = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_PLURAL";
   
   public static final String INVALID_ITEM_BOUGHT = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_BOUGHT";
   
@@ -86,7 +83,7 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
     EObject _holdingItem = pickStmn.getHoldingItem();
     boolean _tripleEquals = (_holdingItem == null);
     if (_tripleEquals) {
-      this.warning("Holding item needs assignment", pickStmn, 
+      this.warning("Drop or add to basket item", pickStmn, 
         SelfCheckoutExperiencePackage.Literals.PICK_STATEMENT__HOLDING_ITEM, 
         SelfCheckoutExperienceValidator.INVALID_HOLDING_ITEM_ACTION);
     }
@@ -95,7 +92,6 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   @Check(CheckType.NORMAL)
   public void checkAlwaysHaveBasketGrip(final SelfCheckoutInstore program) {
     final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(program.getStatement(), WalkStatement.class));
-    InputOutput.<List<WalkStatement>>println(walking);
     boolean _checkAlwaysHaveBasketGrip = this.checkAlwaysHaveBasketGrip(walking, true);
     boolean _not = (!_checkAlwaysHaveBasketGrip);
     if (_not) {
@@ -103,9 +99,6 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
       int _size = IterableExtensions.size(listOfHolding);
       int _minus = (_size - 1);
       final HoldBasketStatement lastHolding = ((HoldBasketStatement[])Conversions.unwrapArray(listOfHolding, HoldBasketStatement.class))[_minus];
-      InputOutput.<String>println(("HOLDING LIST  " + listOfHolding));
-      InputOutput.<String>println(("LAST HOLDING   " + lastHolding));
-      InputOutput.<String>println(("prog  " + program));
       this.warning("This program cannot end with the basket on floor", lastHolding, 
         SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE, SelfCheckoutExperienceValidator.INVALID_BASKET_GRIP);
     }
@@ -113,14 +106,7 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   
   public boolean checkAlwaysHaveBasketGrip(final List<WalkStatement> statements, final boolean startState) {
     final Function2<Boolean, WalkStatement, Boolean> _function = (Boolean previousState, WalkStatement stmt) -> {
-      boolean _xblockexpression = false;
-      {
-        InputOutput.<String>println(("StartState" + Boolean.valueOf(startState)));
-        InputOutput.<String>println(("previous State" + previousState));
-        InputOutput.<String>println(("stmt" + stmt));
-        _xblockexpression = this.predictBasketGrip(stmt, (previousState).booleanValue());
-      }
-      return Boolean.valueOf(_xblockexpression);
+      return Boolean.valueOf(this.predictBasketGrip(stmt, (previousState).booleanValue()));
     };
     return (boolean) IterableExtensions.<WalkStatement, Boolean>fold(statements, Boolean.valueOf(startState), _function);
   }
@@ -130,13 +116,8 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   }
   
   protected boolean _predictBasketGrip(final HoldBasketStatement stmt, final boolean previousState) {
-    boolean _xblockexpression = false;
-    {
-      InputOutput.<GripState>println(stmt.getState());
-      GripState _state = stmt.getState();
-      _xblockexpression = (_state == GripState.GRIP);
-    }
-    return _xblockexpression;
+    GripState _state = stmt.getState();
+    return (_state == GripState.GRIP);
   }
   
   protected boolean _predictBasketGrip(final Repeat stmt, final boolean previousState) {

@@ -4,6 +4,13 @@
 package self_checkout_experience.ui.quickfix
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import self_checkout_experience.validation.SelfCheckoutExperienceValidator
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import org.eclipse.xtext.validation.Issue
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
+import self_checkout_experience.selfCheckoutExperience.ItemDef
+
 
 /**
  * Custom quickfixes.
@@ -12,13 +19,39 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
  */
 class SelfCheckoutExperienceQuickfixProvider extends DefaultQuickfixProvider {
 
-//	@Fix(SelfCheckoutExperienceValidator.INVALID_NAME)
-//	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
-//		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
-//			context |
-//			val xtextDocument = context.xtextDocument
-//			val firstLetter = xtextDocument.get(issue.offset, 1)
-//			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
-//		]
-//	}
+
+	@Fix(SelfCheckoutExperienceValidator.INVALID_VARIABLE_NAME)
+	def lowerCaseVariableName(Issue issue, IssueResolutionAcceptor acceptor){
+		acceptor.acceptMulti(issue, 'Lower case variable name', 'Change the variable name to start with a lower case character', null)[element |
+			val decl = element as VariableDeclaration
+			decl.name = decl.name.toFirstLower 
+		]
+	}
+
+
+	@Fix(SelfCheckoutExperienceValidator.INVALID_ITEM_NAME)
+	def upperCaseItemName(Issue issue, IssueResolutionAcceptor acceptor){
+		acceptor.acceptMulti(issue, 'Upper case item name', 'Change the item name to start with an upper case character', null)[element |
+			val item = element as ItemDef
+			item.name = item.name.toFirstUpper 
+		]
+	}
+	
+	
+	@Fix(SelfCheckoutExperienceValidator.INVALID_ITEM_BOUGHT)
+	def invalidItem(Issue issue, IssueResolutionAcceptor acceptor){
+		acceptor.acceptMulti(issue, 'Suggestion: Apple', 'Change the item to a valid item, some examples:', null)[element |
+			val item = element as ItemDef
+			item.name = "Apple"
+		]
+		acceptor.acceptMulti(issue, 'Suggestion: Pear', 'Change the item to a valid item, some examples:', null)[element |
+			val item = element as ItemDef
+			item.name = "Pear"
+		]
+		acceptor.acceptMulti(issue, 'Suggestion: Banana', 'Change the item to a valid item, some examples:', null)[element |
+			val item = element as ItemDef
+			item.name = "Banana"
+		]
+	}
+
 }
