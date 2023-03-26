@@ -7,6 +7,42 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import self_checkout_experience.selfCheckoutExperience.Self_checkout
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
+import self_checkout_experience.selfCheckoutExperience.PickStatement
+import self_checkout_experience.selfCheckoutExperience.Drop
+import self_checkout_experience.selfCheckoutExperience.Scan
+import self_checkout_experience.selfCheckoutExperience.Checkout
+import self_checkout_experience.selfCheckoutExperience.Pay
+import self_checkout_experience.selfCheckoutExperience.MoveStatement
+import self_checkout_experience.selfCheckoutExperience.TurnStatement
+import self_checkout_experience.selfCheckoutExperience.Repeat
+import self_checkout_experience.selfCheckoutExperience.WalkStatement
+import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
+import self_checkout_experience.selfCheckoutExperience.ScanExpression
+import self_checkout_experience.selfCheckoutExperience.CarryItems
+import org.eclipse.emf.common.util.EList
+import self_checkout_experience.selfCheckoutExperience.Search
+import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket
+import self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket
+import self_checkout_experience.selfCheckoutExperience.impl.HoldSelfScannerImpl
+import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner
+import self_checkout_experience.selfCheckoutExperience.IntExpression
+import self_checkout_experience.selfCheckoutExperience.Addition
+import self_checkout_experience.selfCheckoutExperience.Multiplication
+import self_checkout_experience.selfCheckoutExperience.IntLiteral
+import self_checkout_experience.selfCheckoutExperience.IntVarExpression
+import self_checkout_experience.selfCheckoutExperience.VariableDeclaration
+import self_checkout_experience.selfCheckoutExperience.TurnCommand
+import self_checkout_experience.selfCheckoutExperience.ComplexScan
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline
+import self_checkout_experience.selfCheckoutExperience.LoadShoppingSite
+import self_checkout_experience.selfCheckoutExperience.OnlineCheckout
+import self_checkout_experience.selfCheckoutExperience.DeliveryOptions
+import self_checkout_experience.selfCheckoutExperience.Confirm
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage
+import org.eclipse.emf.common.util.URI
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +51,240 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+	private static class ConstantFolder extends ETLRunner {
+
+		val Resource inModel
+
+		new(Resource inModel) {
+			this.inModel = inModel
+		}
+
+		override protected getSource() {
+			"incentives.etl"
+		}
+
+		override protected getModels() throws Exception {
+			val srcModel = inModel.createInMemoryEmfModel("Source", SelfCheckoutExperiencePackage.eNS_URI)
+			val resourceSet = inModel.resourceSet
+			val tgtResourceURI = URI.createFileURI("synthetic.selfcheckoutexp")
+			var tgtResource = resourceSet.getResource(tgtResourceURI, false)
+			if (tgtResource != null) {
+				tgtResource.contents.clear			
+			} else {
+				tgtResource = resourceSet.createResource(tgtResourceURI)
+			}
+			val tgtModel = tgtResource.createInMemoryEmfModel("Target", SelfCheckoutExperiencePackage.eNS_URI)
+			
+			#[
+				srcModel,
+				tgtModel
+			]
+		}
+
 	}
+
+
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		val model = resource.contents.head as Self_checkout
+		fsa.generateFile("self_checkout_experience.txt", model.generate)
+		
+		val className = resource.deriveClassName
+		
+		val interimModel = new ConstantFolder(resource).execute as Self_checkout 
+		
+		fsa.generateFile(className + ".java", interimModel.doGenerateClass(className))
+	}
+		
+	
+	def deriveClassName(Resource resource) {
+		val origFileName = resource.URI.lastSegment
+		origFileName.substring(0, origFileName.indexOf(".")).toFirstUpper + "Self_checkout"		
+	}
+
+	//////////////////////////////////////////////////////////////TEXT CODE GENERATOR //////////////////////////////////////
+	def generate(Self_checkout checkout) '''
+		Self checkout summary:
+		IN STORE 
+			- «checkout.eAllContents.filter(PickStatement).size» pick statements
+			- «checkout.eAllContents.filter(ScanAndAddToBasket).size» scan and add to basket statements
+			- «checkout.eAllContents.filter(Drop).size» drop statements
+			- «checkout.eAllContents.filter(Checkout).size» go to self-checkout statements
+			- «checkout.eAllContents.filter(Scan).size» scan statements
+			- «checkout.eAllContents.filter(CarryItems).size» carry item statements
+			- «checkout.eAllContents.filter(MoveStatement).size» move statements
+			- «checkout.eAllContents.filter(TurnStatement).size» turn statements
+			- «checkout.eAllContents.filter(Repeat).size» repeat statements
+			- «checkout.eAllContents.filter(WalkStatement).size» Walk statements
+		ONLINE
+			- «checkout.eAllContents.filter(Search).size» search statements
+			- «checkout.eAllContents.filter(AddToOnlineBasket).size» add to online basket statements
+			- «checkout.eAllContents.filter(RemoveFromOnlineBasket).size» remove from online basket statements
+	'''	
+
+
+	/////////////////////////////////////JAVA CODE GENERATOR ////////////////////////////////////////
+	def doGenerateClass(Self_checkout program, String className) '''
+		import java.util.ArrayList;
+		import java.util.stream.Collectors;
+		import java.util.Map;
+		import java.util.Iterator;
+		
+		public class «className» {
+			public static void main(String[] args) {
+				ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
+				«program.selfCheckoutExperience.map[generateJavaStatement(new Environment)].join("\n")»
+			}
+		}
+	'''
+
+	private static class Environment {
+		var int counter = 0
+		def getFreshVarName() '''i«counter++»'''
+		def exit() { counter-- }
+	}
+
+	dispatch def String generateJavaStatement(SelfCheckoutInstore sci, Environment env) '''
+	System.out.println("You have entered the store");
+	System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
+«if(sci.pickScanMachine !== null){generateJavaStatement(sci.pickScanMachine, env)}»
+«sci.statement.map[generateJavaStatement(env)].join('\n')»
+«if(sci.checkout !== null){generateJavaStatement(sci.checkout, env)}»'''
+	
+	dispatch def String generateJavaStatement(HoldSelfScanner sci, Environment env) '''System.out.println("Self Checkout Scanner aquired");'''
+		
+	dispatch def String generateJavaStatement(PickStatement picksmnt, Environment env) '''System.out.println("Picked up: «picksmnt.itemCount.generateJavaExpression()» «picksmnt.itemPicked.getName.toFirstUpper»");
+«if(picksmnt.holdingItem !== null ){generateJavaStatement(picksmnt.holdingItem, picksmnt.itemCount.generateJavaExpression(), env)}»'''
+
+	dispatch def String generateJavaStatement(ScanAndAddToBasket item, String itemCount, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+		System.out.println("Adding «item.itemInBasket.name» in basket\n");
+		for (int «freshVarName» = 0; «freshVarName» < «itemCount»; «freshVarName»++) {
+			items.add("«item.itemInBasket.name»");
+		}
+		'''
+		env.exit
+		result
+	}
+
+	dispatch def String generateJavaStatement(Drop item, String itemCount, Environment env) '''System.out.println("Dropping «item.itemDropped.name»\n");'''
+	
+	dispatch def String generateJavaStatement(WalkStatement smnt, Environment env) ''''''
+	
+	dispatch def String generateJavaStatement(MoveStatement smnt, Environment env) '''System.out.println("Move «smnt.command.getName.toFirstUpper» («smnt.steps.generateJavaExpression»)");'''
+	
+	dispatch def String generateJavaStatement(TurnStatement smnt, Environment env) '''System.out.println("Turn «smnt.command»");'''
+	
+	dispatch def String generateJavaStatement(Repeat stmt, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+			for (int «freshVarName» = 0; «freshVarName» < «stmt.count.generateJavaExpression»; «freshVarName»++) {
+				«stmt.statement.map[generateJavaStatement(env)].join('\n')»
+			}
+		'''
+		env.exit
+		result
+	}
+
+	dispatch def String generateJavaStatement(Checkout checkout, Environment env) '''System.out.println("Going to checkout");
+«if (checkout.scan !== null){generateJavaStatement(checkout.scan, env)}»
+«if (checkout.pay !== null){checkingOutOfStore()}»
+«if (checkout.pay !== null){generateJavaStatement(checkout.pay, env)}» 
+'''
+
+	def String checkingOutOfStore(){'''System.out.println("Checking out of store\n");'''}
+	
+	dispatch def String generateJavaStatement(ScanExpression se, Environment env) ''''''
+	
+	dispatch def String generateJavaStatement(Scan scan, Environment env) '''System.out.println("Load self scanner onto till");'''
+	
+	dispatch def String generateJavaStatement(ComplexScan compscan, Environment env) 
+	'''«compscan.start.generateJavaStatement(env)»; «compscan.next.map[se | se.generateJavaStatement(env)].join('; ')»'''
+	
+	dispatch def String generateJavaStatement(CarryItems carryItems, Environment env) '''System.out.println("carry in" «carryItems.carry» );'''	
+
+	dispatch def String generateJavaExpression(IntExpression exp) ''''''
+	dispatch def String generateJavaExpression(Addition exp) '''
+		(«exp.left.generateJavaExpression»«FOR idx: (0..exp.operator.size-1)» «exp.operator.get(idx)» «exp.right.get(idx).generateJavaExpression»«ENDFOR»)'''
+	dispatch def String generateJavaExpression(Multiplication exp) '''
+		«exp.left.generateJavaExpression»«FOR idx: (0..exp.operator.size-1)» «exp.operator.get(idx)» «exp.right.get(idx).generateJavaExpression»«ENDFOR»'''
+	dispatch def String generateJavaExpression(IntLiteral exp) '''«exp.^val»'''
+	dispatch def String generateJavaExpression(IntVarExpression exp) '''«exp.^var.value»'''
+
+
+
+	////////////////////////////////////////////////////////////ONLINE/////////////////////////////////////////////////////////////////////////
+	
+	dispatch def String generateJavaStatement(SelfCheckoutOnline online, Environment env) '''
+	Iterator<String> i = items.iterator();
+	System.out.println("You have logged in");
+	System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
+«online.search.map[generateJavaStatement(env)].join('\n')»
+«if(online.onlineCheckout !== null){generateJavaStatement(online.onlineCheckout, env)}»'''
+	
+	dispatch def String generateJavaStatement(Search search, Environment env) '''System.out.println("Searching for: «search.itemSearch.name»");
+«if(search.addToOnlineBasket !== null){generateJavaStatement(search.addToOnlineBasket, env)}»'''
+	
+
+	dispatch def String generateJavaStatement(AddToOnlineBasket basket, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+			System.out.println("Adding «basket.itemCount.generateJavaExpression» «basket.item.name» to basket\n");
+			for (int «freshVarName» = 0; «freshVarName» <  «basket.itemCount.generateJavaExpression»; «freshVarName»++) {
+				items.add("«basket.item.name»");
+			}
+			«if(basket.removeFromOnlineBasket !== null){generateJavaStatement(basket.removeFromOnlineBasket, env)}»
+		'''
+		env.exit
+		result
+	}
+
+	dispatch def String generateJavaStatement(RemoveFromOnlineBasket itemRemove, Environment env){
+		val freshVarName = env.getFreshVarName
+		val result = '''
+			System.out.println("Removing «itemRemove.removeItem.name» from basket");
+			i = items.iterator();
+			while (i.hasNext()) {
+				String str = (String) i.next();
+				if (str.equals("«itemRemove.removeItem.name»")) {
+					 i.remove();
+				}
+			}	
+		'''
+		env.exit
+		result
+	}
+	
+	dispatch def String generateJavaStatement(OnlineCheckout checkout, Environment env) '''
+	«if(checkout.deliveryOptions !== null) {generateJavaStatement(checkout.deliveryOptions, env)}»
+	«if(checkout.confirm !== null) {generateJavaStatement(checkout.confirm, env)}»'''
+	
+	dispatch def String generateJavaStatement(DeliveryOptions options, Environment env) '''System.out.println("Mode of delivery is «options.getName» ");'''
+	
+	dispatch def String generateJavaStatement(Confirm confirm, Environment env) '''System.out.println("Confirming order"); 
+System.out.println("Checking out of web store\n");
+«generateJavaStatement(confirm.pay, env)»'''
+	
+	dispatch def String generateJavaStatement(Pay pay, Environment env) '''
+	System.out.println("///////////////RECEIPT//////////////" );
+	Map<Object, Long> counts =
+			items.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+	for(Map.Entry<Object, Long> entry : counts.entrySet()) {
+		System.out.println("- " + entry.getKey() + " x" + entry.getValue());
+	}
+	System.out.println();
+	System.out.println("Number of items purchased: " + items.size());
+	if(items.size() >= 20){
+		System.out.println();
+		System.out.println("///////////////VOUCHER///////////////");
+		System.out.println("//    You bought over 20 items!    //");
+		System.out.println("//     You've earned a voucher     //");
+		System.out.println("//    to spend on self-checkout    //");
+		System.out.println("//     next time you shop here.    //");
+		System.out.println("/////////////////////////////////////");
+	}else {
+		System.out.println("Next time you shop with us make sure to purchase 20 items or more when using the self checkout to earn a free voucher off your next self checkout order");  //condition that we don't give voucher
+	}
+	'''		
 }
+

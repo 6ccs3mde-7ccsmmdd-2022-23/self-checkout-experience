@@ -80,6 +80,71 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_EXPERIENCE:
+      {
+        SelfCheckoutExperience selfCheckoutExperience = (SelfCheckoutExperience)theEObject;
+        T result = caseSelfCheckoutExperience(selfCheckoutExperience);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_ONLINE:
+      {
+        SelfCheckoutOnline selfCheckoutOnline = (SelfCheckoutOnline)theEObject;
+        T result = caseSelfCheckoutOnline(selfCheckoutOnline);
+        if (result == null) result = caseSelfCheckoutExperience(selfCheckoutOnline);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.SEARCH:
+      {
+        Search search = (Search)theEObject;
+        T result = caseSearch(search);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET:
+      {
+        AddToOnlineBasket addToOnlineBasket = (AddToOnlineBasket)theEObject;
+        T result = caseAddToOnlineBasket(addToOnlineBasket);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.REMOVE_FROM_ONLINE_BASKET:
+      {
+        RemoveFromOnlineBasket removeFromOnlineBasket = (RemoveFromOnlineBasket)theEObject;
+        T result = caseRemoveFromOnlineBasket(removeFromOnlineBasket);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.ONLINE_CHECKOUT:
+      {
+        OnlineCheckout onlineCheckout = (OnlineCheckout)theEObject;
+        T result = caseOnlineCheckout(onlineCheckout);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.CONFIRM:
+      {
+        Confirm confirm = (Confirm)theEObject;
+        T result = caseConfirm(confirm);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE:
+      {
+        SelfCheckoutInstore selfCheckoutInstore = (SelfCheckoutInstore)theEObject;
+        T result = caseSelfCheckoutInstore(selfCheckoutInstore);
+        if (result == null) result = caseSelfCheckoutExperience(selfCheckoutInstore);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.HOLD_SELF_SCANNER:
+      {
+        HoldSelfScanner holdSelfScanner = (HoldSelfScanner)theEObject;
+        T result = caseHoldSelfScanner(holdSelfScanner);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.PICK_STATEMENT:
       {
         PickStatement pickStatement = (PickStatement)theEObject;
@@ -87,10 +152,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.ADD_TO_BASKET:
+      case SelfCheckoutExperiencePackage.ITEM_DEF:
       {
-        AddToBasket addToBasket = (AddToBasket)theEObject;
-        T result = caseAddToBasket(addToBasket);
+        ItemDef itemDef = (ItemDef)theEObject;
+        T result = caseItemDef(itemDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.SCAN_AND_ADD_TO_BASKET:
+      {
+        ScanAndAddToBasket scanAndAddToBasket = (ScanAndAddToBasket)theEObject;
+        T result = caseScanAndAddToBasket(scanAndAddToBasket);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -108,6 +180,14 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.HOLD_BASKET_STATEMENT:
+      {
+        HoldBasketStatement holdBasketStatement = (HoldBasketStatement)theEObject;
+        T result = caseHoldBasketStatement(holdBasketStatement);
+        if (result == null) result = caseWalkStatement(holdBasketStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.VARIABLE_DECLARATION:
       {
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
@@ -116,11 +196,11 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.LOOP_STATEMENT:
+      case SelfCheckoutExperiencePackage.REPEAT:
       {
-        LoopStatement loopStatement = (LoopStatement)theEObject;
-        T result = caseLoopStatement(loopStatement);
-        if (result == null) result = caseWalkStatement(loopStatement);
+        Repeat repeat = (Repeat)theEObject;
+        T result = caseRepeat(repeat);
+        if (result == null) result = caseWalkStatement(repeat);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -140,10 +220,10 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.EXPRESSION:
+      case SelfCheckoutExperiencePackage.INT_EXPRESSION:
       {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
+        IntExpression intExpression = (IntExpression)theEObject;
+        T result = caseIntExpression(intExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -151,15 +231,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         IntLiteral intLiteral = (IntLiteral)theEObject;
         T result = caseIntLiteral(intLiteral);
-        if (result == null) result = caseExpression(intLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SelfCheckoutExperiencePackage.REAL_LITERAL:
-      {
-        RealLiteral realLiteral = (RealLiteral)theEObject;
-        T result = caseRealLiteral(realLiteral);
-        if (result == null) result = caseExpression(realLiteral);
+        if (result == null) result = caseIntExpression(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,7 +239,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         IntVarExpression intVarExpression = (IntVarExpression)theEObject;
         T result = caseIntVarExpression(intVarExpression);
-        if (result == null) result = caseExpression(intVarExpression);
+        if (result == null) result = caseIntExpression(intVarExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -178,17 +250,25 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SelfCheckoutExperiencePackage.SCAN_EXPRESSION:
+      {
+        ScanExpression scanExpression = (ScanExpression)theEObject;
+        T result = caseScanExpression(scanExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SelfCheckoutExperiencePackage.SCAN:
       {
         Scan scan = (Scan)theEObject;
         T result = caseScan(scan);
+        if (result == null) result = caseScanExpression(scan);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SelfCheckoutExperiencePackage.ADD_TO_BAG:
+      case SelfCheckoutExperiencePackage.CARRY_ITEMS:
       {
-        AddToBag addToBag = (AddToBag)theEObject;
-        T result = caseAddToBag(addToBag);
+        CarryItems carryItems = (CarryItems)theEObject;
+        T result = caseCarryItems(carryItems);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -196,7 +276,7 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         Addition addition = (Addition)theEObject;
         T result = caseAddition(addition);
-        if (result == null) result = caseExpression(addition);
+        if (result == null) result = caseIntExpression(addition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,7 +284,15 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
       {
         Multiplication multiplication = (Multiplication)theEObject;
         T result = caseMultiplication(multiplication);
-        if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = caseIntExpression(multiplication);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SelfCheckoutExperiencePackage.COMPLEX_SCAN:
+      {
+        ComplexScan complexScan = (ComplexScan)theEObject;
+        T result = caseComplexScan(complexScan);
+        if (result == null) result = caseScanExpression(complexScan);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -229,6 +317,150 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Self Checkout Experience</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Self Checkout Experience</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelfCheckoutExperience(SelfCheckoutExperience object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Self Checkout Online</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Self Checkout Online</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelfCheckoutOnline(SelfCheckoutOnline object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Search</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Search</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSearch(Search object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add To Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add To Online Basket</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddToOnlineBasket(AddToOnlineBasket object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Remove From Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Remove From Online Basket</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRemoveFromOnlineBasket(RemoveFromOnlineBasket object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Online Checkout</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Online Checkout</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOnlineCheckout(OnlineCheckout object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Confirm</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Confirm</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConfirm(Confirm object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Self Checkout Instore</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Self Checkout Instore</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelfCheckoutInstore(SelfCheckoutInstore object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hold Self Scanner</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hold Self Scanner</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHoldSelfScanner(HoldSelfScanner object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Pick Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -245,17 +477,33 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Add To Basket</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Item Def</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add To Basket</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Item Def</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAddToBasket(AddToBasket object)
+  public T caseItemDef(ItemDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scan And Add To Basket</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scan And Add To Basket</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScanAndAddToBasket(ScanAndAddToBasket object)
   {
     return null;
   }
@@ -293,6 +541,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Hold Basket Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hold Basket Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHoldBasketStatement(HoldBasketStatement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -309,17 +573,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Repeat</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Repeat</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLoopStatement(LoopStatement object)
+  public T caseRepeat(Repeat object)
   {
     return null;
   }
@@ -357,17 +621,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Int Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Int Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpression(Expression object)
+  public T caseIntExpression(IntExpression object)
   {
     return null;
   }
@@ -384,22 +648,6 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIntLiteral(IntLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Real Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Real Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRealLiteral(RealLiteral object)
   {
     return null;
   }
@@ -437,6 +685,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Scan Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scan Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScanExpression(ScanExpression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Scan</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -453,17 +717,17 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Add To Bag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Carry Items</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add To Bag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Carry Items</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAddToBag(AddToBag object)
+  public T caseCarryItems(CarryItems object)
   {
     return null;
   }
@@ -496,6 +760,22 @@ public class SelfCheckoutExperienceSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMultiplication(Multiplication object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Scan</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Scan</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexScan(ComplexScan object)
   {
     return null;
   }

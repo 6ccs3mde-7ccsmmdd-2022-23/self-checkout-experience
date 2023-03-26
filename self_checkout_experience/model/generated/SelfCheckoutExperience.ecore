@@ -3,38 +3,105 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="selfCheckoutExperience" nsURI="http://www.SelfCheckoutExperience.self_checkout_experience"
     nsPrefix="selfCheckoutExperience">
   <eClassifiers xsi:type="ecore:EClass" name="Self_checkout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pickstatemens" upperBound="-1"
-        eType="#//PickStatement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="walkstatements" upperBound="-1"
-        eType="#//WalkStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfCheckoutExperience"
+        upperBound="-1" eType="#//SelfCheckoutExperience" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutExperience"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutOnline" eSuperTypes="#//SelfCheckoutExperience">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loadShoppingSite" eType="#//LoadShoppingSite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="search" upperBound="-1"
+        eType="#//Search" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onlineCheckout" eType="#//OnlineCheckout"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LoadShoppingSite">
+    <eLiterals name="load_shop_site" literal="load_shop_site"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Search">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemSearch" eType="#//ItemDef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addToOnlineBasket" eType="#//AddToOnlineBasket"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddToOnlineBasket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//IntExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//ItemDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeFromOnlineBasket"
+        eType="#//RemoveFromOnlineBasket" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveFromOnlineBasket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeItem" eType="#//ItemDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OnlineCheckout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryOptions" eType="#//DeliveryOptions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confirm" eType="#//Confirm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DeliveryOptions">
+    <eLiterals name="premium_delivery" literal="premium_delivery"/>
+    <eLiterals name="standard_delivery" value="1" literal="standard_delivery"/>
+    <eLiterals name="next_day_delivery" value="2" literal="next_day_delivery"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Confirm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmEnum" eType="#//ConfirmEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="#//Pay"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConfirmEnum">
+    <eLiterals name="confirm" literal="confirm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCheckoutInstore" eSuperTypes="#//SelfCheckoutExperience">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickScanMachine" eType="#//HoldSelfScanner"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="checkout" eType="#//Checkout"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HoldSelfScanner">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scanMachine" eType="#//SelfScanner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SelfScanner">
+    <eLiterals name="selfscanner" literal="selfscanner"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PickStatement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCount" eType="#//IntExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemPicked" eType="#//ItemDef"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="holdingItem" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddToBasket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//PickStatement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScanAndAddToBasket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInBasket" eType="#//ItemDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Drop">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//PickStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemDropped" eType="#//ItemDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WalkStatement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HoldBasketStatement" eSuperTypes="#//WalkStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//GripState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GripState">
+    <eLiterals name="grip" literal="grip"/>
+    <eLiterals name="release" value="1" literal="release"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoopStatement" eSuperTypes="#//WalkStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//WalkStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//IntExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//WalkStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveStatement" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//MoveCommand"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" eType="#//IntExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MoveCommand">
@@ -43,53 +110,57 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TurnStatement" eSuperTypes="#//WalkStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//TurnCommand"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="degrees" eType="#//Expression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TurnCommand">
     <eLiterals name="left" literal="left"/>
     <eLiterals name="right" value="1" literal="right"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="IntExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RealLiteral" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntVarExpression" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="IntVarExpression" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scan" upperBound="-1" eType="#//Scan"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scan" eType="#//ScanExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="#//Pay"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Scan">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="addToBag" upperBound="-1"
-        eType="#//AddToBag" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScanExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scan" eSuperTypes="#//ScanExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scanMachine" eType="#//SelfScanner"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddToBag">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bagItem" eType="#//Scan"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CarryItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carry" eType="#//Carry"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Carry">
+    <eLiterals name="bag" literal="bag"/>
+    <eLiterals name="hold" value="1" literal="hold"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Pay">
     <eLiterals name="pay" literal="pay"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//IntExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+        eType="#//IntExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//IntExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+        eType="#//IntExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexScan" eSuperTypes="#//ScanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Scan"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//CarryItems"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

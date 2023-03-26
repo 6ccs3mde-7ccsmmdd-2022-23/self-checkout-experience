@@ -14,20 +14,30 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import self_checkout_experience.selfCheckoutExperience.AddToBag;
-import self_checkout_experience.selfCheckoutExperience.AddToBasket;
+import self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket;
 import self_checkout_experience.selfCheckoutExperience.Addition;
+import self_checkout_experience.selfCheckoutExperience.CarryItems;
 import self_checkout_experience.selfCheckoutExperience.Checkout;
+import self_checkout_experience.selfCheckoutExperience.ComplexScan;
+import self_checkout_experience.selfCheckoutExperience.Confirm;
 import self_checkout_experience.selfCheckoutExperience.Drop;
+import self_checkout_experience.selfCheckoutExperience.HoldBasketStatement;
+import self_checkout_experience.selfCheckoutExperience.HoldSelfScanner;
 import self_checkout_experience.selfCheckoutExperience.IntLiteral;
 import self_checkout_experience.selfCheckoutExperience.IntVarExpression;
-import self_checkout_experience.selfCheckoutExperience.LoopStatement;
+import self_checkout_experience.selfCheckoutExperience.ItemDef;
 import self_checkout_experience.selfCheckoutExperience.MoveStatement;
 import self_checkout_experience.selfCheckoutExperience.Multiplication;
+import self_checkout_experience.selfCheckoutExperience.OnlineCheckout;
 import self_checkout_experience.selfCheckoutExperience.PickStatement;
-import self_checkout_experience.selfCheckoutExperience.RealLiteral;
+import self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket;
+import self_checkout_experience.selfCheckoutExperience.Repeat;
 import self_checkout_experience.selfCheckoutExperience.Scan;
+import self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket;
+import self_checkout_experience.selfCheckoutExperience.Search;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
 import self_checkout_experience.selfCheckoutExperience.TurnStatement;
 import self_checkout_experience.selfCheckoutExperience.VariableDeclaration;
@@ -47,20 +57,32 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SelfCheckoutExperiencePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SelfCheckoutExperiencePackage.ADD_TO_BAG:
-				sequence_AddToBag(context, (AddToBag) semanticObject); 
-				return; 
-			case SelfCheckoutExperiencePackage.ADD_TO_BASKET:
-				sequence_AddToBasket(context, (AddToBasket) semanticObject); 
+			case SelfCheckoutExperiencePackage.ADD_TO_ONLINE_BASKET:
+				sequence_AddToOnlineBasket(context, (AddToOnlineBasket) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.ADDITION:
 				sequence_Addition(context, (Addition) semanticObject); 
 				return; 
+			case SelfCheckoutExperiencePackage.CARRY_ITEMS:
+				sequence_CarryItems(context, (CarryItems) semanticObject); 
+				return; 
 			case SelfCheckoutExperiencePackage.CHECKOUT:
 				sequence_Checkout(context, (Checkout) semanticObject); 
 				return; 
+			case SelfCheckoutExperiencePackage.COMPLEX_SCAN:
+				sequence_ScanExpression(context, (ComplexScan) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.CONFIRM:
+				sequence_Confirm(context, (Confirm) semanticObject); 
+				return; 
 			case SelfCheckoutExperiencePackage.DROP:
 				sequence_Drop(context, (Drop) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.HOLD_BASKET_STATEMENT:
+				sequence_HoldBasketStatement(context, (HoldBasketStatement) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.HOLD_SELF_SCANNER:
+				sequence_HoldSelfScanner(context, (HoldSelfScanner) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.INT_LITERAL:
 				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
@@ -68,8 +90,8 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 			case SelfCheckoutExperiencePackage.INT_VAR_EXPRESSION:
 				sequence_IntVarExpression(context, (IntVarExpression) semanticObject); 
 				return; 
-			case SelfCheckoutExperiencePackage.LOOP_STATEMENT:
-				sequence_LoopStatement(context, (LoopStatement) semanticObject); 
+			case SelfCheckoutExperiencePackage.ITEM_DEF:
+				sequence_ItemDef(context, (ItemDef) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.MOVE_STATEMENT:
 				sequence_MoveStatement(context, (MoveStatement) semanticObject); 
@@ -77,14 +99,32 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 			case SelfCheckoutExperiencePackage.MULTIPLICATION:
 				sequence_Multiplication(context, (Multiplication) semanticObject); 
 				return; 
+			case SelfCheckoutExperiencePackage.ONLINE_CHECKOUT:
+				sequence_OnlineCheckout(context, (OnlineCheckout) semanticObject); 
+				return; 
 			case SelfCheckoutExperiencePackage.PICK_STATEMENT:
 				sequence_PickStatement(context, (PickStatement) semanticObject); 
 				return; 
-			case SelfCheckoutExperiencePackage.REAL_LITERAL:
-				sequence_RealLiteral(context, (RealLiteral) semanticObject); 
+			case SelfCheckoutExperiencePackage.REMOVE_FROM_ONLINE_BASKET:
+				sequence_RemoveFromOnlineBasket(context, (RemoveFromOnlineBasket) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.REPEAT:
+				sequence_Repeat(context, (Repeat) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.SCAN:
 				sequence_Scan(context, (Scan) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.SCAN_AND_ADD_TO_BASKET:
+				sequence_ScanAndAddToBasket(context, (ScanAndAddToBasket) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.SEARCH:
+				sequence_Search(context, (Search) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.SELF_CHECKOUT_INSTORE:
+				sequence_SelfCheckoutInstore(context, (SelfCheckoutInstore) semanticObject); 
+				return; 
+			case SelfCheckoutExperiencePackage.SELF_CHECKOUT_ONLINE:
+				sequence_SelfCheckoutOnline(context, (SelfCheckoutOnline) semanticObject); 
 				return; 
 			case SelfCheckoutExperiencePackage.SELF_CHECKOUT:
 				sequence_Self_checkout(context, (Self_checkout) semanticObject); 
@@ -102,37 +142,13 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
-	 *     AddToBag returns AddToBag
+	 *     AddToOnlineBasket returns AddToOnlineBasket
 	 *
 	 * Constraint:
-	 *     bagItem=[Scan|ID]
+	 *     (itemCount=Addition item=[ItemDef|ID] removeFromOnlineBasket=RemoveFromOnlineBasket?)
 	 */
-	protected void sequence_AddToBag(ISerializationContext context, AddToBag semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG__BAG_ITEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG__BAG_ITEM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddToBagAccess().getBagItemScanIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BAG__BAG_ITEM, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AddToBasket returns AddToBasket
-	 *
-	 * Constraint:
-	 *     item=[PickStatement|ID]
-	 */
-	protected void sequence_AddToBasket(ISerializationContext context, AddToBasket semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddToBasketAccess().getItemPickStatementIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.ADD_TO_BASKET__ITEM, false));
-		feeder.finish();
+	protected void sequence_AddToOnlineBasket(ISerializationContext context, AddToOnlineBasket semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -154,10 +170,28 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     CarryItems returns CarryItems
+	 *
+	 * Constraint:
+	 *     carry=Carry
+	 */
+	protected void sequence_CarryItems(ISerializationContext context, CarryItems semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CARRY_ITEMS__CARRY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CARRY_ITEMS__CARRY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCarryItemsAccess().getCarryCarryEnumRuleCall_0_0(), semanticObject.getCarry());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Checkout returns Checkout
 	 *
 	 * Constraint:
-	 *     (scan+=Scan+ pay=Pay)
+	 *     (scan=ScanExpression pay=Pay?)
 	 */
 	protected void sequence_Checkout(ISerializationContext context, Checkout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -166,18 +200,76 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     Confirm returns Confirm
+	 *
+	 * Constraint:
+	 *     (confirmEnum=ConfirmEnum pay=Pay)
+	 */
+	protected void sequence_Confirm(ISerializationContext context, Confirm semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CONFIRM__CONFIRM_ENUM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CONFIRM__CONFIRM_ENUM));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.CONFIRM__PAY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.CONFIRM__PAY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConfirmAccess().getConfirmEnumConfirmEnumEnumRuleCall_0_0(), semanticObject.getConfirmEnum());
+		feeder.accept(grammarAccess.getConfirmAccess().getPayPayEnumRuleCall_1_0(), semanticObject.getPay());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Drop returns Drop
 	 *
 	 * Constraint:
-	 *     item=[PickStatement|ID]
+	 *     itemDropped=[ItemDef|ID]
 	 */
 	protected void sequence_Drop(ISerializationContext context, Drop semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDropAccess().getItemPickStatementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM, false));
+		feeder.accept(grammarAccess.getDropAccess().getItemDroppedItemDefIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.DROP__ITEM_DROPPED, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     WalkStatement returns HoldBasketStatement
+	 *     HoldBasketStatement returns HoldBasketStatement
+	 *
+	 * Constraint:
+	 *     state=GripState
+	 */
+	protected void sequence_HoldBasketStatement(ISerializationContext context, HoldBasketStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHoldBasketStatementAccess().getStateGripStateEnumRuleCall_0_0(), semanticObject.getState());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     HoldSelfScanner returns HoldSelfScanner
+	 *
+	 * Constraint:
+	 *     scanMachine=SelfScanner
+	 */
+	protected void sequence_HoldSelfScanner(ISerializationContext context, HoldSelfScanner semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_SELF_SCANNER__SCAN_MACHINE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.HOLD_SELF_SCANNER__SCAN_MACHINE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHoldSelfScannerAccess().getScanMachineSelfScannerEnumRuleCall_1_0(), semanticObject.getScanMachine());
 		feeder.finish();
 	}
 	
@@ -230,14 +322,19 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
-	 *     WalkStatement returns LoopStatement
-	 *     LoopStatement returns LoopStatement
+	 *     ItemDef returns ItemDef
 	 *
 	 * Constraint:
-	 *     (count=Addition statements+=WalkStatement+)
+	 *     name=ID
 	 */
-	protected void sequence_LoopStatement(ISerializationContext context, LoopStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_ItemDef(ISerializationContext context, ItemDef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ITEM_DEF__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getItemDefAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -281,10 +378,31 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
+	 *     OnlineCheckout returns OnlineCheckout
+	 *
+	 * Constraint:
+	 *     (deliveryOptions=DeliveryOptions confirm=Confirm)
+	 */
+	protected void sequence_OnlineCheckout(ISerializationContext context, OnlineCheckout semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ONLINE_CHECKOUT__DELIVERY_OPTIONS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ONLINE_CHECKOUT__DELIVERY_OPTIONS));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.ONLINE_CHECKOUT__CONFIRM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.ONLINE_CHECKOUT__CONFIRM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOnlineCheckoutAccess().getDeliveryOptionsDeliveryOptionsEnumRuleCall_1_0(), semanticObject.getDeliveryOptions());
+		feeder.accept(grammarAccess.getOnlineCheckoutAccess().getConfirmConfirmParserRuleCall_2_0(), semanticObject.getConfirm());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PickStatement returns PickStatement
 	 *
 	 * Constraint:
-	 *     (name=ID (holdingItem=AddToBasket | holdingItem=Drop))
+	 *     (itemCount=Addition itemPicked=ItemDef (holdingItem=ScanAndAddToBasket | holdingItem=Drop))
 	 */
 	protected void sequence_PickStatement(ISerializationContext context, PickStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -293,35 +411,119 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Contexts:
-	 *     Addition returns RealLiteral
-	 *     Addition.Addition_1_0 returns RealLiteral
-	 *     Multiplication returns RealLiteral
-	 *     Multiplication.Multiplication_1_0 returns RealLiteral
-	 *     Primary returns RealLiteral
-	 *     RealLiteral returns RealLiteral
+	 *     RemoveFromOnlineBasket returns RemoveFromOnlineBasket
 	 *
 	 * Constraint:
-	 *     val=REAL
+	 *     removeItem=[ItemDef|ID]
 	 */
-	protected void sequence_RealLiteral(ISerializationContext context, RealLiteral semanticObject) {
+	protected void sequence_RemoveFromOnlineBasket(ISerializationContext context, RemoveFromOnlineBasket semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.REAL_LITERAL__VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.REAL_LITERAL__VAL));
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.REMOVE_FROM_ONLINE_BASKET__REMOVE_ITEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.REMOVE_FROM_ONLINE_BASKET__REMOVE_ITEM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRealLiteralAccess().getValREALParserRuleCall_0(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getRemoveFromOnlineBasketAccess().getRemoveItemItemDefIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.REMOVE_FROM_ONLINE_BASKET__REMOVE_ITEM, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     WalkStatement returns Repeat
+	 *     Repeat returns Repeat
+	 *
+	 * Constraint:
+	 *     (count=Addition (statement+=PickStatement | statement+=WalkStatement)+)
+	 */
+	protected void sequence_Repeat(ISerializationContext context, Repeat semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ScanAndAddToBasket returns ScanAndAddToBasket
+	 *
+	 * Constraint:
+	 *     itemInBasket=[ItemDef|ID]
+	 */
+	protected void sequence_ScanAndAddToBasket(ISerializationContext context, ScanAndAddToBasket semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN_AND_ADD_TO_BASKET__ITEM_IN_BASKET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN_AND_ADD_TO_BASKET__ITEM_IN_BASKET));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScanAndAddToBasketAccess().getItemInBasketItemDefIDTerminalRuleCall_5_0_1(), semanticObject.eGet(SelfCheckoutExperiencePackage.Literals.SCAN_AND_ADD_TO_BASKET__ITEM_IN_BASKET, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ScanExpression returns ComplexScan
+	 *
+	 * Constraint:
+	 *     (start=ScanExpression_ComplexScan_1_0 next+=CarryItems)
+	 */
+	protected void sequence_ScanExpression(ISerializationContext context, ComplexScan semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ScanExpression returns Scan
+	 *     ScanExpression.ComplexScan_1_0 returns Scan
 	 *     Scan returns Scan
 	 *
 	 * Constraint:
-	 *     (name=ID addToBag+=AddToBag*)
+	 *     scanMachine=SelfScanner
 	 */
 	protected void sequence_Scan(ISerializationContext context, Scan semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN__SCAN_MACHINE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.SCAN__SCAN_MACHINE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScanAccess().getScanMachineSelfScannerEnumRuleCall_3_0(), semanticObject.getScanMachine());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Search returns Search
+	 *
+	 * Constraint:
+	 *     (itemSearch=ItemDef addToOnlineBasket=AddToOnlineBasket?)
+	 */
+	protected void sequence_Search(ISerializationContext context, Search semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SelfCheckoutExperience returns SelfCheckoutInstore
+	 *     SelfCheckoutInstore returns SelfCheckoutInstore
+	 *
+	 * Constraint:
+	 *     (pickScanMachine=HoldSelfScanner (statement+=PickStatement | statement+=WalkStatement)* checkout=Checkout?)
+	 */
+	protected void sequence_SelfCheckoutInstore(ISerializationContext context, SelfCheckoutInstore semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SelfCheckoutExperience returns SelfCheckoutOnline
+	 *     SelfCheckoutOnline returns SelfCheckoutOnline
+	 *
+	 * Constraint:
+	 *     (loadShoppingSite=LoadShoppingSite search+=Search* onlineCheckout=OnlineCheckout?)
+	 */
+	protected void sequence_SelfCheckoutOnline(ISerializationContext context, SelfCheckoutOnline semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -331,7 +533,7 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     Self_checkout returns Self_checkout
 	 *
 	 * Constraint:
-	 *     (((pickstatemens+=PickStatement | walkstatements+=WalkStatement)+ checkout=Checkout) | checkout=Checkout)?
+	 *     selfCheckoutExperience+=SelfCheckoutExperience+
 	 */
 	protected void sequence_Self_checkout(ISerializationContext context, Self_checkout semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -344,18 +546,15 @@ public class SelfCheckoutExperienceSemanticSequencer extends AbstractDelegatingS
 	 *     TurnStatement returns TurnStatement
 	 *
 	 * Constraint:
-	 *     (command=TurnCommand degrees=Addition)
+	 *     command=TurnCommand
 	 */
 	protected void sequence_TurnStatement(ISerializationContext context, TurnStatement semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__COMMAND) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__COMMAND));
-			if (transientValues.isValueTransient(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__DEGREES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SelfCheckoutExperiencePackage.Literals.TURN_STATEMENT__DEGREES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTurnStatementAccess().getCommandTurnCommandEnumRuleCall_1_0(), semanticObject.getCommand());
-		feeder.accept(grammarAccess.getTurnStatementAccess().getDegreesAdditionParserRuleCall_3_0(), semanticObject.getDegrees());
 		feeder.finish();
 	}
 	

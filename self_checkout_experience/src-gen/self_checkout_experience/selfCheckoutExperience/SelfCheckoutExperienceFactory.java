@@ -33,6 +33,87 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Self_checkout createSelf_checkout();
 
   /**
+   * Returns a new object of class '<em>Self Checkout Experience</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Experience</em>'.
+   * @generated
+   */
+  SelfCheckoutExperience createSelfCheckoutExperience();
+
+  /**
+   * Returns a new object of class '<em>Self Checkout Online</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Online</em>'.
+   * @generated
+   */
+  SelfCheckoutOnline createSelfCheckoutOnline();
+
+  /**
+   * Returns a new object of class '<em>Search</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search</em>'.
+   * @generated
+   */
+  Search createSearch();
+
+  /**
+   * Returns a new object of class '<em>Add To Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add To Online Basket</em>'.
+   * @generated
+   */
+  AddToOnlineBasket createAddToOnlineBasket();
+
+  /**
+   * Returns a new object of class '<em>Remove From Online Basket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Remove From Online Basket</em>'.
+   * @generated
+   */
+  RemoveFromOnlineBasket createRemoveFromOnlineBasket();
+
+  /**
+   * Returns a new object of class '<em>Online Checkout</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Online Checkout</em>'.
+   * @generated
+   */
+  OnlineCheckout createOnlineCheckout();
+
+  /**
+   * Returns a new object of class '<em>Confirm</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Confirm</em>'.
+   * @generated
+   */
+  Confirm createConfirm();
+
+  /**
+   * Returns a new object of class '<em>Self Checkout Instore</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Self Checkout Instore</em>'.
+   * @generated
+   */
+  SelfCheckoutInstore createSelfCheckoutInstore();
+
+  /**
+   * Returns a new object of class '<em>Hold Self Scanner</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hold Self Scanner</em>'.
+   * @generated
+   */
+  HoldSelfScanner createHoldSelfScanner();
+
+  /**
    * Returns a new object of class '<em>Pick Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,13 +123,22 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   PickStatement createPickStatement();
 
   /**
-   * Returns a new object of class '<em>Add To Basket</em>'.
+   * Returns a new object of class '<em>Item Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add To Basket</em>'.
+   * @return a new object of class '<em>Item Def</em>'.
    * @generated
    */
-  AddToBasket createAddToBasket();
+  ItemDef createItemDef();
+
+  /**
+   * Returns a new object of class '<em>Scan And Add To Basket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scan And Add To Basket</em>'.
+   * @generated
+   */
+  ScanAndAddToBasket createScanAndAddToBasket();
 
   /**
    * Returns a new object of class '<em>Drop</em>'.
@@ -69,6 +159,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   WalkStatement createWalkStatement();
 
   /**
+   * Returns a new object of class '<em>Hold Basket Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hold Basket Statement</em>'.
+   * @generated
+   */
+  HoldBasketStatement createHoldBasketStatement();
+
+  /**
    * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +177,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   VariableDeclaration createVariableDeclaration();
 
   /**
-   * Returns a new object of class '<em>Loop Statement</em>'.
+   * Returns a new object of class '<em>Repeat</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Loop Statement</em>'.
+   * @return a new object of class '<em>Repeat</em>'.
    * @generated
    */
-  LoopStatement createLoopStatement();
+  Repeat createRepeat();
 
   /**
    * Returns a new object of class '<em>Move Statement</em>'.
@@ -105,13 +204,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   TurnStatement createTurnStatement();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
+   * Returns a new object of class '<em>Int Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
+   * @return a new object of class '<em>Int Expression</em>'.
    * @generated
    */
-  Expression createExpression();
+  IntExpression createIntExpression();
 
   /**
    * Returns a new object of class '<em>Int Literal</em>'.
@@ -121,15 +220,6 @@ public interface SelfCheckoutExperienceFactory extends EFactory
    * @generated
    */
   IntLiteral createIntLiteral();
-
-  /**
-   * Returns a new object of class '<em>Real Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Literal</em>'.
-   * @generated
-   */
-  RealLiteral createRealLiteral();
 
   /**
    * Returns a new object of class '<em>Int Var Expression</em>'.
@@ -150,6 +240,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Checkout createCheckout();
 
   /**
+   * Returns a new object of class '<em>Scan Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scan Expression</em>'.
+   * @generated
+   */
+  ScanExpression createScanExpression();
+
+  /**
    * Returns a new object of class '<em>Scan</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -159,13 +258,13 @@ public interface SelfCheckoutExperienceFactory extends EFactory
   Scan createScan();
 
   /**
-   * Returns a new object of class '<em>Add To Bag</em>'.
+   * Returns a new object of class '<em>Carry Items</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add To Bag</em>'.
+   * @return a new object of class '<em>Carry Items</em>'.
    * @generated
    */
-  AddToBag createAddToBag();
+  CarryItems createCarryItems();
 
   /**
    * Returns a new object of class '<em>Addition</em>'.
@@ -184,6 +283,15 @@ public interface SelfCheckoutExperienceFactory extends EFactory
    * @generated
    */
   Multiplication createMultiplication();
+
+  /**
+   * Returns a new object of class '<em>Complex Scan</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Scan</em>'.
+   * @generated
+   */
+  ComplexScan createComplexScan();
 
   /**
    * Returns the package supported by this factory.

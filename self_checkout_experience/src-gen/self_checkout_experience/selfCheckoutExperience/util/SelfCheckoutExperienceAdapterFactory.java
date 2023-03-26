@@ -81,14 +81,64 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createSelf_checkoutAdapter();
       }
       @Override
+      public Adapter caseSelfCheckoutExperience(SelfCheckoutExperience object)
+      {
+        return createSelfCheckoutExperienceAdapter();
+      }
+      @Override
+      public Adapter caseSelfCheckoutOnline(SelfCheckoutOnline object)
+      {
+        return createSelfCheckoutOnlineAdapter();
+      }
+      @Override
+      public Adapter caseSearch(Search object)
+      {
+        return createSearchAdapter();
+      }
+      @Override
+      public Adapter caseAddToOnlineBasket(AddToOnlineBasket object)
+      {
+        return createAddToOnlineBasketAdapter();
+      }
+      @Override
+      public Adapter caseRemoveFromOnlineBasket(RemoveFromOnlineBasket object)
+      {
+        return createRemoveFromOnlineBasketAdapter();
+      }
+      @Override
+      public Adapter caseOnlineCheckout(OnlineCheckout object)
+      {
+        return createOnlineCheckoutAdapter();
+      }
+      @Override
+      public Adapter caseConfirm(Confirm object)
+      {
+        return createConfirmAdapter();
+      }
+      @Override
+      public Adapter caseSelfCheckoutInstore(SelfCheckoutInstore object)
+      {
+        return createSelfCheckoutInstoreAdapter();
+      }
+      @Override
+      public Adapter caseHoldSelfScanner(HoldSelfScanner object)
+      {
+        return createHoldSelfScannerAdapter();
+      }
+      @Override
       public Adapter casePickStatement(PickStatement object)
       {
         return createPickStatementAdapter();
       }
       @Override
-      public Adapter caseAddToBasket(AddToBasket object)
+      public Adapter caseItemDef(ItemDef object)
       {
-        return createAddToBasketAdapter();
+        return createItemDefAdapter();
+      }
+      @Override
+      public Adapter caseScanAndAddToBasket(ScanAndAddToBasket object)
+      {
+        return createScanAndAddToBasketAdapter();
       }
       @Override
       public Adapter caseDrop(Drop object)
@@ -101,14 +151,19 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createWalkStatementAdapter();
       }
       @Override
+      public Adapter caseHoldBasketStatement(HoldBasketStatement object)
+      {
+        return createHoldBasketStatementAdapter();
+      }
+      @Override
       public Adapter caseVariableDeclaration(VariableDeclaration object)
       {
         return createVariableDeclarationAdapter();
       }
       @Override
-      public Adapter caseLoopStatement(LoopStatement object)
+      public Adapter caseRepeat(Repeat object)
       {
-        return createLoopStatementAdapter();
+        return createRepeatAdapter();
       }
       @Override
       public Adapter caseMoveStatement(MoveStatement object)
@@ -121,19 +176,14 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createTurnStatementAdapter();
       }
       @Override
-      public Adapter caseExpression(Expression object)
+      public Adapter caseIntExpression(IntExpression object)
       {
-        return createExpressionAdapter();
+        return createIntExpressionAdapter();
       }
       @Override
       public Adapter caseIntLiteral(IntLiteral object)
       {
         return createIntLiteralAdapter();
-      }
-      @Override
-      public Adapter caseRealLiteral(RealLiteral object)
-      {
-        return createRealLiteralAdapter();
       }
       @Override
       public Adapter caseIntVarExpression(IntVarExpression object)
@@ -146,14 +196,19 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
         return createCheckoutAdapter();
       }
       @Override
+      public Adapter caseScanExpression(ScanExpression object)
+      {
+        return createScanExpressionAdapter();
+      }
+      @Override
       public Adapter caseScan(Scan object)
       {
         return createScanAdapter();
       }
       @Override
-      public Adapter caseAddToBag(AddToBag object)
+      public Adapter caseCarryItems(CarryItems object)
       {
-        return createAddToBagAdapter();
+        return createCarryItemsAdapter();
       }
       @Override
       public Adapter caseAddition(Addition object)
@@ -164,6 +219,11 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMultiplication(Multiplication object)
       {
         return createMultiplicationAdapter();
+      }
+      @Override
+      public Adapter caseComplexScan(ComplexScan object)
+      {
+        return createComplexScanAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -203,6 +263,141 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience <em>Self Checkout Experience</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience
+   * @generated
+   */
+  public Adapter createSelfCheckoutExperienceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline <em>Self Checkout Online</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutOnline
+   * @generated
+   */
+  public Adapter createSelfCheckoutOnlineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Search <em>Search</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.Search
+   * @generated
+   */
+  public Adapter createSearchAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket <em>Add To Online Basket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.AddToOnlineBasket
+   * @generated
+   */
+  public Adapter createAddToOnlineBasketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket <em>Remove From Online Basket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.RemoveFromOnlineBasket
+   * @generated
+   */
+  public Adapter createRemoveFromOnlineBasketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.OnlineCheckout <em>Online Checkout</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.OnlineCheckout
+   * @generated
+   */
+  public Adapter createOnlineCheckoutAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Confirm <em>Confirm</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.Confirm
+   * @generated
+   */
+  public Adapter createConfirmAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore <em>Self Checkout Instore</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutInstore
+   * @generated
+   */
+  public Adapter createSelfCheckoutInstoreAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.HoldSelfScanner <em>Hold Self Scanner</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.HoldSelfScanner
+   * @generated
+   */
+  public Adapter createHoldSelfScannerAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.PickStatement <em>Pick Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -218,16 +413,31 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToBasket <em>Add To Basket</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ItemDef <em>Item Def</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBasket
+   * @see self_checkout_experience.selfCheckoutExperience.ItemDef
    * @generated
    */
-  public Adapter createAddToBasketAdapter()
+  public Adapter createItemDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket <em>Scan And Add To Basket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ScanAndAddToBasket
+   * @generated
+   */
+  public Adapter createScanAndAddToBasketAdapter()
   {
     return null;
   }
@@ -263,6 +473,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.HoldBasketStatement <em>Hold Basket Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.HoldBasketStatement
+   * @generated
+   */
+  public Adapter createHoldBasketStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -278,16 +503,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.LoopStatement <em>Loop Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Repeat <em>Repeat</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.LoopStatement
+   * @see self_checkout_experience.selfCheckoutExperience.Repeat
    * @generated
    */
-  public Adapter createLoopStatementAdapter()
+  public Adapter createRepeatAdapter()
   {
     return null;
   }
@@ -323,16 +548,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Expression <em>Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.IntExpression <em>Int Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.Expression
+   * @see self_checkout_experience.selfCheckoutExperience.IntExpression
    * @generated
    */
-  public Adapter createExpressionAdapter()
+  public Adapter createIntExpressionAdapter()
   {
     return null;
   }
@@ -348,21 +573,6 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.RealLiteral <em>Real Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.RealLiteral
-   * @generated
-   */
-  public Adapter createRealLiteralAdapter()
   {
     return null;
   }
@@ -398,6 +608,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ScanExpression <em>Scan Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ScanExpression
+   * @generated
+   */
+  public Adapter createScanExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.Scan <em>Scan</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -413,16 +638,16 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.AddToBag <em>Add To Bag</em>}'.
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.CarryItems <em>Carry Items</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see self_checkout_experience.selfCheckoutExperience.AddToBag
+   * @see self_checkout_experience.selfCheckoutExperience.CarryItems
    * @generated
    */
-  public Adapter createAddToBagAdapter()
+  public Adapter createCarryItemsAdapter()
   {
     return null;
   }
@@ -453,6 +678,21 @@ public class SelfCheckoutExperienceAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMultiplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link self_checkout_experience.selfCheckoutExperience.ComplexScan <em>Complex Scan</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see self_checkout_experience.selfCheckoutExperience.ComplexScan
+   * @generated
+   */
+  public Adapter createComplexScanAdapter()
   {
     return null;
   }

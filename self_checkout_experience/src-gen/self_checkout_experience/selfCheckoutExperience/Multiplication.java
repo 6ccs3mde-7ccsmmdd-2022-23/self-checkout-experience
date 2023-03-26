@@ -23,19 +23,19 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Multiplication extends Expression
+public interface Multiplication extends IntExpression
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(Expression)
+   * @see #setLeft(IntExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getMultiplication_Left()
    * @model containment="true"
    * @generated
    */
-  Expression getLeft();
+  IntExpression getLeft();
 
   /**
    * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Multiplication#getLeft <em>Left</em>}' containment reference.
@@ -45,7 +45,7 @@ public interface Multiplication extends Expression
    * @see #getLeft()
    * @generated
    */
-  void setLeft(Expression value);
+  void setLeft(IntExpression value);
 
   /**
    * Returns the value of the '<em><b>Operator</b></em>' attribute list.
@@ -61,7 +61,7 @@ public interface Multiplication extends Expression
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.Expression}.
+   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.IntExpression}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference list.
@@ -69,6 +69,6 @@ public interface Multiplication extends Expression
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getRight();
+  EList<IntExpression> getRight();
 
 } // Multiplication

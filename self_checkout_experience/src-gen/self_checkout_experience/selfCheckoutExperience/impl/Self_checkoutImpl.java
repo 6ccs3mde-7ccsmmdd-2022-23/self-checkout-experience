@@ -5,7 +5,6 @@ package self_checkout_experience.selfCheckoutExperience.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,17 +12,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import self_checkout_experience.selfCheckoutExperience.Checkout;
-import self_checkout_experience.selfCheckoutExperience.PickStatement;
+import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 import self_checkout_experience.selfCheckoutExperience.Self_checkout;
-import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +29,7 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getPickstatemens <em>Pickstatemens</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getWalkstatements <em>Walkstatements</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getCheckout <em>Checkout</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.impl.Self_checkoutImpl#getSelfCheckoutExperience <em>Self Checkout Experience</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,34 +37,14 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
 public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements Self_checkout
 {
   /**
-   * The cached value of the '{@link #getPickstatemens() <em>Pickstatemens</em>}' containment reference list.
+   * The cached value of the '{@link #getSelfCheckoutExperience() <em>Self Checkout Experience</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPickstatemens()
+   * @see #getSelfCheckoutExperience()
    * @generated
    * @ordered
    */
-  protected EList<PickStatement> pickstatemens;
-
-  /**
-   * The cached value of the '{@link #getWalkstatements() <em>Walkstatements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWalkstatements()
-   * @generated
-   * @ordered
-   */
-  protected EList<WalkStatement> walkstatements;
-
-  /**
-   * The cached value of the '{@link #getCheckout() <em>Checkout</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheckout()
-   * @generated
-   * @ordered
-   */
-  protected Checkout checkout;
+  protected EList<SelfCheckoutExperience> selfCheckoutExperience;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,78 +73,13 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    */
   @Override
-  public EList<PickStatement> getPickstatemens()
+  public EList<SelfCheckoutExperience> getSelfCheckoutExperience()
   {
-    if (pickstatemens == null)
+    if (selfCheckoutExperience == null)
     {
-      pickstatemens = new EObjectContainmentEList<PickStatement>(PickStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS);
+      selfCheckoutExperience = new EObjectContainmentEList<SelfCheckoutExperience>(SelfCheckoutExperience.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE);
     }
-    return pickstatemens;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<WalkStatement> getWalkstatements()
-  {
-    if (walkstatements == null)
-    {
-      walkstatements = new EObjectContainmentEList<WalkStatement>(WalkStatement.class, this, SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS);
-    }
-    return walkstatements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Checkout getCheckout()
-  {
-    return checkout;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCheckout(Checkout newCheckout, NotificationChain msgs)
-  {
-    Checkout oldCheckout = checkout;
-    checkout = newCheckout;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT, oldCheckout, newCheckout);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setCheckout(Checkout newCheckout)
-  {
-    if (newCheckout != checkout)
-    {
-      NotificationChain msgs = null;
-      if (checkout != null)
-        msgs = ((InternalEObject)checkout).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT, null, msgs);
-      if (newCheckout != null)
-        msgs = ((InternalEObject)newCheckout).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT, null, msgs);
-      msgs = basicSetCheckout(newCheckout, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT, newCheckout, newCheckout));
+    return selfCheckoutExperience;
   }
 
   /**
@@ -183,12 +92,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return ((InternalEList<?>)getPickstatemens()).basicRemove(otherEnd, msgs);
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
-        return ((InternalEList<?>)getWalkstatements()).basicRemove(otherEnd, msgs);
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
-        return basicSetCheckout(null, msgs);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return ((InternalEList<?>)getSelfCheckoutExperience()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -203,12 +108,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return getPickstatemens();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
-        return getWalkstatements();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
-        return getCheckout();
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return getSelfCheckoutExperience();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -224,16 +125,9 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        getPickstatemens().clear();
-        getPickstatemens().addAll((Collection<? extends PickStatement>)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
-        getWalkstatements().clear();
-        getWalkstatements().addAll((Collection<? extends WalkStatement>)newValue);
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
-        setCheckout((Checkout)newValue);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        getSelfCheckoutExperience().clear();
+        getSelfCheckoutExperience().addAll((Collection<? extends SelfCheckoutExperience>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -249,14 +143,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        getPickstatemens().clear();
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
-        getWalkstatements().clear();
-        return;
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
-        setCheckout((Checkout)null);
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        getSelfCheckoutExperience().clear();
         return;
     }
     super.eUnset(featureID);
@@ -272,12 +160,8 @@ public class Self_checkoutImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__PICKSTATEMENS:
-        return pickstatemens != null && !pickstatemens.isEmpty();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__WALKSTATEMENTS:
-        return walkstatements != null && !walkstatements.isEmpty();
-      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__CHECKOUT:
-        return checkout != null;
+      case SelfCheckoutExperiencePackage.SELF_CHECKOUT__SELF_CHECKOUT_EXPERIENCE:
+        return selfCheckoutExperience != null && !selfCheckoutExperience.isEmpty();
     }
     return super.eIsSet(featureID);
   }

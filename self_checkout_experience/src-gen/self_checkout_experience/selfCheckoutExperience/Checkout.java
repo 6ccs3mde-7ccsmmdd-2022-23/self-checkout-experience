@@ -3,8 +3,6 @@
  */
 package self_checkout_experience.selfCheckoutExperience;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,16 +25,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Checkout extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Scan</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.Scan}.
+   * Returns the value of the '<em><b>Scan</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Scan</em>' containment reference list.
+   * @return the value of the '<em>Scan</em>' containment reference.
+   * @see #setScan(ScanExpression)
    * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getCheckout_Scan()
    * @model containment="true"
    * @generated
    */
-  EList<Scan> getScan();
+  ScanExpression getScan();
+
+  /**
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Checkout#getScan <em>Scan</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Scan</em>' containment reference.
+   * @see #getScan()
+   * @generated
+   */
+  void setScan(ScanExpression value);
 
   /**
    * Returns the value of the '<em><b>Pay</b></em>' attribute.

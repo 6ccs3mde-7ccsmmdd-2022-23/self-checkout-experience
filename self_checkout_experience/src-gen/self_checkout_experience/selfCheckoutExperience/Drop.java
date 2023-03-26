@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Drop#getItem <em>Item</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Drop#getItemDropped <em>Item Dropped</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getDrop()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Drop extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Item</b></em>' reference.
+   * Returns the value of the '<em><b>Item Dropped</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Item</em>' reference.
-   * @see #setItem(PickStatement)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getDrop_Item()
+   * @return the value of the '<em>Item Dropped</em>' reference.
+   * @see #setItemDropped(ItemDef)
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getDrop_ItemDropped()
    * @model
    * @generated
    */
-  PickStatement getItem();
+  ItemDef getItemDropped();
 
   /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Drop#getItem <em>Item</em>}' reference.
+   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Drop#getItemDropped <em>Item Dropped</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Item</em>' reference.
-   * @see #getItem()
+   * @param value the new value of the '<em>Item Dropped</em>' reference.
+   * @see #getItemDropped()
    * @generated
    */
-  void setItem(PickStatement value);
+  void setItemDropped(ItemDef value);
 
 } // Drop

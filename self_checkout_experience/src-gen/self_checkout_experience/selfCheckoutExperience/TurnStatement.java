@@ -14,7 +14,6 @@ package self_checkout_experience.selfCheckoutExperience;
  * </p>
  * <ul>
  *   <li>{@link self_checkout_experience.selfCheckoutExperience.TurnStatement#getCommand <em>Command</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.TurnStatement#getDegrees <em>Degrees</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getTurnStatement()
@@ -47,27 +46,5 @@ public interface TurnStatement extends WalkStatement
    * @generated
    */
   void setCommand(TurnCommand value);
-
-  /**
-   * Returns the value of the '<em><b>Degrees</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Degrees</em>' containment reference.
-   * @see #setDegrees(Expression)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getTurnStatement_Degrees()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getDegrees();
-
-  /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.TurnStatement#getDegrees <em>Degrees</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Degrees</em>' containment reference.
-   * @see #getDegrees()
-   * @generated
-   */
-  void setDegrees(Expression value);
 
 } // TurnStatement

@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getPickstatemens <em>Pickstatemens</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getWalkstatements <em>Walkstatements</em>}</li>
- *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getCheckout <em>Checkout</em>}</li>
+ *   <li>{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getSelfCheckoutExperience <em>Self Checkout Experience</em>}</li>
  * </ul>
  *
  * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout()
@@ -28,49 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Self_checkout extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Pickstatemens</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.PickStatement}.
+   * Returns the value of the '<em><b>Self Checkout Experience</b></em>' containment reference list.
+   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperience}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pickstatemens</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_Pickstatemens()
+   * @return the value of the '<em>Self Checkout Experience</em>' containment reference list.
+   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_SelfCheckoutExperience()
    * @model containment="true"
    * @generated
    */
-  EList<PickStatement> getPickstatemens();
-
-  /**
-   * Returns the value of the '<em><b>Walkstatements</b></em>' containment reference list.
-   * The list contents are of type {@link self_checkout_experience.selfCheckoutExperience.WalkStatement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Walkstatements</em>' containment reference list.
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_Walkstatements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<WalkStatement> getWalkstatements();
-
-  /**
-   * Returns the value of the '<em><b>Checkout</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Checkout</em>' containment reference.
-   * @see #setCheckout(Checkout)
-   * @see self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage#getSelf_checkout_Checkout()
-   * @model containment="true"
-   * @generated
-   */
-  Checkout getCheckout();
-
-  /**
-   * Sets the value of the '{@link self_checkout_experience.selfCheckoutExperience.Self_checkout#getCheckout <em>Checkout</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Checkout</em>' containment reference.
-   * @see #getCheckout()
-   * @generated
-   */
-  void setCheckout(Checkout value);
+  EList<SelfCheckoutExperience> getSelfCheckoutExperience();
 
 } // Self_checkout

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import self_checkout_experience.selfCheckoutExperience.Addition;
-import self_checkout_experience.selfCheckoutExperience.Expression;
+import self_checkout_experience.selfCheckoutExperience.IntExpression;
 import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePackage;
 
 /**
@@ -38,7 +38,7 @@ import self_checkout_experience.selfCheckoutExperience.SelfCheckoutExperiencePac
  *
  * @generated
  */
-public class AdditionImpl extends ExpressionImpl implements Addition
+public class AdditionImpl extends IntExpressionImpl implements Addition
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -48,7 +48,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * @generated
    * @ordered
    */
-  protected Expression left;
+  protected IntExpression left;
 
   /**
    * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute list.
@@ -68,7 +68,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * @generated
    * @ordered
    */
-  protected EList<Expression> right;
+  protected EList<IntExpression> right;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,7 +97,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * @generated
    */
   @Override
-  public Expression getLeft()
+  public IntExpression getLeft()
   {
     return left;
   }
@@ -107,9 +107,9 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft(Expression newLeft, NotificationChain msgs)
+  public NotificationChain basicSetLeft(IntExpression newLeft, NotificationChain msgs)
   {
-    Expression oldLeft = left;
+    IntExpression oldLeft = left;
     left = newLeft;
     if (eNotificationRequired())
     {
@@ -125,7 +125,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * @generated
    */
   @Override
-  public void setLeft(Expression newLeft)
+  public void setLeft(IntExpression newLeft)
   {
     if (newLeft != left)
     {
@@ -162,11 +162,11 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * @generated
    */
   @Override
-  public EList<Expression> getRight()
+  public EList<IntExpression> getRight()
   {
     if (right == null)
     {
-      right = new EObjectContainmentEList<Expression>(Expression.class, this, SelfCheckoutExperiencePackage.ADDITION__RIGHT);
+      right = new EObjectContainmentEList<IntExpression>(IntExpression.class, this, SelfCheckoutExperiencePackage.ADDITION__RIGHT);
     }
     return right;
   }
@@ -221,7 +221,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADDITION__LEFT:
-        setLeft((Expression)newValue);
+        setLeft((IntExpression)newValue);
         return;
       case SelfCheckoutExperiencePackage.ADDITION__OPERATOR:
         getOperator().clear();
@@ -229,7 +229,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
         return;
       case SelfCheckoutExperiencePackage.ADDITION__RIGHT:
         getRight().clear();
-        getRight().addAll((Collection<? extends Expression>)newValue);
+        getRight().addAll((Collection<? extends IntExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -246,7 +246,7 @@ public class AdditionImpl extends ExpressionImpl implements Addition
     switch (featureID)
     {
       case SelfCheckoutExperiencePackage.ADDITION__LEFT:
-        setLeft((Expression)null);
+        setLeft((IntExpression)null);
         return;
       case SelfCheckoutExperiencePackage.ADDITION__OPERATOR:
         getOperator().clear();
