@@ -120,10 +120,10 @@ public class SelfCheckoutExperienceGenerator extends AbstractGenerator {
     try {
       EObject _head = IterableExtensions.<EObject>head(resource.getContents());
       final Self_checkout model = ((Self_checkout) _head);
-      fsa.generateFile("self_checkout_experience.txt", this.generate(model));
       final String className = this.deriveClassName(resource);
       EObject _execute = new SelfCheckoutExperienceGenerator.ConstantFolder(resource).execute();
       final Self_checkout interimModel = ((Self_checkout) _execute);
+      fsa.generateFile((className + ".txt"), this.generate(model));
       fsa.generateFile((className + ".java"), this.doGenerateClass(interimModel, className));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

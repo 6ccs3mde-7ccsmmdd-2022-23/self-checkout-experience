@@ -1,0 +1,14 @@
+load_shop_site
+search for Pencil
+add to basket (8+1) Pencil
+remove from basket Pencil
+search for Wrapper
+search for Nappies
+add to basket (5) Nappies
+search for Chocolate
+add to basket (2) Chocolate
+remove from basket Chocolate
+checkout
+next_day_delivery
+confirm
+pay

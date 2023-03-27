@@ -3,6 +3,7 @@
  */
 package self_checkout_experience.validation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,14 @@ import self_checkout_experience.selfCheckoutExperience.WalkStatement;
  */
 @SuppressWarnings("all")
 public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceValidator {
+  private enum PredictedBasketState {
+    GRIP,
+    
+    RELEASE,
+    
+    UNDETERMINED;
+  }
+  
   public static final String INVALID_VARIABLE_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_VARIABLE_NAME";
   
   public static final String INVALID_ITEM_NAME = "self_checkout_experience.selfCheckoutExperience.INVALID_ITEM_NAME";
@@ -92,9 +101,9 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
   @Check(CheckType.NORMAL)
   public void checkAlwaysHaveBasketGrip(final SelfCheckoutInstore program) {
     final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(program.getStatement(), WalkStatement.class));
-    boolean _checkAlwaysHaveBasketGrip = this.checkAlwaysHaveBasketGrip(walking, true);
-    boolean _not = (!_checkAlwaysHaveBasketGrip);
-    if (_not) {
+    SelfCheckoutExperienceValidator.PredictedBasketState _checkAlwaysHaveBasketGrip = this.checkAlwaysHaveBasketGrip(walking, SelfCheckoutExperienceValidator.PredictedBasketState.GRIP);
+    boolean _notEquals = (!Objects.equal(_checkAlwaysHaveBasketGrip, SelfCheckoutExperienceValidator.PredictedBasketState.GRIP));
+    if (_notEquals) {
       final Iterable<HoldBasketStatement> listOfHolding = Iterables.<HoldBasketStatement>filter(walking, HoldBasketStatement.class);
       int _size = IterableExtensions.size(listOfHolding);
       int _minus = (_size - 1);
@@ -104,32 +113,46 @@ public class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperie
     }
   }
   
-  public boolean checkAlwaysHaveBasketGrip(final List<WalkStatement> statements, final boolean startState) {
-    final Function2<Boolean, WalkStatement, Boolean> _function = (Boolean previousState, WalkStatement stmt) -> {
-      return Boolean.valueOf(this.predictBasketGrip(stmt, (previousState).booleanValue()));
+  public SelfCheckoutExperienceValidator.PredictedBasketState checkAlwaysHaveBasketGrip(final List<WalkStatement> statements, final SelfCheckoutExperienceValidator.PredictedBasketState startState) {
+    final Function2<SelfCheckoutExperienceValidator.PredictedBasketState, WalkStatement, SelfCheckoutExperienceValidator.PredictedBasketState> _function = (SelfCheckoutExperienceValidator.PredictedBasketState previousState, WalkStatement stmt) -> {
+      return this.predictBasketGrip(stmt, previousState);
     };
-    return (boolean) IterableExtensions.<WalkStatement, Boolean>fold(statements, Boolean.valueOf(startState), _function);
+    return IterableExtensions.<WalkStatement, SelfCheckoutExperienceValidator.PredictedBasketState>fold(statements, startState, _function);
   }
   
-  protected boolean _predictBasketGrip(final WalkStatement stmt, final boolean previousState) {
+  protected SelfCheckoutExperienceValidator.PredictedBasketState _predictBasketGrip(final WalkStatement stmt, final SelfCheckoutExperienceValidator.PredictedBasketState previousState) {
     return previousState;
   }
   
-  protected boolean _predictBasketGrip(final HoldBasketStatement stmt, final boolean previousState) {
+  protected SelfCheckoutExperienceValidator.PredictedBasketState _predictBasketGrip(final HoldBasketStatement stmt, final SelfCheckoutExperienceValidator.PredictedBasketState previousState) {
+    SelfCheckoutExperienceValidator.PredictedBasketState _xifexpression = null;
     GripState _state = stmt.getState();
-    return (_state == GripState.GRIP);
+    boolean _tripleEquals = (_state == GripState.GRIP);
+    if (_tripleEquals) {
+      _xifexpression = SelfCheckoutExperienceValidator.PredictedBasketState.GRIP;
+    } else {
+      _xifexpression = SelfCheckoutExperienceValidator.PredictedBasketState.RELEASE;
+    }
+    return _xifexpression;
   }
   
-  protected boolean _predictBasketGrip(final Repeat stmt, final boolean previousState) {
-    boolean _xblockexpression = false;
+  protected SelfCheckoutExperienceValidator.PredictedBasketState _predictBasketGrip(final Repeat stmt, final SelfCheckoutExperienceValidator.PredictedBasketState previousState) {
+    SelfCheckoutExperienceValidator.PredictedBasketState _xblockexpression = null;
     {
       final List<WalkStatement> walking = IterableExtensions.<WalkStatement>toList(Iterables.<WalkStatement>filter(stmt.getStatement(), WalkStatement.class));
-      _xblockexpression = this.checkAlwaysHaveBasketGrip(walking, previousState);
+      final SelfCheckoutExperienceValidator.PredictedBasketState end = this.checkAlwaysHaveBasketGrip(walking, previousState);
+      SelfCheckoutExperienceValidator.PredictedBasketState _xifexpression = null;
+      if ((end == previousState)) {
+        _xifexpression = previousState;
+      } else {
+        _xifexpression = SelfCheckoutExperienceValidator.PredictedBasketState.UNDETERMINED;
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
   
-  public boolean predictBasketGrip(final WalkStatement stmt, final boolean previousState) {
+  public SelfCheckoutExperienceValidator.PredictedBasketState predictBasketGrip(final WalkStatement stmt, final SelfCheckoutExperienceValidator.PredictedBasketState previousState) {
     if (stmt instanceof HoldBasketStatement) {
       return _predictBasketGrip((HoldBasketStatement)stmt, previousState);
     } else if (stmt instanceof Repeat) {
