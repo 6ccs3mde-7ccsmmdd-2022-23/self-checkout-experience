@@ -76,12 +76,16 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 		}		
 	}
 	
+	private static enum PredictedBasketState{
+		GRIP, RELEASE, UNDETERMINED
+	}
+		
 	// Validate that basket is in hand before they pay
 	@Check(NORMAL)
 	def checkAlwaysHaveBasketGrip(SelfCheckoutInstore program) {
 		
 		val walking = program.statement.filter(WalkStatement).toList
- 		if (!(walking.checkAlwaysHaveBasketGrip(true))) {
+ 		if (walking.checkAlwaysHaveBasketGrip(PredictedBasketState.GRIP) != PredictedBasketState.GRIP) {
 			val listOfHolding = walking.filter(HoldBasketStatement)
 			val lastHolding = listOfHolding.get(listOfHolding.size()-1)
 
@@ -89,22 +93,27 @@ class SelfCheckoutExperienceValidator extends AbstractSelfCheckoutExperienceVali
 				SelfCheckoutExperiencePackage.Literals.HOLD_BASKET_STATEMENT__STATE, INVALID_BASKET_GRIP)
 		}
 	}
-
-	def boolean checkAlwaysHaveBasketGrip(List<WalkStatement> statements, boolean startState) {
+	
+	def PredictedBasketState checkAlwaysHaveBasketGrip(List<WalkStatement> statements, PredictedBasketState startState) {
 		statements.fold(startState, [ previousState, stmt |
 			stmt.predictBasketGrip(previousState)
 		])
 	}
 	
-	dispatch def predictBasketGrip(WalkStatement stmt, boolean previousState) { previousState }
+	dispatch def PredictedBasketState predictBasketGrip(WalkStatement stmt, PredictedBasketState previousState) { previousState }
 
-	dispatch def predictBasketGrip(HoldBasketStatement stmt, boolean previousState) { 
-				stmt.state === GripState.GRIP
+	dispatch def PredictedBasketState predictBasketGrip(HoldBasketStatement stmt, PredictedBasketState previousState) { 
+				(stmt.state === GripState.GRIP)?PredictedBasketState.GRIP:PredictedBasketState.RELEASE
 	}
 	
-	dispatch def predictBasketGrip(Repeat stmt, boolean previousState) {
+	dispatch def PredictedBasketState predictBasketGrip(Repeat stmt, PredictedBasketState previousState) {
 		val walking = stmt.statement.filter(WalkStatement).toList
-		walking.checkAlwaysHaveBasketGrip(previousState)
+		val end = walking.checkAlwaysHaveBasketGrip(previousState)
+		if(end === previousState){
+			previousState
+		}else{
+			PredictedBasketState.UNDETERMINED
+		}
 	}
 	
 }

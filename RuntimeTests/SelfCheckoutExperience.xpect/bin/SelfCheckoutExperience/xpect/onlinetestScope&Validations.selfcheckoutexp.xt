@@ -1,0 +1,21 @@
+/* XPECT_SETUP SelfCheckoutExperience.xpect.XPectTests END_SETUP */
+
+load_shop_site
+//XPECT warnings --> "Item should start with a upper-case character" at "pencil"
+search for pencil
+add to basket (8+1) pencil
+remove from basket pencil
+//XPECT warnings --> "Item is not purchasable at self checkout!" at "House"
+search for House
+search for Wrapper
+search for Nappies
+add to basket (4) Nappies
+search for Chocolate
+add to basket (2) Chocolate
+remove from basket Chocolate
+//XPECT warnings --> "Item is not purchasable at self checkout!" at "Plane"
+search for Plane
+checkout
+next_day_delivery
+confirm
+pay

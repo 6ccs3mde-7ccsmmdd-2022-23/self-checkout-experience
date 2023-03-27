@@ -86,13 +86,14 @@ class SelfCheckoutExperienceGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head as Self_checkout
-		fsa.generateFile("self_checkout_experience.txt", model.generate)
 		
 		val className = resource.deriveClassName
 		
 		val interimModel = new ConstantFolder(resource).execute as Self_checkout 
 		
+		fsa.generateFile(className + ".txt", model.generate)
 		fsa.generateFile(className + ".java", interimModel.doGenerateClass(className))
+		
 	}
 		
 	
