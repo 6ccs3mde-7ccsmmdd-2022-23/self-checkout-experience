@@ -6,51 +6,42 @@ import java.util.Iterator;
 public class TargetSelf_checkout {
 	public static void main(String[] args) {
 		ArrayList<String> items = new ArrayList<String>();  // Create an ArrayList object
-		Iterator<String> i = items.iterator();
-		System.out.println("You have logged in");
-		System.out.println("***We are giving an EXTRA item for every time you buy online!***\n");
-		System.out.println("Searching for: Pencil");
-		System.out.println("Adding (((8 + 1) + 1) + 1) Pencil to basket\n");
-		for (int i0 = 0; i0 <  (((8 + 1) + 1) + 1); i0++) {
-			items.add("Pencil");
-		}
-		System.out.println("Removing Pencil from basket");
-		i = items.iterator();
-		while (i.hasNext()) {
-			String str = (String) i.next();
-			if (str.equals("Pencil")) {
-				 i.remove();
-			}
-		}	
-		
-		System.out.println("Searching for: Wrapper");
-		System.out.println("Adding ((6 + 1) + 1) Wrapper to basket\n");
-		for (int i0 = 0; i0 <  ((6 + 1) + 1); i0++) {
-			items.add("Wrapper");
+		System.out.println("You have entered the store");
+		System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
+		System.out.println("Self Checkout Scanner aquired");
+		System.out.println("Move Forward (13)");
+		System.out.println("Picked up: (5 + 1) Water");
+		System.out.println("Dropping Water\n");
+		System.out.println("Picked up: (4 + 1) Laptop");
+		System.out.println("Adding Laptop in basket\n");
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
+			items.add("Laptop");
 		}
 		
-		System.out.println("Searching for: Nappies");
-		System.out.println("Adding ((14 + 1) + 1) Nappies to basket\n");
-		for (int i0 = 0; i0 <  ((14 + 1) + 1); i0++) {
-			items.add("Nappies");
+		System.out.println("Picked up: (4 + 1) Tea");
+		System.out.println("Adding Tea in basket\n");
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
+			items.add("Tea");
 		}
 		
-		System.out.println("Searching for: Chocolate");
-		System.out.println("Adding ((2 + 1) + 1) Chocolate to basket\n");
-		for (int i0 = 0; i0 <  ((2 + 1) + 1); i0++) {
-			items.add("Chocolate");
+		
+		for (int i0 = 0; i0 < 3; i0++) {
+			System.out.println("Move Forward (8)");
+			System.out.println("Picked up: (1 + 1) Ipad");
+			System.out.println("Dropping Ipad\n");
 		}
-		System.out.println("Removing Chocolate from basket");
-		i = items.iterator();
-		while (i.hasNext()) {
-			String str = (String) i.next();
-			if (str.equals("Chocolate")) {
-				 i.remove();
-			}
-		}	
-		System.out.println("Mode of delivery is next_day_delivery ");
-		System.out.println("Confirming order"); 
-		System.out.println("Checking out of web store\n");
+		
+		System.out.println("Picked up: (1 + 1) Mangos");
+		System.out.println("Adding Mangos in basket\n");
+		for (int i0 = 0; i0 < (1 + 1); i0++) {
+			items.add("Mangos");
+		}
+		
+		System.out.println("Picked up: (9 + 1) Coffee");
+		System.out.println("Dropping Coffee\n");
+		System.out.println("Going to checkout");
+		System.out.println("Load self scanner onto till");
+		System.out.println("Checking out of store\n");
 		System.out.println("///////////////RECEIPT//////////////" );
 		Map<Object, Long> counts =
 				items.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));

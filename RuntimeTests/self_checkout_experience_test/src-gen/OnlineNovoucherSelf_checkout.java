@@ -18,9 +18,9 @@ public class OnlineNovoucherSelf_checkout {
 			items.add("Laptop");
 		}
 		
-		System.out.println("Picked up: (3 + 1) Tea");
+		System.out.println("Picked up: (4 + 1) Tea");
 		System.out.println("Adding Tea in basket\n");
-		for (int i0 = 0; i0 < (3 + 1); i0++) {
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
 			items.add("Tea");
 		}
 		

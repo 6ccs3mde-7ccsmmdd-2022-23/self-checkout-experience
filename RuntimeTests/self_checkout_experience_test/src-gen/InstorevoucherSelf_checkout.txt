@@ -9,7 +9,7 @@ IN STORE
 	- 2 move statements
 	- 0 turn statements
 	- 1 repeat statements
-	- 8 Walk statements
+	- 9 Walk statements
 ONLINE
 	- 0 search statements
 	- 0 add to online basket statements

@@ -1,10 +1,10 @@
 hold selfscanner
-forward(13)
+forward(1)
+forward(3)
 pick up (2) Water
 drop Water
 pick up (2) Laptop
 scan and add to basket Laptop
-
 release basket
 grip basket
 pick up (3) Tea
