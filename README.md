@@ -1,5 +1,5 @@
-# self-checkout-experience - MDE Coursework
-Model of a self-checkout-experience
+# self-checkout-experience
+MDE Coursework: Model of a self-checkout-experience
 
 
 Test files can be found in the RuntimeTests directory
