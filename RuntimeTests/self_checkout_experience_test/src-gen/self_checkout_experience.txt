@@ -1,16 +1,16 @@
 Self checkout summary:
 IN STORE 
-	- 0 pick statements
-	- 0 scan and add to basket statements
-	- 0 drop statements
-	- 0 go to self-checkout statements
-	- 0 scan statements
+	- 6 pick statements
+	- 3 scan and add to basket statements
+	- 3 drop statements
+	- 1 go to self-checkout statements
+	- 1 scan statements
 	- 0 carry item statements
-	- 0 move statements
+	- 2 move statements
 	- 0 turn statements
-	- 0 repeat statements
-	- 0 Walk statements
+	- 1 repeat statements
+	- 8 Walk statements
 ONLINE
-	- 4 search statements
-	- 4 add to online basket statements
-	- 2 remove from online basket statements
+	- 0 search statements
+	- 0 add to online basket statements
+	- 0 remove from online basket statements

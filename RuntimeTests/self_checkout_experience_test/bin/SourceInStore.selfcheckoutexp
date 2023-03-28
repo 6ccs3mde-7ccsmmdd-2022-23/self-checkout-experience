@@ -4,10 +4,9 @@ pick up (5) Water
 drop Water
 pick up (4) Laptop
 scan and add to basket Laptop
-
 release basket
 grip basket
-pick up (3) Tea
+pick up (4) Tea
 scan and add to basket Tea
 var loopCount = 3
 repeat loopCount times: 

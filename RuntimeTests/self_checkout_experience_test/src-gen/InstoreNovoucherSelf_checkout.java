@@ -10,17 +10,17 @@ public class InstoreNovoucherSelf_checkout {
 		System.out.println("***We are giving away EXTRA items for your purchases for using the selfcheckout!***\n");
 		System.out.println("Self Checkout Scanner aquired");
 		System.out.println("Move Forward (13)");
-		System.out.println("Picked up: (2 + 1) Water");
+		System.out.println("Picked up: (5 + 1) Water");
 		System.out.println("Dropping Water\n");
-		System.out.println("Picked up: (2 + 1) Laptop");
+		System.out.println("Picked up: (4 + 1) Laptop");
 		System.out.println("Adding Laptop in basket\n");
-		for (int i0 = 0; i0 < (2 + 1); i0++) {
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
 			items.add("Laptop");
 		}
 		
-		System.out.println("Picked up: (3 + 1) Tea");
+		System.out.println("Picked up: (4 + 1) Tea");
 		System.out.println("Adding Tea in basket\n");
-		for (int i0 = 0; i0 < (3 + 1); i0++) {
+		for (int i0 = 0; i0 < (4 + 1); i0++) {
 			items.add("Tea");
 		}
 		
